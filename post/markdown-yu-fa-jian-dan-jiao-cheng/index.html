@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Markdown 语法简单教程 | Ihopeful Blog</title>
+<meta name="description" content="纪录个人所见所闻所得">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico">
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ihopefulchina.github.io">
+        <img src="https://ihopefulchina.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Ihopeful Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      纪录个人所见所闻所得
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Markdown 语法简单教程</h2>
+            <div class="post-date">2019-03-20</div>
+            
+            <div class="post-content">
+              <p>##转发<a href="https://fehey.com/post/markdown-yu-fa-jian-dan-jiao-cheng/">https://fehey.com/post/markdown-yu-fa-jian-dan-jiao-cheng/</a></p>
+<p>###1. 斜体和粗体###</p>
+<p>使用 * 和 ** 表示斜体和粗体。<br>示例：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+<p>###2. 标题###</p>
+<p>使用 #加空格表示一级标题，同理，##加空格表示二级标题</p>
+<p>#一级标题#</p>
+<p>##二级标题##</p>
+<p>###三级标题###</p>
+<p>####四级标题####</p>
+<p>#####五级标题#####</p>
+<p>######六级标题######</p>
+<p>###3. 外链接###</p>
+<p>使用 <a href="%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80">描述</a> 为文字增加外链接。</p>
+<p>示例：</p>
+<p>这是去往 <a href="https://hvenotes.fehey.com/">Hve Notes 主页 </a> 主页 的链接。</p>
+<p>###4. 无序列表###</p>
+<p>使用 - 表示无序列表。</p>
+<p>示例：</p>
+<p>-无序列表项 一-<br>-无序列表项 二-<br>-无序列表项 三-</p>
+<p>###5. 有序列表###</p>
+<p>使用数字和点表示有序列表。</p>
+<p>示例：</p>
+<p>.有序列表项 一.<br>.有序列表项 二.<br>.有序列表项 三.</p>
+<p>###6. 文字引用###</p>
+<p>使用 &gt; 表示文字引用。</p>
+<p>示例：</p>
+<blockquote>
+<p>野火烧不尽，春风吹又生。&gt; </p>
+</blockquote>
+<p>###7. 行内代码块###</p>
+<p>使用 <code>代码</code> 表示行内代码块。</p>
+<p>示例：</p>
+<p>让我们聊聊 <code>html</code>。</p>
+<p>###8. 代码块###</p>
+<p>使用 四个缩进空格 或 ``` 表示代码块。</p>
+<p>示例：</p>
+<p><code>这是一个代码块，此行左侧有四个不可见的空格。</code></p>
+<p>###9. 插入图像###</p>
+<p>使用 <img src="%E5%9B%BE%E7%89%87%E9%93%BE%E6%8E%A5%E5%9C%B0%E5%9D%80" alt="描述"> 插入图像。</p>
+<p>示例：</p>
+<p><img src="https://ihopefulchina.github.io/post-images/1553067399982.jpg" alt="touxiang"></p>
+<p>##测试代码##</p>
+<pre><code>function hello() {
+    var username = &#39;xiaoming&#39;;
+    var age = 18;
+    console.log(&#39;Hello World&#39;);
+}
+hello()</code></pre>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ihopefulchina.github.io/post/test">
+                  <h3 class="post-title">
+                    test
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '71e97ed99597f66a9dd0',
+        clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+        repo: 'ihopefulchina.github.io',
+        owner: 'ihopefulChina',
+        admin: ['ihopefulChina'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
