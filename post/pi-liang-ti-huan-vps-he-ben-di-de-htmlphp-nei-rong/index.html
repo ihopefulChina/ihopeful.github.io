@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Hello Hve Notes | Ihopeful Blog</title>
+<title>批量替换VPS和本地的HTML，PHP内容 | Ihopeful Blog</title>
 <meta name="description" content="纪录个人所见所闻所得">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -82,40 +82,72 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Hello Hve Notes</h2>
-            <div class="post-date">2018-12-12</div>
+            <h2 class="post-title">批量替换VPS和本地的HTML，PHP内容</h2>
+            <div class="post-date">2019-03-20</div>
             
-              <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/hello-hve-notes.png')">
+              <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong.png')">
               </div>
             
             <div class="post-content">
-              <p>👏  欢迎使用 <strong>Hve Notes</strong> ！  </p>
-<p>Github: <a href="https://github.com/hve-notes/hve-notes">Hve Notes</a><br>项目主页: <a href="http://hvenotes.fehey.com/">Hve Notes</a><br>示例网站: <a href="http://fehey.com/">示例网站一</a> <a href="http://hve-notes.github.io">示例网站二</a>  </p>
-<p>✍️  <strong>Hve Notes</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ... </p>
-<h2 id="特性👇">特性👇</h2><p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作  </p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片  </p>
-<p>🏷️  你可以对文章进行标签分组  </p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单  </p>
-<p>💻  你可以在 <strong>𝖶𝗂𝗇𝖽𝗈𝗐𝗌</strong> 或 <strong>𝖬𝖺𝖼𝖮𝖲</strong> 设备上使用此客户端  </p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台  </p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统  </p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong>  </p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题  </p>
-<p>🌱 当然 <strong>Hve Notes</strong> 还很年轻，有很多不足，但请相信，它会不停向前🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-
+              <p>php批量替换文件中的字符串，常用于修改静态页面使用，遍历文件夹和子文件夹</p>
+<p>*<em>本地或VPS中使用，注意需要php环境 *</em></p>
+<ul>
+<li>有时候我们需要批量替换一些字符串，比如违禁词？邮箱等</li>
+<li>设置 $fromstr (需要替换的字符串)</li>
+<li>设置 $tostr (替换后的字符串)</li>
+<li>本文件需要服务器授权较高,如果遇到permission denied,说明权限受限,请自行解决权限问题</li>
+</ul>
+<pre><code>&lt;?php
+/**
+ * 有时候我们需要批量替换一些字符串，比如违禁词？邮箱等
+ * 设置 $fromstr (需要替换的字符串)
+ * 设置 $tostr (替换后的字符串)
+ * 本文件需要服务器授权较高,如果遇到permission denied,说明权限受限,请自行解决权限问题
+*/
+set_time_limit(0);
+$fromstr=&#39;a&#39;;
+$tostr=&#39;b&#39;;
+//$fromstr=&#39;defer async&gt;&lt;/script&gt;&#39;;
+//$tostr=&#39;&gt;&lt;/script&gt;&#39;;
+function listDir($dir){
+global $fromstr,$tostr;
+    if(is_dir($dir)){
+        if ($dh = opendir($dir)) {
+            while (($file = readdir($dh)) !== false){
+                if((is_dir($dir.&quot;/&quot;.$file)) &amp;&amp; !in_array($file,array(&quot;.&quot;,&quot;..&quot;))){
+                    echo &quot;Folder: &quot;,$file,&quot;\n&quot;;
+                    listDir($dir.&quot;/&quot;.$file.&quot;/&quot;);
+                }else{
+                    if($file!=&quot;.&quot; &amp;&amp; $file!=&quot;..&quot;){
+                        $houzhui=substr($file,strrpos($file,&quot;.&quot;)+1); // 输出后缀名.
+                        if(in_array($houzhui,array(&quot;html&quot;,&quot;htm&quot;,&quot;php&quot;))){ // 这里替换 html htm也就是静态网页文件
+                            $searchword=file_get_contents($dir.&quot;/&quot;.$file);
+                            $searchword=str_ireplace($fromstr,$tostr,$searchword);
+                            $filenum=fopen($dir.&quot;/&quot;.$file,&quot;w+&quot;);
+                            fwrite($filenum,$searchword);
+                            fclose($filenum);
+                            echo $file.&quot;\n&quot;;
+                        }
+                    }
+                }
+            }
+            closedir($dh);
+        }
+    }
+}
+listDir(&quot;./&quot;);
+?&gt;</code></pre>
             </div>
             
-              <div class="tag-container">
-                
-                  <a href="https://ihopefulchina.github.io/tag/hvenotes" class="tag">
-                    HveNotes
-                  </a>
-                
-              </div>
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ihopefulchina.github.io/post/wei-xin-xiao-cheng-xu-kai-fa-an-li">
+                  <h3 class="post-title">
+                    微信小程序开发案例
+                  </h3>
+                </a>
+              </div>
             
 
             
