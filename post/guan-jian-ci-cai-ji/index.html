@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Ihopeful Blog</title>
+<title>关键词采集 | Ihopeful Blog</title>
 <meta name="description" content="纪录个人所见所闻所得">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -11,6 +11,12 @@
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -75,70 +81,42 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">关键词采集</h2>
+            <div class="post-date">2019-03-20</div>
+            
+              <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/guan-jian-ci-cai-ji.png')">
+              </div>
+            
+            <div class="post-content">
+              <h2 id="from keywords.zone"><a href="https://keywords.zone/">From keywords.zone</a></h2><p>Jquery Keywords Generator is a script which use Google Suggest API to create a list of related keywords.</p>
+<p>搜索引擎：Google</p>
+<h3 id="dependancy jquery:">Dependancy Jquery:</h3><p><a href="https://jquery.com/">https://jquery.com/</a></p>
+<h3 id="bootstrap:">Bootstrap:</h3><p><a href="http://getbootstrap.com">http://getbootstrap.com</a></p>
+<h3 id="datatables:">DataTables:</h3><p><a href="https://github.com/DataTables/DataTables">https://github.com/DataTables/DataTables</a></p>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong">
+                  <h3 class="post-title">
+                    批量替换VPS和本地的HTML，PHP内容
+                  </h3>
+                </a>
+              </div>
+            
+
+            
               
-                
-                  <article class="post">
-                    <a href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian">
-                      <h2 class="post-title">
-                        批量裁切图片
-                      </h2>
-                    </a>
-                  </article>
-                
+                <div id="gitalk-container" data-aos="fade-in"></div>
               
-                
-                  <article class="post">
-                    <a href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji">
-                      <h2 class="post-title">
-                        关键词采集
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong">
-                      <h2 class="post-title">
-                        批量替换VPS和本地的HTML，PHP内容
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://ihopefulchina.github.io/post/wei-xin-xiao-cheng-xu-kai-fa-an-li">
-                      <h2 class="post-title">
-                        微信小程序开发案例
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://ihopefulchina.github.io/post/markdown-yu-fa-jian-dan-jiao-cheng">
-                      <h2 class="post-title">
-                        Markdown 语法简单教程
-                      </h2>
-                    </a>
-                  </article>
-                
+
               
             
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
@@ -160,6 +138,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '71e97ed99597f66a9dd0',
+        clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+        repo: 'ihopefulchina.github.io',
+        owner: 'ihopefulChina',
+        admin: ['ihopefulChina'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
