@@ -1,193 +1,240 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>PHP | Ihopeful Blog</title>
+<meta name="description" content="纪录个人所见所闻所得">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://ihopefulchina.github.io">
-  <img class="avatar" src="https://ihopefulchina.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Ihopeful Blog
-  </h1>
-  <p class="site-description">
-    纪录个人所见所闻所得
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://ihopefulchina.github.io">
+        <img class="avatar" src="https://ihopefulchina.github.io/images/avatar.png" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://ihopefulchina.github.io">
+        <h1 class="site-title">Ihopeful Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
         <div class="current-tag-container">
-            <h2 class="title">
-                标签：#PHP
-            </h2> 
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> PHP
+          </h2> 
         </div>
-        <div class="post-container">
-  
-    <article class="post">
+
+        
+<section class="post-item">
+    <div class="content">
       <a href="https://ihopefulchina.github.io/post/wordpress-han-shu-dai-ma-mo-kuai-hua">
         <h2 class="post-title">WordPress函数代码模块化</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-20 ·
-        </time>
-        
-          <a href="https://ihopefulchina.github.io/tag/wordpress" class="post-tag">
-            # WordPress
-          </a>
-        
-          <a href="https://ihopefulchina.github.io/tag/php" class="post-tag">
-            # PHP
-          </a>
-        
-      </div>
-      
-        <a href="https://ihopefulchina.github.io/post/wordpress-han-shu-dai-ma-mo-kuai-hua" class="post-feature-image" style="background-image: url('https://ihopefulchina.github.io/post-images/wordpress-han-shu-dai-ma-mo-kuai-hua.jpg')">
-        </a>
-      
       <div class="post-abstract">
         <p>函数模块化，以简单、简洁、简约的方式添加代码片段到您的站点。再也没有必要去编辑主题的 functions.php 文件。 </p>
 
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://ihopefulchina.github.io/tag/wordpress">
+                WordPress
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://ihopefulchina.github.io/tag/php">
+                PHP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://ihopefulchina.github.io/post/wordpress-han-shu-dai-ma-mo-kuai-hua">
+        <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/wordpress-han-shu-dai-ma-mo-kuai-hua.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong">
         <h2 class="post-title">Message board inquiry management system（询盘管理系统）</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-20 ·
-        </time>
-        
-          <a href="https://ihopefulchina.github.io/tag/system" class="post-tag">
-            # 系统
-          </a>
-        
-          <a href="https://ihopefulchina.github.io/tag/php" class="post-tag">
-            # PHP
-          </a>
-        
-      </div>
-      
-        <a href="https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong" class="post-feature-image" style="background-image: url('https://ihopefulchina.github.io/post-images/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong.png')">
-        </a>
-      
       <div class="post-abstract">
         <p>转载</p>
 <p>地址：<a href="https://github.com/ihopefulChina/Message-board-inquiry-management-system">https://github.com/ihopefulChina/Message-board-inquiry-management-system</a></p>
 <p>外贸营销网站留言板程序 一个简单的留言板程序，在外贸网站运行测试多年没有任何问题。如果你的公司没有留言板程序，或者现在需要去找一个简单的留言板程序，这个很适合你。</p>
 
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://ihopefulchina.github.io/tag/system">
+                系统
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://ihopefulchina.github.io/tag/php">
+                PHP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong">
+        <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian">
         <h2 class="post-title">批量裁切图片</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-20 ·
-        </time>
-        
-          <a href="https://ihopefulchina.github.io/tag/php" class="post-tag">
-            # PHP
-          </a>
-        
-      </div>
-      
-        <a href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian" class="post-feature-image" style="background-image: url('https://ihopefulchina.github.io/post-images/pi-liang-cai-qie-tu-pian.png')">
-        </a>
-      
       <div class="post-abstract">
         <ol>
 <li>安装 pip install cutImages</li>
 <li>引用 from cutImages import cut_images</li>
 </ol>
 
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://ihopefulchina.github.io/tag/php">
+                PHP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian">
+        <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/pi-liang-cai-qie-tu-pian.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji">
         <h2 class="post-title">关键词采集</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-20 ·
-        </time>
-        
-          <a href="https://ihopefulchina.github.io/tag/php" class="post-tag">
-            # PHP
-          </a>
-        
-      </div>
-      
-        <a href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji" class="post-feature-image" style="background-image: url('https://ihopefulchina.github.io/post-images/guan-jian-ci-cai-ji.png')">
-        </a>
-      
       <div class="post-abstract">
         <h2 id="from keywords.zone"><a href="https://keywords.zone/">From keywords.zone</a></h2><p>Jquery Keywords Generator is a script which use Google Suggest API to create a list of related keywords.</p>
 
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://ihopefulchina.github.io/tag/php">
+                PHP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji">
+        <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/guan-jian-ci-cai-ji.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong">
         <h2 class="post-title">批量替换VPS和本地的HTML，PHP内容</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-20 ·
-        </time>
-        
-          <a href="https://ihopefulchina.github.io/tag/php" class="post-tag">
-            # PHP
-          </a>
-        
-      </div>
-      
-        <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong" class="post-feature-image" style="background-image: url('https://ihopefulchina.github.io/post-images/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong.png')">
-        </a>
-      
       <div class="post-abstract">
         <p>php批量替换文件中的字符串，常用于修改静态页面使用，遍历文件夹和子文件夹</p>
 <p>*<em>本地或VPS中使用，注意需要php环境 *</em></p>
@@ -198,25 +245,61 @@
 <li>本文件需要服务器授权较高,如果遇到permission denied,说明权限受限,请自行解决权限问题</li>
 </ul>
 
-      </di>
-    </article>
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-20</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://ihopefulchina.github.io/tag/php">
+                PHP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong">
+        <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong.png')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
   
 </div>
 
-        <div class="pagination-container">
-  
-  
-</div>
 
-        <div class="site-footer">
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">纪录个人所见所闻所得</div>
   Powered by Hve Notes
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
