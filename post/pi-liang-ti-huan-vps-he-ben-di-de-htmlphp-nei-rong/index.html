@@ -90,7 +90,7 @@
             
             <div class="post-content">
               <p>php批量替换文件中的字符串，常用于修改静态页面使用，遍历文件夹和子文件夹</p>
-<p>*<em>本地或VPS中使用，注意需要php环境 *</em></p>
+<p>**本地或VPS中使用，注意需要php环境 **</p>
 <ul>
 <li>有时候我们需要批量替换一些字符串，比如违禁词？邮箱等</li>
 <li>设置 $fromstr (需要替换的字符串)</li>
@@ -98,7 +98,6 @@
 <li>本文件需要服务器授权较高,如果遇到permission denied,说明权限受限,请自行解决权限问题</li>
 </ul>
 <!-- more -->
-
 <pre><code>&lt;?php
 /**
  * 有时候我们需要批量替换一些字符串，比如违禁词？邮箱等
@@ -107,38 +106,40 @@
  * 本文件需要服务器授权较高,如果遇到permission denied,说明权限受限,请自行解决权限问题
 */
 set_time_limit(0);
-$fromstr=&#39;a&#39;;
-$tostr=&#39;b&#39;;
-//$fromstr=&#39;defer async&gt;&lt;/script&gt;&#39;;
-//$tostr=&#39;&gt;&lt;/script&gt;&#39;;
+$fromstr='a';
+$tostr='b';
+//$fromstr='defer async&gt;&lt;/script&gt;';
+//$tostr='&gt;&lt;/script&gt;';
 function listDir($dir){
 global $fromstr,$tostr;
-    if(is_dir($dir)){
-        if ($dh = opendir($dir)) {
-            while (($file = readdir($dh)) !== false){
-                if((is_dir($dir.&quot;/&quot;.$file)) &amp;&amp; !in_array($file,array(&quot;.&quot;,&quot;..&quot;))){
-                    echo &quot;Folder: &quot;,$file,&quot;\n&quot;;
-                    listDir($dir.&quot;/&quot;.$file.&quot;/&quot;);
-                }else{
-                    if($file!=&quot;.&quot; &amp;&amp; $file!=&quot;..&quot;){
-                        $houzhui=substr($file,strrpos($file,&quot;.&quot;)+1); // 输出后缀名.
-                        if(in_array($houzhui,array(&quot;html&quot;,&quot;htm&quot;,&quot;php&quot;))){ // 这里替换 html htm也就是静态网页文件
-                            $searchword=file_get_contents($dir.&quot;/&quot;.$file);
-                            $searchword=str_ireplace($fromstr,$tostr,$searchword);
-                            $filenum=fopen($dir.&quot;/&quot;.$file,&quot;w+&quot;);
-                            fwrite($filenum,$searchword);
-                            fclose($filenum);
-                            echo $file.&quot;\n&quot;;
-                        }
-                    }
-                }
-            }
-            closedir($dh);
-        }
-    }
+	if(is_dir($dir)){
+		if ($dh = opendir($dir)) {
+			while (($file = readdir($dh)) !== false){
+				if((is_dir($dir.&quot;/&quot;.$file)) &amp;&amp; !in_array($file,array(&quot;.&quot;,&quot;..&quot;))){
+					echo &quot;Folder: &quot;,$file,&quot;\n&quot;;
+					listDir($dir.&quot;/&quot;.$file.&quot;/&quot;);
+				}else{
+					if($file!=&quot;.&quot; &amp;&amp; $file!=&quot;..&quot;){
+						$houzhui=substr($file,strrpos($file,&quot;.&quot;)+1); // 输出后缀名.
+						if(in_array($houzhui,array(&quot;html&quot;,&quot;htm&quot;,&quot;php&quot;))){ // 这里替换 html htm也就是静态网页文件
+							$searchword=file_get_contents($dir.&quot;/&quot;.$file);
+							$searchword=str_ireplace($fromstr,$tostr,$searchword);
+							$filenum=fopen($dir.&quot;/&quot;.$file,&quot;w+&quot;);
+							fwrite($filenum,$searchword);
+							fclose($filenum);
+							echo $file.&quot;\n&quot;;
+						}
+					}
+				}
+			}
+			closedir($dh);
+		}
+	}
 }
 listDir(&quot;./&quot;);
-?&gt;</code></pre>
+?&gt;
+</code></pre>
+
             </div>
             
               <div class="tag-container">
