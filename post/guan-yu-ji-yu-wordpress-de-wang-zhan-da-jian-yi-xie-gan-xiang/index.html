@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关于基于Wordpress的网站搭建一些感想 | Ihopeful Blog</title>
+<meta name="description" content="纪录个人所见所闻所得">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico">
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://ihopefulchina.github.io">
+        <img src="https://ihopefulchina.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Ihopeful Blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      纪录个人所见所闻所得
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关于基于Wordpress的网站搭建一些感想</h2>
+            <div class="post-date">2019-05-09</div>
+            
+              <div class="feature-container" style="background-image: url('https://ihopefulchina.github.io/post-images/guan-yu-ji-yu-wordpress-de-wang-zhan-da-jian-yi-xie-gan-xiang.png')">
+              </div>
+            
+            <div class="post-content">
+              <p>感叹于Wordpress的强大，Wordpress 能让一个网站快速搭建完成，但成也萧何败萧何，做的越久，越发现Wordpress还是把你束缚在Blog里面，本质上Wordprss上还是一个博客系统，强行基于Wordpress搭建网站还是会有些错乱，数据调用和查相关文档，还是要基于博客系统的思维来完成，这是一种扭曲的状态。</p>
+<!-- more -->
+<p>丰富的插件，和优秀的贡献开发者，让Wordpress的生态环境在未来很长时间在blog领域有长足的发展，对，仅限于Blog领域，官网和外贸网站的搭建还是欠缺点火候</p>
+<p>。。。未写完</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://ihopefulchina.github.io/tag/wordpress" class="tag">
+                    WordPress
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://ihopefulchina.github.io/post/vue-js-20-tuntorial-for-todos">
+                  <h3 class="post-title">
+                    Vue Js 2.0 Tuntorial for Todos
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '71e97ed99597f66a9dd0',
+        clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+        repo: 'ihopefulchina.github.io',
+        owner: 'ihopefulChina',
+        admin: ['ihopefulChina'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
