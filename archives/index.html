@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566376605931">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566377544898">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -32,18 +32,6 @@
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2">服务器</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
                             <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
                         </li>
                             
@@ -51,6 +39,18 @@
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
                             <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2">服务器</a>
                         </li>
                             
                         
@@ -164,6 +164,23 @@
     <!--                    <img src="assets/images/star.svg" alt="2019">-->
                         <span>2019</span>
                     </div>
+                    
+                    
+                        <div class="timeline-content">
+                            <h3 class="timeline-title"> 解决Wordpress自定义分类archive页面无法通过分类罗列文章的问题</h3>
+                            <p>
+                                <p>Wordpress有许多奇怪的逻辑，例如我创建一个叫产品的自定义分类，在产品总页面，无法通过自带函数根据产品分类的顺序罗列产品所在分类下的所有产品。</p>
+<p>解决思路：</p>
+<ol>
+<li>先根据get_categories获取所有产品分类。</li>
+<li>根据所有产品分类foreach循环这个分类下的name、slug、term_id。</li>
+<li>然后根据这些分类的id(tax_query)获取所有产品。</li>
+</ol>
+
+                            </p>
+                            <a href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-fen-lei-archive-ye-mian-wu-fa-tong-guo-fen-lei-luo-lie-wen-zhang-de-wen-ti" class="btn">review</a>
+                        </div>
+                    
                     
                     
                         <div class="timeline-content">
