@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Vue Js 2.0 Tuntorial for Todos | Ihopeful Blog</title>
+<title>PHP动态内容，如何添加Class？ | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566379130964">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -156,26 +156,41 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-js-20-tuntorial-for-todos.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/php-dong-tai-nei-rong-ru-he-tian-jia-class.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-04-03 ·</span> <span> / </span>
+          <span class="date">· 2019-08-21 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by Hve Notes</a>
           </span>
           
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                </span>
+          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>Vue Js 2.0 Tuntorial for Todos</h1>
+          <h1 class='entry-title'>PHP动态内容，如何添加Class？</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p><a href="https://github.com/ihopefulChina/VueForTodo">Vue Js 2.0 Tuntorial for Todos</a></p>
-<p>个人兴趣开发的TodoList Demo</p>
-<!-- more -->
+              <p>遇到过一个奇怪的需求，客户的邮箱是通过后台填写的，然后前台获取，获取的是一串字符串，例如:xxx@mail.com
+但是客户需求是@这个字体要跟别的不一样。。。我只能通过添加class的方法，解决这个需求。</p>
+<p>首先 获取动态内容、根据&quot;@&quot;分组字符串。</p>
+<pre><code> $email = explode('@',get_field('email', 90));
+</code></pre>
+<p>然后串联添加输出即可</p>
+<pre><code>echo $email[0].'&lt;span class=&quot;email-ico&quot;&gt;@&lt;/span&gt;'.$email[1];
+</code></pre>
 
             </article>
           </div>
@@ -256,7 +271,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/advanced-custom-fields-for-wordpress-developers">下一篇->Advanced Custom Fields for WordPress Developers.</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/wordpress-mian-bao-xie-yi-xie-wen-ti">下一篇->Wordpress 面包屑一些问题</a>
               </div>
             </nav>
           
