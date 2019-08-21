@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>WordPress函数代码模块化 | Ihopeful Blog</title>
+<title>Lnmp on pagespeed | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566376451437">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -144,36 +144,102 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/wordpress-han-shu-dai-ma-mo-kuai-hua.jpg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/lnmp-on-pagespeed.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-03-20 ·</span> <span> / </span>
+          <span class="date">· 2019-08-21 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by Hve Notes</a>
           </span>
           
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
-                </span>
-          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>WordPress函数代码模块化</h1>
+          <h1 class='entry-title'>Lnmp on pagespeed</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>函数模块化，以简单、简洁、简约的方式添加代码片段到您的站点。再也没有必要去编辑主题的 functions.php 文件。</p>
+              <h1 id="lnmp-on-pagespeed">Lnmp-on-pagespeed</h1>
+<p>RedHat, CentOS, or Fedora</p>
+<pre><code>sudo yum install gcc-c++ pcre-devel zlib-devel make unzip
+</code></pre>
+<p>Ubuntu or Debian(一个一个安装，我测试的时候只安装第一个就可以，但发现后面有几次必须安装后面的几个依赖才能100%安装）</p>
 <!-- more -->
-<p>Github地址：https://github.com/ihopefulChina/Wordpress-function-modular</p>
+<pre><code>sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip
+apt install uuid-dev
+apt-get install libssl-dev openssl
+apt-get install libxslt-dev
+sudo apt-get install -y libgd-dev
+apt-get install libgeoip-dev -y
+</code></pre>
+<h2 id="lnmp-安装-ngx_pagespeed-的方法">LNMP 安装 ngx_pagespeed 的方法</h2>
+<p>1、首先，根据官方教程下载 Page Speed，把下面的命令保存成 dp.sh 文件，然后运行 chmod +x dp.sh 赋予该文件可执行权限，然后运行 ./dp.sh 即可自动下载并解压 ngx_pagespeed 模块的源代码。
+现在最新版本是1.13.35.2-stable。你可以在<a href="https://www.modpagespeed.com/doc/release_notes">这里</a>查看最新版本。</p>
+<p>制作dp.sh
+cd
+nano dp.sh</p>
+<p>写入代码,复制粘贴进去，然后Ctrl+X, 输入Y，回车。</p>
+<pre><code>#[check the release notes for the latest version]
+NPS_VERSION=1.13.35.2-stable
+cd
+wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
+unzip v${NPS_VERSION}.zip
+nps_dir=$(find . -name &quot;*pagespeed-ngx-${NPS_VERSION}&quot; -type d)
+cd &quot;$nps_dir&quot;
+NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
+NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
+psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
+[ -e scripts/format_binary_url.sh ] &amp;&amp; psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
+wget ${psol_url}
+tar -xzvf $(basename ${psol_url})  # extracts to psol/
+</code></pre>
+<pre><code>#[check the release notes for the latest version]
+NPS_VERSION=1.13.35.2-stablecd
+cd
+wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
+unzip v${NPS_VERSION}.zip
+nps_dir=$(find . -name &quot;*pagespeed-ngx-${NPS_VERSION}&quot; -type d)cd &quot;$nps_dir&quot;
+NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
+NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
+psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
+[ -e scripts/format_binary_url.sh ] &amp;&amp; psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
+wget ${psol_url}
+tar -xzvf $(basename ${psol_url})  # extracts to psol/
+</code></pre>
+<p>给予权限并运行</p>
+<pre><code>chmod +x dp.sh
+sudo ./dp.sh
+</code></pre>
+<p>从 1.12.34 版本开始，按照官方的教程进行的时候，可能会遇到无法下载 PSOL 的情况，这时候，按照下面的地址下载对应版本的 PSOL 就可以了。
+或者使用
+https://dl.google.com/dl/page-speed/psol/[PageSpeed版本]-x[系统位数].tar.gz</p>
+<p>pagespeed下载后修改一下文件夹名字把原来的名字incubator-pagespeed-ngx-1.13.35.2-stable，修改为：ngx_pagespeed-1.13.35.2-stable。
+2、然后编辑 Nginx 升级脚本
+我用的是 LNMP 1.5，其他版本更换安装路径即可。
+配置lnmp文件</p>
+<pre><code>cd /root/lnmp1.5/include
+nano upgrade_nginx.sh
+</code></pre>
+<p>找到 ./configure --user=www --group=www --prefix=/usr/local/nginx，在这行代码的末尾添加，其中 ngx_pagespeed-1.13.35.2-stable 是第一步下载的 PageSpeed 模块的目录名称，根据实际情况替换即可。
+加入字段
+--add-module=$HOME/ngx_pagespeed-1.13.35.2-stable</p>
+<p>接着更新 Nginx，可以根据需要，选择 Nginx 版本升级，一般选择最新的稳定版本即可。我安装的1.14.2.
+升级nginx</p>
+<pre><code>cd ../
+sudo ./upgrade.sh nginx
+</code></pre>
+<p>出现错误可以试试
+yum install -y libuuid-devel</p>
+<h2 id="配置xxxcomconf">配置xxx.com.conf</h2>
+<p>所有的东西安装完毕然后开始配置网站的conf文件：
+文件位置在/usr/local/nginx/conf/vhost。 你最好把他下载到桌面编辑。
+你可以直接复制我的配置，对应修改一下自己的网站名称：
+配置文件写好并上传后，把xxx.com.conf里面内容加进去。</p>
+<h3 id="更新缓存">更新缓存</h3>
+<pre><code>touch /var/cache/ngx_pagespeed/cache.flush
+</code></pre>
 
             </article>
           </div>
@@ -246,7 +312,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong">下一篇->Message board inquiry management system（询盘管理系统）</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa">下一篇->留言表单、支持邮箱转发</a>
               </div>
             </nav>
           
