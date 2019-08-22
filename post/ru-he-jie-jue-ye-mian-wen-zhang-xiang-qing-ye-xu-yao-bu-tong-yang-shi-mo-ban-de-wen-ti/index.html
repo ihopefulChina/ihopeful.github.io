@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Lnmp on pagespeed | Ihopeful Blog</title>
+<title>如何解决页面/文章/详情页需要不同样式、模板的问题？ | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566457447543">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -170,107 +170,73 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/lnmp-on-pagespeed.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-21 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>Lnmp on pagespeed</h1>
+          <h1 class='entry-title'>如何解决页面/文章/详情页需要不同样式、模板的问题？</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <h2 id="lnmp-on-pagespeed">Lnmp-on-pagespeed</h2>
-<p>RedHat, CentOS, or Fedora</p>
-<pre><code>sudo yum install gcc-c++ pcre-devel zlib-devel make unzip
+              <p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
+<p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
+<ol>
+<li>
+<p>首先通过<a href="https://www.advancedcustomfields.com/resources/radio-button/">ACF插件Seclect的单选按钮</a>，填写5个参数
+(注: 参数' : '前后需要有空格)
+<img src="https://ihopefulchina.github.io/post-images/1566457009571.png" alt=""></p>
+</li>
+<li>
+<p>通过<a href="https://www.advancedcustomfields.com/resources/group/">ACF插件的组</a>来写5个模板(组下面填写不同的自定义字段)
+<img src="https://ihopefulchina.github.io/post-images/1566456898881.png" alt="">,
+其中每个模板Group里面的说明最好加上模板图片样式，例如<code>&lt;img src=&quot;/wp-admin/images/sj.png&quot; width=&quot;50%&quot; height=&quot;auto&quot;&gt;</code>
+这么做的目的，是客户知道这是哪个模板样式，呈现的效果如下。
+<img src="https://ihopefulchina.github.io/post-images/1566457148348.png" alt=""></p>
+</li>
+</ol>
+<p>3.然后创建5个php，命名规避page，single等等自带的命名方式，里面填写各自模板样式和参数。</p>
+<p><img src="https://ihopefulchina.github.io/post-images/1566457258241.png" alt=""></p>
+<p>5.最后在single-products.php里面，加一个判断:</p>
+<pre><code>&lt;?php if( get_field('select') == 'one' ): ?&gt;
+		&lt;?php include 'product-content1.php'; ?&gt;
+	&lt;?php endif; ?&gt;
+
+	&lt;?php if( get_field('select') == 'two' ): ?&gt;
+		&lt;?php include 'product-content2.php'; ?&gt;
+	&lt;?php endif; ?&gt;
+
+	&lt;?php if( get_field('select') == 'three' ): ?&gt;
+		&lt;?php include 'product-content3.php'; ?&gt;
+	&lt;?php endif; ?&gt;
+
+	&lt;?php if( get_field('select') == 'four' ): ?&gt;
+		&lt;?php include 'product-content4.php'; ?&gt;
+	&lt;?php endif; ?&gt;
+
+	&lt;?php if( get_field('select') == 'five' ): ?&gt;
+		&lt;?php include 'product-content5.php'; ?&gt;
+	&lt;?php endif; ?&gt;
 </code></pre>
-<p>Ubuntu or Debian(一个一个安装，我测试的时候只安装第一个就可以，但发现后面有几次必须安装后面的几个依赖才能100%安装）</p>
-<!-- more -->
-<pre><code>sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip
-apt install uuid-dev
-apt-get install libssl-dev openssl
-apt-get install libxslt-dev
-sudo apt-get install -y libgd-dev
-apt-get install libgeoip-dev -y
-</code></pre>
-<h2 id="lnmp-安装-ngx_pagespeed-的方法">LNMP 安装 ngx_pagespeed 的方法</h2>
-<p>1、首先，根据官方教程下载 Page Speed，把下面的命令保存成 dp.sh 文件，然后运行 chmod +x dp.sh 赋予该文件可执行权限，然后运行 ./dp.sh 即可自动下载并解压 ngx_pagespeed 模块的源代码。
-现在最新版本是1.13.35.2-stable。你可以在<a href="https://www.modpagespeed.com/doc/release_notes">这里</a>查看最新版本。</p>
-<p>制作dp.sh
-cd
-nano dp.sh</p>
-<p>写入代码,复制粘贴进去，然后Ctrl+X, 输入Y，回车。</p>
-<pre><code>#[check the release notes for the latest version]
-NPS_VERSION=1.13.35.2-stable
-cd
-wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
-unzip v${NPS_VERSION}.zip
-nps_dir=$(find . -name &quot;*pagespeed-ngx-${NPS_VERSION}&quot; -type d)
-cd &quot;$nps_dir&quot;
-NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
-NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
-psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
-[ -e scripts/format_binary_url.sh ] &amp;&amp; psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
-wget ${psol_url}
-tar -xzvf $(basename ${psol_url})  # extracts to psol/
-</code></pre>
-<pre><code>#[check the release notes for the latest version]
-NPS_VERSION=1.13.35.2-stablecd
-cd
-wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip
-unzip v${NPS_VERSION}.zip
-nps_dir=$(find . -name &quot;*pagespeed-ngx-${NPS_VERSION}&quot; -type d)cd &quot;$nps_dir&quot;
-NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
-NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
-psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
-[ -e scripts/format_binary_url.sh ] &amp;&amp; psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
-wget ${psol_url}
-tar -xzvf $(basename ${psol_url})  # extracts to psol/
-</code></pre>
-<p>给予权限并运行</p>
-<pre><code>chmod +x dp.sh
-sudo ./dp.sh
-</code></pre>
-<p>从 1.12.34 版本开始，按照官方的教程进行的时候，可能会遇到无法下载 PSOL 的情况，这时候，按照下面的地址下载对应版本的 PSOL 就可以了。
-或者使用
-https://dl.google.com/dl/page-speed/psol/[PageSpeed版本]-x[系统位数].tar.gz</p>
-<p>pagespeed下载后修改一下文件夹名字把原来的名字incubator-pagespeed-ngx-1.13.35.2-stable，修改为：ngx_pagespeed-1.13.35.2-stable。
-2、然后编辑 Nginx 升级脚本
-我用的是 LNMP 1.5，其他版本更换安装路径即可。
-配置lnmp文件</p>
-<pre><code>cd /root/lnmp1.5/include
-nano upgrade_nginx.sh
-</code></pre>
-<p>找到 ./configure --user=www --group=www --prefix=/usr/local/nginx，在这行代码的末尾添加，其中 ngx_pagespeed-1.13.35.2-stable 是第一步下载的 PageSpeed 模块的目录名称，根据实际情况替换即可。
-加入字段
---add-module=$HOME/ngx_pagespeed-1.13.35.2-stable</p>
-<p>接着更新 Nginx，可以根据需要，选择 Nginx 版本升级，一般选择最新的稳定版本即可。我安装的1.14.2.
-升级nginx</p>
-<pre><code>cd ../
-sudo ./upgrade.sh nginx
-</code></pre>
-<p>出现错误可以试试
-yum install -y libuuid-devel</p>
-<h2 id="配置xxxcomconf">配置xxx.com.conf</h2>
-<p>所有的东西安装完毕然后开始配置网站的conf文件：
-文件位置在/usr/local/nginx/conf/vhost。 你最好把他下载到桌面编辑。
-你可以直接复制我的配置，对应修改一下自己的网站名称：
-配置文件写好并上传后，把xxx.com.conf里面内容加进去。</p>
-<h3 id="更新缓存">更新缓存</h3>
-<pre><code>touch /var/cache/ngx_pagespeed/cache.flush
-</code></pre>
+<p>其中的one，two... 来自ACF插件Seclect的单选按钮前面的参数</p>
 
             </article>
           </div>
@@ -361,7 +327,7 @@ yum install -y libuuid-devel</p>
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/guan-yu-ji-yu-wordpress-de-qi-ye-wang-zhan-da-jian-yi-xie-gan-xiang">下一篇->关于基于Wordpress的企业网站搭建一些感想</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa">下一篇->留言表单、支持邮箱转发</a>
               </div>
             </nav>
           
