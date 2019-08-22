@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>批量裁切图片 | Ihopeful Blog</title>
+<title>如何在导航栏添加图片？ | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566436807605">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -156,15 +156,20 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/pi-liang-cai-qie-tu-pian.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-zai-dao-hang-lan-tian-jia-tu-pian.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-03-20 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by Hve Notes</a>
           </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
           
             <span class="category">
                     <span> / </span>
@@ -173,23 +178,39 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>批量裁切图片</h1>
+          <h1 class='entry-title'>如何在导航栏添加图片？</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <ol>
-<li>安装 pip install cutImages</li>
-<li>引用 from cutImages import cut_images</li>
-</ol>
+              <p>很多客户有在导航栏添加产品图片的需求，Wordpress不支持这一项，需要我们去创建和自定义。</p>
 <!-- more -->
-<ol start="3">
-<li>调用 cut_images('/Users/fybao/Desktop/old_images', '/Users/fybao/Desktop/new_img', 500, 500, 50)</li>
-<li>参数说明
-old_path: 原图片目录; new_path: 剪切之后的图片目录, 如果不存在, 会自动创建。 另外会保存一个不剪切的图片目录, 详见代码;
-width: 剪切之后的图片宽度; height: 剪切之后的图片高度;
-quality: 图片保存的质量, 1~100之间的数字, 数字越小质量越差;</li>
-</ol>
+<p>function函数添加这个即可</p>
+<pre><code>add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects', 10, 2);
+function my_wp_nav_menu_objects( $items, $args ) {
+	foreach( $items as &amp;$item ) {
+		$img = get_field('nav_product', $item);
+		if( $img ) {
+			$item-&gt;title = '&lt;img src=&quot;'.$img.'&quot;&gt;'.$item-&gt;title;
+		}
+	}
+	return $items;
+}
+</code></pre>
+<p>其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>t</mi><mi>e</mi><mi>m</mi><mo>−</mo><mo>&gt;</mo><mi>t</mi><mi>i</mi><mi>t</mi><mi>l</mi><mi>e</mi><msup><mo>=</mo><mrow><mi mathvariant="normal">′</mi></mrow></msup><mo>&lt;</mo><mi>i</mi><mi>m</mi><mi>g</mi><mi>s</mi><mi>r</mi><mi>c</mi><mo>=</mo><msup><mi mathvariant="normal">&quot;</mi><mrow><mi mathvariant="normal">′</mi></mrow></msup><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">item-&gt;title = &#x27;&lt;img src=&quot;&#x27;.</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:0.946332em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit">e</span><span class="mord mathit">m</span><span class="mbin">−</span><span class="mrel">&gt;</span><span class="mord mathit">t</span><span class="mord mathit">i</span><span class="mord mathit">t</span><span class="mord mathit" style="margin-right:0.01968em;">l</span><span class="mord mathit">e</span><span class="mrel"><span class="mrel">=</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mrel">&lt;</span><span class="mord mathit">i</span><span class="mord mathit">m</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mord mathit">s</span><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="mord mathit">c</span><span class="mrel">=</span><span class="mord"><span class="mord mathrm">&quot;</span><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">′</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span><span class="mord mathrm">.</span></span></span></span>img.'&quot;&gt;'.item->title;意思是在title添加图片，img 来着$img = get_field('nav_product', $item);，这个是ACF插件创建的自定义分类</p>
+<p>前台header.php里面的导航栏 不需要修改任何地方，因为已经注入了图片。</p>
+<pre><code>if (has_nav_menu('primary')) {
+							wp_nav_menu(array(
+								'theme_location' =&gt; 'primary',
+								'menu'              =&gt; 'primary',
+								'depth'             =&gt; 0,
+								'container'         =&gt; '',
+								'container_class'   =&gt; '',
+								'menu_class'        =&gt; 'nav navbar-nav',
+								'items_wrap'        =&gt; '&lt;ul class=&quot;%2$s&quot;&gt;%3$s&lt;/ul&gt;'
+							));
+						}
+	```</code></pre>
 
             </article>
           </div>
@@ -270,7 +291,7 @@ quality: 图片保存的质量, 1~100之间的数字, 数字越小质量越差;<
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji">下一篇->关键词采集</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/wordpress-tian-jia-zi-ding-yi-fen-lei">下一篇->Wordpress 添加自定义分类</a>
               </div>
             </nav>
           
