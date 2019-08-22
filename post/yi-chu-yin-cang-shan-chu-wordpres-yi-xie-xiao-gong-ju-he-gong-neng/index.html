@@ -1,11 +1,11 @@
 <html>
 <head>
-    <meta charset="utf-8" />
+  <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Linux | Ihopeful Blog</title>
+<title>移除、隐藏、删除Wordpres一些小工具和功能 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566438159923">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -20,7 +20,8 @@
 </head>
 <body class="home blog ct-body standard">
 <div id="overflow-container" class="overflow-container">
-    <header id="site-header" class="site-header" role="banner">
+  <a class="skip-content" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header" role="banner">
     <div class='top-navigation top-navigation-important'>
         <div class='container'>
             <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
@@ -150,76 +151,183 @@
 
 </header>
 
-        <div class="main-content">
-            <div class="current-tag-container">
-                <h2 class="title">
-                    标签：#Linux
-                </h2>
-            </div>
-        </div>
-    <div id="main" class="main" role="main">
-  <h1 class="screen-reader-text">Posts</h1>
-  
-  <div id="loop-container" class="loop-container">
-    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
-    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
-      
-      even
-       excerpt">
-      
-      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/lnmp-on-pagespeed">
-        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/lnmp-on-pagespeed.png"></div>
-      </a>
-      
-      <div class="excerpt-container">
-        <div class="excerpt-meta">
-          <span class="date">  · 2019-08-21 ·</span> <span> / </span>
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng.png">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
-              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by Hve Notes</a>
           </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
                 </span>
-            
-                <span> / </span>
-                <span class="category">
-                        <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2">服务器</a>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
                 </span>
-            
-
+          
         </div>
-        <div class='excerpt-header'>
-          <h2 class='excerpt-title'>
-            <a href="https://ihopefulchina.github.io/post/lnmp-on-pagespeed"> Lnmp on pagespeed </a>
-          </h2>
+        <div class='entry-header'>
+          <h1 class='entry-title'>移除、隐藏、删除Wordpres一些小工具和功能</h1>
         </div>
-        <div class='excerpt-content'>
-          <article>
-              <h2 id="lnmp-on-pagespeed">Lnmp-on-pagespeed</h2>
-<p>RedHat, CentOS, or Fedora</p>
-<pre><code>sudo yum install gcc-c++ pcre-devel zlib-devel make unzip
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Wordpress 有些功能不适用定制站(客户可能会乱点到)，所以需要隐藏掉，比如顶部工具栏。</p>
+<!-- more -->
+<ol>
+<li>移除顶部工具栏“新建”按钮</li>
+</ol>
+<pre><code>function disable_new_content() {  
+	global $wp_admin_bar;  
+	$wp_admin_bar-&gt;remove_menu('new-content');  
+}  
+add_action( 'wp_before_admin_bar_render', 'disable_new_content' );
 </code></pre>
-<p>Ubuntu or Debian(一个一个安装，我测试的时候只安装第一个就可以，但发现后面有几次必须安装后面的几个依赖才能100%安装）</p>
+<p>2.移除顶部工具栏上的评论提示</p>
+<pre><code>function remove_comment_bubble() {  
+	global $wp_admin_bar;  
+	$wp_admin_bar-&gt;remove_menu('comments');  
+}  
+add_action( 'wp_before_admin_bar_render', 'remove_comment_bubble' );
+</code></pre>
+<p>3.隐藏显示选项和帮助</p>
+<pre><code>function remove_screen_options(){ return false;}
+add_filter('screen_options_show_screen', 'remove_screen_options');
+add_filter( 'contextual_help', 'wpse50723_remove_help', 999, 3 );
+function wpse50723_remove_help($old_help, $screen_id, $screen){
+	$screen-&gt;remove_help_tabs();
+	return $old_help;
+}
+</code></pre>
+<p>等等，以上很多功能可以选择加上。</p>
 
-          </article>
+            </article>
+          </div>
+          <div class='entry-meta-bottom'>
+            <div class="entry-categories">
+              <p>
+                <span>Categories</span>
+                
+                  
+                    
+                  <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/php" title="View all posts in PHP">PHP</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/linux" title="View all posts in Linux">Linux</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2" title="View all posts in 服务器">服务器</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/system" title="View all posts in 系统">系统</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/mp.weixin" title="View all posts in 微信小程序">微信小程序</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/markdown" title="View all posts in Markdown">Markdown</a>
+                    
+                    
+              </p>
+            </div>
+            <div class="entry-tags">
+              <p><span>Tags</span>
+              </p>
+            </div>
+          </div>
+          <div class="author-meta">
+            <div class="author">
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1566438159923" class='avatar avatar-72 photo' height='72' width='72'>
+              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
+            </div>
+            <div class="bio">
+              <p></p>
+              
+                
+                  <a class="github" target="_blank"
+                     href="https://github.com/ihopefulchina">
+                    <i class="fab fa-github" title="github"></i>
+                  </a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </div>
+          </div>
         </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/yin-cang-jin-zhi-shan-chu-wordpress-zi-dai-de-geng-xin-he-yi-biao-pan">下一篇->隐藏、禁止、删除Wordpress自带的更新和仪表盘</a>
+              </div>
+            </nav>
+          
       </div>
+      <section id="comments" class="comments">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71e97ed99597f66a9dd0',
+    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+    repo: 'ihopefulchina.github.io',
+    owner: 'ihopefulChina',
+    admin: ['ihopefulChina'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+      </section>
     </div>
   </div>
-  
-</div>
-
-    <nav class="navigation pagination" role="navigation">
-    <h2 class="screen-reader-text">Posts navigation</h2>
-    <div class="nav-links">
-        
-        
-    </div>
-</nav>
-
-    <footer id="site-footer" class="site-footer" role="contentinfo">
+  <footer id="site-footer" class="site-footer" role="contentinfo">
     <h1>
         <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
     </h1>
@@ -270,3 +378,4 @@
 </div>
 </body>
 </html>
+
