@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>关于 | Ihopeful Blog</title>
+<title>在非当前页面获取指定多个自定义分类下的文章 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566452377911">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,22 +172,65 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang.png">
+          </div>
+        
 
         <div class="entry-meta">
-          <span class="date">· 2019-01-25 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                </span>
+          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>关于</h1>
+          <h1 class='entry-title'>在非当前页面获取指定多个自定义分类下的文章</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>联系方式：
-邮箱：<a href="mailto:784667332@qq.com">784667332@qq.com</a></p>
+              <p>在非当前页面，我们获取指定分类就有点困难，ACF插件能解决这个问题，<a href="https://www.advancedcustomfields.com/">ACF插件</a>是我最常用的插件,用ACF插件定义一个真假按钮，然后判断即可，以下为Demo。
+仅供参考（提供一种思路）</p>
+<pre><code>&lt;?php
+$args=array(
+	'order' =&gt; 'ASC', //顺序
+	'numberposts' =&gt; -1,
+	'post_type' =&gt; 'products',
+	'meta_key' =&gt; 'product_btn',// ACF 插件定义一个真假按钮
+	'meta_value' =&gt; '1',// 1为真，0为假
+	'posts_per_page'=&gt;-1,
+);
+$arms = array_merge($args, $wp_query-&gt;query);
+query_posts($arms)?&gt;
+&lt;?php if (have_posts()) : ?&gt;
+	&lt;?php while (have_posts()) : the_post(); ?&gt;
+		&lt;div class=&quot;swiper-slide&quot;&gt;
+			&lt;?php
+			// 用于图片使用ACF重复器的时候，获取第一张图片
+			if( have_rows('product_photo',$post-&gt;ID) ):
+				while ( have_rows('product_photo',$post-&gt;ID) ) : the_row();
+					$image = get_sub_field('product_photo');
+					echo '&lt;img src=&quot;'.$image['sizes']['medium'].'&quot; alt=&quot;'.$image['title'].'&quot; /&gt;';
+					break;
+				endwhile; 
+			endif;
+			?&gt;
+			&lt;a class=&quot;product-title&quot; href=&quot;&lt;?php the_permalink(); ?&gt;&quot;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;?php endwhile; ?&gt;
+&lt;?php endif; wp_reset_query();?&gt;
+</code></pre>
 
             </article>
           </div>
@@ -278,6 +321,13 @@
             </div>
           </div>
         </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan">下一篇->获取指定分类的所有子分类链接、Description、Slug、自定义字段</a>
+              </div>
+            </nav>
           
       </div>
       <section id="comments" class="comments">
