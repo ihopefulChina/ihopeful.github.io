@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>如何解决页面/文章/详情页需要不同样式、模板的问题？ | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566457447543">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566457695212">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -199,6 +199,7 @@
             <article>
               <p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
 <p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
+<!-- more -->
 <ol>
 <li>
 <p>首先通过<a href="https://www.advancedcustomfields.com/resources/radio-button/">ACF插件Seclect的单选按钮</a>，填写5个参数
@@ -206,13 +207,16 @@
 <img src="https://ihopefulchina.github.io/post-images/1566457009571.png" alt=""></p>
 </li>
 <li>
-<p>通过<a href="https://www.advancedcustomfields.com/resources/group/">ACF插件的组</a>来写5个模板(组下面填写不同的自定义字段)
-<img src="https://ihopefulchina.github.io/post-images/1566456898881.png" alt="">,
-其中每个模板Group里面的说明最好加上模板图片样式，例如<code>&lt;img src=&quot;/wp-admin/images/sj.png&quot; width=&quot;50%&quot; height=&quot;auto&quot;&gt;</code>
-这么做的目的，是客户知道这是哪个模板样式，呈现的效果如下。
-<img src="https://ihopefulchina.github.io/post-images/1566457148348.png" alt=""></p>
+<p>通过<a href="https://www.advancedcustomfields.com/resources/group/">ACF插件的组</a>来写5个模板(组下面填写不同的自定义字段)</p>
 </li>
 </ol>
+<p><img src="https://ihopefulchina.github.io/post-images/1566456898881.png" alt=""></p>
+<p>注:
+(1)需要填写判断(条件逻辑)</p>
+<p><img src="https://ihopefulchina.github.io/post-images/1566457679886.png" alt=""></p>
+<p>(2)其中每个模板Group里面的说明最好加上模板图片样式，例如<code>&lt;img src=&quot;/wp-admin/images/sj.png&quot; width=&quot;50%&quot; height=&quot;auto&quot;&gt;</code>
+这么做的目的，是客户知道这是哪个模板样式，呈现的效果如下。</p>
+<p><img src="https://ihopefulchina.github.io/post-images/1566457148348.png" alt=""></p>
 <p>3.然后创建5个php，命名规避page，single等等自带的命名方式，里面填写各自模板样式和参数。</p>
 <p><img src="https://ihopefulchina.github.io/post-images/1566457258241.png" alt=""></p>
 <p>5.最后在single-products.php里面，加一个判断:</p>
@@ -283,7 +287,7 @@
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1566457447543" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1566457695212" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
             </div>
             <div class="bio">
