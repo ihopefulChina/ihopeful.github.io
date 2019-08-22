@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>批量裁切图片 | Ihopeful Blog</title>
+<title>如何输出根据分类罗列文章，当前页面高亮显示 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566454709663">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -170,15 +170,20 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/pi-liang-cai-qie-tu-pian.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-03-20 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
           
             <span class="category">
                     <span> / </span>
@@ -187,23 +192,75 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>批量裁切图片</h1>
+          <h1 class='entry-title'>如何输出根据分类罗列文章，当前页面高亮显示</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <ol>
-<li>安装 pip install cutImages</li>
-<li>引用 from cutImages import cut_images</li>
-</ol>
+              <p>我之前有写过类似这个功能，这次写的全一点，高亮显示实现功能也是用到这个<code>$uri=explode('/',$_SERVER['REQUEST_URI']);</code></p>
+<p>我贴一下代码，你们可以参考一下，个人暂时未找到更好的方法，有什么好的方法，可以在下面评论，我们探讨一下。</p>
 <!-- more -->
-<ol start="3">
-<li>调用 cut_images('/Users/fybao/Desktop/old_images', '/Users/fybao/Desktop/new_img', 500, 500, 50)</li>
-<li>参数说明
-old_path: 原图片目录; new_path: 剪切之后的图片目录, 如果不存在, 会自动创建。 另外会保存一个不剪切的图片目录, 详见代码;
-width: 剪切之后的图片宽度; height: 剪切之后的图片高度;
-quality: 图片保存的质量, 1~100之间的数字, 数字越小质量越差;</li>
-</ol>
+<pre><code>$uri=explode('/',$_SERVER['REQUEST_URI']);
+&lt;?php
+					$categories = get_categories(&quot;hierarchical=1&amp;taxonomy=video&amp;hide_empty=0&quot;);
+					$cats=array();
+					foreach($categories as $tmpcat){
+						if($tmpcat-&gt;parent&gt;0){
+							$cats[$tmpcat-&gt;parent]['child'][$tmpcat-&gt;term_id]['name']=$tmpcat-&gt;name;
+							$cats[$tmpcat-&gt;parent]['child'][$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
+						}else{
+							$cats[$tmpcat-&gt;term_id]['name']=$tmpcat-&gt;name;
+							$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
+						}
+					}
+					ksort($cats);
+					foreach($cats as $key=&gt;$val){?&gt;
+						&lt;li class=&quot;cat-item&quot;&gt;
+							&lt;i class=&quot;fas fa-angle-down&quot;&gt;&lt;/i&gt;&lt;a&gt;&lt;?php echo $val[&quot;name&quot;]; ?&gt;&lt;/a&gt;
+							&lt;ul class=&quot;children&quot;&gt;
+								&lt;?php foreach($val[&quot;child&quot;] as $cat){ ?&gt;
+									&lt;li class=&quot;cat-item&quot;&gt;
+										&lt;a&lt;?php if (ucwords(str_replace('-',' ',$uri[3])) == $cat[&quot;name&quot;] ) {echo ' class=&quot;opeth&quot;';}?&gt;&gt;&lt;?php echo $cat[&quot;name&quot;]; ?&gt;&lt;/a&gt;
+										&lt;?php
+										$posts_array = get_posts(
+											array(
+												'posts_per_page' =&gt; 3,
+												'post_type' =&gt; 'videos',
+												'tax_query' =&gt; array(
+													array(
+														'taxonomy' =&gt; 'video',
+														'field' =&gt; 'term_id',
+														'terms' =&gt; $cat['term_id'],
+													)
+												)
+											)
+										);
+										if ($posts_array){?&gt;
+											&lt;ul class=&quot;children&quot;&gt;
+												&lt;?php
+												foreach( $posts_array as $post ){ 
+													$youtube = substr(basename(get_field('add_link')),8); 
+													$a =  substr(strrchr(rtrim(get_permalink(), '/'), '/'), 1);?&gt;
+													&lt;li&lt;?php if ($uri[4] == $a ) {echo ' class=&quot;opeth&quot;';} ?&gt;&gt;
+														&lt;div class=&quot;list-video&quot;&gt;
+															&lt;div class=&quot;col-md-4&quot;&gt;
+																&lt;iframe width=&quot;100%&quot; height=&quot;45px&quot; src=&quot;https://www.youtube.com/embed/&lt;?php echo $youtube;?&gt;&quot; frameborder=&quot;0&quot; showinfo=&quot;0&quot;&gt;&lt;/iframe&gt;
+															&lt;/div&gt;
+															&lt;div class=&quot;col-md-8&quot;&gt;
+																&lt;a href=&quot;&lt;?php echo get_permalink(); ?&gt;&quot;&gt;&lt;?php echo get_the_title(); ?&gt;&lt;/a&gt;
+															&lt;/div&gt;
+															&lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
+														&lt;/div&gt;
+													&lt;/li&gt;
+												&lt;?php } ?&gt;
+											&lt;/ul&gt;
+										&lt;?php } ?&gt;
+									&lt;/li&gt;
+								&lt;?php } ?&gt;
+							&lt;/ul&gt;
+						&lt;/li&gt;
+					&lt;?php } ?&gt;
+</code></pre>
 
             </article>
           </div>
@@ -294,7 +351,7 @@ quality: 图片保存的质量, 1~100之间的数字, 数字越小质量越差;<
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji">下一篇->关键词采集</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/ru-he-yong-tag-fang-shi-chuan-lian-zi-ding-yi-fen-lei-shi-xian-xiang-guan-wen-zhang-chuan-lian-gong-neng">下一篇->如何用TAG方式串联自定义分类(实现相关文章串联功能)</a>
               </div>
             </nav>
           
