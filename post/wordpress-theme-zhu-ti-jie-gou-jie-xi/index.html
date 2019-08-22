@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>移除、隐藏、删除Wordpres一些小工具和功能 | Ihopeful Blog</title>
+<title>Wordpress theme主题结构解析 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566456345685">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -170,7 +170,7 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/wordpress-theme-zhu-ti-jie-gou-jie-xi.png">
           </div>
         
 
@@ -180,51 +180,17 @@
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
-                </span>
-          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>移除、隐藏、删除Wordpres一些小工具和功能</h1>
+          <h1 class='entry-title'>Wordpress theme主题结构解析</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>Wordpress 有些功能不适用定制站(客户可能会乱点到)，所以需要隐藏掉，比如顶部工具栏。</p>
-<!-- more -->
-<ol>
-<li>移除顶部工具栏“新建”按钮</li>
-</ol>
-<pre><code>function disable_new_content() {  
-	global $wp_admin_bar;  
-	$wp_admin_bar-&gt;remove_menu('new-content');  
-}  
-add_action( 'wp_before_admin_bar_render', 'disable_new_content' );
-</code></pre>
-<p>2.移除顶部工具栏上的评论提示</p>
-<pre><code>function remove_comment_bubble() {  
-	global $wp_admin_bar;  
-	$wp_admin_bar-&gt;remove_menu('comments');  
-}  
-add_action( 'wp_before_admin_bar_render', 'remove_comment_bubble' );
-</code></pre>
-<p>3.隐藏显示选项和帮助</p>
-<pre><code>function remove_screen_options(){ return false;}
-add_filter('screen_options_show_screen', 'remove_screen_options');
-add_filter( 'contextual_help', 'wpse50723_remove_help', 999, 3 );
-function wpse50723_remove_help($old_help, $screen_id, $screen){
-	$screen-&gt;remove_help_tabs();
-	return $old_help;
-}
-</code></pre>
-<p>等等，以上很多功能可以选择加上。</p>
+              <p>Wordpress定制站，结构不复杂，了解更多建议去多看看官方文档，下面这个图片是我的定制站需要的文件结构。</p>
+<p><img src="https://ihopefulchina.github.io/post-images/1566455945226.png" alt=""></p>
+<p>需要注意的是product-content.php这个几个文件，是我随便创建的，是因为用到了判断，不同的判断逻辑对应不同的PHP文件，不用在意，index.php和style.css这2个文件必须有，不然挂不上主题。</p>
+<p>可能有人注意到了，我这里居然没有function函数，是因为我采用<a href="https://wordpress.org/plugins/code-snippets/">函数模块化的设计</a>，是在后台编写的，这是我必备插件，所以我没有function函数。</p>
 
             </article>
           </div>
@@ -315,7 +281,7 @@ function wpse50723_remove_help($old_help, $screen_id, $screen){
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/yin-cang-jin-zhi-shan-chu-wordpress-zi-dai-de-geng-xin-he-yi-biao-pan">下一篇->隐藏、禁止、删除Wordpress自带的更新和仪表盘</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa">下一篇->留言表单、支持邮箱转发</a>
               </div>
             </nav>
           
