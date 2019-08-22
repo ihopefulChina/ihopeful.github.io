@@ -1,0 +1,1092 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>不使用JS，实现国家选择器 | Ihopeful Blog</title>
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566449978421">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <a class="skip-content" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header" role="banner">
+    <div class='top-navigation top-navigation-important'>
+        <div class='container'>
+            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
+                <div class="menu">
+                    <ul id="menu-secondary-items" class="menu-secondary-items">
+                        
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6">JavaScript</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2">服务器</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/system">系统</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/mp.weixin">微信小程序</a>
+                        </li>
+                            
+                        
+                            
+                        
+                    </ul>
+                </div>
+            </div>
+            <ul class="social-media-icons">
+                
+                    
+                        <li>
+                            <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                                <i class="fab fa-github" title="github"></i>
+                                <span class="screen-reader-text">github</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li>
+                            <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                                <i class="fa fa-envelope" title="envelope"></i>
+                                <span class="screen-reader-text">envelope</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                                <i class="fab fa-qq" title="qq"></i>
+                                <span class="screen-reader-text">qq</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://ihopefulchina.github.io">  Ihopeful Blog </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">纪录个人所见所闻所得</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/bu-shi-yong-jsshi-xian-guo-jia-xuan-ze-qi.png">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
+          </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6">JavaScript</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>不使用JS，实现国家选择器</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>在前端有些地方，例如表单里面，选择国家这一栏里面，往常实现这一功能，可能需要引入JS实现，但这样加载速度会变慢，所以需要我们不使用JS的情况下，实现这个功能。
+下面是一个Demo:</p>
+<pre><code>&lt;option value=&quot;Afghanistan (‫افغانستان‬‎)&quot; data-countryname=&quot;Afghanistan (‫افغانستان‬‎)&quot; data-countryiso=&quot;af&quot;&gt;
+    Afghanistan (‫افغانستان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Åland Islands (Åland)&quot; data-countryname=&quot;Åland Islands (Åland)&quot; data-countryiso=&quot;ax&quot;&gt;
+    Åland Islands (Åland)&lt;/option&gt;
+  &lt;option value=&quot;Albania (Shqipëri)&quot; data-countryname=&quot;Albania (Shqipëri)&quot; data-countryiso=&quot;al&quot;&gt;
+    Albania (Shqipëri)&lt;/option&gt;
+  &lt;option value=&quot;Algeria (‫الجزائر‬‎)&quot; data-countryname=&quot;Algeria (‫الجزائر‬‎)&quot; data-countryiso=&quot;dz&quot;&gt;
+    Algeria (‫الجزائر‬‎)&lt;/option&gt;
+  &lt;option value=&quot;American Samoa&quot; data-countryname=&quot;American Samoa&quot; data-countryiso=&quot;as&quot;&gt;
+    American Samoa&lt;/option&gt;
+  &lt;option value=&quot;Andorra&quot; data-countryname=&quot;Andorra&quot; data-countryiso=&quot;ad&quot;&gt;
+    Andorra&lt;/option&gt;
+  &lt;option value=&quot;Angola&quot; data-countryname=&quot;Angola&quot; data-countryiso=&quot;ao&quot;&gt;
+    Angola&lt;/option&gt;
+  &lt;option value=&quot;Anguilla&quot; data-countryname=&quot;Anguilla&quot; data-countryiso=&quot;ai&quot;&gt;
+    Anguilla&lt;/option&gt;
+  &lt;option value=&quot;Antigua and Barbuda&quot; data-countryname=&quot;Antigua and Barbuda&quot; data-countryiso=&quot;ag&quot;&gt;
+    Antigua and Barbuda&lt;/option&gt;
+  &lt;option value=&quot;Argentina&quot; data-countryname=&quot;Argentina&quot; data-countryiso=&quot;ar&quot;&gt;
+    Argentina&lt;/option&gt;
+  &lt;option value=&quot;Armenia (Հայաստան)&quot; data-countryname=&quot;Armenia (Հայաստան)&quot; data-countryiso=&quot;am&quot;&gt;
+    Armenia (Հայաստան)&lt;/option&gt;
+  &lt;option value=&quot;Aruba&quot; data-countryname=&quot;Aruba&quot; data-countryiso=&quot;aw&quot;&gt;
+    Aruba&lt;/option&gt;
+  &lt;option value=&quot;Australia&quot; data-countryname=&quot;Australia&quot; data-countryiso=&quot;au&quot;&gt;
+    Australia&lt;/option&gt;
+  &lt;option value=&quot;Austria (Österreich)&quot; data-countryname=&quot;Austria (Österreich)&quot; data-countryiso=&quot;at&quot;&gt;
+    Austria (Österreich)&lt;/option&gt;
+  &lt;option value=&quot;Azerbaijan (Azərbaycan)&quot; data-countryname=&quot;Azerbaijan (Azərbaycan)&quot; data-countryiso=&quot;az&quot;&gt;
+    Azerbaijan (Azərbaycan)&lt;/option&gt;
+  &lt;option value=&quot;Bahamas&quot; data-countryname=&quot;Bahamas&quot; data-countryiso=&quot;bs&quot;&gt;
+    Bahamas&lt;/option&gt;
+  &lt;option value=&quot;Bahrain (‫البحرين‬‎)&quot; data-countryname=&quot;Bahrain (‫البحرين‬‎)&quot; data-countryiso=&quot;bh&quot;&gt;
+    Bahrain (‫البحرين‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Bangladesh (বাংলাদেশ)&quot; data-countryname=&quot;Bangladesh (বাংলাদেশ)&quot; data-countryiso=&quot;bd&quot;&gt;
+    Bangladesh (বাংলাদেশ)&lt;/option&gt;
+  &lt;option value=&quot;Barbados&quot; data-countryname=&quot;Barbados&quot; data-countryiso=&quot;bb&quot;&gt;
+    Barbados&lt;/option&gt;
+  &lt;option value=&quot;Belarus (Беларусь)&quot; data-countryname=&quot;Belarus (Беларусь)&quot; data-countryiso=&quot;by&quot;&gt;
+    Belarus (Беларусь)&lt;/option&gt;
+  &lt;option value=&quot;Belgium (België)&quot; data-countryname=&quot;Belgium (België)&quot; data-countryiso=&quot;be&quot;&gt;
+    Belgium (België)&lt;/option&gt;
+  &lt;option value=&quot;Belize&quot; data-countryname=&quot;Belize&quot; data-countryiso=&quot;bz&quot;&gt;
+    Belize&lt;/option&gt;
+  &lt;option value=&quot;Benin (Bénin)&quot; data-countryname=&quot;Benin (Bénin)&quot; data-countryiso=&quot;bj&quot;&gt;
+    Benin (Bénin)&lt;/option&gt;
+  &lt;option value=&quot;Bermuda&quot; data-countryname=&quot;Bermuda&quot; data-countryiso=&quot;bm&quot;&gt;
+    Bermuda&lt;/option&gt;
+  &lt;option value=&quot;Bhutan (འབྲུག)&quot; data-countryname=&quot;Bhutan (འབྲུག)&quot; data-countryiso=&quot;bt&quot;&gt;
+    Bhutan (འབྲུག)&lt;/option&gt;
+  &lt;option value=&quot;Bolivia&quot; data-countryname=&quot;Bolivia&quot; data-countryiso=&quot;bo&quot;&gt;
+    Bolivia&lt;/option&gt;
+  &lt;option value=&quot;Bosnia and Herzegovina (Босна и Херцеговина)&quot; data-countryname=&quot;Bosnia and Herzegovina (Босна и Херцеговина)&quot; data-countryiso=&quot;ba&quot;&gt;
+    Bosnia and Herzegovina (Босна и Херцеговина)&lt;/option&gt;
+  &lt;option value=&quot;Botswana&quot; data-countryname=&quot;Botswana&quot; data-countryiso=&quot;bw&quot;&gt;
+    Botswana&lt;/option&gt;
+  &lt;option value=&quot;Brazil (Brasil)&quot; data-countryname=&quot;Brazil (Brasil)&quot; data-countryiso=&quot;br&quot;&gt;
+    Brazil (Brasil)&lt;/option&gt;
+  &lt;option value=&quot;British Indian Ocean Territory&quot; data-countryname=&quot;British Indian Ocean Territory&quot; data-countryiso=&quot;io&quot;&gt;
+    British Indian Ocean Territory&lt;/option&gt;
+  &lt;option value=&quot;British Virgin Islands&quot; data-countryname=&quot;British Virgin Islands&quot; data-countryiso=&quot;vg&quot;&gt;
+    British Virgin Islands&lt;/option&gt;
+  &lt;option value=&quot;Brunei&quot; data-countryname=&quot;Brunei&quot; data-countryiso=&quot;bn&quot;&gt;
+    Brunei&lt;/option&gt;
+  &lt;option value=&quot;Bulgaria (България)&quot; data-countryname=&quot;Bulgaria (България)&quot; data-countryiso=&quot;bg&quot;&gt;
+    Bulgaria (България)&lt;/option&gt;
+  &lt;option value=&quot;Burkina Faso&quot; data-countryname=&quot;Burkina Faso&quot; data-countryiso=&quot;bf&quot;&gt;
+    Burkina Faso&lt;/option&gt;
+  &lt;option value=&quot;Burundi (Uburundi)&quot; data-countryname=&quot;Burundi (Uburundi)&quot; data-countryiso=&quot;bi&quot;&gt;
+    Burundi (Uburundi)&lt;/option&gt;
+  &lt;option value=&quot;Cambodia (កម្ពុជា)&quot; data-countryname=&quot;Cambodia (កម្ពុជា)&quot; data-countryiso=&quot;kh&quot;&gt;
+    Cambodia (កម្ពុជា)&lt;/option&gt;
+  &lt;option value=&quot;Cameroon (Cameroun)&quot; data-countryname=&quot;Cameroon (Cameroun)&quot; data-countryiso=&quot;cm&quot;&gt;
+    Cameroon (Cameroun)&lt;/option&gt;
+  &lt;option value=&quot;Canada&quot; data-countryname=&quot;Canada&quot; data-countryiso=&quot;ca&quot;&gt;
+    Canada&lt;/option&gt;
+  &lt;option value=&quot;Cape Verde (Kabu Verdi)&quot; data-countryname=&quot;Cape Verde (Kabu Verdi)&quot; data-countryiso=&quot;cv&quot;&gt;
+    Cape Verde (Kabu Verdi)&lt;/option&gt;
+  &lt;option value=&quot;Caribbean Netherlands&quot; data-countryname=&quot;Caribbean Netherlands&quot; data-countryiso=&quot;bq&quot;&gt;
+    Caribbean Netherlands&lt;/option&gt;
+  &lt;option value=&quot;Cayman Islands&quot; data-countryname=&quot;Cayman Islands&quot; data-countryiso=&quot;ky&quot;&gt;
+    Cayman Islands&lt;/option&gt;
+  &lt;option value=&quot;Central African Republic (République Centrafricaine)&quot; data-countryname=&quot;Central African Republic (République Centrafricaine)&quot; data-countryiso=&quot;cf&quot;&gt;
+    Central African Republic (République Centrafricaine)&lt;/option&gt;
+  &lt;option value=&quot;Chad (Tchad)&quot; data-countryname=&quot;Chad (Tchad)&quot; data-countryiso=&quot;td&quot;&gt;
+    Chad (Tchad)&lt;/option&gt;
+  &lt;option value=&quot;Chile&quot; data-countryname=&quot;Chile&quot; data-countryiso=&quot;cl&quot;&gt;
+    Chile&lt;/option&gt;
+  &lt;option value=&quot;China (中国)&quot; data-countryname=&quot;China (中国)&quot; data-countryiso=&quot;cn&quot;&gt;
+    China (中国)&lt;/option&gt;
+  &lt;option value=&quot;Christmas Island&quot; data-countryname=&quot;Christmas Island&quot; data-countryiso=&quot;cx&quot;&gt;
+    Christmas Island&lt;/option&gt;
+  &lt;option value=&quot;Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))&quot; data-countryname=&quot;Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))&quot; data-countryiso=&quot;cc&quot;&gt;
+    Cocos (Keeling) Islands (Kepulauan Cocos (Keeling))&lt;/option&gt;
+  &lt;option value=&quot;Colombia&quot; data-countryname=&quot;Colombia&quot; data-countryiso=&quot;co&quot;&gt;
+    Colombia&lt;/option&gt;
+  &lt;option value=&quot;Comoros (‫جزر القمر‬‎)&quot; data-countryname=&quot;Comoros (‫جزر القمر‬‎)&quot; data-countryiso=&quot;km&quot;&gt;
+    Comoros (‫جزر القمر‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)&quot; data-countryname=&quot;Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)&quot; data-countryiso=&quot;cd&quot;&gt;
+    Congo (DRC) (Jamhuri ya Kidemokrasia ya Kongo)&lt;/option&gt;
+  &lt;option value=&quot;Congo (Republic) (Congo-Brazzaville)&quot; data-countryname=&quot;Congo (Republic) (Congo-Brazzaville)&quot; data-countryiso=&quot;cg&quot;&gt;
+    Congo (Republic) (Congo-Brazzaville)&lt;/option&gt;
+  &lt;option value=&quot;Cook Islands&quot; data-countryname=&quot;Cook Islands&quot; data-countryiso=&quot;ck&quot;&gt;
+    Cook Islands&lt;/option&gt;
+  &lt;option value=&quot;Costa Rica&quot; data-countryname=&quot;Costa Rica&quot; data-countryiso=&quot;cr&quot;&gt;
+    Costa Rica&lt;/option&gt;
+  &lt;option value=&quot;Côte d’Ivoire&quot; data-countryname=&quot;Côte d’Ivoire&quot; data-countryiso=&quot;ci&quot;&gt;
+    Côte d’Ivoire&lt;/option&gt;
+  &lt;option value=&quot;Croatia (Hrvatska)&quot; data-countryname=&quot;Croatia (Hrvatska)&quot; data-countryiso=&quot;hr&quot;&gt;
+    Croatia (Hrvatska)&lt;/option&gt;
+  &lt;option value=&quot;Cuba&quot; data-countryname=&quot;Cuba&quot; data-countryiso=&quot;cu&quot;&gt;
+    Cuba&lt;/option&gt;
+  &lt;option value=&quot;Curaçao&quot; data-countryname=&quot;Curaçao&quot; data-countryiso=&quot;cw&quot;&gt;
+    Curaçao&lt;/option&gt;
+  &lt;option value=&quot;Cyprus (Κύπρος)&quot; data-countryname=&quot;Cyprus (Κύπρος)&quot; data-countryiso=&quot;cy&quot;&gt;
+    Cyprus (Κύπρος)&lt;/option&gt;
+  &lt;option value=&quot;Czech Republic (Česká republika)&quot; data-countryname=&quot;Czech Republic (Česká republika)&quot; data-countryiso=&quot;cz&quot;&gt;
+    Czech Republic (Česká republika)&lt;/option&gt;
+  &lt;option value=&quot;Denmark (Danmark)&quot; data-countryname=&quot;Denmark (Danmark)&quot; data-countryiso=&quot;dk&quot;&gt;
+    Denmark (Danmark)&lt;/option&gt;
+  &lt;option value=&quot;Djibouti&quot; data-countryname=&quot;Djibouti&quot; data-countryiso=&quot;dj&quot;&gt;
+    Djibouti&lt;/option&gt;
+  &lt;option value=&quot;Dominica&quot; data-countryname=&quot;Dominica&quot; data-countryiso=&quot;dm&quot;&gt;
+    Dominica&lt;/option&gt;
+  &lt;option value=&quot;Dominican Republic (República Dominicana)&quot; data-countryname=&quot;Dominican Republic (República Dominicana)&quot; data-countryiso=&quot;do&quot;&gt;
+    Dominican Republic (República Dominicana)&lt;/option&gt;
+  &lt;option value=&quot;Ecuador&quot; data-countryname=&quot;Ecuador&quot; data-countryiso=&quot;ec&quot;&gt;
+    Ecuador&lt;/option&gt;
+  &lt;option value=&quot;Egypt (‫مصر‬‎)&quot; data-countryname=&quot;Egypt (‫مصر‬‎)&quot; data-countryiso=&quot;eg&quot;&gt;
+    Egypt (‫مصر‬‎)&lt;/option&gt;
+  &lt;option value=&quot;El Salvador&quot; data-countryname=&quot;El Salvador&quot; data-countryiso=&quot;sv&quot;&gt;
+    El Salvador&lt;/option&gt;
+  &lt;option value=&quot;Equatorial Guinea (Guinea Ecuatorial)&quot; data-countryname=&quot;Equatorial Guinea (Guinea Ecuatorial)&quot; data-countryiso=&quot;gq&quot;&gt;
+    Equatorial Guinea (Guinea Ecuatorial)&lt;/option&gt;
+  &lt;option value=&quot;Eritrea&quot; data-countryname=&quot;Eritrea&quot; data-countryiso=&quot;er&quot;&gt;
+    Eritrea&lt;/option&gt;
+  &lt;option value=&quot;Estonia (Eesti)&quot; data-countryname=&quot;Estonia (Eesti)&quot; data-countryiso=&quot;ee&quot;&gt;
+    Estonia (Eesti)&lt;/option&gt;
+  &lt;option value=&quot;Ethiopia&quot; data-countryname=&quot;Ethiopia&quot; data-countryiso=&quot;et&quot;&gt;
+    Ethiopia&lt;/option&gt;
+  &lt;option value=&quot;Falkland Islands (Islas Malvinas)&quot; data-countryname=&quot;Falkland Islands (Islas Malvinas)&quot; data-countryiso=&quot;fk&quot;&gt;
+    Falkland Islands (Islas Malvinas)&lt;/option&gt;
+  &lt;option value=&quot;Faroe Islands (Føroyar)&quot; data-countryname=&quot;Faroe Islands (Føroyar)&quot; data-countryiso=&quot;fo&quot;&gt;
+    Faroe Islands (Føroyar)&lt;/option&gt;
+  &lt;option value=&quot;Fiji&quot; data-countryname=&quot;Fiji&quot; data-countryiso=&quot;fj&quot;&gt;
+    Fiji&lt;/option&gt;
+  &lt;option value=&quot;Finland (Suomi)&quot; data-countryname=&quot;Finland (Suomi)&quot; data-countryiso=&quot;fi&quot;&gt;
+    Finland (Suomi)&lt;/option&gt;
+  &lt;option value=&quot;France&quot; data-countryname=&quot;France&quot; data-countryiso=&quot;fr&quot;&gt;
+    France&lt;/option&gt;
+  &lt;option value=&quot;French Guiana (Guyane française)&quot; data-countryname=&quot;French Guiana (Guyane française)&quot; data-countryiso=&quot;gf&quot;&gt;
+    French Guiana (Guyane française)&lt;/option&gt;
+  &lt;option value=&quot;French Polynesia (Polynésie française)&quot; data-countryname=&quot;French Polynesia (Polynésie française)&quot; data-countryiso=&quot;pf&quot;&gt;
+    French Polynesia (Polynésie française)&lt;/option&gt;
+  &lt;option value=&quot;Gabon&quot; data-countryname=&quot;Gabon&quot; data-countryiso=&quot;ga&quot;&gt;
+    Gabon&lt;/option&gt;
+  &lt;option value=&quot;Gambia&quot; data-countryname=&quot;Gambia&quot; data-countryiso=&quot;gm&quot;&gt;
+    Gambia&lt;/option&gt;
+  &lt;option value=&quot;Georgia (საქართველო)&quot; data-countryname=&quot;Georgia (საქართველო)&quot; data-countryiso=&quot;ge&quot;&gt;
+    Georgia (საქართველო)&lt;/option&gt;
+  &lt;option value=&quot;Germany (Deutschland)&quot; data-countryname=&quot;Germany (Deutschland)&quot; data-countryiso=&quot;de&quot;&gt;
+    Germany (Deutschland)&lt;/option&gt;
+  &lt;option value=&quot;Ghana (Gaana)&quot; data-countryname=&quot;Ghana (Gaana)&quot; data-countryiso=&quot;gh&quot;&gt;
+    Ghana (Gaana)&lt;/option&gt;
+  &lt;option value=&quot;Gibraltar&quot; data-countryname=&quot;Gibraltar&quot; data-countryiso=&quot;gi&quot;&gt;
+    Gibraltar&lt;/option&gt;
+  &lt;option value=&quot;Greece (Ελλάδα)&quot; data-countryname=&quot;Greece (Ελλάδα)&quot; data-countryiso=&quot;gr&quot;&gt;
+    Greece (Ελλάδα)&lt;/option&gt;
+  &lt;option value=&quot;Greenland (Kalaallit Nunaat)&quot; data-countryname=&quot;Greenland (Kalaallit Nunaat)&quot; data-countryiso=&quot;gl&quot;&gt;
+    Greenland (Kalaallit Nunaat)&lt;/option&gt;
+  &lt;option value=&quot;Grenada&quot; data-countryname=&quot;Grenada&quot; data-countryiso=&quot;gd&quot;&gt;
+    Grenada&lt;/option&gt;
+  &lt;option value=&quot;Guadeloupe&quot; data-countryname=&quot;Guadeloupe&quot; data-countryiso=&quot;gp&quot;&gt;
+    Guadeloupe&lt;/option&gt;
+  &lt;option value=&quot;Guam&quot; data-countryname=&quot;Guam&quot; data-countryiso=&quot;gu&quot;&gt;
+    Guam&lt;/option&gt;
+  &lt;option value=&quot;Guatemala&quot; data-countryname=&quot;Guatemala&quot; data-countryiso=&quot;gt&quot;&gt;
+    Guatemala&lt;/option&gt;
+  &lt;option value=&quot;Guernsey&quot; data-countryname=&quot;Guernsey&quot; data-countryiso=&quot;gg&quot;&gt;
+    Guernsey&lt;/option&gt;
+  &lt;option value=&quot;Guinea (Guinée)&quot; data-countryname=&quot;Guinea (Guinée)&quot; data-countryiso=&quot;gn&quot;&gt;
+    Guinea (Guinée)&lt;/option&gt;
+  &lt;option value=&quot;Guinea-Bissau (Guiné Bissau)&quot; data-countryname=&quot;Guinea-Bissau (Guiné Bissau)&quot; data-countryiso=&quot;gw&quot;&gt;
+    Guinea-Bissau (Guiné Bissau)&lt;/option&gt;
+  &lt;option value=&quot;Guyana&quot; data-countryname=&quot;Guyana&quot; data-countryiso=&quot;gy&quot;&gt;
+    Guyana&lt;/option&gt;
+  &lt;option value=&quot;Haiti&quot; data-countryname=&quot;Haiti&quot; data-countryiso=&quot;ht&quot;&gt;
+    Haiti&lt;/option&gt;
+  &lt;option value=&quot;Honduras&quot; data-countryname=&quot;Honduras&quot; data-countryiso=&quot;hn&quot;&gt;
+    Honduras&lt;/option&gt;
+  &lt;option value=&quot;Hong Kong (香港)&quot; data-countryname=&quot;Hong Kong (香港)&quot; data-countryiso=&quot;hk&quot;&gt;
+    Hong Kong (香港)&lt;/option&gt;
+  &lt;option value=&quot;Hungary (Magyarország)&quot; data-countryname=&quot;Hungary (Magyarország)&quot; data-countryiso=&quot;hu&quot;&gt;
+    Hungary (Magyarország)&lt;/option&gt;
+  &lt;option value=&quot;Iceland (Ísland)&quot; data-countryname=&quot;Iceland (Ísland)&quot; data-countryiso=&quot;is&quot;&gt;
+    Iceland (Ísland)&lt;/option&gt;
+  &lt;option value=&quot;India (भारत)&quot; data-countryname=&quot;India (भारत)&quot; data-countryiso=&quot;in&quot;&gt;
+    India (भारत)&lt;/option&gt;
+  &lt;option value=&quot;Indonesia&quot; data-countryname=&quot;Indonesia&quot; data-countryiso=&quot;id&quot;&gt;
+    Indonesia&lt;/option&gt;
+  &lt;option value=&quot;Iran (‫ایران‬‎)&quot; data-countryname=&quot;Iran (‫ایران‬‎)&quot; data-countryiso=&quot;ir&quot;&gt;
+    Iran (‫ایران‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Iraq (‫العراق‬‎)&quot; data-countryname=&quot;Iraq (‫العراق‬‎)&quot; data-countryiso=&quot;iq&quot;&gt;
+    Iraq (‫العراق‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Ireland&quot; data-countryname=&quot;Ireland&quot; data-countryiso=&quot;ie&quot;&gt;
+    Ireland&lt;/option&gt;
+  &lt;option value=&quot;Isle of Man&quot; data-countryname=&quot;Isle of Man&quot; data-countryiso=&quot;im&quot;&gt;
+    Isle of Man&lt;/option&gt;
+  &lt;option value=&quot;Israel (‫ישראל‬‎)&quot; data-countryname=&quot;Israel (‫ישראל‬‎)&quot; data-countryiso=&quot;il&quot;&gt;
+    Israel (‫ישראל‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Italy (Italia)&quot; data-countryname=&quot;Italy (Italia)&quot; data-countryiso=&quot;it&quot;&gt;
+    Italy (Italia)&lt;/option&gt;
+  &lt;option value=&quot;Jamaica&quot; data-countryname=&quot;Jamaica&quot; data-countryiso=&quot;jm&quot;&gt;
+    Jamaica&lt;/option&gt;
+  &lt;option value=&quot;Japan (日本)&quot; data-countryname=&quot;Japan (日本)&quot; data-countryiso=&quot;jp&quot;&gt;
+    Japan (日本)&lt;/option&gt;
+  &lt;option value=&quot;Jersey&quot; data-countryname=&quot;Jersey&quot; data-countryiso=&quot;je&quot;&gt;
+    Jersey&lt;/option&gt;
+  &lt;option value=&quot;Jordan (‫الأردن‬‎)&quot; data-countryname=&quot;Jordan (‫الأردن‬‎)&quot; data-countryiso=&quot;jo&quot;&gt;
+    Jordan (‫الأردن‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Kazakhstan (Казахстан)&quot; data-countryname=&quot;Kazakhstan (Казахстан)&quot; data-countryiso=&quot;kz&quot;&gt;
+    Kazakhstan (Казахстан)&lt;/option&gt;
+  &lt;option value=&quot;Kenya&quot; data-countryname=&quot;Kenya&quot; data-countryiso=&quot;ke&quot;&gt;
+    Kenya&lt;/option&gt;
+  &lt;option value=&quot;Kiribati&quot; data-countryname=&quot;Kiribati&quot; data-countryiso=&quot;ki&quot;&gt;
+    Kiribati&lt;/option&gt;
+  &lt;option value=&quot;Kosovo (Kosovë)&quot; data-countryname=&quot;Kosovo (Kosovë)&quot; data-countryiso=&quot;xk&quot;&gt;
+    Kosovo (Kosovë)&lt;/option&gt;
+  &lt;option value=&quot;Kuwait (‫الكويت‬‎)&quot; data-countryname=&quot;Kuwait (‫الكويت‬‎)&quot; data-countryiso=&quot;kw&quot;&gt;
+    Kuwait (‫الكويت‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Kyrgyzstan (Кыргызстан)&quot; data-countryname=&quot;Kyrgyzstan (Кыргызстан)&quot; data-countryiso=&quot;kg&quot;&gt;
+    Kyrgyzstan (Кыргызстан)&lt;/option&gt;
+  &lt;option value=&quot;Laos (ລາວ)&quot; data-countryname=&quot;Laos (ລາວ)&quot; data-countryiso=&quot;la&quot;&gt;
+    Laos (ລາວ)&lt;/option&gt;
+  &lt;option value=&quot;Latvia (Latvija)&quot; data-countryname=&quot;Latvia (Latvija)&quot; data-countryiso=&quot;lv&quot;&gt;
+    Latvia (Latvija)&lt;/option&gt;
+  &lt;option value=&quot;Lebanon (‫لبنان‬‎)&quot; data-countryname=&quot;Lebanon (‫لبنان‬‎)&quot; data-countryiso=&quot;lb&quot;&gt;
+    Lebanon (‫لبنان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Lesotho&quot; data-countryname=&quot;Lesotho&quot; data-countryiso=&quot;ls&quot;&gt;
+    Lesotho&lt;/option&gt;
+  &lt;option value=&quot;Liberia&quot; data-countryname=&quot;Liberia&quot; data-countryiso=&quot;lr&quot;&gt;
+    Liberia&lt;/option&gt;
+  &lt;option value=&quot;Libya (‫ليبيا‬‎)&quot; data-countryname=&quot;Libya (‫ليبيا‬‎)&quot; data-countryiso=&quot;ly&quot;&gt;
+    Libya (‫ليبيا‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Liechtenstein&quot; data-countryname=&quot;Liechtenstein&quot; data-countryiso=&quot;li&quot;&gt;
+    Liechtenstein&lt;/option&gt;
+  &lt;option value=&quot;Lithuania (Lietuva)&quot; data-countryname=&quot;Lithuania (Lietuva)&quot; data-countryiso=&quot;lt&quot;&gt;
+    Lithuania (Lietuva)&lt;/option&gt;
+  &lt;option value=&quot;Luxembourg&quot; data-countryname=&quot;Luxembourg&quot; data-countryiso=&quot;lu&quot;&gt;
+    Luxembourg&lt;/option&gt;
+  &lt;option value=&quot;Macau (澳門)&quot; data-countryname=&quot;Macau (澳門)&quot; data-countryiso=&quot;mo&quot;&gt;
+    Macau (澳門)&lt;/option&gt;
+  &lt;option value=&quot;Macedonia (FYROM) (Македонија)&quot; data-countryname=&quot;Macedonia (FYROM) (Македонија)&quot; data-countryiso=&quot;mk&quot;&gt;
+    Macedonia (FYROM) (Македонија)&lt;/option&gt;
+  &lt;option value=&quot;Madagascar (Madagasikara)&quot; data-countryname=&quot;Madagascar (Madagasikara)&quot; data-countryiso=&quot;mg&quot;&gt;
+    Madagascar (Madagasikara)&lt;/option&gt;
+  &lt;option value=&quot;Malawi&quot; data-countryname=&quot;Malawi&quot; data-countryiso=&quot;mw&quot;&gt;
+    Malawi&lt;/option&gt;
+  &lt;option value=&quot;Malaysia&quot; data-countryname=&quot;Malaysia&quot; data-countryiso=&quot;my&quot;&gt;
+    Malaysia&lt;/option&gt;
+  &lt;option value=&quot;Maldives&quot; data-countryname=&quot;Maldives&quot; data-countryiso=&quot;mv&quot;&gt;
+    Maldives&lt;/option&gt;
+  &lt;option value=&quot;Mali&quot; data-countryname=&quot;Mali&quot; data-countryiso=&quot;ml&quot;&gt;
+    Mali&lt;/option&gt;
+  &lt;option value=&quot;Malta&quot; data-countryname=&quot;Malta&quot; data-countryiso=&quot;mt&quot;&gt;
+    Malta&lt;/option&gt;
+  &lt;option value=&quot;Marshall Islands&quot; data-countryname=&quot;Marshall Islands&quot; data-countryiso=&quot;mh&quot;&gt;
+    Marshall Islands&lt;/option&gt;
+  &lt;option value=&quot;Martinique&quot; data-countryname=&quot;Martinique&quot; data-countryiso=&quot;mq&quot;&gt;
+    Martinique&lt;/option&gt;
+  &lt;option value=&quot;Mauritania (‫موريتانيا‬‎)&quot; data-countryname=&quot;Mauritania (‫موريتانيا‬‎)&quot; data-countryiso=&quot;mr&quot;&gt;
+    Mauritania (‫موريتانيا‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Mauritius (Moris)&quot; data-countryname=&quot;Mauritius (Moris)&quot; data-countryiso=&quot;mu&quot;&gt;
+    Mauritius (Moris)&lt;/option&gt;
+  &lt;option value=&quot;Mayotte&quot; data-countryname=&quot;Mayotte&quot; data-countryiso=&quot;yt&quot;&gt;
+    Mayotte&lt;/option&gt;
+  &lt;option value=&quot;Mexico (México)&quot; data-countryname=&quot;Mexico (México)&quot; data-countryiso=&quot;mx&quot;&gt;
+    Mexico (México)&lt;/option&gt;
+  &lt;option value=&quot;Micronesia&quot; data-countryname=&quot;Micronesia&quot; data-countryiso=&quot;fm&quot;&gt;
+    Micronesia&lt;/option&gt;
+  &lt;option value=&quot;Moldova (Republica Moldova)&quot; data-countryname=&quot;Moldova (Republica Moldova)&quot; data-countryiso=&quot;md&quot;&gt;
+    Moldova (Republica Moldova)&lt;/option&gt;
+  &lt;option value=&quot;Monaco&quot; data-countryname=&quot;Monaco&quot; data-countryiso=&quot;mc&quot;&gt;
+    Monaco&lt;/option&gt;
+  &lt;option value=&quot;Mongolia (Монгол)&quot; data-countryname=&quot;Mongolia (Монгол)&quot; data-countryiso=&quot;mn&quot;&gt;
+    Mongolia (Монгол)&lt;/option&gt;
+  &lt;option value=&quot;Montenegro (Crna Gora)&quot; data-countryname=&quot;Montenegro (Crna Gora)&quot; data-countryiso=&quot;me&quot;&gt;
+    Montenegro (Crna Gora)&lt;/option&gt;
+  &lt;option value=&quot;Montserrat&quot; data-countryname=&quot;Montserrat&quot; data-countryiso=&quot;ms&quot;&gt;
+    Montserrat&lt;/option&gt;
+  &lt;option value=&quot;Morocco (‫المغرب‬‎)&quot; data-countryname=&quot;Morocco (‫المغرب‬‎)&quot; data-countryiso=&quot;ma&quot;&gt;
+    Morocco (‫المغرب‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Mozambique (Moçambique)&quot; data-countryname=&quot;Mozambique (Moçambique)&quot; data-countryiso=&quot;mz&quot;&gt;
+    Mozambique (Moçambique)&lt;/option&gt;
+  &lt;option value=&quot;Myanmar (Burma) (မြန်မာ)&quot; data-countryname=&quot;Myanmar (Burma) (မြန်မာ)&quot; data-countryiso=&quot;mm&quot;&gt;
+    Myanmar (Burma) (မြန်မာ)&lt;/option&gt;
+  &lt;option value=&quot;Namibia (Namibië)&quot; data-countryname=&quot;Namibia (Namibië)&quot; data-countryiso=&quot;na&quot;&gt;
+    Namibia (Namibië)&lt;/option&gt;
+  &lt;option value=&quot;Nauru&quot; data-countryname=&quot;Nauru&quot; data-countryiso=&quot;nr&quot;&gt;
+    Nauru&lt;/option&gt;
+  &lt;option value=&quot;Nepal (नेपाल)&quot; data-countryname=&quot;Nepal (नेपाल)&quot; data-countryiso=&quot;np&quot;&gt;
+    Nepal (नेपाल)&lt;/option&gt;
+  &lt;option value=&quot;Netherlands (Nederland)&quot; data-countryname=&quot;Netherlands (Nederland)&quot; data-countryiso=&quot;nl&quot;&gt;
+    Netherlands (Nederland)&lt;/option&gt;
+  &lt;option value=&quot;New Caledonia (Nouvelle-Calédonie)&quot; data-countryname=&quot;New Caledonia (Nouvelle-Calédonie)&quot; data-countryiso=&quot;nc&quot;&gt;
+    New Caledonia (Nouvelle-Calédonie)&lt;/option&gt;
+  &lt;option value=&quot;New Zealand&quot; data-countryname=&quot;New Zealand&quot; data-countryiso=&quot;nz&quot;&gt;
+    New Zealand&lt;/option&gt;
+  &lt;option value=&quot;Nicaragua&quot; data-countryname=&quot;Nicaragua&quot; data-countryiso=&quot;ni&quot;&gt;
+    Nicaragua&lt;/option&gt;
+  &lt;option value=&quot;Niger (Nijar)&quot; data-countryname=&quot;Niger (Nijar)&quot; data-countryiso=&quot;ne&quot;&gt;
+    Niger (Nijar)&lt;/option&gt;
+  &lt;option value=&quot;Nigeria&quot; data-countryname=&quot;Nigeria&quot; data-countryiso=&quot;ng&quot;&gt;
+    Nigeria&lt;/option&gt;
+  &lt;option value=&quot;Niue&quot; data-countryname=&quot;Niue&quot; data-countryiso=&quot;nu&quot;&gt;
+    Niue&lt;/option&gt;
+  &lt;option value=&quot;Norfolk Island&quot; data-countryname=&quot;Norfolk Island&quot; data-countryiso=&quot;nf&quot;&gt;
+    Norfolk Island&lt;/option&gt;
+  &lt;option value=&quot;North Korea (조선 민주주의 인민 공화국)&quot; data-countryname=&quot;North Korea (조선 민주주의 인민 공화국)&quot; data-countryiso=&quot;kp&quot;&gt;
+    North Korea (조선 민주주의 인민 공화국)&lt;/option&gt;
+  &lt;option value=&quot;Northern Mariana Islands&quot; data-countryname=&quot;Northern Mariana Islands&quot; data-countryiso=&quot;mp&quot;&gt;
+    Northern Mariana Islands&lt;/option&gt;
+  &lt;option value=&quot;Norway (Norge)&quot; data-countryname=&quot;Norway (Norge)&quot; data-countryiso=&quot;no&quot;&gt;
+    Norway (Norge)&lt;/option&gt;
+  &lt;option value=&quot;Oman (‫عُمان‬‎)&quot; data-countryname=&quot;Oman (‫عُمان‬‎)&quot; data-countryiso=&quot;om&quot;&gt;
+    Oman (‫عُمان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Pakistan (‫پاکستان‬‎)&quot; data-countryname=&quot;Pakistan (‫پاکستان‬‎)&quot; data-countryiso=&quot;pk&quot;&gt;
+    Pakistan (‫پاکستان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Palau&quot; data-countryname=&quot;Palau&quot; data-countryiso=&quot;pw&quot;&gt;
+    Palau&lt;/option&gt;
+  &lt;option value=&quot;Palestine (‫فلسطين‬‎)&quot; data-countryname=&quot;Palestine (‫فلسطين‬‎)&quot; data-countryiso=&quot;ps&quot;&gt;
+    Palestine (‫فلسطين‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Panama (Panamá)&quot; data-countryname=&quot;Panama (Panamá)&quot; data-countryiso=&quot;pa&quot;&gt;
+    Panama (Panamá)&lt;/option&gt;
+  &lt;option value=&quot;Papua New Guinea&quot; data-countryname=&quot;Papua New Guinea&quot; data-countryiso=&quot;pg&quot;&gt;
+    Papua New Guinea&lt;/option&gt;
+  &lt;option value=&quot;Paraguay&quot; data-countryname=&quot;Paraguay&quot; data-countryiso=&quot;py&quot;&gt;
+    Paraguay&lt;/option&gt;
+  &lt;option value=&quot;Peru (Perú)&quot; data-countryname=&quot;Peru (Perú)&quot; data-countryiso=&quot;pe&quot;&gt;
+    Peru (Perú)&lt;/option&gt;
+  &lt;option value=&quot;Philippines&quot; data-countryname=&quot;Philippines&quot; data-countryiso=&quot;ph&quot;&gt;
+    Philippines&lt;/option&gt;
+  &lt;option value=&quot;Pitcairn Islands&quot; data-countryname=&quot;Pitcairn Islands&quot; data-countryiso=&quot;pn&quot;&gt;
+    Pitcairn Islands&lt;/option&gt;
+  &lt;option value=&quot;Poland (Polska)&quot; data-countryname=&quot;Poland (Polska)&quot; data-countryiso=&quot;pl&quot;&gt;
+    Poland (Polska)&lt;/option&gt;
+  &lt;option value=&quot;Portugal&quot; data-countryname=&quot;Portugal&quot; data-countryiso=&quot;pt&quot;&gt;
+    Portugal&lt;/option&gt;
+  &lt;option value=&quot;Puerto Rico&quot; data-countryname=&quot;Puerto Rico&quot; data-countryiso=&quot;pr&quot;&gt;
+    Puerto Rico&lt;/option&gt;
+  &lt;option value=&quot;Qatar (‫قطر‬‎)&quot; data-countryname=&quot;Qatar (‫قطر‬‎)&quot; data-countryiso=&quot;qa&quot;&gt;
+    Qatar (‫قطر‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Réunion (La Réunion)&quot; data-countryname=&quot;Réunion (La Réunion)&quot; data-countryiso=&quot;re&quot;&gt;
+    Réunion (La Réunion)&lt;/option&gt;
+  &lt;option value=&quot;Romania (România)&quot; data-countryname=&quot;Romania (România)&quot; data-countryiso=&quot;ro&quot;&gt;
+    Romania (România)&lt;/option&gt;
+  &lt;option value=&quot;Russia (Россия)&quot; data-countryname=&quot;Russia (Россия)&quot; data-countryiso=&quot;ru&quot;&gt;
+    Russia (Россия)&lt;/option&gt;
+  &lt;option value=&quot;Rwanda&quot; data-countryname=&quot;Rwanda&quot; data-countryiso=&quot;rw&quot;&gt;
+    Rwanda&lt;/option&gt;
+  &lt;option value=&quot;Saint Barthélemy (Saint-Barthélemy)&quot; data-countryname=&quot;Saint Barthélemy (Saint-Barthélemy)&quot; data-countryiso=&quot;bl&quot;&gt;
+    Saint Barthélemy (Saint-Barthélemy)&lt;/option&gt;
+  &lt;option value=&quot;Saint Helena&quot; data-countryname=&quot;Saint Helena&quot; data-countryiso=&quot;sh&quot;&gt;
+    Saint Helena&lt;/option&gt;
+  &lt;option value=&quot;Saint Kitts and Nevis&quot; data-countryname=&quot;Saint Kitts and Nevis&quot; data-countryiso=&quot;kn&quot;&gt;
+    Saint Kitts and Nevis&lt;/option&gt;
+  &lt;option value=&quot;Saint Lucia&quot; data-countryname=&quot;Saint Lucia&quot; data-countryiso=&quot;lc&quot;&gt;
+    Saint Lucia&lt;/option&gt;
+  &lt;option value=&quot;Saint Martin (Saint-Martin (partie française))&quot; data-countryname=&quot;Saint Martin (Saint-Martin (partie française))&quot; data-countryiso=&quot;mf&quot;&gt;
+    Saint Martin (Saint-Martin (partie française))&lt;/option&gt;
+  &lt;option value=&quot;Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)&quot; data-countryname=&quot;Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)&quot; data-countryiso=&quot;pm&quot;&gt;
+    Saint Pierre and Miquelon (Saint-Pierre-et-Miquelon)&lt;/option&gt;
+  &lt;option value=&quot;Saint Vincent and the Grenadines&quot; data-countryname=&quot;Saint Vincent and the Grenadines&quot; data-countryiso=&quot;vc&quot;&gt;
+    Saint Vincent and the Grenadines&lt;/option&gt;
+  &lt;option value=&quot;Samoa&quot; data-countryname=&quot;Samoa&quot; data-countryiso=&quot;ws&quot;&gt;
+    Samoa&lt;/option&gt;
+  &lt;option value=&quot;San Marino&quot; data-countryname=&quot;San Marino&quot; data-countryiso=&quot;sm&quot;&gt;
+    San Marino&lt;/option&gt;
+  &lt;option value=&quot;São Tomé and Príncipe (São Tomé e Príncipe)&quot; data-countryname=&quot;São Tomé and Príncipe (São Tomé e Príncipe)&quot; data-countryiso=&quot;st&quot;&gt;
+    São Tomé and Príncipe (São Tomé e Príncipe)&lt;/option&gt;
+  &lt;option value=&quot;Saudi Arabia (‫المملكة العربية السعودية‬‎)&quot; data-countryname=&quot;Saudi Arabia (‫المملكة العربية السعودية‬‎)&quot; data-countryiso=&quot;sa&quot;&gt;
+    Saudi Arabia (‫المملكة العربية السعودية‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Senegal (Sénégal)&quot; data-countryname=&quot;Senegal (Sénégal)&quot; data-countryiso=&quot;sn&quot;&gt;
+    Senegal (Sénégal)&lt;/option&gt;
+  &lt;option value=&quot;Serbia (Србија)&quot; data-countryname=&quot;Serbia (Србија)&quot; data-countryiso=&quot;rs&quot;&gt;
+    Serbia (Србија)&lt;/option&gt;
+  &lt;option value=&quot;Seychelles&quot; data-countryname=&quot;Seychelles&quot; data-countryiso=&quot;sc&quot;&gt;
+    Seychelles&lt;/option&gt;
+  &lt;option value=&quot;Sierra Leone&quot; data-countryname=&quot;Sierra Leone&quot; data-countryiso=&quot;sl&quot;&gt;
+    Sierra Leone&lt;/option&gt;
+  &lt;option value=&quot;Singapore&quot; data-countryname=&quot;Singapore&quot; data-countryiso=&quot;sg&quot;&gt;
+    Singapore&lt;/option&gt;
+  &lt;option value=&quot;Sint Maarten&quot; data-countryname=&quot;Sint Maarten&quot; data-countryiso=&quot;sx&quot;&gt;
+    Sint Maarten&lt;/option&gt;
+  &lt;option value=&quot;Slovakia (Slovensko)&quot; data-countryname=&quot;Slovakia (Slovensko)&quot; data-countryiso=&quot;sk&quot;&gt;
+    Slovakia (Slovensko)&lt;/option&gt;
+  &lt;option value=&quot;Slovenia (Slovenija)&quot; data-countryname=&quot;Slovenia (Slovenija)&quot; data-countryiso=&quot;si&quot;&gt;
+    Slovenia (Slovenija)&lt;/option&gt;
+  &lt;option value=&quot;Solomon Islands&quot; data-countryname=&quot;Solomon Islands&quot; data-countryiso=&quot;sb&quot;&gt;
+    Solomon Islands&lt;/option&gt;
+  &lt;option value=&quot;Somalia (Soomaaliya)&quot; data-countryname=&quot;Somalia (Soomaaliya)&quot; data-countryiso=&quot;so&quot;&gt;
+    Somalia (Soomaaliya)&lt;/option&gt;
+  &lt;option value=&quot;South Africa&quot; data-countryname=&quot;South Africa&quot; data-countryiso=&quot;za&quot;&gt;
+    South Africa&lt;/option&gt;
+  &lt;option value=&quot;South Georgia &amp;amp; South Sandwich Islands&quot; data-countryname=&quot;South Georgia &amp;amp; South Sandwich Islands&quot; data-countryiso=&quot;gs&quot;&gt;
+    South Georgia &amp;amp; South Sandwich Islands&lt;/option&gt;
+  &lt;option value=&quot;South Korea (대한민국)&quot; data-countryname=&quot;South Korea (대한민국)&quot; data-countryiso=&quot;kr&quot;&gt;
+    South Korea (대한민국)&lt;/option&gt;
+  &lt;option value=&quot;South Sudan (‫جنوب السودان‬‎)&quot; data-countryname=&quot;South Sudan (‫جنوب السودان‬‎)&quot; data-countryiso=&quot;ss&quot;&gt;
+    South Sudan (‫جنوب السودان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Spain (España)&quot; data-countryname=&quot;Spain (España)&quot; data-countryiso=&quot;es&quot;&gt;
+    Spain (España)&lt;/option&gt;
+  &lt;option value=&quot;Sri Lanka (ශ්‍රී ලංකාව)&quot; data-countryname=&quot;Sri Lanka (ශ්‍රී ලංකාව)&quot; data-countryiso=&quot;lk&quot;&gt;
+    Sri Lanka (ශ්‍රී ලංකාව)&lt;/option&gt;
+  &lt;option value=&quot;Sudan (‫السودان‬‎)&quot; data-countryname=&quot;Sudan (‫السودان‬‎)&quot; data-countryiso=&quot;sd&quot;&gt;
+    Sudan (‫السودان‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Suriname&quot; data-countryname=&quot;Suriname&quot; data-countryiso=&quot;sr&quot;&gt;
+    Suriname&lt;/option&gt;
+  &lt;option value=&quot;Svalbard and Jan Mayen (Svalbard og Jan Mayen)&quot; data-countryname=&quot;Svalbard and Jan Mayen (Svalbard og Jan Mayen)&quot; data-countryiso=&quot;sj&quot;&gt;
+    Svalbard and Jan Mayen (Svalbard og Jan Mayen)&lt;/option&gt;
+  &lt;option value=&quot;Swaziland (Kingdom of eSwatini)&quot; data-countryname=&quot;Swaziland (Kingdom of eSwatini)&quot; data-countryiso=&quot;sz&quot;&gt;
+    Swaziland (Kingdom of eSwatini)&lt;/option&gt;
+  &lt;option value=&quot;Sweden (Sverige)&quot; data-countryname=&quot;Sweden (Sverige)&quot; data-countryiso=&quot;se&quot;&gt;
+    Sweden (Sverige)&lt;/option&gt;
+  &lt;option value=&quot;Switzerland (Schweiz/Suisse/Svizzera)&quot; data-countryname=&quot;Switzerland (Schweiz/Suisse/Svizzera)&quot; data-countryiso=&quot;ch&quot;&gt;
+    Switzerland (Schweiz/Suisse/Svizzera)&lt;/option&gt;
+  &lt;option value=&quot;Syria (‫سوريا‬‎)&quot; data-countryname=&quot;Syria (‫سوريا‬‎)&quot; data-countryiso=&quot;sy&quot;&gt;
+    Syria (‫سوريا‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Taiwan (台灣)&quot; data-countryname=&quot;Taiwan (台灣)&quot; data-countryiso=&quot;tw&quot;&gt;
+    Taiwan (台灣)&lt;/option&gt;
+  &lt;option value=&quot;Tajikistan&quot; data-countryname=&quot;Tajikistan&quot; data-countryiso=&quot;tj&quot;&gt;
+    Tajikistan&lt;/option&gt;
+  &lt;option value=&quot;Tanzania&quot; data-countryname=&quot;Tanzania&quot; data-countryiso=&quot;tz&quot;&gt;
+    Tanzania&lt;/option&gt;
+  &lt;option value=&quot;Thailand (ไทย)&quot; data-countryname=&quot;Thailand (ไทย)&quot; data-countryiso=&quot;th&quot;&gt;
+    Thailand (ไทย)&lt;/option&gt;
+  &lt;option value=&quot;Timor-Leste&quot; data-countryname=&quot;Timor-Leste&quot; data-countryiso=&quot;tl&quot;&gt;
+    Timor-Leste&lt;/option&gt;
+  &lt;option value=&quot;Togo&quot; data-countryname=&quot;Togo&quot; data-countryiso=&quot;tg&quot;&gt;
+    Togo&lt;/option&gt;
+  &lt;option value=&quot;Tokelau&quot; data-countryname=&quot;Tokelau&quot; data-countryiso=&quot;tk&quot;&gt;
+    Tokelau&lt;/option&gt;
+  &lt;option value=&quot;Tonga&quot; data-countryname=&quot;Tonga&quot; data-countryiso=&quot;to&quot;&gt;
+    Tonga&lt;/option&gt;
+  &lt;option value=&quot;Trinidad and Tobago&quot; data-countryname=&quot;Trinidad and Tobago&quot; data-countryiso=&quot;tt&quot;&gt;
+    Trinidad and Tobago&lt;/option&gt;
+  &lt;option value=&quot;Tunisia (‫تونس‬‎)&quot; data-countryname=&quot;Tunisia (‫تونس‬‎)&quot; data-countryiso=&quot;tn&quot;&gt;
+    Tunisia (‫تونس‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Turkey (Türkiye)&quot; data-countryname=&quot;Turkey (Türkiye)&quot; data-countryiso=&quot;tr&quot;&gt;
+    Turkey (Türkiye)&lt;/option&gt;
+  &lt;option value=&quot;Turkmenistan&quot; data-countryname=&quot;Turkmenistan&quot; data-countryiso=&quot;tm&quot;&gt;
+    Turkmenistan&lt;/option&gt;
+  &lt;option value=&quot;Turks and Caicos Islands&quot; data-countryname=&quot;Turks and Caicos Islands&quot; data-countryiso=&quot;tc&quot;&gt;
+    Turks and Caicos Islands&lt;/option&gt;
+  &lt;option value=&quot;Tuvalu&quot; data-countryname=&quot;Tuvalu&quot; data-countryiso=&quot;tv&quot;&gt;
+    Tuvalu&lt;/option&gt;
+  &lt;option value=&quot;Uganda&quot; data-countryname=&quot;Uganda&quot; data-countryiso=&quot;ug&quot;&gt;
+    Uganda&lt;/option&gt;
+  &lt;option value=&quot;Ukraine (Україна)&quot; data-countryname=&quot;Ukraine (Україна)&quot; data-countryiso=&quot;ua&quot;&gt;
+    Ukraine (Україна)&lt;/option&gt;
+  &lt;option value=&quot;United Arab Emirates (‫الإمارات العربية المتحدة‬‎)&quot; data-countryname=&quot;United Arab Emirates (‫الإمارات العربية المتحدة‬‎)&quot; data-countryiso=&quot;ae&quot;&gt;
+    United Arab Emirates (‫الإمارات العربية المتحدة‬‎)&lt;/option&gt;
+  &lt;option value=&quot;United Kingdom&quot; data-countryname=&quot;United Kingdom&quot; data-countryiso=&quot;gb&quot;&gt;
+    United Kingdom&lt;/option&gt;
+  &lt;option value=&quot;United States&quot; data-countryname=&quot;United States&quot; data-countryiso=&quot;us&quot;&gt;
+    United States&lt;/option&gt;
+  &lt;option value=&quot;U.S. Minor Outlying Islands&quot; data-countryname=&quot;U.S. Minor Outlying Islands&quot; data-countryiso=&quot;um&quot;&gt;
+    U.S. Minor Outlying Islands&lt;/option&gt;
+  &lt;option value=&quot;U.S. Virgin Islands&quot; data-countryname=&quot;U.S. Virgin Islands&quot; data-countryiso=&quot;vi&quot;&gt;
+    U.S. Virgin Islands&lt;/option&gt;
+  &lt;option value=&quot;Uruguay&quot; data-countryname=&quot;Uruguay&quot; data-countryiso=&quot;uy&quot;&gt;
+    Uruguay&lt;/option&gt;
+  &lt;option value=&quot;Uzbekistan (Oʻzbekiston)&quot; data-countryname=&quot;Uzbekistan (Oʻzbekiston)&quot; data-countryiso=&quot;uz&quot;&gt;
+    Uzbekistan (Oʻzbekiston)&lt;/option&gt;
+  &lt;option value=&quot;Vanuatu&quot; data-countryname=&quot;Vanuatu&quot; data-countryiso=&quot;vu&quot;&gt;
+    Vanuatu&lt;/option&gt;
+  &lt;option value=&quot;Vatican City (Città del Vaticano)&quot; data-countryname=&quot;Vatican City (Città del Vaticano)&quot; data-countryiso=&quot;va&quot;&gt;
+    Vatican City (Città del Vaticano)&lt;/option&gt;
+  &lt;option value=&quot;Venezuela&quot; data-countryname=&quot;Venezuela&quot; data-countryiso=&quot;ve&quot;&gt;
+    Venezuela&lt;/option&gt;
+  &lt;option value=&quot;Vietnam (Việt Nam)&quot; data-countryname=&quot;Vietnam (Việt Nam)&quot; data-countryiso=&quot;vn&quot;&gt;
+    Vietnam (Việt Nam)&lt;/option&gt;
+  &lt;option value=&quot;Wallis and Futuna&quot; data-countryname=&quot;Wallis and Futuna&quot; data-countryiso=&quot;wf&quot;&gt;
+    Wallis and Futuna&lt;/option&gt;
+  &lt;option value=&quot;Western Sahara (‫الصحراء الغربية‬‎)&quot; data-countryname=&quot;Western Sahara (‫الصحراء الغربية‬‎)&quot; data-countryiso=&quot;eh&quot;&gt;
+    Western Sahara (‫الصحراء الغربية‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Yemen (‫اليمن‬‎)&quot; data-countryname=&quot;Yemen (‫اليمن‬‎)&quot; data-countryiso=&quot;ye&quot;&gt;
+    Yemen (‫اليمن‬‎)&lt;/option&gt;
+  &lt;option value=&quot;Zambia&quot; data-countryname=&quot;Zambia&quot; data-countryiso=&quot;zm&quot;&gt;
+    Zambia&lt;/option&gt;
+  &lt;option value=&quot;Zimbabwe&quot; data-countryname=&quot;Zimbabwe&quot; data-countryiso=&quot;zw&quot;&gt;
+    Zimbabwe&lt;/option&gt;
+
+</code></pre>
+<p>以上是实现Select选项一种方法，我这里提供一个<code>国家缩写 : 国家</code>名称组合</p>
+<pre><code>AA : America
+AD : Andorra
+AE : United Arab Emirates
+AF : Afghanistan
+AG : Antigua and Barbuda
+AL : Albania
+AM : Armenia
+AO : Angola
+AR : Argentina
+AT : Austria
+AU : Australia
+AW : Aruba
+AZ : Azerbaijan
+BA : Bosnia and Herzegovina
+BB : Barbados
+BD : Bangladesh
+BE : Belgium
+BF : Burkina Faso
+BG : Bulgaria
+BH : Bahrain
+BI : Burundi
+BJ : Benin
+BM : Bermuda
+BN : Brunei
+BO : Bolivia
+BR : Brazil
+BS : Bahamas
+BT : Bhutan
+BW : Botswana
+BY : Belarus
+BZ : Belize
+CA : Canada
+CD : Democratic Republic of the Congo
+CF : Central African Republic
+CG : Democratic Republic of the Congo
+CH : Switzerland
+CL : Chile
+CM : Cameroon
+CN : China
+CO : Colombia
+CR : Costa Rica
+CU : Cuba
+CV : Cape Verde
+CY : Cyprus
+CZ : Czech Republic
+DE : Germany
+DJ : Djibouti
+DK : Denmark
+DM : Dominica
+DO : Dominican Republic
+DZ : Algeria
+EC : Ecuador
+EE : Estonia
+EG : Egypt
+ER : Eritrea
+ES : Spain
+ET : Ethiopia
+FI : Finland
+FJ : Fiji
+FK : Falkland Islands
+FM : Micronesia
+FO : Faroe Islands
+FR : France
+GA : Gabon
+GB : United Kingdom
+GD : Grenada
+GE : Georgia
+GH : Ghana
+GI : Gibraltar
+GM : Gambia
+GN : Guinea
+GQ : Equatorial Guinea
+GR : Greece
+GT : Guatemala
+GW : Guinea-Bissau
+GY : Guyana
+HK : Hong Kong
+HN : Honduras
+HR : Croatia
+HT : Haiti
+HU : Hungary
+ID : Indonesia
+IE : Ireland
+IL : Israel
+IN : India
+IQ : Iraq
+IR : Iran
+IS : Iceland
+IT : Italy
+JM : Jamaica
+JO : Jordan
+JP : Japan
+KE : Kenya
+KG : Kyrgyzstan
+KH : Cambodia
+KI : Kiribati
+KM : Comoros
+KN : Saint Kitts and Nevis
+KP : North Korea
+KR : South Korea
+KW : Kuwait
+KY : Cayman Islands
+KZ : Kazakhstan
+LA : Laos
+LB : Lebanon
+LC : Saint Lucia
+LI : Liechtenstein
+LK : Sri Lanka
+LR : Liberia
+LS : Lesotho
+LT : Lithuania
+LU : Luxembourg
+LV : Latvia
+LY : Libya
+MA : Morocco
+MC : Monaco
+MD : Moldova
+ME : Montenegro
+MG : Madagascar
+MK : Macedonia
+ML : Mali
+MM : Myanmar
+MN : Mongolia
+MO : Macao
+MR : Mauritania
+MT : Malta
+MU : Mauritius
+MV : Maldives
+MW : Malawi
+MX : Mexico
+MY : Malaysia
+MZ : Mozambique
+NA : Namibia
+NE : Niger
+NG : Nigeria
+NI : Nicaragua
+NL : Netherlands
+NO : Norway
+NP : Nepal
+NR : Nauru
+NZ : New Zealand
+OM : Oman
+PA : Panama
+PE : Peru
+PG : Papua New Guinea
+PH : Philippines
+PK : Pakistan
+PL : Poland
+PR : Puerto Rico
+PS : Palestine
+PT : Portugal
+PW : Palau
+PY : Paraguay
+QA : Qatar
+RO : Romania
+RS : Serbia
+RU : Russia
+RW : Rwanda
+SA : Saudi Arabia
+SB : Solomon Islands
+SC : Seychelles
+SD : Sudan
+SE : Sweden
+SG : Singapore
+SI : Slovenia
+SK : Slovak Republic
+SL : Sierra Leone
+SM : San Marino
+SN : Senegal
+SO : Somalia
+SR : Suriname
+ST : Sao Tome and Principe
+SV : El Salvador
+SY : Syria
+SZ : Swaziland
+TD : Chad
+TG : Togo
+TH : Thailand
+TJ : Tajikistan
+TM : Turkmenistan
+TN : Tunisia
+TO : Tonga
+TR : Turkey
+TT : Trinidad and Tobago
+TV : Tuvalu
+TW : Taiwan
+TZ : Tanzania
+UA : Ukraine
+UG : Uganda
+UY : Uruguay
+UZ : Uzbekistan
+VC : Saint Vincent And The Grenadine
+VE : Venezuela
+VG : British Virgin Islands
+VN : Vietnam
+VU : Vanuatu
+WF : Wallis and Futuna
+WS : Western Samoa
+YE : Yemen
+ZA : South Africa
+ZM : Zambia
+ZW : Zimbabwe
+</code></pre>
+
+            </article>
+          </div>
+          <div class='entry-meta-bottom'>
+            <div class="entry-categories">
+              <p>
+                <span>Categories</span>
+                
+                  
+                    
+                  <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6" title="View all posts in JavaScript">JavaScript</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/php" title="View all posts in PHP">PHP</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/linux" title="View all posts in Linux">Linux</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/K01Jy9Vu2" title="View all posts in 服务器">服务器</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/system" title="View all posts in 系统">系统</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/mp.weixin" title="View all posts in 微信小程序">微信小程序</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/markdown" title="View all posts in Markdown">Markdown</a>
+                    
+                    
+              </p>
+            </div>
+            <div class="entry-tags">
+              <p><span>Tags</span>
+              </p>
+            </div>
+          </div>
+          <div class="author-meta">
+            <div class="author">
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1566449978421" class='avatar avatar-72 photo' height='72' width='72'>
+              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
+            </div>
+            <div class="bio">
+              <p></p>
+              
+                
+                  <a class="github" target="_blank"
+                     href="https://github.com/ihopefulchina">
+                    <i class="fab fa-github" title="github"></i>
+                  </a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <a class="envelope" target="_blank"
+                     href="mailto:784667332@qq.com">
+                    <i class="fa fa-envelope" title="envelope"></i>
+                  </a>
+                
+              
+                
+                  <a class="qq" target="_blank"
+                     href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes">
+                    <i class="fab fa-qq" title="qq"></i>
+                  </a>
+                
+              
+                
+              
+            </div>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi">下一篇->解决Wordpress自定义二级目录和三级目录采用不同的样式</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71e97ed99597f66a9dd0',
+    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+    repo: 'ihopefulchina.github.io',
+    owner: 'ihopefulChina',
+    admin: ['ihopefulChina'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
+    </h1>
+    <p class="site-description">纪录个人所见所闻所得</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <li>
+                    <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                        <i class="fas fa-envelope" title="envelope"></i>
+                        <span class="screen-reader-text">envelope</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                        <i class="fab fa-qq" title="qq"></i>
+                        <span class="screen-reader-text">qq</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://gridea.dev/">Gridea</a></p>
+    </div>
+</footer>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquerymigrate.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/production.min.js"></script>
+
+</div>
+</body>
+</html>
+
