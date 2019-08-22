@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>PHP动态内容，如何添加Class？ | Ihopeful Blog</title>
+<title>Wordpress 添加自定义分类 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566436001630">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -156,12 +156,12 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/php-dong-tai-nei-rong-ru-he-tian-jia-class.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/wordpress-tian-jia-zi-ding-yi-fen-lei.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-21 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by Hve Notes</a>
           </span>
@@ -178,20 +178,76 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>PHP动态内容，如何添加Class？</h1>
+          <h1 class='entry-title'>Wordpress 添加自定义分类</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>遇到过一个奇怪的需求，客户的邮箱是通过后台填写的，然后前台获取，获取的是一串字符串，例如:xxx@mail.com
-但是客户需求是@这个字体要跟别的不一样。。。我只能通过添加class的方法，解决这个需求。</p>
+              <p>Wordpress 玩法很多，其中自定义分类这一项是很重要的，很多玩法，首先需要学会如何创建自定义分类。</p>
+<p>自定义分类这个描述不是很准确，Wordpress 默认只有一个文章，和文章分类，如果我们想创建一个产品类目，案例类目，新闻类目，自带的无法满足这项规定，所以需要自定义分类。</p>
 <!-- more -->
-<p>首先 获取动态内容、根据&quot;@&quot;分组字符串。</p>
-<pre><code> $email = explode('@',get_field('email', 90));
+<p>分2种情况，一种不带子分类，如何写？</p>
+<pre><code>function products() {
+	$labels = array(
+		'name'               =&gt; _x( '产品', 'post type 名称' ),
+		'add_new'            =&gt; _x( '新建产品', '添加新产品的链接名称' ),
+		'add_new_item'       =&gt; __( '新建一个产品' ),
+		'edit_item'          =&gt; __( '编辑产品' ),
+		'new_item'           =&gt; __( '新产品' ),
+		'all_items'          =&gt; __( '所有产品' ),
+		'view_item'          =&gt; __( '查看产品' ),
+		'search_items'       =&gt; __( '搜索产品' ),
+		'not_found'          =&gt; __( '没有找到产品' ),
+		'not_found_in_trash' =&gt; __( '回收站里面没有产品' ),
+		'parent_item_colon'  =&gt; '',
+		'menu_name'          =&gt; '产品'
+	);
+	$args = array(
+		'labels'        =&gt; $labels,
+		'description'   =&gt; '产品',
+		'public'        =&gt; true,
+		'menu_icon'     =&gt; 'dashicons-cart',
+		'menu_position' =&gt; 13,
+		'supports'      =&gt; array( 'title'),
+		'has_archive'   =&gt; true,
+
+	);
+	register_post_type( 'products', $args );
+}
+add_action( 'init', 'products');
 </code></pre>
-<p>然后串联添加输出即可</p>
-<pre><code>echo $email[0].'&lt;span class=&quot;email-ico&quot;&gt;@&lt;/span&gt;'.$email[1];
+<p>具体参数如何修改和意思，可以参考<a href="https://codex.wordpress.org/Function_Reference/register_post_type">官方文档</a></p>
+<p>另一种，需要子分类。</p>
+<p>在上面的基础上添加</p>
+<pre><code>function my_taxonomies_products() {
+	$labels = array(
+		'name'              =&gt; _x( '产品分类', 'taxonomy 名称' ),
+		'singular_name'     =&gt; _x( 'Product', 'taxonomy 单数名称' ),
+		'search_items'      =&gt; __( '搜索产品分类' ),
+		'all_items'         =&gt; __( '所有产品分类' ),
+		'parent_item'       =&gt; __( '该产品分类的上级分类' ),
+		'parent_item_colon' =&gt; __( '该产品分类的上级分类：' ),
+		'edit_item'         =&gt; __( '编辑产品分类' ),
+		'update_item'       =&gt; __( '更新产品分类' ),
+		'add_new_item'      =&gt; __( '添加新的产品分类' ),
+		'new_item_name'     =&gt; __( '新产品分类' ),
+		'menu_name'         =&gt; __( '产品分类' ),
+	);
+	$args = array(
+		'labels' =&gt; $labels,
+		'hierarchical' =&gt; true,
+		'rewrite' =&gt; array(
+			'slug' =&gt; 'products',
+			'hierarchical' =&gt; true,
+		)
+	);
+	register_taxonomy( 'product', 'products', $args );
+}
+
+add_action( 'init', 'my_taxonomies_products' );
 </code></pre>
+<p><a href="https://codex.wordpress.org/Function_Reference/register_taxonomy">官方文档</a>有具体修改提示.</p>
+<p>以上是Wordpress添加自定义分类，道路漫漫，这个是必修课</p>
 
             </article>
           </div>
@@ -272,7 +328,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/wordpress-mian-bao-xie-yi-xie-wen-ti">下一篇->Wordpress 面包屑一些问题</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/ye-mian-url-jie-wei-tian-jia-xie-gang">下一篇->页面Url结尾添加斜杠&#34;/&#34;</a>
               </div>
             </nav>
           
