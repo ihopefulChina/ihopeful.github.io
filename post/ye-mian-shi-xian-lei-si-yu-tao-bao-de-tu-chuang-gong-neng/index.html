@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>留言表单、支持邮箱转发 | Ihopeful Blog</title>
+<title>页面实现类似于淘宝的图窗功能 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566452741163">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,12 +172,12 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-21 ·</span> <span> / </span>
+          <span class="date">· 2019-08-22 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
@@ -194,24 +194,71 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>留言表单、支持邮箱转发</h1>
+          <h1 class='entry-title'>页面实现类似于淘宝的图窗功能</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p><strong>基于PHP搭建，用于Wordpress的插件</strong></p>
-<p>项目地址:https://github.com/ihopefulChina/Message
-(已设为私有，无法访问，如果有需要联系:<a href="mailto:hpf784667332@gmail.com">hpf784667332@gmail.com</a>)</p>
-<!-- more -->
-<p>功能介绍:</p>
+              <p>解决思路:</p>
 <ol>
-<li>后台有留言管理，支持留言删除、标记。</li>
-<li>支持过虑垃圾留言，<a href="https://akismet.com/">Akismet API</a>提供API支持。</li>
-<li>留言自动转发邮箱，抄送邮箱。</li>
-<li>支持查询客户的IP地址，根据IP地址查找客户所在国家、地区。</li>
-<li>支持客户留言所在网址、留言时间、设备信息等等。</li>
-<li>支持自定义表单name标签内容。</li>
+<li>前台的功能通过JS插件实现。</li>
+<li>图片获取通过自定义字段功能获取。</li>
 </ol>
+<!-- more -->
+<p>需要用到[ACF插件的重复器]https://www.advancedcustomfields.com/resources/repeater/)和<a href="https://3.swiper.com.cn/">Swiper.js</a></p>
+<pre><code>&lt;div class=&quot;swiper-container gallery-top&quot;&gt;
+	&lt;div class=&quot;swiper-wrapper&quot;&gt;
+		&lt;?php
+		if( have_rows('product_photo',$post-&gt;ID) ):
+			while ( have_rows('product_photo',$post-&gt;ID) ) : the_row();
+				$image = get_sub_field('product_photo');
+				echo '&lt;div class=&quot;swiper-slide&quot;&gt;&lt;img src=&quot;'.$image['sizes']['large'].'&quot; alt=&quot;'.$image['title'].'&quot; /&gt;&lt;/div&gt;';
+			endwhile; 
+		endif;
+		?&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;gallery-thumb&quot;&gt;
+	&lt;div class=&quot;swiper-container gallery-thumbs&quot;&gt;
+		&lt;div class=&quot;swiper-wrapper&quot;&gt;
+			&lt;?php
+			if( have_rows('product_photo',$post-&gt;ID) ):
+				while ( have_rows('product_photo',$post-&gt;ID) ) : the_row();
+					$image = get_sub_field('product_photo');
+					echo '&lt;div class=&quot;swiper-slide&quot;&gt;&lt;img src=&quot;'.$image['sizes']['thumbnail'].'&quot; alt=&quot;'.$image['title'].'&quot; /&gt;&lt;/div&gt;';
+
+				endwhile; 
+			endif;
+			?&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;product-button-next&quot;&gt;&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+	&lt;div class=&quot;product-button-prev&quot;&gt;&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+<p>JS部分</p>
+<pre><code>//产品详情页产品图
+var galleryTop = new Swiper('.gallery-top', {
+	spaceBetween: 10,
+	autoplay: 4000,
+	autoHeight: true,
+	observer: true,
+	observeParents: true,
+});
+var galleryThumbs = new Swiper('.gallery-thumbs', {
+	spaceBetween: 10,
+	centeredSlides: true,
+	slidesPerView: 4,
+	touchRatio: 0.2,
+	slideToClickedSlide: true,
+	autoHeight: true,
+	observer: true,
+	observeParents: true,
+	nextButton: '.product-button-next',
+	prevButton: '.product-button-prev',
+});
+</code></pre>
 
             </article>
           </div>
@@ -306,7 +353,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/guan-yu-ji-yu-wordpress-de-qi-ye-wang-zhan-da-jian-yi-xie-gan-xiang">下一篇->关于基于Wordpress的企业网站搭建一些感想</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang">下一篇->在非当前页面获取指定多个自定义分类下的文章</a>
               </div>
             </nav>
           
