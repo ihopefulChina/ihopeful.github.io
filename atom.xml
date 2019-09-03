@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T03:57:51.376Z</updated>
+    <updated>2019-09-03T04:36:15.034Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -11,7 +11,7 @@
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Vue学习(三):v-bind指令的学习]]></title>
+        <title type="html"><![CDATA[Vue学习(三):v-bind、v-on指令的学习]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi</id>
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi">
         </link>
@@ -37,6 +37,14 @@
 <li><code>v-bind:</code>指令可以简写为<code>:要绑定的属性</code>。</li>
 <li>v-bind中可以合法写JS表达式。</li>
 </ol>
+<h3 id="v-on-事件绑定机制">v-on 事件绑定机制</h3>
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-on:click=&quot;show&quot;&gt;
+ methods:{//这个methods属性定义了当前vue实例所有可用的方法
+                show: function(){
+                    alert('yes')
+                }
+            }
+</code></pre>
 ]]></content>
     </entry>
     <entry>
