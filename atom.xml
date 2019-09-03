@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T03:08:26.609Z</updated>
+    <updated>2019-09-03T03:45:31.278Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -11,16 +11,78 @@
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
     <entry>
+        <title type="html"><![CDATA[Vue学习(二): v-cloak、v-text、v-html]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-er-v-cloakv-textv-html</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-er-v-cloakv-textv-html">
+        </link>
+        <updated>2019-09-03T03:11:58.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+    [v-cloak]{
+        display: none;
+    }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;!--使用 v-cloak能够解决插值表达式闪烁问题--&gt;
+        &lt;p v-cloak&gt;{{msg}}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                msg: '123'
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="v-text的使用与v-cloak的区别">v-text的使用与v-cloak的区别</h3>
+<pre><code>&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt;
+</code></pre>
+<p><strong>v-text与v-cloak区别</strong></p>
+<ol>
+<li>默认v-text是没有闪烁问题，但v-cloak有闪烁，需要写一个<code>[v-cloak]{display:none}</code></li>
+<li>v-cloak可以前后放任意内容，v-text只能放v-text的值（会覆盖元素原本的内容）</li>
+</ol>
+<h3 id="v-html-能够输出html标签">v-html 能够输出html标签</h3>
+<pre><code>&lt;div v-html=&quot;msg2&quot;&gt;&lt;/div&gt;
+var vm = new Vue({
+            el: '#app',
+            data:{
+                msg2: '&lt;h1&gt;这是H1标签&lt;/h1&gt;'
+            }
+        })
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Vue学习(一):Vue的MVVM]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm</id>
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm">
         </link>
         <updated>2019-09-03T02:25:33.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
+<ul>
+<li>MVC是后端分层开发概念。</li>
+<li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
+</ul>
+]]></summary>
         <content type="html"><![CDATA[<h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
 <ul>
 <li>MVC是后端分层开发概念。</li>
 <li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
 </ul>
+<!-- more -->
 <h3 id="2vue处理逻辑过程">2.Vue处理逻辑过程</h3>
 <p><img src="https://ihopefulchina.github.io/post-images/1567477853059.png" alt=""></p>
 <h3 id="3vue基本代码和mvvm之间对应关系">3.Vue基本代码和MVVM之间对应关系</h3>
@@ -586,50 +648,6 @@ query_posts($arms)?&gt;
 	&lt;/div&gt;
 &lt;?php endwhile; ?&gt;
 &lt;?php endif; wp_reset_query();?&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[获取指定分类的所有子分类链接、Description、Slug、自定义字段]]></title>
-        <id>https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan</id>
-        <link href="https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan">
-        </link>
-        <updated>2019-08-22T05:06:15.000Z</updated>
-        <summary type="html"><![CDATA[<p>Wordpress很难获取指定分类下的所有子分类。这需要我们绕路获取。<br>
-以下的方法适用于任何页面来获取所有子分类，仅供参考，如果不懂，可以联系我，或者多看几遍官方文档。<br>
-分类的标题、Description、Slug是Wordpress自带函数可以直接获取，自定义字段和链接需要通过ID的方式获取。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Wordpress很难获取指定分类下的所有子分类。这需要我们绕路获取。<br>
-以下的方法适用于任何页面来获取所有子分类，仅供参考，如果不懂，可以联系我，或者多看几遍官方文档。<br>
-分类的标题、Description、Slug是Wordpress自带函数可以直接获取，自定义字段和链接需要通过ID的方式获取。</p>
-<!-- more -->
-<p>Demo</p>
-<pre><code>&lt;?php
-$test = get_categories(&quot;taxonomy=product&amp;hide_empty=0&quot;);
-$cats=array(); 
-foreach($test as $tmpcat){
-	if($tmpcat-&gt;parent==0){
-		$cats[$tmpcat-&gt;term_id]['name']=$tmpcat-&gt;name;
-		$cats[$tmpcat-&gt;term_id]['slug']=$tmpcat-&gt;slug;
-		$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-		$cats[$tmpcat-&gt;term_id]['description']=$tmpcat-&gt;description;
-	}
-}
-ksort($cats);
-foreach($cats as $key=&gt;$val){
-	$id = 'term_'.$cats[$key]['term_id'];
-	?&gt;
-	&lt;div class=&quot;swiper-slide product-content&quot;&gt;
-		&lt;div class=&quot;element-item&quot;&gt;
-			&lt;img src=&quot;&lt;?php echo get_field('products_cate_img', $id); ?&gt;&quot; alt=&quot;&lt;?php echo $cats[$key]['name']; ?&gt;&quot; width=&quot;400&quot; height=&quot;300&quot;&gt;
-			&lt;div class=&quot;content&quot;&gt;
-				&lt;a href=&quot;/products/&lt;?php echo $cats[$key]['slug']; ?&gt;/&quot;&gt;&lt;?php echo $cats[$key]['name']; ?&gt;&lt;/a&gt;
-			&lt;/div&gt;
-		&lt;/div&gt;
-		&lt;p class=&quot;product-cate-des&quot;&gt;&lt;?php echo $cats[$key]['description']; ?&gt;&lt;/p&gt;
-		&lt;a class=&quot;product-more&quot; href=&quot;/products/&lt;?php echo $cats[$key]['slug']; ?&gt;/&quot;&gt;VIEW MORE&lt;/a&gt;
-	&lt;/div&gt;
-	&lt;?php } ?&gt;
 </code></pre>
 ]]></content>
     </entry>
