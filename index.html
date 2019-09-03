@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567487707096">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567487787662">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -203,7 +203,13 @@
         </div>
         <div class='excerpt-content'>
           <article>
-              
+              <h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
+<ol>
+<li>给开启按钮绑定一个点击事件 v-on @</li>
+<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
+<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。</li>
+</ol>
+
           </article>
         </div>
       </div>
