@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T05:16:30.643Z</updated>
+    <updated>2019-09-03T05:16:59.388Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -75,7 +75,7 @@
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>**注意:</p>
+<p><strong>注意:</strong></p>
 <ol>
 <li>在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例</li>
 </ol>
