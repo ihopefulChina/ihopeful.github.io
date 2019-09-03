@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Vue Js 2.0 Tuntorial for Todos | Ihopeful Blog</title>
+<title>Vue学习(七): 简易计算器案例 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567495804287">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,26 +172,132 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-js-20-tuntorial-for-todos.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-04-03 ·</span> <span> / </span>
+          <span class="date">· 2019-09-03 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
+                </span>
+          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>Vue Js 2.0 Tuntorial for Todos</h1>
+          <h1 class='entry-title'>Vue学习(七): 简易计算器案例</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p><a href="https://github.com/ihopefulChina/VueForTodo">Vue Js 2.0 Tuntorial for Todos</a></p>
-<p>个人兴趣开发的TodoList Demo</p>
+              <p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
 <!-- more -->
+<h3 id="第一种写法">第一种写法</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
+        &lt;select v-model=&quot;opt&quot;&gt;
+            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
+            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
+            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt:'+'
+        },
+        methods:{
+            calc(){//计算器算数的方法
+                //逻辑:
+                //拿到n1,opt,n2值,this.result值计算
+                switch(this.opt){
+                    case '+':
+                        this.result= parseInt(this.n1) + parseInt(this.n2)
+                        break;
+                    case '-':
+                        this.result= parseInt(this.n1) - parseInt(this.n2)
+                        break;
+                    case '*':
+                        this.result= parseInt(this.n1) * parseInt(this.n2)
+                        break;
+                    case '/':
+                        this.result= parseInt(this.n1) / parseInt(this.n2)
+                        break;
+                }
+            }
+        }
+    })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="第二种有点投机取巧正式开发中最好不要这样操作">第二种有点投机取巧，正式开发中，最好不要这样操作</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
+        &lt;select v-model=&quot;opt&quot;&gt;
+            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
+            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
+            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt:'+'
+        },
+        methods:{
+            calc(){//计算器算数的方法
+                //逻辑:
+                //拿到n1,opt,n2值,this.result值计算
+                var codeStr = 'parseInt(this.n1) ' +  this.opt + ' parseInt(this.n2)'
+                this.result= eval(codeStr)
+            }
+        }
+    })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
             </article>
           </div>
@@ -286,7 +392,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/advanced-custom-fields-for-wordpress-developers">下一篇->Advanced Custom Fields for WordPress Developers.</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding">下一篇->Vue学习(六): v-model实现表单元素的数据双向绑定</a>
               </div>
             </nav>
           

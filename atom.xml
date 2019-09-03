@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T06:56:30.814Z</updated>
+    <updated>2019-09-03T07:30:09.099Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,120 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue学习(七): 简易计算器案例]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li">
+        </link>
+        <updated>2019-09-03T06:57:17.000Z</updated>
+        <summary type="html"><![CDATA[<p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
+<!-- more -->
+<h3 id="第一种写法">第一种写法</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
+        &lt;select v-model=&quot;opt&quot;&gt;
+            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
+            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
+            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt:'+'
+        },
+        methods:{
+            calc(){//计算器算数的方法
+                //逻辑:
+                //拿到n1,opt,n2值,this.result值计算
+                switch(this.opt){
+                    case '+':
+                        this.result= parseInt(this.n1) + parseInt(this.n2)
+                        break;
+                    case '-':
+                        this.result= parseInt(this.n1) - parseInt(this.n2)
+                        break;
+                    case '*':
+                        this.result= parseInt(this.n1) * parseInt(this.n2)
+                        break;
+                    case '/':
+                        this.result= parseInt(this.n1) / parseInt(this.n2)
+                        break;
+                }
+            }
+        }
+    })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="第二种有点投机取巧正式开发中最好不要这样操作">第二种有点投机取巧，正式开发中，最好不要这样操作</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
+        &lt;select v-model=&quot;opt&quot;&gt;
+            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
+            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
+            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt:'+'
+        },
+        methods:{
+            calc(){//计算器算数的方法
+                //逻辑:
+                //拿到n1,opt,n2值,this.result值计算
+                var codeStr = 'parseInt(this.n1) ' +  this.opt + ' parseInt(this.n2)'
+                this.result= eval(codeStr)
+            }
+        }
+    })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(六): v-model实现表单元素的数据双向绑定]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding</id>
@@ -749,31 +863,6 @@ j = 0;
 	&lt;?php endif; ?&gt;
 </code></pre>
 <p>其中的one，two... 来自ACF插件Seclect的单选按钮前面的参数</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[留言表单、支持邮箱转发]]></title>
-        <id>https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa</id>
-        <link href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa">
-        </link>
-        <updated>2019-08-22T06:25:47.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>基于PHP搭建，用于Wordpress的插件</strong></p>
-<p>项目地址:<a href="https://github.com/ihopefulChina/Message">https://github.com/ihopefulChina/Message</a></p>
-<p>(已设为私有，无法访问，如果有需要联系:<a href="mailto:hpf784667332@gmail.com">hpf784667332@gmail.com</a>)</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>基于PHP搭建，用于Wordpress的插件</strong></p>
-<p>项目地址:<a href="https://github.com/ihopefulChina/Message">https://github.com/ihopefulChina/Message</a></p>
-<p>(已设为私有，无法访问，如果有需要联系:<a href="mailto:hpf784667332@gmail.com">hpf784667332@gmail.com</a>)</p>
-<!-- more -->
-<p>功能介绍:</p>
-<ol>
-<li>后台有留言管理，支持留言删除、标记。</li>
-<li>支持过虑垃圾留言，<a href="https://akismet.com/">Akismet API</a>提供API支持。</li>
-<li>留言自动转发邮箱，抄送邮箱。</li>
-<li>支持查询客户的IP地址，根据IP地址查找客户所在国家、地区。</li>
-<li>支持客户留言所在网址、留言时间、设备信息等等。</li>
-<li>支持自定义表单name标签内容。</li>
-</ol>
 ]]></content>
     </entry>
 </feed>
