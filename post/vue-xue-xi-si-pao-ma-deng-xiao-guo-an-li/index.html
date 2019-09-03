@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>如何解决页面/文章/详情页需要不同样式、模板的问题？ | Ihopeful Blog</title>
+<title>Vue学习(四):跑马灯效果案例  | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567487707096">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,77 +172,88 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-22 ·</span> <span> / </span>
+          <span class="date">· 2019-09-03 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                    <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>如何解决页面/文章/详情页需要不同样式、模板的问题？</h1>
+          <h1 class='entry-title'>Vue学习(四):跑马灯效果案例 </h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
-<p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
-<!-- more -->
+              <h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
 <ol>
-<li>
-<p>首先通过<a href="https://www.advancedcustomfields.com/resources/radio-button/">ACF插件Seclect的单选按钮</a>，填写5个参数<br>
-(注: 参数' : '前后需要有空格)<br>
-<img src="https://ihopefulchina.github.io/post-images/1566457009571.png" alt=""></p>
-</li>
-<li>
-<p>通过<a href="https://www.advancedcustomfields.com/resources/group/">ACF插件的组</a>来写5个模板(组下面填写不同的自定义字段)</p>
-</li>
+<li>给开启按钮绑定一个点击事件 v-on @</li>
+<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
+<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。<br>
+代码示例:</li>
 </ol>
-<p><img src="https://ihopefulchina.github.io/post-images/1566456898881.png" alt=""></p>
-<p>注:<br>
-(1)需要填写判断(条件逻辑)</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457679886.png" alt=""></p>
-<p>(2)其中每个模板Group里面的说明最好加上模板图片样式，例如<code>&lt;img src=&quot;/wp-admin/images/sj.png&quot; width=&quot;50%&quot; height=&quot;auto&quot;&gt;</code><br>
-这么做的目的，是客户知道这是哪个模板样式，呈现的效果如下。</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457148348.png" alt=""></p>
-<p>3.然后创建5个php，命名规避page，single等等自带的命名方式，里面填写各自模板样式和参数。</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457258241.png" alt=""></p>
-<p>5.最后在single-products.php里面，加一个判断:</p>
-<pre><code>&lt;?php if( get_field('select') == 'one' ): ?&gt;
-		&lt;?php include 'product-content1.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'two' ): ?&gt;
-		&lt;?php include 'product-content2.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'three' ): ?&gt;
-		&lt;?php include 'product-content3.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'four' ): ?&gt;
-		&lt;?php include 'product-content4.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'five' ): ?&gt;
-		&lt;?php include 'product-content5.php'; ?&gt;
-	&lt;?php endif; ?&gt;
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;h4&gt;{{msg}}&lt;/h4&gt;
+        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;关闭&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm =new Vue({
+        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
+        el: '#app',
+        data:{
+            msg: '跑马灯效果开启效果！！！'
+        },
+        methods:{
+            on(){
+                setInterval(()=&gt;{
+                    //获取第一个字符
+                    var start = this.msg.substring(0,1)
+                    //获取后面的所有字符
+                    var end = this.msg.substring(1)
+                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
+                    this.msg = end + start
+                }, 400)
+               
+            }
+        }
+    
+    })
+    //步骤分析
+    //1.给开启按钮绑定一个点击事件 v-on @
+    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
+    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>其中的one，two... 来自ACF插件Seclect的单选按钮前面的参数</p>
+<p>**注意:</p>
+<ol>
+<li>在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例</li>
+</ol>
+<pre><code>console.log(this.msg) 
+</code></pre>
+<ol start="2">
+<li>VM实例会监听自己身上data中所有数据的变化，如果数据一发生变化，就会自动把最新的数据，从data上同步到页面中去(好处:减少DOM操作)</li>
+</ol>
 
             </article>
           </div>
@@ -337,7 +348,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa">下一篇->留言表单、支持邮箱转发</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi">下一篇->Vue学习(三): v-bind、v-on指令的学习</a>
               </div>
             </nav>
           

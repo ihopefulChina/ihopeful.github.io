@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T04:43:30.877Z</updated>
+    <updated>2019-09-03T05:15:09.075Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -11,7 +11,75 @@
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Vue学习(三):v-bind、v-on指令的学习]]></title>
+        <title type="html"><![CDATA[Vue学习(四):跑马灯效果案例 ]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li">
+        </link>
+        <updated>2019-09-03T04:54:11.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
+<ol>
+<li>给开启按钮绑定一个点击事件 v-on @</li>
+<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
+<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。<br>
+代码示例:</li>
+</ol>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;h4&gt;{{msg}}&lt;/h4&gt;
+        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;关闭&quot;&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm =new Vue({
+        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
+        el: '#app',
+        data:{
+            msg: '跑马灯效果开启效果！！！'
+        },
+        methods:{
+            on(){
+                setInterval(()=&gt;{
+                    //获取第一个字符
+                    var start = this.msg.substring(0,1)
+                    //获取后面的所有字符
+                    var end = this.msg.substring(1)
+                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
+                    this.msg = end + start
+                }, 400)
+               
+            }
+        }
+    
+    })
+    //步骤分析
+    //1.给开启按钮绑定一个点击事件 v-on @
+    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
+    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>**注意:</p>
+<ol>
+<li>在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例</li>
+</ol>
+<pre><code>console.log(this.msg) 
+</code></pre>
+<ol start="2">
+<li>VM实例会监听自己身上data中所有数据的变化，如果数据一发生变化，就会自动把最新的数据，从data上同步到页面中去(好处:减少DOM操作)</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Vue学习(三): v-bind、v-on指令的学习]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi</id>
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi">
         </link>
@@ -35,10 +103,10 @@
             }
         })
 </code></pre>
-<h3 id="加变量的表达式">加变量的表达式</h3>
+<h3 id="v-bind加变量的表达式">v-bind加变量的表达式</h3>
 <pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;mytitle + ' 123'&quot;&gt;
 </code></pre>
-<h3 id="简写">简写</h3>
+<h4 id="v-bind简写">v-bind简写</h4>
 <pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; :title=&quot;mytitle + ' 123'&quot;&gt;
 </code></pre>
 <p>注意:</p>
@@ -50,6 +118,14 @@
 <pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-on:click=&quot;show&quot;&gt;
  methods:{//这个methods属性定义了当前vue实例所有可用的方法
                 show: function(){
+                    alert('yes')
+                }
+            }
+</code></pre>
+<h4 id="v-on简写">v-on简写</h4>
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; @click=&quot;show&quot;&gt;
+ methods:{//这个methods属性定义了当前vue实例所有可用的方法
+                show(){
                     alert('yes')
                 }
             }
@@ -119,7 +195,7 @@ var vm = new Vue({
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Vue学习(一):Vue的MVVM]]></title>
+        <title type="html"><![CDATA[Vue学习(一): Vue的MVVM]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm</id>
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm">
         </link>
@@ -585,80 +661,6 @@ Demo:</li>
 		&lt;/div&gt;&lt;?php endif; endif; ?&gt;
 </code></pre>
 <p>以上代码需要懂点PHP和Wordpress，有疑问，可以联系我。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[页面实现类似于淘宝的图窗功能]]></title>
-        <id>https://ihopefulchina.github.io/post/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng</id>
-        <link href="https://ihopefulchina.github.io/post/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng">
-        </link>
-        <updated>2019-08-22T05:40:21.000Z</updated>
-        <summary type="html"><![CDATA[<p>解决思路:</p>
-<ol>
-<li>前台的功能通过JS插件实现。</li>
-<li>图片获取通过自定义字段功能获取。</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<p>解决思路:</p>
-<ol>
-<li>前台的功能通过JS插件实现。</li>
-<li>图片获取通过自定义字段功能获取。</li>
-</ol>
-<!-- more -->
-<p>需要用到[ACF插件的重复器]https://www.advancedcustomfields.com/resources/repeater/)和<a href="https://3.swiper.com.cn/">Swiper.js</a></p>
-<pre><code>&lt;div class=&quot;swiper-container gallery-top&quot;&gt;
-	&lt;div class=&quot;swiper-wrapper&quot;&gt;
-		&lt;?php
-		if( have_rows('product_photo',$post-&gt;ID) ):
-			while ( have_rows('product_photo',$post-&gt;ID) ) : the_row();
-				$image = get_sub_field('product_photo');
-				echo '&lt;div class=&quot;swiper-slide&quot;&gt;&lt;img src=&quot;'.$image['sizes']['large'].'&quot; alt=&quot;'.$image['title'].'&quot; /&gt;&lt;/div&gt;';
-			endwhile; 
-		endif;
-		?&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;gallery-thumb&quot;&gt;
-	&lt;div class=&quot;swiper-container gallery-thumbs&quot;&gt;
-		&lt;div class=&quot;swiper-wrapper&quot;&gt;
-			&lt;?php
-			if( have_rows('product_photo',$post-&gt;ID) ):
-				while ( have_rows('product_photo',$post-&gt;ID) ) : the_row();
-					$image = get_sub_field('product_photo');
-					echo '&lt;div class=&quot;swiper-slide&quot;&gt;&lt;img src=&quot;'.$image['sizes']['thumbnail'].'&quot; alt=&quot;'.$image['title'].'&quot; /&gt;&lt;/div&gt;';
-
-				endwhile; 
-			endif;
-			?&gt;
-		&lt;/div&gt;
-	&lt;/div&gt;
-	&lt;div class=&quot;product-button-next&quot;&gt;&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;/i&gt;&lt;/div&gt;
-	&lt;div class=&quot;product-button-prev&quot;&gt;&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;/i&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-</code></pre>
-<p>JS部分</p>
-<pre><code>//产品详情页产品图
-var galleryTop = new Swiper('.gallery-top', {
-	spaceBetween: 10,
-	autoplay: 4000,
-	autoHeight: true,
-	observer: true,
-	observeParents: true,
-});
-var galleryThumbs = new Swiper('.gallery-thumbs', {
-	spaceBetween: 10,
-	centeredSlides: true,
-	slidesPerView: 4,
-	touchRatio: 0.2,
-	slideToClickedSlide: true,
-	autoHeight: true,
-	observer: true,
-	observeParents: true,
-	nextButton: '.product-button-next',
-	prevButton: '.product-button-prev',
-});
-</code></pre>
 ]]></content>
     </entry>
 </feed>
