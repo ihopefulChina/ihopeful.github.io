@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Vue学习(三):v-bind、v-on指令的学习 | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485371844">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485700094">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -187,6 +187,10 @@
           <div class="entry-content">
             <article>
               <h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
+完整语法：<code>&lt;span v-bind:class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：v-bind 是指令，: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。<br>
+缩写语法：<code>&lt;span :class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。</p>
+<!-- more -->
 <p>格式:<br>
 <code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;mytitle&quot;&gt;</code></p>
 <pre><code>var vm = new Vue({
@@ -265,7 +269,7 @@
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567485371844" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567485700094" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
             </div>
             <div class="bio">

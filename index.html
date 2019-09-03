@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485371844">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485700094">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -194,7 +194,11 @@
         </div>
         <div class='excerpt-content'>
           <article>
-              
+              <h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
+完整语法：<code>&lt;span v-bind:class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：v-bind 是指令，: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。<br>
+缩写语法：<code>&lt;span :class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。</p>
+
           </article>
         </div>
       </div>
@@ -224,7 +228,10 @@
         </div>
         <div class='excerpt-content'>
           <article>
-              
+              <h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
+当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。</p>
+
           </article>
         </div>
       </div>

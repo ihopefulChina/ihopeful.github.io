@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Vue学习(二): v-cloak、v-text、v-html | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485371844">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567485700094">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -187,6 +187,9 @@
           <div class="entry-content">
             <article>
               <h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
+当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。</p>
+<!-- more -->
 <pre><code>&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -283,7 +286,7 @@ var vm = new Vue({
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567485371844" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567485700094" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
             </div>
             <div class="bio">

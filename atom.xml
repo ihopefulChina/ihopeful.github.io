@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T04:36:15.034Z</updated>
+    <updated>2019-09-03T04:41:43.537Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,7 +16,16 @@
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi">
         </link>
         <updated>2019-09-03T03:45:37.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
+完整语法：<code>&lt;span v-bind:class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：v-bind 是指令，: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。<br>
+缩写语法：<code>&lt;span :class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。</p>
+]]></summary>
         <content type="html"><![CDATA[<h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
+完整语法：<code>&lt;span v-bind:class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：v-bind 是指令，: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。<br>
+缩写语法：<code>&lt;span :class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。</p>
+<!-- more -->
 <p>格式:<br>
 <code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;mytitle&quot;&gt;</code></p>
 <pre><code>var vm = new Vue({
@@ -53,7 +62,14 @@
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-er-v-cloakv-textv-html">
         </link>
         <updated>2019-09-03T03:11:58.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
+当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。</p>
+]]></summary>
         <content type="html"><![CDATA[<h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
+当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。</p>
+<!-- more -->
 <pre><code>&lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
