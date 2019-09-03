@@ -1,11 +1,11 @@
 <html>
-<head>
-  <meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>获取当前分类下的所有子分类 | Ihopeful Blog</title>
+<title>Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567491899582">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -17,11 +17,11 @@
 
 
 
-</head>
-<body class="home blog ct-body standard">
-<div id="overflow-container" class="overflow-container">
-  <a class="skip-content" href="#main">Skip to content</a>
-  <header id="site-header" class="site-header" role="banner">
+  </head>
+  <body class="home blog ct-body standard">
+    <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+        <header id="site-header" class="site-header" role="banner">
     <div class='top-navigation top-navigation-important'>
         <div class='container'>
             <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
@@ -168,221 +168,66 @@
 </header>
 
 
-  <div id="main" class="main" role="main">
-    <div id="loop-container" class="loop-container">
-      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
-        
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei.png">
-          </div>
-        
-
-        <div class="entry-meta">
-          <span class="date">· 2019-08-22 ·</span> <span> / </span>
+        <div id="main" class="main" role="main">
+  <h1 class="screen-reader-text">Posts</h1>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/markdown-yu-fa-jian-dan-jiao-cheng">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/markdown-yu-fa-jian-dan-jiao-cheng.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-03-20 ·</span> <span> / </span>
           <span class="author">
-            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
           </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/markdown">Markdown</a>
                 </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
-                </span>
-          
-        </div>
-        <div class='entry-header'>
-          <h1 class='entry-title'>获取当前分类下的所有子分类</h1>
-        </div>
-        <div class="entry-container">
-          <div class="entry-content">
-            <article>
-              <p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
-<p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
-<!-- more -->
-<p>解决思路:<br>
-1.首先通过<code>get_categories</code>获取所有分类的slug和id</p>
-<pre><code>$test = get_categories(&quot;taxonomy=product&amp;hide_empty=0&quot;);
-						$cats=array(); 
-						foreach($test as $tmpcat){
-							if($tmpcat-&gt;parent==0){
-								$cats[$tmpcat-&gt;term_id]['slug']=$tmpcat-&gt;slug;
-								$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-							}
-						}
-</code></pre>
-<p>3.然后切割分组当前url，判断slug是否等于当前的url</p>
-<pre><code>$uri=explode('/',$_SERVER['REQUEST_URI']);
-</code></pre>
-<p>5.等于的话，再根据<code>get_categories</code>加上child_of=，最后foreach输出所有分类。</p>
-<pre><code>foreach($cats as $key=&gt;$val){
-							if($cats[$key]['slug']==$uri[2]){
-								$id = $cats[$key]['term_id'];
-								$cate = get_categories(&quot;depth=0&amp;hide_empty=0&amp;title_li=&amp;orderby=ID&amp;order=ASC&amp;taxonomy=product&amp;child_of=$id&quot;);
-								foreach ($cate as $key =&gt; $value) {?&gt;
-									&lt;div class=&quot;swiper-slide&quot;&gt;
-										&lt;li class=&quot;cat-item&lt;?php if($value-&gt;slug == $uri[3]){ echo ' current-cat';}?&gt;&quot;&gt;&lt;a href=&quot;/products/&lt;?php echo $uri[2];?&gt;/&lt;?php echo $value-&gt;slug; ?&gt;/&quot;&gt;&lt;?php echo $value-&gt;name;?&gt;&lt;/a&gt;&lt;/li&gt;
-									&lt;/div&gt;
-								&lt;?php }
-							}
-						}
-</code></pre>
-<p>完整的</p>
-<pre><code>&lt;?php 
-						$test = get_categories(&quot;taxonomy=product&amp;hide_empty=0&quot;);
-						$cats=array(); 
-						foreach($test as $tmpcat){
-							if($tmpcat-&gt;parent==0){
-								$cats[$tmpcat-&gt;term_id]['slug']=$tmpcat-&gt;slug;
-								$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-							}
-						}
-						foreach($cats as $key=&gt;$val){
-							if($cats[$key]['slug']==$uri[2]){
-								$id = $cats[$key]['term_id'];
-								$cate = get_categories(&quot;depth=0&amp;hide_empty=0&amp;title_li=&amp;orderby=ID&amp;order=ASC&amp;taxonomy=product&amp;child_of=$id&quot;);
-								foreach ($cate as $key =&gt; $value) {?&gt;
-									&lt;div class=&quot;swiper-slide&quot;&gt;
-										&lt;li class=&quot;cat-item&lt;?php if($value-&gt;slug == $uri[3]){ echo ' current-cat';}?&gt;&quot;&gt;&lt;a href=&quot;/products/&lt;?php echo $uri[2];?&gt;/&lt;?php echo $value-&gt;slug; ?&gt;/&quot;&gt;&lt;?php echo $value-&gt;name;?&gt;&lt;/a&gt;&lt;/li&gt;
-									&lt;/div&gt;
-								&lt;?php }
-							}
-						}
-						?&gt;
-</code></pre>
+            
 
-            </article>
-          </div>
-          <div class='entry-meta-bottom'>
-            <div class="entry-categories">
-              <p>
-                <span>Categories</span>
-                
-                  
-                    
-                  <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK" title="View all posts in Vue">Vue</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/php" title="View all posts in PHP">PHP</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6" title="View all posts in JavaScript">JavaScript</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/linux" title="View all posts in Linux">Linux</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/system" title="View all posts in 系统">系统</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/mp.weixin" title="View all posts in 微信小程序">微信小程序</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/markdown" title="View all posts in Markdown">Markdown</a>
-                    
-                    
-              </p>
-            </div>
-            <div class="entry-tags">
-              <p><span>Tags</span>
-              </p>
-            </div>
-          </div>
-          <div class="author-meta">
-            <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567491899582" class='avatar avatar-72 photo' height='72' width='72'>
-              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
-            </div>
-            <div class="bio">
-              <p></p>
-              
-                
-                  <a class="github" target="_blank"
-                     href="https://github.com/ihopefulchina">
-                    <i class="fab fa-github" title="github"></i>
-                  </a>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <a class="envelope" target="_blank"
-                     href="mailto:784667332@qq.com">
-                    <i class="fa fa-envelope" title="envelope"></i>
-                  </a>
-                
-              
-                
-                  <a class="qq" target="_blank"
-                     href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes">
-                    <i class="fab fa-qq" title="qq"></i>
-                  </a>
-                
-              
-                
-              
-            </div>
-          </div>
         </div>
-          
-            <nav class="navigation pagination" role="navigation">
-              <h2 class="screen-reader-text">Posts navigation</h2>
-              <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti">下一篇->如何解决页面/文章/详情页需要不同样式、模板的问题？</a>
-              </div>
-            </nav>
-          
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/markdown-yu-fa-jian-dan-jiao-cheng"> Markdown 语法简单教程 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <h3 id="转载feheycom"><a href="https://fehey.com/post/markdown-yu-fa-jian-dan-jiao-cheng/">转载fehey.com</a></h3>
+<h3 id="1-斜体和粗体">1. 斜体和粗体</h3>
+<p>使用 * 和 ** 表示斜体和粗体。<br>
+示例：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+
+          </article>
+        </div>
       </div>
-      <section id="comments" class="comments">
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '71e97ed99597f66a9dd0',
-    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
-    repo: 'ihopefulchina.github.io',
-    owner: 'ihopefulChina',
-    admin: ['ihopefulChina'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-      </section>
     </div>
   </div>
-  <footer id="site-footer" class="site-footer" role="contentinfo">
+  
+</div>
+
+        <nav class="navigation pagination" role="navigation">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
+        
+            <a class="page-numbers" href="https://ihopefulchina.github.io/page/4/">上一页</a>
+        
+        
+    </div>
+</nav>
+
+        <footer id="site-footer" class="site-footer" role="contentinfo">
     <h1>
         <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
     </h1>
@@ -444,7 +289,7 @@
 <script src="https://ihopefulchina.github.io/media/scripts/lib/jquerymigrate.js"></script>
 <script src="https://ihopefulchina.github.io/media/scripts/lib/production.min.js"></script>
 
-</div>
-</body>
+      </div>
+  </body>
 </html>
 
