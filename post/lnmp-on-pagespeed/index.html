@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Lnmp on pagespeed | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1566964226896">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567480101030">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -29,6 +29,12 @@
                 <div class="menu">
                     <ul id="menu-secondary-items" class="menu-secondary-items">
                         
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
+                        </li>
+                            
                         
                             
                         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
@@ -66,10 +72,6 @@
                         </li>
                             
                         
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/markdown">Markdown</a>
-                        </li>
                             
                         
                     </ul>
@@ -206,10 +208,10 @@ sudo apt-get install -y libgd-dev
 apt-get install libgeoip-dev -y
 </code></pre>
 <h2 id="lnmp-安装-ngx_pagespeed-的方法">LNMP 安装 ngx_pagespeed 的方法</h2>
-<p>1、首先，根据官方教程下载 Page Speed，把下面的命令保存成 dp.sh 文件，然后运行 chmod +x dp.sh 赋予该文件可执行权限，然后运行 ./dp.sh 即可自动下载并解压 ngx_pagespeed 模块的源代码。
+<p>1、首先，根据官方教程下载 Page Speed，把下面的命令保存成 dp.sh 文件，然后运行 chmod +x dp.sh 赋予该文件可执行权限，然后运行 ./dp.sh 即可自动下载并解压 ngx_pagespeed 模块的源代码。<br>
 现在最新版本是1.13.35.2-stable。你可以在<a href="https://www.modpagespeed.com/doc/release_notes">这里</a>查看最新版本。</p>
-<p>制作dp.sh
-cd
+<p>制作dp.sh<br>
+cd<br>
 nano dp.sh</p>
 <p>写入代码,复制粘贴进去，然后Ctrl+X, 输入Y，回车。</p>
 <pre><code>#[check the release notes for the latest version]
@@ -243,30 +245,30 @@ tar -xzvf $(basename ${psol_url})  # extracts to psol/
 <pre><code>chmod +x dp.sh
 sudo ./dp.sh
 </code></pre>
-<p>从 1.12.34 版本开始，按照官方的教程进行的时候，可能会遇到无法下载 PSOL 的情况，这时候，按照下面的地址下载对应版本的 PSOL 就可以了。
-或者使用
+<p>从 1.12.34 版本开始，按照官方的教程进行的时候，可能会遇到无法下载 PSOL 的情况，这时候，按照下面的地址下载对应版本的 PSOL 就可以了。<br>
+或者使用<br>
 https://dl.google.com/dl/page-speed/psol/[PageSpeed版本]-x[系统位数].tar.gz</p>
-<p>pagespeed下载后修改一下文件夹名字把原来的名字incubator-pagespeed-ngx-1.13.35.2-stable，修改为：ngx_pagespeed-1.13.35.2-stable。
-2、然后编辑 Nginx 升级脚本
-我用的是 LNMP 1.5，其他版本更换安装路径即可。
+<p>pagespeed下载后修改一下文件夹名字把原来的名字incubator-pagespeed-ngx-1.13.35.2-stable，修改为：ngx_pagespeed-1.13.35.2-stable。<br>
+2、然后编辑 Nginx 升级脚本<br>
+我用的是 LNMP 1.5，其他版本更换安装路径即可。<br>
 配置lnmp文件</p>
 <pre><code>cd /root/lnmp1.5/include
 nano upgrade_nginx.sh
 </code></pre>
-<p>找到 ./configure --user=www --group=www --prefix=/usr/local/nginx，在这行代码的末尾添加，其中 ngx_pagespeed-1.13.35.2-stable 是第一步下载的 PageSpeed 模块的目录名称，根据实际情况替换即可。
-加入字段
+<p>找到 ./configure --user=www --group=www --prefix=/usr/local/nginx，在这行代码的末尾添加，其中 ngx_pagespeed-1.13.35.2-stable 是第一步下载的 PageSpeed 模块的目录名称，根据实际情况替换即可。<br>
+加入字段<br>
 --add-module=$HOME/ngx_pagespeed-1.13.35.2-stable</p>
-<p>接着更新 Nginx，可以根据需要，选择 Nginx 版本升级，一般选择最新的稳定版本即可。我安装的1.14.2.
+<p>接着更新 Nginx，可以根据需要，选择 Nginx 版本升级，一般选择最新的稳定版本即可。我安装的1.14.2.<br>
 升级nginx</p>
 <pre><code>cd ../
 sudo ./upgrade.sh nginx
 </code></pre>
-<p>出现错误可以试试
+<p>出现错误可以试试<br>
 yum install -y libuuid-devel</p>
 <h2 id="配置xxxcomconf">配置xxx.com.conf</h2>
-<p>所有的东西安装完毕然后开始配置网站的conf文件：
-文件位置在/usr/local/nginx/conf/vhost。 你最好把他下载到桌面编辑。
-你可以直接复制我的配置，对应修改一下自己的网站名称：
+<p>所有的东西安装完毕然后开始配置网站的conf文件：<br>
+文件位置在/usr/local/nginx/conf/vhost。 你最好把他下载到桌面编辑。<br>
+你可以直接复制我的配置，对应修改一下自己的网站名称：<br>
 配置文件写好并上传后，把xxx.com.conf里面内容加进去。</p>
 <h3 id="更新缓存">更新缓存</h3>
 <pre><code>touch /var/cache/ngx_pagespeed/cache.flush
@@ -280,6 +282,10 @@ yum install -y libuuid-devel</p>
                 <span>Categories</span>
                 
                   
+                    
+                  <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK" title="View all posts in Vue">Vue</a>
+                    
+                    
                     
                   <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
                     
@@ -317,7 +323,7 @@ yum install -y libuuid-devel</p>
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1566964226896" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567480101030" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
             </div>
             <div class="bio">

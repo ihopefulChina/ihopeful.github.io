@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Message board inquiry management system（询盘管理系统） | Ihopeful Blog</title>
+<title>Vue学习(一):Vue的MVVM | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567480101030">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,44 +172,69 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-xue-xi-yi-vue-de-mvvm.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-03-20 ·</span> <span> / </span>
+          <span class="date">· 2019-09-03 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/system">系统</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                    <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>Message board inquiry management system（询盘管理系统）</h1>
+          <h1 class='entry-title'>Vue学习(一):Vue的MVVM</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>转载</p>
-<p>地址：https://github.com/ihopefulChina/Message-board-inquiry-management-system</p>
-<p>外贸营销网站留言板程序 一个简单的留言板程序，在外贸网站运行测试多年没有任何问题。如果你的公司没有留言板程序，或者现在需要去找一个简单的留言板程序，这个很适合你。</p>
-<!-- more -->
-<p>特点：</p>
-<p>自动过滤垃圾留言信息 语言翻译功能集成 一键复制留言信息 安装 把文件上传到服务器根目录 然后打开install.php, 例如： http://www.yourdomain.com/install.php 安装完毕会在content目录下生成一个数据库 LNMP一键安装包，需要注意，content文件夹权限问题 如果你是用root用户上传的文件，需要使用命令 chown www:www content/</p>
-<p>表单字段说明 具体的字段设置你可以在系统根目录下的updata.php里查看。</p>
-<p>姓名与邮箱是必填的，其它都是非必须的。</p>
-<p>submit.html有一个示例文件</p>
-<p>这个隐藏字段代表网站属于哪个牌子。</p>
-<p>这个隐藏字段代表你强制把referer改为某个网站。</p>
+              <h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
+<ul>
+<li>MVC是后端分层开发概念。</li>
+<li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
+</ul>
+<h3 id="2vue处理逻辑过程">2.Vue处理逻辑过程</h3>
+<p><img src="https://ihopefulchina.github.io/post-images/1567477853059.png" alt=""></p>
+<h3 id="3vue基本代码和mvvm之间对应关系">3.Vue基本代码和MVVM之间对应关系</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--将来 new这个Vue实例控制这个元素所有内容 
+    Vue实例所控制的这个元素区域，就是我们的 V --&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;{{ msg }}&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+//创建实例
+//当我们导入包之后，在浏览器内存中，就多了一个Vue构造函数
+//我们New出来的这个vm对象，就是我们MVVM中的VM调度者
+ var vm = new Vue({
+     el: '#app', //表示当前我们New这个Vue实例，要控制页面哪个区域
+     data:{
+         //data 属性中，存放的是el中需要的数据
+         msg: 'Vue学习' //通过Vue提供的指令，很方便把数据渲染到页面上，程序员不在手动操作DOM元素[前端框架Vue之类的框架，不提倡我们手动操作DOM 元素]
+     }
+     //这里的data就是MVVM的M，专门保存每个页面的数据的
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
 
             </article>
           </div>
@@ -304,7 +329,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian">下一篇->批量裁切图片</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng">下一篇->国内优酷分享API一些坑</a>
               </div>
             </nav>
           
