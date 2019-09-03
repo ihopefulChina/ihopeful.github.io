@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T08:02:06.799Z</updated>
+    <updated>2019-09-03T08:31:03.242Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -105,6 +105,48 @@ var vm = new Vue({
 })
 &lt;/script&gt;
 &lt;/html&gt;
+</code></pre>
+<h3 id="使用内联样式">使用内联样式</h3>
+<ol>
+<li>直接在元素上通过<code>:style</code> 的形式，书写样式对象<br>
+<code>&lt;h1 :style=&quot;{ color:'red', 'font-weight':100 }&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+<li>将样式对象，定义到<code>data</code>中，并直接引用到<code>:style</code> 中</li>
+</ol>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+        &lt;!--对象就是无序键值对的集合--&gt;
+        &lt;h1 :style=&quot;styleobj&quot;&gt;这是H1&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            styleobj : { color:'red', 'font-weight':100 }
+        },
+        methods:{
+
+        }
+    })
+    &lt;/script&gt;
+</code></pre>
+<ol start="3">
+<li>在<code>:style</code> 中通过数组引用多个 <code>data</code> 上的样式对象</li>
+</ol>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+        &lt;!--对象就是无序键值对的集合--&gt;
+        &lt;h1 :style=&quot;[styleobj,styleobj2]&quot;&gt;这是H1&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            styleobj : { color:'red', 'font-weight':100 },
+            styleobj2 : { 'font-style': 'italic' }
+        },
+        methods:{
+
+        }
+    })
+    &lt;/script&gt;
 </code></pre>
 ]]></content>
     </entry>
