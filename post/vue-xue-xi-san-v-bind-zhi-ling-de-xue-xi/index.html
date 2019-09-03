@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>修改Wordpress登录后跳转指定页面 | Ihopeful Blog</title>
+<title>Vue学习(三):v-bind指令的学习 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567483064762">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,46 +172,41 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/xiu-gai-wordpress-deng-lu-hou-tiao-zhuan-zhi-ding-ye-mian.png">
-          </div>
-        
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-22 ·</span> <span> / </span>
+          <span class="date">· 2019-09-03 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
-                </span>
-          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>修改Wordpress登录后跳转指定页面</h1>
+          <h1 class='entry-title'>Vue学习(三):v-bind指令的学习</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>Wordpres 后台登录后默认跳转到仪表板，其实是可以修改跳转到指定页面。</p>
-<!-- more -->
-<p>在function里面添加一个函数即可。</p>
-<pre><code>function my_login_redirect($redirect_to, $request){
-	if( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() )
-		return home_url(&quot;/wp-admin/admin.php?page=lanthymessage&quot;);
-	else
-		return $redirect_to;
-}
-add_filter(&quot;login_redirect&quot;, &quot;my_login_redirect&quot;, 10, 3);
+              <h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>格式:<br>
+<code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;mytitle&quot;&gt;</code></p>
+<pre><code>var vm = new Vue({
+            el: '#app',
+            data:{
+                mytitle: '定义的title'
+            }
+        })
 </code></pre>
-<p>其中的'/wp-admin/admin.php?page=lanthymessage'是指定的url地址。</p>
-<p>以上就是实现Wordpress登录后跳转到指定页面。</p>
+<h3 id="加变量的表达式">加变量的表达式</h3>
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-bind:title=&quot;mytitle + ' 123'&quot;&gt;
+</code></pre>
+<h3 id="简写">简写</h3>
+<pre><code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; :title=&quot;mytitle + ' 123'&quot;&gt;
+</code></pre>
+<p>注意:</p>
+<ol>
+<li><code>v-bind:</code>指令可以简写为<code>:要绑定的属性</code>。</li>
+<li>v-bind中可以合法写JS表达式。</li>
+</ol>
 
             </article>
           </div>
@@ -306,7 +301,7 @@ add_filter(&quot;login_redirect&quot;, &quot;my_login_redirect&quot;, 10, 3);
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/ru-he-bu-shen-qing-bai-du-di-tu-apihuo-qu-fen-xiang-di-tu-url">下一篇->如何不申请百度地图API，获取分享地图url？</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/vue-xue-xi-er-v-cloakv-textv-html">下一篇->Vue学习(二): v-cloak、v-text、v-html</a>
               </div>
             </nav>
           
