@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T08:01:16.032Z</updated>
+    <updated>2019-09-03T08:02:06.799Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,6 +16,19 @@
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi">
         </link>
         <updated>2019-09-03T07:32:02.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
+<ol>
+<li>
+<p>数组<br>
+<code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></p>
+</li>
+<li>
+<p>数组里面的三元表达式</p>
+</li>
+</ol>
+<pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
+</code></pre>
+]]></summary>
         <content type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
 <ol>
 <li>
@@ -28,6 +41,7 @@
 </ol>
 <pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
 </code></pre>
+<!-- more -->
 <ol start="3">
 <li>
 <p>数组使用对象代替三元表达式，提高代码的可读性<br>
