@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T06:25:48.703Z</updated>
+    <updated>2019-09-03T06:54:42.881Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue学习(五): v-model实现表单元素的数据双向绑定]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding">
+        </link>
+        <updated>2019-09-03T06:52:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
+<!-- more -->
+<p>代码示例</p>
+<pre><code>&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        input{
+            width: 100%;
+            padding: 15px 10px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+      &lt;h4&gt;{{msg}}&lt;/h4&gt;
+      &lt;!--v-bind:(:)只能实现数据的单向绑定，从M 绑定到V--&gt;
+      &lt;input type=&quot;text&quot; name=&quot;name&quot; :value=&quot;msg&quot;&gt;
+      &lt;!--v-model指令，可以实现表单元素和Model中数据的双向数据绑定--&gt;
+      &lt;!--v-model只能运用到表单元素中--&gt;
+      &lt;input type=&quot;text&quot; name=&quot;name&quot; v-model=&quot;msg&quot;&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                msg: '这个Messge里面内容'
+            },
+            methods:{
+             
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(五): 事件修饰符]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu</id>
@@ -723,81 +774,6 @@ j = 0;
 <li>支持客户留言所在网址、留言时间、设备信息等等。</li>
 <li>支持自定义表单name标签内容。</li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[如何输出根据分类罗列文章，当前页面高亮显示]]></title>
-        <id>https://ihopefulchina.github.io/post/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi</id>
-        <link href="https://ihopefulchina.github.io/post/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi">
-        </link>
-        <updated>2019-08-22T06:13:54.000Z</updated>
-        <summary type="html"><![CDATA[<p>我之前有写过类似这个功能，这次写的全一点，高亮显示实现功能也是用到这个<code>$uri=explode('/',$_SERVER['REQUEST_URI']);</code></p>
-<p>我贴一下代码，你们可以参考一下，个人暂时未找到更好的方法，有什么好的方法，可以在下面评论，我们探讨一下。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我之前有写过类似这个功能，这次写的全一点，高亮显示实现功能也是用到这个<code>$uri=explode('/',$_SERVER['REQUEST_URI']);</code></p>
-<p>我贴一下代码，你们可以参考一下，个人暂时未找到更好的方法，有什么好的方法，可以在下面评论，我们探讨一下。</p>
-<!-- more -->
-<pre><code>$uri=explode('/',$_SERVER['REQUEST_URI']);
-&lt;?php
-					$categories = get_categories(&quot;hierarchical=1&amp;taxonomy=video&amp;hide_empty=0&quot;);
-					$cats=array();
-					foreach($categories as $tmpcat){
-						if($tmpcat-&gt;parent&gt;0){
-							$cats[$tmpcat-&gt;parent]['child'][$tmpcat-&gt;term_id]['name']=$tmpcat-&gt;name;
-							$cats[$tmpcat-&gt;parent]['child'][$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-						}else{
-							$cats[$tmpcat-&gt;term_id]['name']=$tmpcat-&gt;name;
-							$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-						}
-					}
-					ksort($cats);
-					foreach($cats as $key=&gt;$val){?&gt;
-						&lt;li class=&quot;cat-item&quot;&gt;
-							&lt;i class=&quot;fas fa-angle-down&quot;&gt;&lt;/i&gt;&lt;a&gt;&lt;?php echo $val[&quot;name&quot;]; ?&gt;&lt;/a&gt;
-							&lt;ul class=&quot;children&quot;&gt;
-								&lt;?php foreach($val[&quot;child&quot;] as $cat){ ?&gt;
-									&lt;li class=&quot;cat-item&quot;&gt;
-										&lt;a&lt;?php if (ucwords(str_replace('-',' ',$uri[3])) == $cat[&quot;name&quot;] ) {echo ' class=&quot;opeth&quot;';}?&gt;&gt;&lt;?php echo $cat[&quot;name&quot;]; ?&gt;&lt;/a&gt;
-										&lt;?php
-										$posts_array = get_posts(
-											array(
-												'posts_per_page' =&gt; 3,
-												'post_type' =&gt; 'videos',
-												'tax_query' =&gt; array(
-													array(
-														'taxonomy' =&gt; 'video',
-														'field' =&gt; 'term_id',
-														'terms' =&gt; $cat['term_id'],
-													)
-												)
-											)
-										);
-										if ($posts_array){?&gt;
-											&lt;ul class=&quot;children&quot;&gt;
-												&lt;?php
-												foreach( $posts_array as $post ){ 
-													$youtube = substr(basename(get_field('add_link')),8); 
-													$a =  substr(strrchr(rtrim(get_permalink(), '/'), '/'), 1);?&gt;
-													&lt;li&lt;?php if ($uri[4] == $a ) {echo ' class=&quot;opeth&quot;';} ?&gt;&gt;
-														&lt;div class=&quot;list-video&quot;&gt;
-															&lt;div class=&quot;col-md-4&quot;&gt;
-																&lt;iframe width=&quot;100%&quot; height=&quot;45px&quot; src=&quot;https://www.youtube.com/embed/&lt;?php echo $youtube;?&gt;&quot; frameborder=&quot;0&quot; showinfo=&quot;0&quot;&gt;&lt;/iframe&gt;
-															&lt;/div&gt;
-															&lt;div class=&quot;col-md-8&quot;&gt;
-																&lt;a href=&quot;&lt;?php echo get_permalink(); ?&gt;&quot;&gt;&lt;?php echo get_the_title(); ?&gt;&lt;/a&gt;
-															&lt;/div&gt;
-															&lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;
-														&lt;/div&gt;
-													&lt;/li&gt;
-												&lt;?php } ?&gt;
-											&lt;/ul&gt;
-										&lt;?php } ?&gt;
-									&lt;/li&gt;
-								&lt;?php } ?&gt;
-							&lt;/ul&gt;
-						&lt;/li&gt;
-					&lt;?php } ?&gt;
-</code></pre>
 ]]></content>
     </entry>
 </feed>
