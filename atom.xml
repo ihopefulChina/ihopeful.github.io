@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T07:30:50.974Z</updated>
+    <updated>2019-09-03T08:01:16.032Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,90 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ Vue学习(八): Vue中的使用样式]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi">
+        </link>
+        <updated>2019-09-03T07:32:02.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
+<ol>
+<li>
+<p>数组<br>
+<code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></p>
+</li>
+<li>
+<p>数组里面的三元表达式</p>
+</li>
+</ol>
+<pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
+</code></pre>
+<ol start="3">
+<li>
+<p>数组使用对象代替三元表达式，提高代码的可读性<br>
+<code>&lt;h1 :class=&quot;['red','thin',{'active':flag} ]&quot;&gt;这是H1&lt;/h1&gt;</code></p>
+</li>
+<li>
+<p>直接对象<br>
+在为class使用v-bind绑定对象的时候，对象的属性是类名，对象的属性可以不需要引号；属性的值是一个标识符</p>
+</li>
+</ol>
+<pre><code>&lt;h1 :class=&quot;{red:false, thin: true, italic:true, active:false}&quot;&gt;这是H1&lt;/h1&gt;
+</code></pre>
+<p>代码示例</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;style&gt;
+    .red{
+        color:red;
+    }
+    .thin{
+        font-weight: 100;
+    }
+    .italic{
+        font-style: italic
+    }
+    .active{
+        letter-spacing: 0.5em;
+    }
+    &lt;/style&gt;
+&lt;/body&gt;
+&lt;div id=&quot;app&quot;&gt;
+     &lt;!--数组--&gt;
+    &lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;
+    &lt;!--三元表达式--&gt;
+    &lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
+    &lt;!--数组使用对象代替三元表达式，提高代码的可读性--&gt;
+    &lt;h1 :class=&quot;['red','thin',{'active':flag} ]&quot;&gt;这是H1&lt;/h1&gt;
+    &lt;!--对象--&gt;
+    &lt;h1 :class=&quot;{red:false, thin: true, italic:true, active:false}&quot;&gt;这是H1&lt;/h1&gt;
+     &lt;!--直接指向--&gt;
+     &lt;h1 :class=&quot;classobj&quot;&gt;这是H1&lt;/h1&gt;
+&lt;/div&gt;
+&lt;script&gt;
+var vm = new Vue({
+    el: '#app',
+    data:{
+        flag : true,
+        classobj: {red:false, thin: true, italic:true, active:false}
+    },
+    methods:{
+
+    }
+})
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(七): 简易计算器案例]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li</id>
@@ -808,61 +892,6 @@ j = 0;
 						}
 						?&gt;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[如何解决页面/文章/详情页需要不同样式、模板的问题？]]></title>
-        <id>https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti</id>
-        <link href="https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti">
-        </link>
-        <updated>2019-08-22T06:48:25.000Z</updated>
-        <summary type="html"><![CDATA[<p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
-<p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
-<p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
-<!-- more -->
-<ol>
-<li>
-<p>首先通过<a href="https://www.advancedcustomfields.com/resources/radio-button/">ACF插件Seclect的单选按钮</a>，填写5个参数<br>
-(注: 参数' : '前后需要有空格)<br>
-<img src="https://ihopefulchina.github.io/post-images/1566457009571.png" alt=""></p>
-</li>
-<li>
-<p>通过<a href="https://www.advancedcustomfields.com/resources/group/">ACF插件的组</a>来写5个模板(组下面填写不同的自定义字段)</p>
-</li>
-</ol>
-<p><img src="https://ihopefulchina.github.io/post-images/1566456898881.png" alt=""></p>
-<p>注:<br>
-(1)需要填写判断(条件逻辑)</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457679886.png" alt=""></p>
-<p>(2)其中每个模板Group里面的说明最好加上模板图片样式，例如<code>&lt;img src=&quot;/wp-admin/images/sj.png&quot; width=&quot;50%&quot; height=&quot;auto&quot;&gt;</code><br>
-这么做的目的，是客户知道这是哪个模板样式，呈现的效果如下。</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457148348.png" alt=""></p>
-<p>3.然后创建5个php，命名规避page，single等等自带的命名方式，里面填写各自模板样式和参数。</p>
-<p><img src="https://ihopefulchina.github.io/post-images/1566457258241.png" alt=""></p>
-<p>5.最后在single-products.php里面，加一个判断:</p>
-<pre><code>&lt;?php if( get_field('select') == 'one' ): ?&gt;
-		&lt;?php include 'product-content1.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'two' ): ?&gt;
-		&lt;?php include 'product-content2.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'three' ): ?&gt;
-		&lt;?php include 'product-content3.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'four' ): ?&gt;
-		&lt;?php include 'product-content4.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-
-	&lt;?php if( get_field('select') == 'five' ): ?&gt;
-		&lt;?php include 'product-content5.php'; ?&gt;
-	&lt;?php endif; ?&gt;
-</code></pre>
-<p>其中的one，two... 来自ACF插件Seclect的单选按钮前面的参数</p>
 ]]></content>
     </entry>
 </feed>
