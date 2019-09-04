@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Vue | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567567975983">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567568055716">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -208,7 +208,10 @@
         </div>
         <div class='excerpt-content'>
           <article>
-              
+              <p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
+当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
+<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
+
           </article>
         </div>
       </div>

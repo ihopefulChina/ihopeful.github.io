@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T03:33:21.157Z</updated>
+    <updated>2019-09-04T03:34:18.397Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,9 +16,14 @@
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang">
         </link>
         <updated>2019-09-04T02:56:20.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
+当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
+<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
+]]></summary>
         <content type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
 当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
 <p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
+<!-- more -->
 <p>代码示例</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
@@ -78,7 +83,7 @@
 </code></pre>
 <p><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></p>
 <ol>
-<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值。</li>
+<li>v-for循环的时候，只能用number或string。</li>
 <li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
 <li>当使用<code>this.list.unshift({id: this.id,name: this.name})</code> 添加按钮事件，未绑定<code>v-bind:key=&quot;item.id&quot;</code>时候，会出现 例如:选择id为4，添加一个后，会上移到id为3<br>
 <img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt=""><br>
