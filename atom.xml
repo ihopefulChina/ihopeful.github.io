@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T06:23:35.558Z</updated>
+    <updated>2019-09-04T06:25:51.448Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,7 +16,12 @@
         <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi">
         </link>
         <updated>2019-09-04T05:48:51.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="1mvc和mvvm的区别">1.MVC和MVVM的区别</h3>
+        <summary type="html"><![CDATA[<p>主要学习了MVC和MVVM的区别、学习Vue基本的代码结构、基本指令: 差值表达式， v-cloak, v-text, v-html, v-bind(缩写:), v-on(缩写@), v-model, v-for, v-if, v-show、el 指定控制的区域 data 是对象，指定了控制区域内要用到的数据，methods 虽然带s后缀，但是个对象，这里可以放自定义方法、在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this、在v-for 注意key属性(接受string、number)、v-model 只能运用到表单元素、Vue中绑定样式2中方式 v-bind:class,v-model:style、v-if和v-show使用和特点等等。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>主要学习了MVC和MVVM的区别、学习Vue基本的代码结构、基本指令: 差值表达式， v-cloak, v-text, v-html, v-bind(缩写:), v-on(缩写@), v-model, v-for, v-if, v-show、el 指定控制的区域 data 是对象，指定了控制区域内要用到的数据，methods 虽然带s后缀，但是个对象，这里可以放自定义方法、在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this、在v-for 注意key属性(接受string、number)、v-model 只能运用到表单元素、Vue中绑定样式2中方式 v-bind:class,v-model:style、v-if和v-show使用和特点等等。</p>
+<!-- more -->
+<p>梳理一下：</p>
+<h3 id="1mvc和mvvm的区别">1.MVC和MVVM的区别</h3>
 <ol>
 <li><img src="https://ihopefulchina.github.io/post-images/1567576221359.png" alt=""></li>
 </ol>
