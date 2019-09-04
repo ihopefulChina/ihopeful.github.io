@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T02:55:20.810Z</updated>
+    <updated>2019-09-04T02:55:51.584Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,17 +16,23 @@
         <link href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi">
         </link>
         <updated>2019-09-04T01:43:33.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
+<ol>
+<li>直接循环输出数组内容<br>
+<code>&lt;p v-for=&quot;item in list&quot;&gt;这是数组内容:{{item}}&lt;/p&gt;</code><br>
+<code>list:[1,2,3,4,5,6]</code></li>
+</ol>
+]]></summary>
         <content type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
 <ol>
-<li>
-<p>直接循环输出数组内容<br>
+<li>直接循环输出数组内容<br>
 <code>&lt;p v-for=&quot;item in list&quot;&gt;这是数组内容:{{item}}&lt;/p&gt;</code><br>
-<code>list:[1,2,3,4,5,6]</code><br>
-<img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></p>
-</li>
-<li>
-<p>添加索引值</p>
-</li>
+<code>list:[1,2,3,4,5,6]</code></li>
+</ol>
+<!-- more -->
+<p><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></p>
+<ol start="2">
+<li>添加索引值</li>
 </ol>
 <pre><code>&lt;p v-for=&quot;(item,i) in list&quot;&gt;这是数组的索引值:{{i}},这是数组内容:{{item}}&lt;/p&gt;
 </code></pre>
