@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>解决Wordpress自定义二级目录和三级目录采用不同的样式 | Ihopeful Blog</title>
+<title>Vue学习(十二): 内容总结前十一Vue学习 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567578174589">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -172,49 +172,228 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi.png">
-          </div>
-        
 
         <div class="entry-meta">
-          <span class="date">· 2019-08-22 ·</span> <span> / </span>
+          <span class="date">· 2019-09-04 ·</span> <span> / </span>
           <span class="author">
             <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
           </span>
           
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
-                </span>
-          
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>解决Wordpress自定义二级目录和三级目录采用不同的样式</h1>
+          <h1 class='entry-title'>Vue学习(十二): 内容总结前十一Vue学习</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <p>Wordpress自定义分类结构采用的是archive-&gt;taxonomy-&gt;single,其中archive是自定义分类的总页面，taxonomy是子分类，子分类的下面分类，single是自定义分类下的文章。</p>
-<p>层级很清晰，但有一个问题，如果二级目录和三级目录采用不同的样式(taxonomy页面)，怎么办？</p>
-<!-- more -->
-<p>其实很好解决这个问题，我们需要理清思路。</p>
+              <h3 id="1mvc和mvvm的区别">1.MVC和MVVM的区别</h3>
 <ol>
-<li>采用if语句判断是二级目录还是三级目录，使用<code>$uri=explode('/',$_SERVER['REQUEST_URI']);</code>来切割url，然后判断。</li>
-<li>在不同逻辑采用不同样式。</li>
+<li><img src="https://ihopefulchina.github.io/post-images/1567576221359.png" alt=""></li>
 </ol>
-<pre><code>$uri=explode('/',$_SERVER['REQUEST_URI']);
-&lt;?php if(isset($uri['4'])){?&gt;
-/*这里输出三级目录的样式
-else{
-/*这里输出除了三级目录的样式
-}
+<h3 id="2学习vue基本的代码结构">2.学习Vue基本的代码结构</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+	&lt;title&gt;&lt;/title&gt;
+    &lt;script src=&quot;./lib/vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;!--将来 new这个Vue实例控制这个元素所有内容 
+    Vue实例所控制的这个元素区域，就是我们的 V --&gt;
+&lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;{{ msg }}&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;script&gt;
+//创建实例
+//当我们导入包之后，在浏览器内存中，就多了一个Vue构造函数
+//我们New出来的这个vm对象，就是我们MVVM中的VM调度者
+ var vm = new Vue({
+     el: '#app', //表示当前我们New这个Vue实例，要控制页面哪个区域
+     data:{
+         //data 属性中，存放的是el中需要的数据
+         msg: 'Vue学习' //通过Vue提供的指令，很方便把数据渲染到页面上，程序员不在手动操作DOM元素[前端框架Vue之类的框架，不提倡我们手动操作DOM 元素]
+     }
+     //这里的data就是MVVM的M，专门保存每个页面的数据的
+})
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
 </code></pre>
-<p>以上只是一种写法，当然，可以写成<code>if..elseif..else</code>,等等来判断。</p>
+<h3 id="3基本指令-差值表达式-v-cloak-v-text-v-html-v-bind缩写-v-on缩写-v-model-v-for-v-if-v-show">3.基本指令: 差值表达式， v-cloak, v-text, v-html, v-bind(缩写:), v-on(缩写@), v-model, v-for, v-if, v-show</h3>
+<ul>
+<li>差值表达式: <code>&lt;span&gt;Message:{{msg}}&lt;/span&gt;</code></li>
+<li>v-cloak: 当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。<code>&lt;p v-cloak&gt;{{msg}}&lt;/p&gt;</code>使用 v-cloak能够解决插值表达式闪烁问题,需要加<code>[v-cloak]{display: none;}</code></li>
+<li>v-text: <code>&lt;h4 v-text=&quot;msg&quot;&gt;&lt;/h4&gt;</code></li>
+<li>v-html: 可以输出html标签，<code>&lt;div v-html=&quot;msg2&quot;&gt;&lt;/div&gt;</code>，<code>msg2: '&lt;h1&gt;这是H1标签&lt;/h1&gt;',</code></li>
+<li>v-bind(缩写:): 单向数据绑定<code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; :title=&quot;mytitle + ' 123'&quot; v-on:click=&quot;alert&quot;&gt;</code>， <code>mytitle: '定义的title'</code></li>
+<li>v-on(缩写@): 用来绑定事件的, <code>&lt;input type=&quot;button&quot; value=&quot;按钮&quot; v-on:click=&quot;show&quot;&gt;</code>,<code>methods:{show: function(){alert('yes')} }</code></li>
+<li>v-model: 双向数据绑定，一般用于用于表单元素</li>
+<li>
+<pre><code>v-for:遍历循环用的，可以放普通数组，对象数组，对象和数字。`&lt;p v-for=&quot;(user,i) in list&quot;&gt;索引值:{{i}}, 用户ID:{{user.id}}, 用户名称:{{user.name}}&lt;/p&gt;`，`list:[{id:1,name:&quot;a&quot;},{id:2,name:&quot;b&quot;}, {id:3,name:&quot;c&quot;},{id:4,name:&quot;d&quot;}, ]`
+</code></pre>
+</li>
+<li>
+<pre><code>v-if, v-show: 显示和隐藏元素，`&lt;h3 v-if=&quot;flag&quot;&gt;这是用v-if控制的元素&lt;/h3&gt;`,`&lt;h3 v-show=&quot;flag&quot;&gt;这是用v-show控制的元素&lt;/h3&gt;` 
+</code></pre>
+</li>
+</ul>
+<h3 id="4事件修饰符-stop-self-prevent-capture-once">4.事件修饰符 .stop, .self, .prevent, .capture, once</h3>
+<ul>
+<li>.stop: 阻止冒泡事件。</li>
+<li>.prevet: 使用.prevet 阻止默认事件</li>
+<li>.capture: 实现捕获触发事件的机制(从外到里捕获事件)</li>
+<li>.self: 实现只有点击当期元素，才会触发事件函数</li>
+<li>.once: 事件只触发一次处理函数 .prevent.once 顺序无所谓</li>
+<li>使用.stop 与.self的区别: .self只会阻止自己身上的冒泡的行为触发，不会阻止别人的触发</li>
+</ul>
+<pre><code>&lt;!--使用.stop 阻止冒泡--&gt;
+        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
+            &lt;div class=&quot;inner&quot; @click=&quot;divHandler&quot;&gt;
+                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+         &lt;!--使用 .self 阻止冒泡--&gt;
+        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
+            &lt;div class=&quot;inner&quot; @click.self=&quot;divHandler&quot;&gt;
+                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;btnHandler&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+</code></pre>
+<h3 id="5el-指定控制的区域-data-是对象指定了控制区域内要用到的数据methods-虽然带s后缀但是个对象这里可以放自定义方法">5.el 指定控制的区域 data 是对象，指定了控制区域内要用到的数据，methods 虽然带s后缀，但是个对象，这里可以放自定义方法</h3>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
+        &lt;select v-model=&quot;opt&quot;&gt;
+            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
+            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
+            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
+            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
+        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
+        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
+    &lt;/div&gt;
+</code></pre>
+<pre><code>&lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            n1: 0,
+            n2: 0,
+            result: 0,
+            opt:'+'
+        },
+        methods:{
+            calc(){//计算器算数的方法
+                //逻辑:
+                //拿到n1,opt,n2值,this.result值计算
+                var codeStr = 'parseInt(this.n1) ' +  this.opt + ' parseInt(this.n2)'
+                this.result= eval(codeStr)
+            }
+        }
+    })
+    &lt;/script&gt;
+</code></pre>
+<h3 id="6在vm示例中如果要访问data上数据或者访问methods中方法必须带this">6.在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this</h3>
+<p><img src="https://ihopefulchina.github.io/post-images/1567578008377.png" alt=""></p>
+<h3 id="7在v-for-注意key属性接受string-number">7.在v-for 注意key属性(接受string、number)</h3>
+<p>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值<br>
+key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值<br>
+v-for循环的时候，只能用number或string</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+        &lt;div&gt;
+            &lt;label&gt;ID:
+                &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
+            &lt;/label&gt;
+            &lt;label&gt;name:
+                    &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
+            &lt;/label&gt;
+            &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add1&quot;&gt;
+        &lt;/div&gt;
+        &lt;!--v-for循环的时候，只能用number或string--&gt;
+        &lt;!--key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值--&gt;
+        &lt;!--在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值--&gt;
+        &lt;p v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;&gt;
+            ID: {{item.id}} , name: {{item.name}}
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                id:'',
+                name:'',
+                list:[
+                {id:1,name: 'a'},
+                {id:2,name: 'b'},
+                {id:3,name: 'c'},
+                {id:4,name: 'd'},
+                {id:5,name: 'e'}
+                ]
+            },
+            methods:{
+                add(){//添加
+                    this.list.push({id: this.id,name: this.name})
+                },
+                add1(){//添加
+                    this.list.unshift
+                    ({id: this.id,name: this.name})
+                }
+            }
+        })
+    &lt;/script&gt;
+</code></pre>
+<h3 id="8v-model-只能运用到表单元素">8.v-model 只能运用到表单元素</h3>
+<p><img src="https://ihopefulchina.github.io/post-images/1567578109353.png" alt=""></p>
+<h3 id="9vue中绑定样式2中方式-v-bindclassv-modelstyle">9.Vue中绑定样式2中方式 v-bind:class,v-model:style</h3>
+<p><strong>:class</strong></p>
+<ul>
+<li>数组:<code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+<li>三元表达式： <code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+<li>数组使用对象代替三元表达式，提高代码的可读性:<code>&lt;h1 :class=&quot;['red','thin',{'active':flag} ]&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+<li>对象:<code>&lt;h1 :class=&quot;{red:false, thin: true, italic:true, active:false}&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+<li>直接指向:<code>&lt;h1 :class=&quot;classobj&quot;&gt;这是H1&lt;/h1&gt;</code></li>
+</ul>
+<pre><code>&lt;script&gt;
+var vm = new Vue({
+    el: '#app',
+    data:{
+        flag : true,
+        classobj: {red:false, thin: true, italic:true, active:false}
+    },
+    methods:{
+
+    }
+})
+&lt;/script&gt;
+</code></pre>
+<p><strong>:style</strong><br>
+对象就是无序键值对的集合:<code>&lt;h1 :style=&quot;[styleobj,styleobj2]&quot;&gt;这是H1&lt;/h1&gt;</code></p>
+<pre><code>&lt;script&gt;
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            styleobj : { color:'red', 'font-weight':100 },
+            styleobj2 : { 'font-style': 'italic' }
+        },
+        methods:{
+
+        }
+    })
+    &lt;/script&gt;
+</code></pre>
+<h3 id="10v-if和v-show使用和特点">10.v-if和v-show使用和特点</h3>
+<ul>
+<li>v-if 的特点：每次都会重新删除或者创建元素; v-show的特点: 每次不会进行DOM元素的删除和创建的操作，只是切换了元素的display:none</li>
+<li>v-if 有较高的切换性能消耗，v-show有较高的初始渲染消耗</li>
+<li>如果元素涉及到频繁的切换，最好不要用v-if，用v-show; 如果元素可能永远不会被显示出来的话，则推荐v-if<br>
+<img src="https://ihopefulchina.github.io/post-images/1567578168432.png" alt=""></li>
+</ul>
 
             </article>
           </div>
@@ -309,7 +488,7 @@ else{
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan">下一篇->Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？</a>
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian">下一篇-> Vue学习(十一): v-if和v-show的使用和特点</a>
               </div>
             </nav>
           
