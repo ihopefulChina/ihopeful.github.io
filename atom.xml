@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T03:34:18.397Z</updated>
+    <updated>2019-09-04T05:48:42.795Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,25 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ Vue学习(十一): v-if和v-show的使用和特点]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian">
+        </link>
+        <updated>2019-09-04T03:42:06.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>一般来说，v-if有更高的切换消耗，而v-show有更高的初始渲染消耗，因此需要频繁切换v-show较好，如果在运行条件不太可能改变v-if较好。</strong></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>一般来说，v-if有更高的切换消耗，而v-show有更高的初始渲染消耗，因此需要频繁切换v-show较好，如果在运行条件不太可能改变v-if较好。</strong></p>
+<!-- more -->
+<p><strong>区别</strong></p>
+<ol>
+<li>v-if 的特点：每次都会重新删除或者创建元素；v-show的特点: 每次不会进行DOM元素的删除和创建的操作，只是切换了元素的display:none</li>
+<li>v-if 有较高的切换性能消耗，v-show有较高的初始渲染消耗</li>
+<li>如果元素涉及到频繁的切换，最好不要用v-if，用v-show； 如果元素可能永远不会被显示出来的话，则推荐v-if。<br>
+<img src="https://ihopefulchina.github.io/post-images/1567576098904.png" alt=""></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十): v-for中key的使用注意事项]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang</id>
@@ -852,62 +871,6 @@ var vm = new Vue({
                 msg2: '&lt;h1&gt;这是H1标签&lt;/h1&gt;'
             }
         })
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(一): Vue的MVVM]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-yi-vue-de-mvvm">
-        </link>
-        <updated>2019-09-03T02:25:33.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
-<ul>
-<li>MVC是后端分层开发概念。</li>
-<li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
-<ul>
-<li>MVC是后端分层开发概念。</li>
-<li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
-</ul>
-<!-- more -->
-<h3 id="2vue处理逻辑过程">2.Vue处理逻辑过程</h3>
-<p><img src="https://ihopefulchina.github.io/post-images/1567477853059.png" alt=""></p>
-<h3 id="3vue基本代码和mvvm之间对应关系">3.Vue基本代码和MVVM之间对应关系</h3>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-	&lt;title&gt;&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;!--将来 new这个Vue实例控制这个元素所有内容 
-    Vue实例所控制的这个元素区域，就是我们的 V --&gt;
-&lt;div id=&quot;app&quot;&gt;
-    &lt;p&gt;{{ msg }}&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;script&gt;
-//创建实例
-//当我们导入包之后，在浏览器内存中，就多了一个Vue构造函数
-//我们New出来的这个vm对象，就是我们MVVM中的VM调度者
- var vm = new Vue({
-     el: '#app', //表示当前我们New这个Vue实例，要控制页面哪个区域
-     data:{
-         //data 属性中，存放的是el中需要的数据
-         msg: 'Vue学习' //通过Vue提供的指令，很方便把数据渲染到页面上，程序员不在手动操作DOM元素[前端框架Vue之类的框架，不提倡我们手动操作DOM 元素]
-     }
-     //这里的data就是MVVM的M，专门保存每个页面的数据的
-})
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-
 </code></pre>
 ]]></content>
     </entry>
