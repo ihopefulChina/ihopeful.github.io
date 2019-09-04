@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-03T08:46:54.350Z</updated>
+    <updated>2019-09-04T02:54:35.187Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue学习(九): v-for指令的四种使用方式]]></title>
+        <id>https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi</id>
+        <link href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi">
+        </link>
+        <updated>2019-09-04T01:43:33.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
+<ol>
+<li>
+<p>直接循环输出数组内容<br>
+<code>&lt;p v-for=&quot;item in list&quot;&gt;这是数组内容:{{item}}&lt;/p&gt;</code><br>
+<code>list:[1,2,3,4,5,6]</code><br>
+<img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></p>
+</li>
+<li>
+<p>添加索引值</p>
+</li>
+</ol>
+<pre><code>&lt;p v-for=&quot;(item,i) in list&quot;&gt;这是数组的索引值:{{i}},这是数组内容:{{item}}&lt;/p&gt;
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt=""></p>
+<h3 id="v-for循环对象数组">v-for循环对象数组</h3>
+<pre><code>&lt;p v-for=&quot;(user,i) in list&quot;&gt;索引值:{{i}}, 用户ID:{{user.id}}, 用户名称:{{user.name}}&lt;/p&gt;
+</code></pre>
+<pre><code>list:[
+                    {id:1,name:&quot;a&quot;},
+                    {id:2,name:&quot;b&quot;},
+                    {id:3,name:&quot;c&quot;},
+                    {id:4,name:&quot;d&quot;},
+                ]
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt=""></p>
+<h3 id="v-for循环对象">v-for循环对象</h3>
+<p>在遍历对象身上的键值得时候，可以有val key 还有索引</p>
+<pre><code>&lt;p v-for=&quot;(val, key, i) in user&quot;&gt;索引值:{{i}}, 键:{{key}}, 值: {{val}}&lt;/p&gt;
+</code></pre>
+<pre><code>user:{
+                id:1,
+                name: 'a',
+                gender: 'boy'
+            }
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt=""></p>
+<h3 id="v-for迭代数字">v-for迭代数字</h3>
+<p>in 后面可以放普通数组，对象数组，对象和数字。<br>
+迭代数字从1开始</p>
+<pre><code>&lt;p v-for=&quot;count in 10&quot;&gt;这是第 {{count}} 次循环&lt;/p&gt;
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(八): Vue中的使用样式]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi</id>
@@ -883,70 +934,6 @@ j = 0;
 &lt;?php endif; ?&gt;
 &lt;?php endwhile; ?&gt;
 &lt;?php endif; ?&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[获取当前分类下的所有子分类]]></title>
-        <id>https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei</id>
-        <link href="https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei">
-        </link>
-        <updated>2019-08-22T07:17:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
-<p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
-<p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
-<!-- more -->
-<p>解决思路:<br>
-1.首先通过<code>get_categories</code>获取所有分类的slug和id</p>
-<pre><code>$test = get_categories(&quot;taxonomy=product&amp;hide_empty=0&quot;);
-						$cats=array(); 
-						foreach($test as $tmpcat){
-							if($tmpcat-&gt;parent==0){
-								$cats[$tmpcat-&gt;term_id]['slug']=$tmpcat-&gt;slug;
-								$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-							}
-						}
-</code></pre>
-<p>3.然后切割分组当前url，判断slug是否等于当前的url</p>
-<pre><code>$uri=explode('/',$_SERVER['REQUEST_URI']);
-</code></pre>
-<p>5.等于的话，再根据<code>get_categories</code>加上child_of=，最后foreach输出所有分类。</p>
-<pre><code>foreach($cats as $key=&gt;$val){
-							if($cats[$key]['slug']==$uri[2]){
-								$id = $cats[$key]['term_id'];
-								$cate = get_categories(&quot;depth=0&amp;hide_empty=0&amp;title_li=&amp;orderby=ID&amp;order=ASC&amp;taxonomy=product&amp;child_of=$id&quot;);
-								foreach ($cate as $key =&gt; $value) {?&gt;
-									&lt;div class=&quot;swiper-slide&quot;&gt;
-										&lt;li class=&quot;cat-item&lt;?php if($value-&gt;slug == $uri[3]){ echo ' current-cat';}?&gt;&quot;&gt;&lt;a href=&quot;/products/&lt;?php echo $uri[2];?&gt;/&lt;?php echo $value-&gt;slug; ?&gt;/&quot;&gt;&lt;?php echo $value-&gt;name;?&gt;&lt;/a&gt;&lt;/li&gt;
-									&lt;/div&gt;
-								&lt;?php }
-							}
-						}
-</code></pre>
-<p>完整的</p>
-<pre><code>&lt;?php 
-						$test = get_categories(&quot;taxonomy=product&amp;hide_empty=0&quot;);
-						$cats=array(); 
-						foreach($test as $tmpcat){
-							if($tmpcat-&gt;parent==0){
-								$cats[$tmpcat-&gt;term_id]['slug']=$tmpcat-&gt;slug;
-								$cats[$tmpcat-&gt;term_id]['term_id']=$tmpcat-&gt;term_id;
-							}
-						}
-						foreach($cats as $key=&gt;$val){
-							if($cats[$key]['slug']==$uri[2]){
-								$id = $cats[$key]['term_id'];
-								$cate = get_categories(&quot;depth=0&amp;hide_empty=0&amp;title_li=&amp;orderby=ID&amp;order=ASC&amp;taxonomy=product&amp;child_of=$id&quot;);
-								foreach ($cate as $key =&gt; $value) {?&gt;
-									&lt;div class=&quot;swiper-slide&quot;&gt;
-										&lt;li class=&quot;cat-item&lt;?php if($value-&gt;slug == $uri[3]){ echo ' current-cat';}?&gt;&quot;&gt;&lt;a href=&quot;/products/&lt;?php echo $uri[2];?&gt;/&lt;?php echo $value-&gt;slug; ?&gt;/&quot;&gt;&lt;?php echo $value-&gt;name;?&gt;&lt;/a&gt;&lt;/li&gt;
-									&lt;/div&gt;
-								&lt;?php }
-							}
-						}
-						?&gt;
 </code></pre>
 ]]></content>
     </entry>
