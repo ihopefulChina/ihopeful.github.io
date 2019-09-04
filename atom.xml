@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T02:55:51.584Z</updated>
+    <updated>2019-09-04T03:32:58.309Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,83 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[ Vue学习(十): v-for中key的使用注意事项]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang">
+        </link>
+        <updated>2019-09-04T02:56:20.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
+当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
+<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
+<p>代码示例</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;div&gt;
+            &lt;label&gt;ID:
+                &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
+            &lt;/label&gt;
+            &lt;label&gt;name:
+                    &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
+            &lt;/label&gt;
+            &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add1&quot;&gt;
+        &lt;/div&gt;
+        &lt;!--v-for循环的时候，只能用number或string--&gt;
+        &lt;!--key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值--&gt;
+        &lt;!--在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值--&gt;
+        &lt;p v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;&gt;
+            ID: {{item.id}} , name: {{item.name}}
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                id:'',
+                name:'',
+                list:[
+                {id:1,name: 'a'},
+                {id:2,name: 'b'},
+                {id:3,name: 'c'},
+                {id:4,name: 'd'},
+                {id:5,name: 'e'}
+                ]
+            },
+            methods:{
+                add(){//添加
+                    this.list.push({id: this.id,name: this.name})
+                },
+                add1(){//添加
+                    this.list.unshift
+                    ({id: this.id,name: this.name})
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></p>
+<ol>
+<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值。</li>
+<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
+<li>当使用<code>this.list.unshift({id: this.id,name: this.name})</code> 添加按钮事件，未绑定<code>v-bind:key=&quot;item.id&quot;</code>时候，会出现 例如:选择id为4，添加一个后，会上移到id为3<br>
+<img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt=""><br>
+=》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt=""></li>
+<li>如果是<code>&lt;p v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;</code> 会出现错误，是因为<strong>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值</strong></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(九): v-for指令的四种使用方式]]></title>
         <id>https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi</id>
@@ -826,120 +903,6 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[国内优酷分享API一些坑]]></title>
-        <id>https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng</id>
-        <link href="https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng">
-        </link>
-        <updated>2019-08-23T08:57:46.000Z</updated>
-        <summary type="html"><![CDATA[<p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
-过程遇到了一些坑【忠告各位远离优酷】：</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
-过程遇到了一些坑【忠告各位远离优酷】：</p>
-<!-- more -->
-<p>1.iframe分享是可以的，但是不能做很多扩展功能，所以需要JS加载，但是client_id必须要有，所以需要申请API账号，但是不支持个人申请(wqnmd)。</p>
-<p>2.申请好了，之后，我看了一下<a href="https://cloud.youku.com/tools">官方文档</a>,咦，很简单嘛。</p>
-<pre><code>&lt;div id=&quot;youkuplayer&quot;style=&quot;width:580px;height:326px&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var player = new YKU.Player('youkuplayer',{
-styleid: '0',
-client_id: 'YOUR YOUKUOPENAPI CLIENT_ID',
-vid: '替换成优酷视频ID',
-newPlayer: true
-});
-&lt;/script&gt;
-</code></pre>
-<p>一目了然，我贴上去，是在循环里面写的加了一些参数</p>
-<pre><code>&lt;div id=&quot;youkuplayer-&lt;?php echo $i;?&gt;&quot; style=&quot;width: 862px!important; height: 445px!important;&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var player_&lt;?php echo $i;?&gt; = new YKU.Player('youkuplayer-&lt;?php echo $i;?&gt;',{
-client_id: 'XXX',                    
-vid: '&lt;?php echo substr($video_link,30,-5); ?&gt;',
-});
-function pauseVideo_&lt;?php echo $i;?&gt;(){
-player_&lt;?php echo $i;?&gt;.pauseVideo(); 
-}
-&lt;/script&gt;
-</code></pre>
-<p>3.我特意加了暂停视频按钮事件pauseVideo（客户需求是切换或者播放一个视频，再播放另一个视频的话，已经播放的暂停【优酷不支持！！】），一切大功告成，然后我测试，暂停功能不行，我以为我写错了，排查发现没有，怎么测试都没找到问题，查阅了很多文档，百度了很多，没有人提过这个问题。</p>
-<p>4.我灵光一现，移动端试试。我去，移动端没有问题，我苦恼PC端问题出现在哪里，我最好找到了，在<code>&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;</code>后面加一个<code>&lt;script type=&quot;text/javascript&quot;&gt;YKP.isPC = false;&lt;/script&gt;</code>，这个意思是PC端也跟移动端一样效果。</p>
-<p>5.然后又有问题了，在视频里面点击播放，ok没问题，再点击一次就不能暂停了。。。原来是PC端也跟移动端一样效果，但是移动端是触摸的啊，所以我在视频DIV加了一个点击事件。</p>
-<pre><code>var j = 0;
-$('#youkuplayer-&lt;?php echo $i;?&gt;').click(function () {
-if (j == 0) {
-player_&lt;?php echo $i;?&gt;.playVideo();
-j = 1;
-} else {
-player_&lt;?php echo $i;?&gt;.pauseVideo();
-j = 0;
-}
-});
-</code></pre>
-<p>6.期间遇到视频外层DIV(youkuplayer-<?php echo $i;?>),宽度和高度都是0（明明css和行内都给了值，最后2个都加上<code>!important</code>才行）</p>
-<p>以上是我遇到国内优酷分享API一些坑，还有分享视频播放居然要广告，感觉很麻烦，优酷偌大的公司，代码写的水平跟我一样差，也是醉了。</p>
-<p>贴上我的Demo:</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;YKP.isPC = false;&lt;/script&gt;
-&lt;?php if( have_rows('home_slider',89) ):?&gt;
-&lt;?php while( have_rows('home_slider',89) ): the_row();?&gt;
-&lt;?php if( have_rows('video_link',89) ): ?&gt;
-&lt;div class=&quot;modal fade bd-example-modal-xl&quot; id=&quot;myModal-1&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalCenterTitle&quot; aria-hidden=&quot;true&quot;&gt;
-&lt;div class=&quot;modal-dialog-centered&quot; role=&quot;document&quot;&gt;
-&lt;div class=&quot;modal-dialog modal-xl&quot;&gt;
-&lt;div class=&quot;home-modal-video modal-content&quot;&gt;
-&lt;button type=&quot;button&quot; class=&quot;close home-modal-video-close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
-&lt;div class=&quot;tabs-vertical&quot;&gt;
-&lt;ul&gt;
-&lt;?php $i=0; while( have_rows('video_link',89) ): the_row();
-$video_title = get_sub_field('video_link_title');
-?&gt;
-&lt;li&gt;&lt;a onclick=&quot;pauseVideo_&lt;?php echo $i+2;?&gt;()&quot; data-index=&quot;&lt;?php echo $i;?&gt;&quot; href=&quot;#&quot;&gt; &lt;?php echo $video_title;?&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;?php $i++; endwhile; ?&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;tabs-content-placeholder&quot;&gt;
-&lt;?php $i=1; while( have_rows('video_link',89) ): the_row();
-$video_content = get_sub_field('video_link_content');
-$video_link = get_sub_field('video_link_link');
-$i++;
-?&gt;
-&lt;div class=&quot;youkuplayer-youku&quot;&gt;
-&lt;p&gt;&lt;?php echo $video_content;?&gt;&lt;/p&gt;
-&lt;div id=&quot;youkuplayer-&lt;?php echo $i;?&gt;&quot; style=&quot;width: 862px!important; height: 445px!important;&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-var player_&lt;?php echo $i;?&gt; = new YKU.Player('youkuplayer-&lt;?php echo $i;?&gt;',{
-client_id: 'XXX',                    
-vid: '&lt;?php echo substr($video_link,30,-5); ?&gt;',
-});
-function pauseVideo_&lt;?php echo $i;?&gt;(){
-player_&lt;?php echo $i;?&gt;.pauseVideo(); 
-}
-var j = 0;
-$('#youkuplayer-&lt;?php echo $i;?&gt;').click(function () {
-if (j == 0) {
-player_&lt;?php echo $i;?&gt;.playVideo();
-j = 1;
-} else {
-player_&lt;?php echo $i;?&gt;.pauseVideo();
-j = 0;
-}
-});
-&lt;/script&gt;
-&lt;/div&gt;
-&lt;?php endwhile; ?&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;?php endif; ?&gt;
-&lt;?php endwhile; ?&gt;
-&lt;?php endif; ?&gt;
 </code></pre>
 ]]></content>
     </entry>

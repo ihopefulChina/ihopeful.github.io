@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Ihopeful Blog</title>
+<title> Vue学习(十): v-for中key的使用注意事项 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1567567975983">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
@@ -18,7 +18,7 @@
 
 
 </head>
-<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+<body class="home blog ct-body standard">
 <div id="overflow-container" class="overflow-container">
   <a class="skip-content" href="#main">Skip to content</a>
   <header id="site-header" class="site-header" role="banner">
@@ -167,27 +167,230 @@
 
 </header>
 
+
   <div id="main" class="main" role="main">
-    <div class="main-content">
-      <div class="tags-container">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <a class="tag" href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang.png">
+          </div>
         
-          <a class="tag" href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/php">PHP</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/Nhq4NKwx6">JavaScript</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/linux">Linux</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/system">系统</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/mp.weixin">微信小程序</a>
-        
-          <a class="tag" href="https://ihopefulchina.github.io/tag/markdown">Markdown</a>
-        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-09-04 ·</span> <span> / </span>
+          <span class="author">
+            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
+          </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> Vue学习(十): v-for中key的使用注意事项</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
+当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
+<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
+<p>代码示例</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;div&gt;
+            &lt;label&gt;ID:
+                &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
+            &lt;/label&gt;
+            &lt;label&gt;name:
+                    &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
+            &lt;/label&gt;
+            &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add1&quot;&gt;
+        &lt;/div&gt;
+        &lt;!--v-for循环的时候，只能用number或string--&gt;
+        &lt;!--key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值--&gt;
+        &lt;!--在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值--&gt;
+        &lt;p v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
+            &lt;input type=&quot;checkbox&quot;&gt;
+            ID: {{item.id}} , name: {{item.name}}
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el: '#app',
+            data:{
+                id:'',
+                name:'',
+                list:[
+                {id:1,name: 'a'},
+                {id:2,name: 'b'},
+                {id:3,name: 'c'},
+                {id:4,name: 'd'},
+                {id:5,name: 'e'}
+                ]
+            },
+            methods:{
+                add(){//添加
+                    this.list.push({id: this.id,name: this.name})
+                },
+                add1(){//添加
+                    this.list.unshift
+                    ({id: this.id,name: this.name})
+                }
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></p>
+<ol>
+<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值。</li>
+<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
+<li>当使用<code>this.list.unshift({id: this.id,name: this.name})</code> 添加按钮事件，未绑定<code>v-bind:key=&quot;item.id&quot;</code>时候，会出现 例如:选择id为4，添加一个后，会上移到id为3<br>
+<img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt=""><br>
+=》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt=""></li>
+<li>如果是<code>&lt;p v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;</code> 会出现错误，是因为<strong>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值</strong></li>
+</ol>
+
+            </article>
+          </div>
+          <div class='entry-meta-bottom'>
+            <div class="entry-categories">
+              <p>
+                <span>Categories</span>
+                
+                  
+                    
+                  <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK" title="View all posts in Vue">Vue</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/php" title="View all posts in PHP">PHP</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6" title="View all posts in JavaScript">JavaScript</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/linux" title="View all posts in Linux">Linux</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/system" title="View all posts in 系统">系统</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/mp.weixin" title="View all posts in 微信小程序">微信小程序</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/markdown" title="View all posts in Markdown">Markdown</a>
+                    
+                    
+              </p>
+            </div>
+            <div class="entry-tags">
+              <p><span>Tags</span>
+              </p>
+            </div>
+          </div>
+          <div class="author-meta">
+            <div class="author">
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1567567975983" class='avatar avatar-72 photo' height='72' width='72'>
+              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
+            </div>
+            <div class="bio">
+              <p></p>
+              
+                
+                  <a class="github" target="_blank"
+                     href="https://github.com/ihopefulchina">
+                    <i class="fab fa-github" title="github"></i>
+                  </a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <a class="envelope" target="_blank"
+                     href="mailto:784667332@qq.com">
+                    <i class="fa fa-envelope" title="envelope"></i>
+                  </a>
+                
+              
+                
+                  <a class="qq" target="_blank"
+                     href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes">
+                    <i class="fab fa-qq" title="qq"></i>
+                  </a>
+                
+              
+                
+              
+            </div>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi">下一篇->Vue学习(九): v-for指令的四种使用方式</a>
+              </div>
+            </nav>
+          
       </div>
+      <section id="comments" class="comments">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71e97ed99597f66a9dd0',
+    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+    repo: 'ihopefulchina.github.io',
+    owner: 'ihopefulChina',
+    admin: ['ihopefulChina'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+      </section>
     </div>
   </div>
   <footer id="site-footer" class="site-footer" role="contentinfo">
@@ -255,5 +458,4 @@
 </div>
 </body>
 </html>
-
 
