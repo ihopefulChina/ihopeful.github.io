@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-09-04T08:53:56.817Z</updated>
+    <updated>2019-11-21T06:45:17.533Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[女朋友照片]]></title>
+        <id>https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian</id>
+        <link href="https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian">
+        </link>
+        <updated>2019-11-21T06:43:02.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://ihopefulchina.github.io/post-images/1574318636268.jpg" alt=""><br>
+<img src="https://ihopefulchina.github.io/post-images/1574318640473.jpg" alt=""><br>
+<img src="https://ihopefulchina.github.io/post-images/1574318643596.jpg" alt=""><br>
+<img src="https://ihopefulchina.github.io/post-images/1574318646199.jpg" alt=""><br>
+<img src="https://ihopefulchina.github.io/post-images/1574318649215.jpg" alt=""><br>
+<img src="https://ihopefulchina.github.io/post-images/1574318652155.jpg" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十三): 品牌管理列表案例Demo学习]]></title>
         <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi</id>
@@ -1004,137 +1018,6 @@ var vm = new Vue({
             }
         }
     });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(四): 跑马灯效果案例 ]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li">
-        </link>
-        <updated>2019-09-03T04:54:11.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
-<ol>
-<li>给开启按钮绑定一个点击事件 v-on @</li>
-<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
-<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
-<ol>
-<li>给开启按钮绑定一个点击事件 v-on @</li>
-<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
-<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。</li>
-</ol>
-<!-- more -->
-<p>代码示例:</p>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;h4&gt;{{msg}}&lt;/h4&gt;
-        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;关闭&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm =new Vue({
-        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
-        el: '#app',
-        data:{
-            msg: '跑马灯效果开启效果！！！'
-        },
-        methods:{
-            on(){
-                setInterval(()=&gt;{
-                    //获取第一个字符
-                    var start = this.msg.substring(0,1)
-                    //获取后面的所有字符
-                    var end = this.msg.substring(1)
-                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
-                    this.msg = end + start
-                }, 400)
-               
-            }
-        }
-    
-    })
-    //步骤分析
-    //1.给开启按钮绑定一个点击事件 v-on @
-    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
-    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>注意:</strong></p>
-<ol>
-<li>在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例</li>
-</ol>
-<pre><code>console.log(this.msg) 
-</code></pre>
-<ol start="2">
-<li>VM实例会监听自己身上data中所有数据的变化，如果数据一发生变化，就会自动把最新的数据，从data上同步到页面中去(好处:减少DOM操作)</li>
-</ol>
-<p>完整代码示例</p>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;h4&gt;{{msg}}&lt;/h4&gt;
-        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;关闭&quot; @click=&quot;stop&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm =new Vue({
-        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
-        el: '#app',
-        data:{
-            msg: '跑马灯效果开启效果！！！',
-            intervalId: null //在data上定义定时器id
-        },
-        methods:{
-            on(){
-                if(this.intervalId != null){
-                    return
-                }
-                this.intervalId = setInterval(()=&gt;{
-                
-                    //获取第一个字符
-                    var start = this.msg.substring(0,1)
-                    //获取后面的所有字符
-                    var end = this.msg.substring(1)
-                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
-                    this.msg = end + start
-                }, 400)
-               
-            },
-            stop(){//停止定时器
-                clearInterval(this.intervalId)
-                //每当清除定时器之后，需要把intervalId定义为null
-                this.intervalId = null
-            }
-        }
-    
-    })
-    //步骤分析
-    //1.给开启按钮绑定一个点击事件 v-on @
-    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
-    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
     &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
