@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-11-21T07:49:06.071Z</updated>
+    <updated>2019-11-21T08:15:17.105Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -648,7 +648,7 @@
     &lt;/script&gt;
 </code></pre>
 <h3 id="6在vm示例中如果要访问data上数据或者访问methods中方法必须带this">6.在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this</h3>
-<p><img src="https://ihopefulchina.github.io/post-images/1567578008377.png" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567578008377.png" alt=""></figure>
 <h3 id="7在v-for-注意key属性接受string-number">7.在v-for 注意key属性(接受string、number)</h3>
 <p>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值<br>
 key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值<br>
@@ -698,7 +698,7 @@ v-for循环的时候，只能用number或string</p>
     &lt;/script&gt;
 </code></pre>
 <h3 id="8v-model-只能运用到表单元素">8.v-model 只能运用到表单元素</h3>
-<p><img src="https://ihopefulchina.github.io/post-images/1567578109353.png" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567578109353.png" alt=""></figure>
 <h3 id="9vue中绑定样式2中方式-v-bindclassv-modelstyle">9.Vue中绑定样式2中方式 v-bind:class,v-model:style</h3>
 <p><strong>:class</strong></p>
 <ul>
@@ -835,7 +835,7 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></figure>
 <ol>
 <li>v-for循环的时候，只能用number或string。</li>
 <li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
@@ -866,13 +866,13 @@ var vm = new Vue({
 <code>list:[1,2,3,4,5,6]</code></li>
 </ol>
 <!-- more -->
-<p><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></figure>
 <ol start="2">
 <li>添加索引值</li>
 </ol>
 <pre><code>&lt;p v-for=&quot;(item,i) in list&quot;&gt;这是数组的索引值:{{i}},这是数组内容:{{item}}&lt;/p&gt;
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt=""></figure>
 <h3 id="v-for循环对象数组">v-for循环对象数组</h3>
 <pre><code>&lt;p v-for=&quot;(user,i) in list&quot;&gt;索引值:{{i}}, 用户ID:{{user.id}}, 用户名称:{{user.name}}&lt;/p&gt;
 </code></pre>
@@ -883,7 +883,7 @@ var vm = new Vue({
                     {id:4,name:&quot;d&quot;},
                 ]
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt=""></figure>
 <h3 id="v-for循环对象">v-for循环对象</h3>
 <p>在遍历对象身上的键值得时候，可以有val key 还有索引</p>
 <pre><code>&lt;p v-for=&quot;(val, key, i) in user&quot;&gt;索引值:{{i}}, 键:{{key}}, 值: {{val}}&lt;/p&gt;
@@ -894,13 +894,13 @@ var vm = new Vue({
                 gender: 'boy'
             }
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt=""></p>
+<figure data-type="image" tabindex="4"><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt=""></figure>
 <h3 id="v-for迭代数字">v-for迭代数字</h3>
 <p>in 后面可以放普通数组，对象数组，对象和数字。<br>
 迭代数字从1开始</p>
 <pre><code>&lt;p v-for=&quot;count in 10&quot;&gt;这是第 {{count}} 次循环&lt;/p&gt;
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt=""></p>
+<figure data-type="image" tabindex="5"><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt=""></figure>
 ]]></content>
     </entry>
     <entry>
@@ -1205,7 +1205,7 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt=""></figure>
 ]]></content>
     </entry>
     <entry>
