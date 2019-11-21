@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-11-21T07:30:24.583Z</updated>
+    <updated>2019-11-21T07:48:44.672Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -23,6 +23,7 @@
 重要事情说3遍</p>
 <!-- more -->
 <pre><code>
+
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;zh&quot;&gt;
 &lt;head&gt;
@@ -39,7 +40,7 @@
 			overflow: hidden;
 		}
 		body{
-			background: #000;
+			background: pink;
 		}
 		.ihopeful {
 			position:relative;
@@ -63,27 +64,26 @@
 		}
 	&lt;/style&gt;
 &lt;/head&gt;
-&lt;body&gt;
-	&lt;div id=&quot;myCanvas&quot; width=&quot;&quot; height=&quot;&quot;&gt;&lt;/div&gt;
+&lt;body id=&quot;background&quot;&gt;
 	&lt;div class=&quot;ihopeful&quot;&gt;
 		&lt;ul class=&quot;lovegmy&quot;&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318636268.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx1.sinaimg.cn/mw690/88e1149cgy1g95pcimhggj20dw0dw0xz.jpg&quot;&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318640473.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx2.sinaimg.cn/mw690/88e1149cgy1g95pcikpnvj20dw0dwtc3.jpg&quot;&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318643596.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx1.sinaimg.cn/mw690/88e1149cgy1g95pcil3g9j20dw0dwwh9.jpg&quot;&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318646199.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx2.sinaimg.cn/mw690/88e1149cgy1g95pcim988j20dw0dw79k.jpg&quot;&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318649215.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx1.sinaimg.cn/mw690/88e1149cgy1g95pcinnd6j20dw0dw43a.jpg&quot;&gt;
 			&lt;/li&gt;
 			&lt;li&gt;
-				&lt;img src=&quot;https://ihopefulchina.github.io/post-images/1574318652155.jpg&quot;&gt;
+				&lt;img src=&quot;https://wx1.sinaimg.cn/mw690/88e1149cgy1g95pcio8npj20dw0dwdja.jpg&quot;&gt;
 			&lt;/li&gt;
 
 		&lt;/ul&gt;
@@ -91,48 +91,268 @@
 	&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js&quot;&gt;&lt;/script&gt;
 	&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'&gt;&lt;/script&gt;
 	&lt;script type=&quot;text/javascript&quot;&gt;
-		var trans3DDemo1=$(&quot;.ihopeful&quot;),lovegmy1=$(&quot;.lovegmy&quot;),boxes1=$(&quot;.lovegmy li&quot;),threeDTimeline=new TimelineMax({onUpdate:updateCube,repeat:-1}),stageW=($(window).width())/2,stageH=($(window).height())/2,stageX=(stageW-(lovegmy1.width()/2)),stageY=(stageH-(250/2));TweenMax.set(lovegmy1,{css:{transformPerspective:3000,transformStyle:&quot;preserve-3d&quot;}});threeDTimeline.set(boxes1[0],{rotationX:0,rotationY:0,x:0,y:0,z:125,opacity:0.85}).set(boxes1[1],{rotationX:0,rotationY:-90,x:-125,y:0,z:0,opacity:0.85}).set(boxes1[2],{rotationX:0,rotationY:90,x:125,y:0,z:0,opacity:0.85}).set(boxes1[3],{rotationX:90,rotationY:0,x:0,y:-125,z:0,opacity:0.85}).set(boxes1[4],{rotationX:-90,rotationY:0,x:0,y:125,z:0,opacity:0.85}).set(boxes1[5],{rotationX:0,rotationY:180,x:0,y:0,z:-125,opacity:0.85}).set(lovegmy1,{x:150,y:150,transformOrigin:&quot;125px 125px 0px&quot;});boxes1.each(function(index,element){$(element).hover(over,out);function over(){TweenMax.to(element,0.15,{opacity:0.33});}function out(){TweenMax.to(element,0.15,{opacity:0.85});}});threeDTimeline.to(lovegmy1,15,{css:{rotationY:360,rotationX:-720,transformOrigin:&quot;125px 125px 0px&quot;},ease:Power0.easeNone});function updateCube(){stageW=($(window).width())/2;stageH=($(window).height())/2;stageX=(stageW-(lovegmy1.width()/2));stageY=(stageH-(250/2));TweenMax.to(lovegmy1,1,{css:{x:stageX,y:stageY}});}
-	&lt;/script&gt;
-	&lt;script type=&quot;text/javascript&quot;&gt;
+		//3d旋转
+		var trans3DDemo1 = $(&quot;.ihopeful&quot;),
+		lovegmy1 = $(&quot;.lovegmy&quot;),
+		boxes1 = $(&quot;.lovegmy li&quot;),
+		threeDTimeline = new TimelineMax({
+			onUpdate: updateCube,
+			repeat: -1
+		}),
+		stageW = ($(window).width()) / 2,
+		stageH = ($(window).height()) / 2,
+		stageX = (stageW - (lovegmy1.width() / 2)),
+		stageY = (stageH - (250 / 2));
+		TweenMax.set(lovegmy1, {
+			css: {
+				transformPerspective: 3000,
+				transformStyle: &quot;preserve-3d&quot;
+			}
+		});
+		threeDTimeline.set(boxes1[0], {
+			rotationX: 0,
+			rotationY: 0,
+			x: 0,
+			y: 0,
+			z: 125,
+			opacity: 0.85
+		}).set(boxes1[1], {
+			rotationX: 0,
+			rotationY: -90,
+			x: -125,
+			y: 0,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[2], {
+			rotationX: 0,
+			rotationY: 90,
+			x: 125,
+			y: 0,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[3], {
+			rotationX: 90,
+			rotationY: 0,
+			x: 0,
+			y: -125,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[4], {
+			rotationX: -90,
+			rotationY: 0,
+			x: 0,
+			y: 125,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[5], {
+			rotationX: 0,
+			rotationY: 180,
+			x: 0,
+			y: 0,
+			z: -125,
+			opacity: 0.85
+		}).set(lovegmy1, {
+			x: 150,
+			y: 150,
+			transformOrigin: &quot;125px 125px 0px&quot;
+		});
+		boxes1.each(function(index, element) {
+			$(element).hover(over, out);
+			function over() {
+				TweenMax.to(element, 0.15, {
+					opacity: 0.33
+				});
+			}
+			function out() {
+				TweenMax.to(element, 0.15, {
+					opacity: 0.85
+				});
+			}
+		});
+		threeDTimeline.to(lovegmy1, 15, {
+			css: {
+				rotationY: 360,
+				rotationX: -720,
+				transformOrigin: &quot;125px 125px 0px&quot;
+			},
+			ease: Power0.easeNone
+		});
+		function updateCube() {
+			stageW = ($(window).width()) / 2;
+			stageH = ($(window).height()) / 2;
+			stageX = (stageW - (lovegmy1.width() / 2));
+			stageY = (stageH - (250 / 2));
+			TweenMax.to(lovegmy1, 1, {
+				css: {
+					x: stageX,
+					y: stageY
+				}
+			});
+		}
+		//背景
 		window.onload = function() {
 			var config = {
-		        vx: 4,	//小球x轴速度,正为右，负为左
-		        vy: 4,	//小球y轴速度
-		        height: 2,	//小球高宽，其实为正方形，所以不宜太大
-		        width: 2,
-		        count: 200,		//点个数
-		        color: &quot;121, 162, 185&quot;, 	//点颜色
-		        stroke: &quot;130,255,255&quot;, 		//线条颜色
-		        dist: 6000, 	//点吸附距离
-		        e_dist: 20000, 	//鼠标吸附加速距离
-		        max_conn: 10 	//点到点最大连接数
-		    }
-		    CanvasParticle(config);
+				vx: 4,
+				vy: 4,
+				height: 2,	
+				width: 2,
+				count: 200,	
+				color: &quot;255, 255, 255&quot;, 
+				stroke: &quot;255,255,255&quot;, 
+				dist: 6000, 
+				e_dist: 20000, 
+				max_conn: 10
+			}
+			CanvasParticle(config);
 		}
-		var CanvasParticle=(function(){function getElementByTag(name){return document.getElementsByTagName(name);}
-			function getELementById(id){return document.getElementById(id);}
-			function canvasInit(canvasConfig){canvasConfig=canvasConfig||{};var html=getElementByTag(&quot;html&quot;)[0];var body=document.getElementById(&quot;myCanvas&quot;);var canvasObj=document.createElement(&quot;canvas&quot;);var canvas={element:canvasObj,points:[],config:{vx:canvasConfig.vx||4,vy:canvasConfig.vy||4,height:canvasConfig.height||2,width:canvasConfig.width||2,count:canvasConfig.count||100,color:canvasConfig.color||&quot;121, 162, 185&quot;,stroke:canvasConfig.stroke||&quot;130,255,255&quot;,dist:canvasConfig.dist||6000,e_dist:canvasConfig.e_dist||20000,max_conn:10}};if(canvas.element.getContext(&quot;2d&quot;)){canvas.context=canvas.element.getContext(&quot;2d&quot;);}else{return null;}
-			body.style.padding=&quot;0&quot;;body.style.margin=&quot;0&quot;;body.appendChild(canvas.element);canvas.element.style=&quot;position: fixed; top: 0; left: 0; z-index: -1;&quot;;canvasSize(canvas.element);window.onresize=function(){canvasSize(canvas.element);}
-			body.onmousemove=function(e){var event=e||window.event;canvas.mouse={x:event.clientX,y:event.clientY}}
-			document.onmouseleave=function(){canvas.mouse=undefined;}
-			setInterval(function(){drawPoint(canvas);},40);}
-			function canvasSize(canvas){var width=document.getElementById(&quot;myCanvas&quot;).style.width;var height=document.getElementById(&quot;myCanvas&quot;).style.height;width=parseInt(width);height=parseInt(height);canvas.width=width||window.innerWeight||document.documentElement.clientWidth||document.body.clientWidth;canvas.height=height||window.innerWeight||document.documentElement.clientHeight||document.body.clientHeight;}
-			function drawPoint(canvas){var context=canvas.context,point,dist;context.clearRect(0,0,canvas.element.width,canvas.element.height);context.beginPath();context.fillStyle=&quot;rgb(&quot;+canvas.config.color+&quot;)&quot;;for(var i=0,len=canvas.config.count;i&lt;len;i++){if(canvas.points.length!=canvas.config.count){point={x:Math.floor(Math.random()*canvas.element.width),y:Math.floor(Math.random()*canvas.element.height),vx:canvas.config.vx/2-Math.random()*canvas.config.vx,vy:canvas.config.vy/2-Math.random()*canvas.config.vy}}else{point=borderPoint(canvas.points[i],canvas);}
-			context.fillRect(point.x-canvas.config.width/2,point.y-canvas.config.height/2,canvas.config.width,canvas.config.height);canvas.points[i]=point;}
-			drawLine(context,canvas,canvas.mouse);context.closePath();}
-			function borderPoint(point,canvas){var p=point;if(point.x&lt;=0||point.x&gt;=canvas.element.width){p.vx=-p.vx;p.x+=p.vx;}else if(point.y&lt;=0||point.y&gt;=canvas.element.height){p.vy=-p.vy;p.y+=p.vy;}else{p={x:p.x+p.vx,y:p.y+p.vy,vx:p.vx,vy:p.vy}}
-			return p;}
-			function drawLine(context,canvas,mouse){context=context||canvas.context;for(var i=0,len=canvas.config.count;i&lt;len;i++){canvas.points[i].max_conn=0;for(var j=0;j&lt;len;j++){if(i!=j){dist=Math.round(canvas.points[i].x-canvas.points[j].x)*Math.round(canvas.points[i].x-canvas.points[j].x)+
-				Math.round(canvas.points[i].y-canvas.points[j].y)*Math.round(canvas.points[i].y-canvas.points[j].y);if(dist&lt;=canvas.config.dist&amp;&amp;canvas.points[i].max_conn&lt;canvas.config.max_conn){canvas.points[i].max_conn++;context.lineWidth=0.5-dist/canvas.config.dist;context.strokeStyle=&quot;rgba(&quot;+canvas.config.stroke+&quot;,&quot;+(1-dist/canvas.config.dist)+&quot;)&quot;
-				context.beginPath();context.moveTo(canvas.points[i].x,canvas.points[i].y);context.lineTo(canvas.points[j].x,canvas.points[j].y);context.stroke();}}}
-				if(mouse){dist=Math.round(canvas.points[i].x-mouse.x)*Math.round(canvas.points[i].x-mouse.x)+
-					Math.round(canvas.points[i].y-mouse.y)*Math.round(canvas.points[i].y-mouse.y);if(dist&gt;canvas.config.dist&amp;&amp;dist&lt;=canvas.config.e_dist){canvas.points[i].x=canvas.points[i].x+(mouse.x-canvas.points[i].x)/20;canvas.points[i].y=canvas.points[i].y+(mouse.y-canvas.points[i].y)/20;}
-					if(dist&lt;=canvas.config.e_dist){context.lineWidth=1;context.strokeStyle=&quot;rgba(&quot;+canvas.config.stroke+&quot;,&quot;+(1-dist/canvas.config.e_dist)+&quot;)&quot;;context.beginPath();context.moveTo(canvas.points[i].x,canvas.points[i].y);context.lineTo(mouse.x,mouse.y);context.stroke();}}}}
-					return canvasInit;})();
-				&lt;/script&gt;
+		var CanvasParticle = (function() {
+			function getElementByTag(name) {
+				return document.getElementsByTagName(name);
+			}
+			function getELementById(id) {
+				return document.getElementById(id);
+			}
+			function canvasInit(canvasConfig) {
+				canvasConfig = canvasConfig || {};
+				var html = getElementByTag(&quot;html&quot;)[0];
+				var body = document.getElementById(&quot;background&quot;);
+				var canvasObj = document.createElement(&quot;canvas&quot;);
+				var canvas = {
+					element: canvasObj,
+					points: [],
+					config: {
+						vx: canvasConfig.vx || 4,
+						vy: canvasConfig.vy || 4,
+						height: canvasConfig.height || 2,
+						width: canvasConfig.width || 2,
+						count: canvasConfig.count || 100,
+						color: canvasConfig.color || &quot;255, 255, 255&quot;,
+						stroke: canvasConfig.stroke || &quot;255,255,255&quot;,
+						dist: canvasConfig.dist || 6000,
+						e_dist: canvasConfig.e_dist || 20000,
+						max_conn: 10
+					}
+				};
+				if (canvas.element.getContext(&quot;2d&quot;)) {
+					canvas.context = canvas.element.getContext(&quot;2d&quot;);
+				} else {
+					return null;
+				}
+				body.style.padding = &quot;0&quot;;
+				body.style.margin = &quot;0&quot;;
+				body.appendChild(canvas.element);
+				canvas.element.style = &quot;position: fixed; top: 0; left: 0; z-index: -1;&quot;;
+				canvasSize(canvas.element);
+				window.onresize = function() {
+					canvasSize(canvas.element);
+				}
+				body.onmousemove = function(e) {
+					var event = e || window.event;
+					canvas.mouse = {
+						x: event.clientX,
+						y: event.clientY
+					}
+				}
+				document.onmouseleave = function() {
+					canvas.mouse = undefined;
+				}
+				setInterval(function() {
+					drawPoint(canvas);
+				},
+				40);
+			}
+			function canvasSize(canvas) {
+				var width = document.getElementById(&quot;background&quot;).style.width;
+				var height = document.getElementById(&quot;background&quot;).style.height;
+				width = parseInt(width);
+				height = parseInt(height);
+				canvas.width = width || window.innerWeight || document.documentElement.clientWidth || document.body.clientWidth;
+				canvas.height = height || window.innerWeight || document.documentElement.clientHeight || document.body.clientHeight;
+			}
+			function drawPoint(canvas) {
+				var context = canvas.context,
+				point, dist;
+				context.clearRect(0, 0, canvas.element.width, canvas.element.height);
+				context.beginPath();
+				context.fillStyle = &quot;rgb(&quot; + canvas.config.color + &quot;)&quot;;
+				for (var i = 0,
+					len = canvas.config.count; i &lt; len; i++) {
+					if (canvas.points.length != canvas.config.count) {
+						point = {
+							x: Math.floor(Math.random() * canvas.element.width),
+							y: Math.floor(Math.random() * canvas.element.height),
+							vx: canvas.config.vx / 2 - Math.random() * canvas.config.vx,
+							vy: canvas.config.vy / 2 - Math.random() * canvas.config.vy
+						}
+					} else {
+						point = borderPoint(canvas.points[i], canvas);
+					}
+					context.fillRect(point.x - canvas.config.width / 2, point.y - canvas.config.height / 2, canvas.config.width, canvas.config.height);
+					canvas.points[i] = point;
+				}
+				drawLine(context, canvas, canvas.mouse);
+				context.closePath();
+			}
+			function borderPoint(point, canvas) {
+				var p = point;
+				if (point.x &lt;= 0 || point.x &gt;= canvas.element.width) {
+					p.vx = -p.vx;
+					p.x += p.vx;
+				} else if (point.y &lt;= 0 || point.y &gt;= canvas.element.height) {
+					p.vy = -p.vy;
+					p.y += p.vy;
+				} else {
+					p = {
+						x: p.x + p.vx,
+						y: p.y + p.vy,
+						vx: p.vx,
+						vy: p.vy
+					}
+				}
+				return p;
+			}
+			function drawLine(context, canvas, mouse) {
+				context = context || canvas.context;
+				for (var i = 0,
+					len = canvas.config.count; i &lt; len; i++) {
+					canvas.points[i].max_conn = 0;
+				for (var j = 0; j &lt; len; j++) {
+					if (i != j) {
+						dist = Math.round(canvas.points[i].x - canvas.points[j].x) * Math.round(canvas.points[i].x - canvas.points[j].x) + Math.round(canvas.points[i].y - canvas.points[j].y) * Math.round(canvas.points[i].y - canvas.points[j].y);
+						if (dist &lt;= canvas.config.dist &amp;&amp; canvas.points[i].max_conn &lt; canvas.config.max_conn) {
+							canvas.points[i].max_conn++;
+							context.lineWidth = 0.5 - dist / canvas.config.dist;
+							context.strokeStyle=&quot;rgba(&quot;+canvas.config.stroke+&quot;,&quot;+(1-dist/canvas.config.dist)+&quot;)&quot;
+							context.beginPath();
+							context.moveTo(canvas.points[i].x, canvas.points[i].y);
+							context.lineTo(canvas.points[j].x, canvas.points[j].y);
+							context.stroke();
+						}
+					}
+				}
+				if (mouse) {
+					dist = Math.round(canvas.points[i].x - mouse.x) * Math.round(canvas.points[i].x - mouse.x) + Math.round(canvas.points[i].y - mouse.y) * Math.round(canvas.points[i].y - mouse.y);
+					if (dist &gt; canvas.config.dist &amp;&amp; dist &lt;= canvas.config.e_dist) {
+						canvas.points[i].x = canvas.points[i].x + (mouse.x - canvas.points[i].x) / 20;
+						canvas.points[i].y = canvas.points[i].y + (mouse.y - canvas.points[i].y) / 20;
+					}
+					if (dist &lt;= canvas.config.e_dist) {
+						context.lineWidth = 1;
+						context.strokeStyle = &quot;rgba(&quot; + canvas.config.stroke + &quot;,&quot; + (1 - dist / canvas.config.e_dist) + &quot;)&quot;;
+						context.beginPath();
+						context.moveTo(canvas.points[i].x, canvas.points[i].y);
+						context.lineTo(mouse.x, mouse.y);
+						context.stroke();
+					}
+				}
+			}
+		}
+		return canvasInit;
+	})();
+&lt;/script&gt;
 
-			&lt;/body&gt;
-			&lt;/html&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 <p><img src="https://ihopefulchina.github.io/post-images/1574318636268.jpg" alt=""><br>
 <img src="https://ihopefulchina.github.io/post-images/1574318640473.jpg" alt=""><br>
