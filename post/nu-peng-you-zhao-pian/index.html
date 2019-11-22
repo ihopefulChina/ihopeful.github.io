@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>女朋友照片-表白 | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1574326085573">
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1574394226394">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
@@ -201,6 +201,192 @@
               <p>郭梦瑶是大傻逼！郭梦瑶是大傻逼！郭梦瑶是大傻逼！<br>
 重要事情说3遍</p>
 <!-- more -->
+<h4 id="20">2.0</h4>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+	&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+	&lt;title&gt;郭梦瑶是大傻逼&lt;/title&gt;
+	&lt;style type=&quot;text/css&quot;&gt;
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width:100%; 
+			height:100%; 
+			overflow:hidden; 
+		}
+		.ihopeful {
+			position:relative;
+			width:250px;
+			height:250px;
+			z-index: 9999
+		}
+		.lovegmy li {
+			position:absolute;
+			width:248px;
+			height:248px;
+			padding:0;
+			margin:0;
+			border:1px solid rgba(255,255,255,.2);
+			display:block;
+			text-align:center;
+		}
+		.lovegmy li img{
+			width: 250px;
+			height: auto;
+		}
+	&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;canvas id=&quot;c&quot; style=&quot;position: absolute;z-index: -1;text-align: center;&quot;&gt;&lt;/canvas&gt;
+	&lt;div class=&quot;ihopeful&quot;&gt;
+		&lt;ul class=&quot;lovegmy&quot;&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx3.sinaimg.cn/orj360/88e1149cgy1g96n7qeuryj20dw0dwq5u.jpg&quot;&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx3.sinaimg.cn/mw690/88e1149cgy1g96n7rrzhfj20dw0dw0wu.jpg&quot;&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx4.sinaimg.cn/mw690/88e1149cgy1g96n7qf20xj20dw0dw41s.jpg&quot;&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx2.sinaimg.cn/mw690/88e1149cgy1g96n7qppkgj20dw0dwacl.jpg&quot;&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx2.sinaimg.cn/mw690/88e1149cgy1g96n7qlr0fj20dw0dwdhk.jpg&quot;&gt;
+			&lt;/li&gt;
+			&lt;li&gt;
+				&lt;img src=&quot;https://wx4.sinaimg.cn/mw690/88e1149cgy1g96n7qo11wj20dw0dw0uw.jpg&quot;&gt;
+			&lt;/li&gt;
+
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;embed src=&quot;http://music.163.com/song/media/outer/url?id=5270588.mp3&quot; autostart=&quot;true&quot; loop=&quot;true&quot; hidden=&quot;true&quot;&gt;
+	&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+	&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'&gt;&lt;/script&gt;
+	&lt;script type=&quot;text/javascript&quot;&gt;
+		//3d旋转
+		var trans3DDemo1 = $(&quot;.ihopeful&quot;),
+		lovegmy1 = $(&quot;.lovegmy&quot;),
+		boxes1 = $(&quot;.lovegmy li&quot;),
+		threeDTimeline = new TimelineMax({
+			onUpdate: updateCube,
+			repeat: -1
+		}),
+		stageW = ($(window).width()) / 2,
+		stageH = ($(window).height()) / 2,
+		stageX = (stageW - (lovegmy1.width() / 2)),
+		stageY = (stageH - (250 / 2));
+		TweenMax.set(lovegmy1, {
+			css: {
+				transformPerspective: 3000,
+				transformStyle: &quot;preserve-3d&quot;
+			}
+		});
+		threeDTimeline.set(boxes1[0], {
+			rotationX: 0,
+			rotationY: 0,
+			x: 0,
+			y: 0,
+			z: 125,
+			opacity: 0.85
+		}).set(boxes1[1], {
+			rotationX: 0,
+			rotationY: -90,
+			x: -125,
+			y: 0,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[2], {
+			rotationX: 0,
+			rotationY: 90,
+			x: 125,
+			y: 0,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[3], {
+			rotationX: 90,
+			rotationY: 0,
+			x: 0,
+			y: -125,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[4], {
+			rotationX: -90,
+			rotationY: 0,
+			x: 0,
+			y: 125,
+			z: 0,
+			opacity: 0.85
+		}).set(boxes1[5], {
+			rotationX: 0,
+			rotationY: 180,
+			x: 0,
+			y: 0,
+			z: -125,
+			opacity: 0.85
+		}).set(lovegmy1, {
+			x: 150,
+			y: 150,
+			transformOrigin: &quot;125px 125px 0px&quot;
+		});
+		boxes1.each(function(index, element) {
+			$(element).hover(over, out);
+			function over() {
+				TweenMax.to(element, 0.15, {
+					opacity: 0.33
+				});
+			}
+			function out() {
+				TweenMax.to(element, 0.15, {
+					opacity: 0.85
+				});
+			}
+		});
+		threeDTimeline.to(lovegmy1, 15, {
+			css: {
+				rotationY: 360,
+				rotationX: -720,
+				transformOrigin: &quot;125px 125px 0px&quot;
+			},
+			ease: Power0.easeNone
+		});
+		function updateCube() {
+			stageW = ($(window).width()) / 2;
+			stageH = ($(window).height()) / 2;
+			stageX = (stageW - (lovegmy1.width() / 2));
+			stageY = (stageH - (250 / 2));
+			TweenMax.to(lovegmy1, 1, {
+				css: {
+					x: stageX,
+					y: stageY
+				}
+			});
+		}
+
+		//背景
+		$(document).ready(function(){var canvas=document.getElementById(&quot;c&quot;);var ctx=canvas.getContext(&quot;2d&quot;);var c=$(&quot;#c&quot;);var w,h;var pi=Math.PI;var all_attribute={num:100,start_probability:0.1,size_min:1,size_max:2,size_add_min:0.3,size_add_max:0.5,opacity_min:0.3,opacity_max:0.5,opacity_prev_min:.003,opacity_prev_max:.005,light_min:0,light_max:90,};var style_color=find_random(0,360);var all_element=[];window_resize();function start(){window.requestAnimationFrame(start);style_color+=0.1;ctx.fillStyle='hsl('+style_color+',100%,97%)';ctx.fillRect(0,0,w,h);if(all_element.length&lt;all_attribute.num&amp;&amp;Math.random()&lt;all_attribute.start_probability){all_element.push(new ready_run);}
+			all_element.map(function(line){line.to_step();})}
+			function ready_run(){this.to_reset();}
+			function arc_heart(x,y,z,m){y-=m*10;ctx.moveTo(x,y);z*=0.05;ctx.bezierCurveTo(x,y-3*z,x-5*z,y-15*z,x-25*z,y-15*z);ctx.bezierCurveTo(x-55*z,y-15*z,x-55*z,y+22.5*z,x-55*z,y+22.5*z);ctx.bezierCurveTo(x-55*z,y+40*z,x-35*z,y+62*z,x,y+80*z);ctx.bezierCurveTo(x+35*z,y+62*z,x+55*z,y+40*z,x+55*z,y+22.5*z);ctx.bezierCurveTo(x+55*z,y+22.5*z,x+55*z,y-15*z,x+25*z,y-15*z);ctx.bezierCurveTo(x+10*z,y-15*z,x,y-3*z,x,y);}
+			ready_run.prototype={to_reset:function(){var t=this;t.x=find_random(0,w);t.y=find_random(0,h);t.size=find_random(all_attribute.size_min,all_attribute.size_max);t.size_change=find_random(all_attribute.size_add_min,all_attribute.size_add_max);t.opacity=find_random(all_attribute.opacity_min,all_attribute.opacity_max);t.opacity_change=find_random(all_attribute.opacity_prev_min,all_attribute.opacity_prev_max);t.light=find_random(all_attribute.light_min,all_attribute.light_max);t.color='hsl('+style_color+',100%,'+t.light+'%)';},to_step:function(){var t=this;t.opacity-=t.opacity_change;t.size+=t.size_change;if(t.opacity&lt;=0){t.to_reset();return false;}
+			ctx.fillStyle=t.color;ctx.globalAlpha=t.opacity;ctx.beginPath();arc_heart(t.x,t.y,t.size,t.size);ctx.closePath();ctx.fill();ctx.globalAlpha=1;}}
+			function window_resize(){w=window.innerWidth;h=window.innerHeight;canvas.width=w;canvas.height=h;}
+			$(window).resize(function(){window_resize();});function find_random(num_one,num_two){return Math.random()*(num_two-num_one)+num_one;}
+			start();});
+
+
+		&lt;/script&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;
+</code></pre>
+<h4 id="10">1.0</h4>
 <pre><code>
 
 &lt;!DOCTYPE html&gt;
@@ -589,7 +775,7 @@
           </div>
           <div class="author-meta">
             <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1574326085573" class='avatar avatar-72 photo' height='72' width='72'>
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1574394226394" class='avatar avatar-72 photo' height='72' width='72'>
               <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
             </div>
             <div class="bio">
