@@ -1,0 +1,509 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>国内优酷分享API一些坑 | Ihopeful Blog</title>
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1574406675827">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153089065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153089065-1');
+</script>
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <a class="skip-content" href="#main">Skip to content</a>
+  <header id="site-header" class="site-header" role="banner">
+    <div class='top-navigation top-navigation-important'>
+        <div class='container'>
+            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
+                <div class="menu">
+                    <ul id="menu-secondary-items" class="menu-secondary-items">
+                        
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK">Vue</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6">JavaScript</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/linux">Linux</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/system">系统</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/mp.weixin">微信小程序</a>
+                        </li>
+                            
+                        
+                            
+                        
+                    </ul>
+                </div>
+            </div>
+            <ul class="social-media-icons">
+                
+                    
+                        <li>
+                            <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                                <i class="fab fa-github" title="github"></i>
+                                <span class="screen-reader-text">github</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li>
+                            <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                                <i class="fa fa-envelope" title="envelope"></i>
+                                <span class="screen-reader-text">envelope</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                                <i class="fab fa-qq" title="qq"></i>
+                                <span class="screen-reader-text">qq</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://ihopefulchina.github.io">  Ihopeful Blog </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">Sweat is the lubricant of success.</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/guo-nei-you-ku-fen-xiang-api-yi-xie-keng.png">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-08-23 ·</span> <span> / </span>
+          <span class="author">
+            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
+          </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/wordpress">WordPress</a>
+                </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://ihopefulchina.github.io/tag/php">PHP</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>国内优酷分享API一些坑</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
+过程遇到了一些坑【忠告各位远离优酷】：</p>
+<!-- more -->
+<p>1.iframe分享是可以的，但是不能做很多扩展功能，所以需要JS加载，但是client_id必须要有，所以需要申请API账号，但是不支持个人申请(wqnmd)。</p>
+<p>2.申请好了，之后，我看了一下<a href="https://cloud.youku.com/tools">官方文档</a>,咦，很简单嘛。</p>
+<pre><code>&lt;div id=&quot;youkuplayer&quot;style=&quot;width:580px;height:326px&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var player = new YKU.Player('youkuplayer',{
+styleid: '0',
+client_id: 'YOUR YOUKUOPENAPI CLIENT_ID',
+vid: '替换成优酷视频ID',
+newPlayer: true
+});
+&lt;/script&gt;
+</code></pre>
+<p>一目了然，我贴上去，是在循环里面写的加了一些参数</p>
+<pre><code>&lt;div id=&quot;youkuplayer-&lt;?php echo $i;?&gt;&quot; style=&quot;width: 862px!important; height: 445px!important;&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var player_&lt;?php echo $i;?&gt; = new YKU.Player('youkuplayer-&lt;?php echo $i;?&gt;',{
+client_id: 'XXX',                    
+vid: '&lt;?php echo substr($video_link,30,-5); ?&gt;',
+});
+function pauseVideo_&lt;?php echo $i;?&gt;(){
+player_&lt;?php echo $i;?&gt;.pauseVideo(); 
+}
+&lt;/script&gt;
+</code></pre>
+<p>3.我特意加了暂停视频按钮事件pauseVideo（客户需求是切换或者播放一个视频，再播放另一个视频的话，已经播放的暂停【优酷不支持！！】），一切大功告成，然后我测试，暂停功能不行，我以为我写错了，排查发现没有，怎么测试都没找到问题，查阅了很多文档，百度了很多，没有人提过这个问题。</p>
+<p>4.我灵光一现，移动端试试。我去，移动端没有问题，我苦恼PC端问题出现在哪里，我最好找到了，在<code>&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;</code>后面加一个<code>&lt;script type=&quot;text/javascript&quot;&gt;YKP.isPC = false;&lt;/script&gt;</code>，这个意思是PC端也跟移动端一样效果。</p>
+<p>5.然后又有问题了，在视频里面点击播放，ok没问题，再点击一次就不能暂停了。。。原来是PC端也跟移动端一样效果，但是移动端是触摸的啊，所以我在视频DIV加了一个点击事件。</p>
+<pre><code>var j = 0;
+$('#youkuplayer-&lt;?php echo $i;?&gt;').click(function () {
+if (j == 0) {
+player_&lt;?php echo $i;?&gt;.playVideo();
+j = 1;
+} else {
+player_&lt;?php echo $i;?&gt;.pauseVideo();
+j = 0;
+}
+});
+</code></pre>
+<p>6.期间遇到视频外层DIV(youkuplayer-<?php echo $i;?>),宽度和高度都是0（明明css和行内都给了值，最后2个都加上<code>!important</code>才行）</p>
+<p>以上是我遇到国内优酷分享API一些坑，还有分享视频播放居然要广告，感觉很麻烦，优酷偌大的公司，代码写的水平跟我一样差，也是醉了。</p>
+<p>贴上我的Demo:</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;//player.youku.com/jsapi&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;YKP.isPC = false;&lt;/script&gt;
+&lt;?php if( have_rows('home_slider',89) ):?&gt;
+&lt;?php while( have_rows('home_slider',89) ): the_row();?&gt;
+&lt;?php if( have_rows('video_link',89) ): ?&gt;
+&lt;div class=&quot;modal fade bd-example-modal-xl&quot; id=&quot;myModal-1&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;exampleModalCenterTitle&quot; aria-hidden=&quot;true&quot;&gt;
+&lt;div class=&quot;modal-dialog-centered&quot; role=&quot;document&quot;&gt;
+&lt;div class=&quot;modal-dialog modal-xl&quot;&gt;
+&lt;div class=&quot;home-modal-video modal-content&quot;&gt;
+&lt;button type=&quot;button&quot; class=&quot;close home-modal-video-close&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/button&gt;
+&lt;div class=&quot;tabs-vertical&quot;&gt;
+&lt;ul&gt;
+&lt;?php $i=0; while( have_rows('video_link',89) ): the_row();
+$video_title = get_sub_field('video_link_title');
+?&gt;
+&lt;li&gt;&lt;a onclick=&quot;pauseVideo_&lt;?php echo $i+2;?&gt;()&quot; data-index=&quot;&lt;?php echo $i;?&gt;&quot; href=&quot;#&quot;&gt; &lt;?php echo $video_title;?&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;?php $i++; endwhile; ?&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;tabs-content-placeholder&quot;&gt;
+&lt;?php $i=1; while( have_rows('video_link',89) ): the_row();
+$video_content = get_sub_field('video_link_content');
+$video_link = get_sub_field('video_link_link');
+$i++;
+?&gt;
+&lt;div class=&quot;youkuplayer-youku&quot;&gt;
+&lt;p&gt;&lt;?php echo $video_content;?&gt;&lt;/p&gt;
+&lt;div id=&quot;youkuplayer-&lt;?php echo $i;?&gt;&quot; style=&quot;width: 862px!important; height: 445px!important;&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var player_&lt;?php echo $i;?&gt; = new YKU.Player('youkuplayer-&lt;?php echo $i;?&gt;',{
+client_id: 'XXX',                    
+vid: '&lt;?php echo substr($video_link,30,-5); ?&gt;',
+});
+function pauseVideo_&lt;?php echo $i;?&gt;(){
+player_&lt;?php echo $i;?&gt;.pauseVideo(); 
+}
+var j = 0;
+$('#youkuplayer-&lt;?php echo $i;?&gt;').click(function () {
+if (j == 0) {
+player_&lt;?php echo $i;?&gt;.playVideo();
+j = 1;
+} else {
+player_&lt;?php echo $i;?&gt;.pauseVideo();
+j = 0;
+}
+});
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;?php endwhile; ?&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;?php endif; ?&gt;
+&lt;?php endwhile; ?&gt;
+&lt;?php endif; ?&gt;
+</code></pre>
+
+            </article>
+          </div>
+          <div class='entry-meta-bottom'>
+            <div class="entry-categories">
+              <p>
+                <span>Categories</span>
+                
+                  
+                    
+                  <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK" title="View all posts in Vue">Vue</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/wordpress" title="View all posts in WordPress">WordPress</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/php" title="View all posts in PHP">PHP</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6" title="View all posts in JavaScript">JavaScript</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/linux" title="View all posts in Linux">Linux</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/system" title="View all posts in 系统">系统</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/mp.weixin" title="View all posts in 微信小程序">微信小程序</a>
+                    
+                    
+                    
+                  <a href="https://ihopefulchina.github.io/tag/markdown" title="View all posts in Markdown">Markdown</a>
+                    
+                    
+              </p>
+            </div>
+            <div class="entry-tags">
+              <p><span>Tags</span>
+              </p>
+            </div>
+          </div>
+          <div class="author-meta">
+            <div class="author">
+              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1574406675827" class='avatar avatar-72 photo' height='72' width='72'>
+              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
+            </div>
+            <div class="bio">
+              <p></p>
+              
+                
+                  <a class="github" target="_blank"
+                     href="https://github.com/ihopefulchina">
+                    <i class="fab fa-github" title="github"></i>
+                  </a>
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+                  <a class="envelope" target="_blank"
+                     href="mailto:784667332@qq.com">
+                    <i class="fa fa-envelope" title="envelope"></i>
+                  </a>
+                
+              
+                
+                  <a class="qq" target="_blank"
+                     href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes">
+                    <i class="fab fa-qq" title="qq"></i>
+                  </a>
+                
+              
+                
+              
+            </div>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei">下一篇->获取当前分类下的所有子分类</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '71e97ed99597f66a9dd0',
+    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+    repo: 'ihopefulchina.github.io',
+    owner: 'ihopefulChina',
+    admin: ['ihopefulChina'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
+    </h1>
+    <p class="site-description">Sweat is the lubricant of success.</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <li>
+                    <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                        <i class="fas fa-envelope" title="envelope"></i>
+                        <span class="screen-reader-text">envelope</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                        <i class="fab fa-qq" title="qq"></i>
+                        <span class="screen-reader-text">qq</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://gridea.dev/">Gridea</a></p>
+    </div>
+</footer>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquerymigrate.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/production.min.js"></script>
+
+</div>
+</body>
+</html>
+
