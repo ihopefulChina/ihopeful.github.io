@@ -1,938 +1,729 @@
-<!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="UTF-8"/>
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>PHP | Ihopeful Blog</title>
+<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1583809117917">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<meta name="keywords" content="">
-<meta name="description" content="Sweat is the lubricant of success.">
-<meta name="theme-color" content="">
-<title>Ihopeful Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1583808739972">
-<link rel="stylesheet" href="/styles/main.css">
-<link rel="stylesheet" href="/media/css/pisces.css">
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
-<link rel="stylesheet" href="/media/fonts/font-awesome.css">
-<link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-<link href="/media/hljs/styles/github.css" rel="stylesheet">  
-
-<script src="/media/hljs/highlight.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 
 
-
-  </head>
-  <body>
-    <div class="head-top-line"></div>
-    <div class="header-box">
-      
-<div class=" ">
-  <header class="header  ">
-    <div class="blog-header box-shadow-wrapper  " id="header">
-      <div class="nav-toggle" id="nav_toggle">
-        <div class="toggle-box">
-          <div class="line line-top"></div>
-          <div class="line line-center"></div>
-          <div class="line line-bottom"></div>
-        </div>
-      </div>
-      <div class="site-meta">       
-        <div class="site-title">
-          
-            <a href="/" class="brand">
-              <span>Ihopeful Blog</span>
-            </a>  
-          
-        </div>
-        
-      </div>
-      <nav class="site-nav" id="site_nav">
-        <ul id="nav_ul">
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/" target="_self">
-                  <i class="fa fa-home"></i> 首页
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/archives" target="_self">
-                  <i class="fa fa-archive"></i> 归档
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/tags" target="_self">
-                  <i class="fa fa-tags"></i> 标签
-                </a>
-              
-            </li>
-          
-            <li class="nav-item ">
-              
-              
-                <a href="/post/about" target="_self">
-                  <i class="fa fa-user"></i> 关于
-                </a>
-              
-            </li>
-          
-          <li class="nav-item">
-            <a>
-              <i class="fa fa-search"></i> 搜索
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-</div>
-
-<script type="text/javascript"> 
- 
-  let showNav = true;
-
-  let navToggle = document.querySelector('#nav_toggle'),
-  siteNav = document.querySelector('#site_nav');
-  
-  function navClick() {
-    let sideBar = document.querySelector('.sidebar');
-    let navUl = document.querySelector('#nav_ul');
-    navToggle.classList.toggle('nav-toggle-active');
-    siteNav.classList.toggle('nav-menu-active');
-    if (siteNav.classList.contains('nav-menu-active')) {
-      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
-    } else {
-      siteNav.style = "";
-    }
-  }
-
-  navToggle.addEventListener('click',navClick);  
-</script>
-    </div>
-    <div class="main-continer">
-      
-      <div class="section-layout  ">
-        <div class="section-layout-wrapper">
-          <div id="sidebarMeta" class="sidebar">
-    
-<div class="sidebar-wrapper box-shadow-wrapper bg-color">
-  <div class="sidebar-item">
-    <img class="site-author-image right-motion" src="https://ihopefulchina.github.io/images/avatar.png"/>
-    <p class="site-author-name">Ihopeful Blog</p>
-    <p class="site-description right-motion">Sweat is the lubricant of success.</p>
-  </div>
-  <div class="sidebar-item side-item-stat right-motion">
-    <div class="sidebar-item-box">
-      <a href="/archives/">
-        
-        <span class="site-item-stat-count">50</span>
-        <span class="site-item-stat-name">文章</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="">
-        <span class="site-item-stat-count">8</span>
-        <span class="site-item-stat-name">分类</span>
-      </a>
-    </div>
-    <div class="sidebar-item-box">
-      <a href="/tags/">
-        <span class="site-item-stat-count">8</span>
-        <span class="site-item-stat-name">标签</span>
-      </a>
-    </div>
-  </div>
-  
-    
-      <div class="sidebar-item" style="border-top: 1px dotted #ccc; margin-top: 10px;">
-      </div>
-    
-  
-  
-
-
-</div>
-</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153089065-1"></script>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = '';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
-      }
-    });
-  }
-  </script>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          PHP
-          <small>标签</small>
-        </h2>
-      </div>
-      
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-23
-                    <small>国内优酷分享API一些坑</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>获取当前分类下的所有子分类</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>如何解决页面/文章/详情页需要不同样式、模板的问题？</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>留言表单、支持邮箱转发</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>如何输出根据分类罗列文章，当前页面高亮显示</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ru-he-yong-tag-fang-shi-chuan-lian-zi-ding-yi-fen-lei-shi-xian-xiang-guan-wen-zhang-chuan-lian-gong-neng/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>如何用TAG方式串联自定义分类(实现相关文章串联功能)</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>页面实现类似于淘宝的图窗功能</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>在非当前页面获取指定多个自定义分类下的文章</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>获取指定分类的所有子分类链接、Description、Slug、自定义字段</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>解决Wordpress自定义二级目录和三级目录采用不同的样式</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>移除、隐藏、删除Wordpres一些小工具和功能</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/yin-cang-jin-zhi-shan-chu-wordpress-zi-dai-de-geng-xin-he-yi-biao-pan/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>隐藏、禁止、删除Wordpress自带的更新和仪表盘</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/jin-zhi-shan-chu-mou-xie-ye-mian/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>禁止删除某些页面</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ru-he-zai-dao-hang-lan-tian-jia-tu-pian/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>如何在导航栏添加图片？</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/wordpress-tian-jia-zi-ding-yi-fen-lei/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>Wordpress 添加自定义分类</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ye-mian-url-jie-wei-tian-jia-xie-gang/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>页面Url结尾添加斜杠&#34;/&#34;</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/xiu-gai-wordpress-deng-lu-hou-tiao-zhuan-zhi-ding-ye-mian/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-22
-                    <small>修改Wordpress登录后跳转指定页面</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/ru-he-bu-shen-qing-bai-du-di-tu-apihuo-qu-fen-xiang-di-tu-url/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-21
-                    <small>如何不申请百度地图API，获取分享地图url？</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/php-dong-tai-nei-rong-ru-he-tian-jia-class/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-21
-                    <small>PHP动态内容，如何添加Class？</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/wordpress-mian-bao-xie-yi-xie-wen-ti/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-21
-                    <small>Wordpress 面包屑一些问题</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-fen-lei-archive-ye-mian-wu-fa-tong-guo-fen-lei-luo-lie-wen-zhang-de-wen-ti/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    08-21
-                    <small>解决Wordpress自定义分类archive页面无法通过分类罗列文章的问题</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/jie-jue-tong-yi-zhang-tu-pian-xu-yao-zai-bu-tong-chi-cun-ti-gong-bu-tong-de-shui-yin/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    07-01
-                    <small>解决同一张图片，需要在不同尺寸提供不同的水印</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/wordpress-theme-zhu-ti-jie-gou-jie-xi/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    04-09
-                    <small>Wordpress theme主题结构解析</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-      
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/wordpress-han-shu-dai-ma-mo-kuai-hua/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>WordPress函数代码模块化</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-          
-            <a href="https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>Message board inquiry management system（询盘管理系统）</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-            <a href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>批量裁切图片</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-            <a href="https://ihopefulchina.github.io/post/guan-jian-ci-cai-ji/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>关键词采集</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-            <a href="https://ihopefulchina.github.io/post/pi-liang-ti-huan-vps-he-ben-di-de-htmlphp-nei-rong/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-20
-                    <small>批量替换VPS和本地的HTML，PHP内容</small>
-                  </h1>
-                </div>  
-              </div>
-            </a>
-          
-        
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-      
-    </div>
-  </div>
-</div>
-                  </section>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-153089065-1');
+</script>
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+    <header id="site-header" class="site-header" role="banner">
+    <div class='top-navigation top-navigation-important'>
+        <div class='container'>
+            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
+                <div class="menu">
+                    <ul id="menu-secondary-items" class="menu-secondary-items">
+                        
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK/">Vue</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/">JavaScript</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/linux/">Linux</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/system/">系统</a>
+                        </li>
+                            
+                        
+                            
+                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+                            <a href="https://ihopefulchina.github.io/tag/mp.weixin/">微信小程序</a>
+                        </li>
+                            
+                        
+                            
+                        
+                    </ul>
                 </div>
-              </div>
-          </div>
+            </div>
+            <ul class="social-media-icons">
+                
+                    
+                        <li>
+                            <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                                <i class="fab fa-github" title="github"></i>
+                                <span class="screen-reader-text">github</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        <li>
+                            <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                                <i class="fa fa-envelope" title="envelope"></i>
+                                <span class="screen-reader-text">envelope</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                                <i class="fab fa-qq" title="qq"></i>
+                                <span class="screen-reader-text">qq</span>
+                            </a>
+                        </li>
+                    
+                
+                    
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://ihopefulchina.github.io">  Ihopeful Blog </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">Sweat is the lubricant of success.</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+        <div class="main-content">
+            <div class="current-tag-container">
+                <h2 class="title">
+                    标签：#PHP
+                </h2>
+            </div>
+        </div>
+    <div id="main" class="main" role="main">
+  <h1 class="screen-reader-text">Posts</h1>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/guo-nei-you-ku-fen-xiang-api-yi-xie-keng.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-23 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/guo-nei-you-ku-fen-xiang-api-yi-xie-keng/"> 国内优酷分享API一些坑 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
+过程遇到了一些坑【忠告各位远离优酷】：</p>
+
+          </article>
         </div>
       </div>
-      <div class="footer-box">
-  <footer class="footer">
-    <div class="copyright">
-      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | © 2019-2020 Theme By HsxyHao
     </div>
-    <div class="poweredby">
-      Powered by <a href="https://gridea.dev/">Gridea</a>
-    </div>
-  </footer>
-  
-  
-  <div class=" back-to-top" id="back_to_top">
-    <i class="fa fa-arrow-up"></i>
-    
-    <span class="scrollpercent">
-      <span id="back_to_top_text">0</span>%
-    </span>
-    
   </div>
   
-  
-  
-    
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
 
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei/"> 获取当前分类下的所有子分类 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
+<p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/ru-he-jie-jue-ye-mian-wen-zhang-xiang-qing-ye-xu-yao-bu-tong-yang-shi-mo-ban-de-wen-ti/"> 如何解决页面/文章/详情页需要不同样式、模板的问题？ </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>遇到一个客户，他的需求是在产品详情页有5套不同的模板，需要在后台自己可以选择不同模板，填写不同的内容。</p>
+<p>一开始知道这个需求很懵，后来我理清楚了思路，解决了这个问题:</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/liu-yan-biao-dan-zhi-chi-you-xiang-zhuan-fa/"> 留言表单、支持邮箱转发 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p><strong>基于PHP搭建，用于Wordpress的插件</strong></p>
+<p>项目地址:<a href="https://github.com/ihopefulChina/Message">https://github.com/ihopefulChina/Message</a></p>
+<p>(已设为私有，无法访问，如果有需要联系:<a href="mailto:hpf784667332@gmail.com">hpf784667332@gmail.com</a>)</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/ru-he-shu-chu-gen-ju-fen-lei-luo-lie-wen-zhang-dang-qian-ye-mian-gao-liang-xian-shi/"> 如何输出根据分类罗列文章，当前页面高亮显示 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>我之前有写过类似这个功能，这次写的全一点，高亮显示实现功能也是用到这个<code>$uri=explode('/',$_SERVER['REQUEST_URI']);</code></p>
+<p>我贴一下代码，你们可以参考一下，个人暂时未找到更好的方法，有什么好的方法，可以在下面评论，我们探讨一下。</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/ru-he-yong-tag-fang-shi-chuan-lian-zi-ding-yi-fen-lei-shi-xian-xiang-guan-wen-zhang-chuan-lian-gong-neng/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ru-he-yong-tag-fang-shi-chuan-lian-zi-ding-yi-fen-lei-shi-xian-xiang-guan-wen-zhang-chuan-lian-gong-neng.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/ru-he-yong-tag-fang-shi-chuan-lian-zi-ding-yi-fen-lei-shi-xian-xiang-guan-wen-zhang-chuan-lian-gong-neng/"> 如何用TAG方式串联自定义分类(实现相关文章串联功能) </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>遇到过一个奇葩的客户，让我通过TAG的方式，获取自定义分类的相关文章。</p>
+<p>例如:某产品写了a这个tag标签，某新闻、案例、应用等等都有一个一样是a标签，然后如何在这个产品详情页，输出含有a标签的相关新闻、相关案例、相关应用等等。</p>
+<p>最后如果没有这个标签的话，后台有通过手动添加功能填写</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/ye-mian-shi-xian-lei-si-yu-tao-bao-de-tu-chuang-gong-neng/"> 页面实现类似于淘宝的图窗功能 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>解决思路:</p>
+<ol>
+<li>前台的功能通过JS插件实现。</li>
+<li>图片获取通过自定义字段功能获取。</li>
+</ol>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/zai-fei-dang-qian-ye-mian-huo-qu-zhi-ding-duo-ge-zi-ding-yi-fen-lei-xia-de-wen-zhang/"> 在非当前页面获取指定多个自定义分类下的文章 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>在非当前页面，我们获取指定分类就有点困难，ACF插件能解决这个问题，<a href="https://www.advancedcustomfields.com/">ACF插件</a>是我最常用的插件,用ACF插件定义一个真假按钮，然后判断即可，以下为Demo。</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/huo-qu-zhi-ding-fen-lei-de-suo-you-zi-fen-lei-lian-jie-descriptionslugzi-ding-yi-zi-duan/"> 获取指定分类的所有子分类链接、Description、Slug、自定义字段 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>Wordpress很难获取指定分类下的所有子分类。这需要我们绕路获取。<br>
+以下的方法适用于任何页面来获取所有子分类，仅供参考，如果不懂，可以联系我，或者多看几遍官方文档。<br>
+分类的标题、Description、Slug是Wordpress自带函数可以直接获取，自定义字段和链接需要通过ID的方式获取。</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+        odd
+       excerpt">
+      
+      <a class="featured-image-link" href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi.png"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-08-22 ·</span> <span> / </span>
+          <span class="author">
+              <a href="https://ihopefulchina.github.io" title="Posts by  Ihopeful Blog" rel="author"> Ihopeful Blog</a>
+          </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
+                </span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                </span>
+            
+
+        </div>
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/"> 解决Wordpress自定义二级目录和三级目录采用不同的样式 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p>Wordpress自定义分类结构采用的是archive-&gt;taxonomy-&gt;single,其中archive是自定义分类的总页面，taxonomy是子分类，子分类的下面分类，single是自定义分类下的文章。</p>
+<p>层级很清晰，但有一个问题，如果二级目录和三级目录采用不同的样式(taxonomy页面)，怎么办？</p>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
   
 </div>
-<script>
 
-  let sideBarOpen = 'sidebar-open';
-  let body = document.body;
-  let back2Top = document.querySelector('#back_to_top'),
-  back2TopText = document.querySelector('#back_to_top_text'),
-  drawerBox = document.querySelector('#drawer_box'),
-  rightSideBar = document.querySelector('.sidebar'),
-  viewport = document.querySelector('body');
-
-  function scrollAnimation(currentY, targetY) {
-   
-    let needScrollTop = targetY - currentY
-    let _currentY = currentY
-    setTimeout(() => {
-      const dist = Math.ceil(needScrollTop / 10)
-      _currentY += dist
-      window.scrollTo(_currentY, currentY)
-      if (needScrollTop > 10 || needScrollTop < -10) {
-        scrollAnimation(_currentY, targetY)
-      } else {
-        window.scrollTo(_currentY, targetY)
-      }
-    }, 1)
-  }
-
-  back2Top.addEventListener("click", function(e) {
-    scrollAnimation(document.scrollingElement.scrollTop, 0);
-    e.stopPropagation();
-    return false;
-  });
-  
-  window.addEventListener('scroll', function(e) {
-    let percent = document.scrollingElement.scrollTop / (document.scrollingElement.scrollHeight - document.scrollingElement.clientHeight) * 100;
-    if (percent > 1 && !back2Top.classList.contains('back-top-active')) {
-      back2Top.classList.add('back-top-active');
-    }
-    if (percent == 0) {
-      back2Top.classList.remove('back-top-active');
-    }
-    if (back2TopText) {
-      back2TopText.textContent = Math.floor(percent);
-    }
-  });
-
-  
-  let hasCacu = false;
-  window.onresize = function() {
-    if (window.width > 991) {
-      calcuHeight();
-    } else {
-      hasCacu = false;
-    }
-  }
-
-  function calcuHeight() {
-    // 动态调整站点概览高度
-    if (!hasCacu && back2Top.classList.contains('pisces') || back2Top.classList.contains('gemini')) {
-      let sideBar = document.querySelector('.sidebar');
-      let navUl = document.querySelector('#site_nav');
-      sideBar.style = 'margin-top:' + (navUl.offsetHeight + navUl.offsetTop + 15) + 'px;';
-      hasCacu = true;
-    }
-  }
-  calcuHeight();
-  
-  let open = false, MOTION_TIME = 300, RIGHT_MOVE_DIS = '320px';
-
-  if (drawerBox) {
-    let rightMotions = document.querySelectorAll('.right-motion');
-    let right = drawerBox.classList.contains('right');
-
-    let transitionDir = right ? "transition.slideRightIn" : "transition.slideLeftIn";
-
-    let openProp, closeProp;
-    if (right) {
-      openProp = {
-        paddingRight: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingRight: '0px'
-      };
-    } else {
-      openProp = {
-        paddingLeft: RIGHT_MOVE_DIS 
-      };
-      closeProp = {
-        paddingLeft: '0px'
-      };
-    }
-
-    drawerBox.onclick = function() {
-      open = !open;
-      window.Velocity(rightSideBar, 'stop');
-      window.Velocity(viewport, 'stop');
-      window.Velocity(rightMotions, 'stop');
-      if (open) {
-        window.Velocity(rightSideBar, {
-          width: RIGHT_MOVE_DIS
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, transitionDir,{ });
-          }
-        })
-        window.Velocity(viewport, openProp,{
-          duration: MOTION_TIME
-        });
-      } else {
-        window.Velocity(rightSideBar, {
-          width: '0px'
-        }, {
-          duration: MOTION_TIME,
-          begin: function() {
-            window.Velocity(rightMotions, {
-              opacity: 0
-            });
-          }
-        })
-        window.Velocity(viewport, closeProp ,{
-          duration: MOTION_TIME
-        });
-      }
-      for (let i = 0; i < drawerBox.children.length; i++) {
-        drawerBox.children[i].classList.toggle('muse-line');
-      }
-      drawerBox.classList.toggle(sideBarOpen);
-    }
-  }
-
-  // 代码高亮
-  hljs.initHighlightingOnLoad();
-
-</script>
+    <nav class="navigation pagination" role="navigation">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
+        
+        
+             <a class="next page-numbers" href="https://ihopefulchina.github.io/tag/php/page/2">下一页</a>
+        
     </div>
-  </body>
-  <script src="/media/js/motion.js"></script>
+</nav>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
+    </h1>
+    <p class="site-description">Sweat is the lubricant of success.</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <li>
+                    <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
+                        <i class="fas fa-envelope" title="envelope"></i>
+                        <span class="screen-reader-text">envelope</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
+                        <i class="fab fa-qq" title="qq"></i>
+                        <span class="screen-reader-text">qq</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://gridea.dev/">Gridea</a></p>
+    </div>
+</footer>
+<script>
+    hljs.initHighlightingOnLoad()
+</script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/jquerymigrate.js"></script>
+<script src="https://ihopefulchina.github.io/media/scripts/lib/production.min.js"></script>
+
+</div>
+</body>
 </html>
