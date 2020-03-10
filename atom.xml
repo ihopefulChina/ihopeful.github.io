@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2019-11-22T07:15:37.839Z</updated>
+    <updated>2020-03-10T02:21:30.155Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
     <subtitle>Sweat is the lubricant of success.</subtitle>
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, Ihopeful Blog</rights>
+    <rights>All rights reserved 2020, Ihopeful Blog</rights>
     <entry>
         <title type="html"><![CDATA[女朋友照片-表白]]></title>
-        <id>https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian</id>
-        <link href="https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian">
+        <id>https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian/</id>
+        <link href="https://ihopefulchina.github.io/post/nu-peng-you-zhao-pian/">
         </link>
         <updated>2019-11-21T06:43:02.000Z</updated>
         <summary type="html"><![CDATA[<p>郭梦瑶是大傻逼！郭梦瑶是大傻逼！郭梦瑶是大傻逼！<br>
@@ -544,8 +544,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十三): 品牌管理列表案例Demo学习]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/">
         </link>
         <updated>2019-09-04T06:36:18.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>添加:</strong></p>
@@ -706,8 +706,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(十二): 内容总结前十一Vue学习]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/">
         </link>
         <updated>2019-09-04T05:48:51.000Z</updated>
         <summary type="html"><![CDATA[<p>主要学习了MVC和MVVM的区别、学习Vue基本的代码结构、基本指令: 差值表达式， v-cloak, v-text, v-html, v-bind(缩写:), v-on(缩写@), v-model, v-for, v-if, v-show、el 指定控制的区域 data 是对象，指定了控制区域内要用到的数据，methods 虽然带s后缀，但是个对象，这里可以放自定义方法、在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this、在v-for 注意key属性(接受string、number)、v-model 只能运用到表单元素、Vue中绑定样式2中方式 v-bind:class,v-model:style、v-if和v-show使用和特点等等。</p>
@@ -717,7 +717,7 @@
 <p>梳理一下：</p>
 <h3 id="1mvc和mvvm的区别">1.MVC和MVVM的区别</h3>
 <ol>
-<li><img src="https://ihopefulchina.github.io/post-images/1567576221359.png" alt=""></li>
+<li><img src="https://ihopefulchina.github.io/post-images/1567576221359.png" alt="" loading="lazy"></li>
 </ol>
 <h3 id="2学习vue基本的代码结构">2.学习Vue基本的代码结构</h3>
 <pre><code>&lt;!DOCTYPE html&gt;
@@ -828,7 +828,7 @@
     &lt;/script&gt;
 </code></pre>
 <h3 id="6在vm示例中如果要访问data上数据或者访问methods中方法必须带this">6.在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this</h3>
-<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567578008377.png" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567578008377.png" alt="" loading="lazy"></figure>
 <h3 id="7在v-for-注意key属性接受string-number">7.在v-for 注意key属性(接受string、number)</h3>
 <p>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值<br>
 key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值<br>
@@ -878,7 +878,7 @@ v-for循环的时候，只能用number或string</p>
     &lt;/script&gt;
 </code></pre>
 <h3 id="8v-model-只能运用到表单元素">8.v-model 只能运用到表单元素</h3>
-<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567578109353.png" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567578109353.png" alt="" loading="lazy"></figure>
 <h3 id="9vue中绑定样式2中方式-v-bindclassv-modelstyle">9.Vue中绑定样式2中方式 v-bind:class,v-model:style</h3>
 <p><strong>:class</strong></p>
 <ul>
@@ -921,14 +921,14 @@ var vm = new Vue({
 <li>v-if 的特点：每次都会重新删除或者创建元素; v-show的特点: 每次不会进行DOM元素的删除和创建的操作，只是切换了元素的display:none</li>
 <li>v-if 有较高的切换性能消耗，v-show有较高的初始渲染消耗</li>
 <li>如果元素涉及到频繁的切换，最好不要用v-if，用v-show; 如果元素可能永远不会被显示出来的话，则推荐v-if<br>
-<img src="https://ihopefulchina.github.io/post-images/1567578168432.png" alt=""></li>
+<img src="https://ihopefulchina.github.io/post-images/1567578168432.png" alt="" loading="lazy"></li>
 </ul>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十一): v-if和v-show的使用和特点]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-yi-v-if-he-v-show-de-shi-yong-he-te-dian/">
         </link>
         <updated>2019-09-04T03:42:06.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>一般来说，v-if有更高的切换消耗，而v-show有更高的初始渲染消耗，因此需要频繁切换v-show较好，如果在运行条件不太可能改变v-if较好。</strong></p>
@@ -940,14 +940,14 @@ var vm = new Vue({
 <li>v-if 的特点：每次都会重新删除或者创建元素；v-show的特点: 每次不会进行DOM元素的删除和创建的操作，只是切换了元素的display:none</li>
 <li>v-if 有较高的切换性能消耗，v-show有较高的初始渲染消耗</li>
 <li>如果元素涉及到频繁的切换，最好不要用v-if，用v-show； 如果元素可能永远不会被显示出来的话，则推荐v-if。<br>
-<img src="https://ihopefulchina.github.io/post-images/1567576098904.png" alt=""></li>
+<img src="https://ihopefulchina.github.io/post-images/1567576098904.png" alt="" loading="lazy"></li>
 </ol>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十): v-for中key的使用注意事项]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang/">
         </link>
         <updated>2019-09-04T02:56:20.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
@@ -1015,21 +1015,21 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt="" loading="lazy"></figure>
 <ol>
 <li>v-for循环的时候，只能用number或string。</li>
 <li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
 <li>当使用<code>this.list.unshift({id: this.id,name: this.name})</code> 添加按钮事件，未绑定<code>v-bind:key=&quot;item.id&quot;</code>时候，会出现 例如:选择id为4，添加一个后，会上移到id为3<br>
-<img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt=""><br>
-=》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt=""></li>
+<img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt="" loading="lazy"><br>
+=》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt="" loading="lazy"></li>
 <li>如果是<code>&lt;p v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;</code> 会出现错误，是因为<strong>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值</strong></li>
 </ol>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(九): v-for指令的四种使用方式]]></title>
-        <id>https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi</id>
-        <link href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi">
+        <id>https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi/</id>
+        <link href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi/">
         </link>
         <updated>2019-09-04T01:43:33.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
@@ -1046,13 +1046,13 @@ var vm = new Vue({
 <code>list:[1,2,3,4,5,6]</code></li>
 </ol>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt="" loading="lazy"></figure>
 <ol start="2">
 <li>添加索引值</li>
 </ol>
 <pre><code>&lt;p v-for=&quot;(item,i) in list&quot;&gt;这是数组的索引值:{{i}},这是数组内容:{{item}}&lt;/p&gt;
 </code></pre>
-<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt="" loading="lazy"></figure>
 <h3 id="v-for循环对象数组">v-for循环对象数组</h3>
 <pre><code>&lt;p v-for=&quot;(user,i) in list&quot;&gt;索引值:{{i}}, 用户ID:{{user.id}}, 用户名称:{{user.name}}&lt;/p&gt;
 </code></pre>
@@ -1063,7 +1063,7 @@ var vm = new Vue({
                     {id:4,name:&quot;d&quot;},
                 ]
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt="" loading="lazy"></figure>
 <h3 id="v-for循环对象">v-for循环对象</h3>
 <p>在遍历对象身上的键值得时候，可以有val key 还有索引</p>
 <pre><code>&lt;p v-for=&quot;(val, key, i) in user&quot;&gt;索引值:{{i}}, 键:{{key}}, 值: {{val}}&lt;/p&gt;
@@ -1074,19 +1074,19 @@ var vm = new Vue({
                 gender: 'boy'
             }
 </code></pre>
-<figure data-type="image" tabindex="4"><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt=""></figure>
+<figure data-type="image" tabindex="4"><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt="" loading="lazy"></figure>
 <h3 id="v-for迭代数字">v-for迭代数字</h3>
 <p>in 后面可以放普通数组，对象数组，对象和数字。<br>
 迭代数字从1开始</p>
 <pre><code>&lt;p v-for=&quot;count in 10&quot;&gt;这是第 {{count}} 次循环&lt;/p&gt;
 </code></pre>
-<figure data-type="image" tabindex="5"><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt=""></figure>
+<figure data-type="image" tabindex="5"><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(八): Vue中的使用样式]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi/">
         </link>
         <updated>2019-09-03T07:32:02.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
@@ -1225,8 +1225,8 @@ var vm = new Vue({
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(七): 简易计算器案例]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li/">
         </link>
         <updated>2019-09-03T06:57:17.000Z</updated>
         <summary type="html"><![CDATA[<p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
@@ -1339,8 +1339,8 @@ var vm = new Vue({
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(六): v-model实现表单元素的数据双向绑定]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding/">
         </link>
         <updated>2019-09-03T06:52:30.000Z</updated>
         <summary type="html"><![CDATA[<p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
@@ -1385,13 +1385,13 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(五): 事件修饰符]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu">
+        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu/">
         </link>
         <updated>2019-09-03T05:43:33.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="事件修饰符">事件修饰符:</h3>
