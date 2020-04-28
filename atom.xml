@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2020-04-28T07:15:45.576Z</updated>
+    <updated>2020-04-28T07:16:57.683Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -31,7 +31,7 @@
 <li>根据定位和手动定位提供所在城市的电影，电影院等功能。</li>
 </ul>
 <h4 id="技术介绍">技术介绍：</h4>
-<p>基于vue2.x版本开发，采用脚手架+axios搭建。</p>
+<p>基于vue2.x版本开发，采用cli脚手架+axios搭建。</p>
 <h4 id="项目演示地址">项目演示地址：</h4>
 <p>👉 <a href="https://github.com/ihopefulChina/vue-movie-app">Github: Vue Movie App</a></p>
 <figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1588057378940.png" alt="" loading="lazy"></figure>
