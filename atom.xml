@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2020-04-29T03:44:59.793Z</updated>
+    <updated>2020-05-11T06:12:27.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Vue 实战(二): 移动端 h5 动画 web]]></title>
+        <id>https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
+        <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
+        </link>
+        <updated>2020-05-11T06:10:27.000Z</updated>
+        <content type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://test1.hpfgmy.site/</p>
+<p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1589177491662.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue 实战(一): Movie App]]></title>
         <id>https://ihopefulchina.github.io/post/vue-shi-zhan-yi-movie-app/</id>
@@ -881,160 +892,6 @@ var vm = new Vue({
 &lt;/html&gt;
 </code></pre>
 <figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(五): 事件修饰符]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-shi-jian-xiu-shi-fu/">
-        </link>
-        <updated>2019-09-03T05:43:33.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="事件修饰符">事件修饰符:</h3>
-<ol>
-<li>.stop 阻止冒泡</li>
-<li>.prevent 阻止默认事件</li>
-<li>.capture 添加事件侦听器时使用事件捕获模式</li>
-<li>.self 只当事件在该元素(比如不是子元素)触发时触发回调</li>
-<li>.once 只触发一次</li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="事件修饰符">事件修饰符:</h3>
-<ol>
-<li>.stop 阻止冒泡</li>
-<li>.prevent 阻止默认事件</li>
-<li>.capture 添加事件侦听器时使用事件捕获模式</li>
-<li>.self 只当事件在该元素(比如不是子元素)触发时触发回调</li>
-<li>.once 只触发一次</li>
-</ol>
-<!-- more -->
-<h4 id="stop-阻止冒泡">.stop 阻止冒泡</h4>
-<pre><code>&lt;!--使用.stop 阻止冒泡--&gt;
-        &lt;div class=&quot;inner&quot; @click=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-</code></pre>
-<h4 id="prevent-阻止默认事件">.prevent 阻止默认事件</h4>
-<pre><code>&lt;!--使用.prevet 阻止默认事件--&gt;
-        &lt;a href=&quot;http://baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; @click.prevent=&quot;linkclick&quot;&gt;点击百度&lt;/a&gt;
-</code></pre>
-<h4 id="capture-添加事件侦听器时使用事件捕获模式">.capture 添加事件侦听器时使用事件捕获模式</h4>
-<pre><code>&lt;!--使用.capture 实现捕获触发事件的机制(从外到里捕获事件)--&gt;
-        &lt;div class=&quot;inner&quot; @click.capture=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-</code></pre>
-<h4 id="self-只当事件在该元素比如不是子元素触发时触发回调">self 只当事件在该元素(比如不是子元素)触发时触发回调</h4>
-<pre><code>&lt;!--使用.self 实现只有点击当期元素，才会触发事件函数--&gt;
-        &lt;div class=&quot;inner&quot; @click.self=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-</code></pre>
-<h4 id="once-只触发一次">.once 只触发一次</h4>
-<pre><code>&lt;!--使用.once 事件只触发一次处理函数 .prevent.once 顺序无所谓--&gt;
-        &lt;a href=&quot;http://baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; @click.prevent.once=&quot;linkclick&quot;&gt;点击百度&lt;/a&gt;
-</code></pre>
-<h3 id="使用stop-与self的区别">使用.stop 与.self的区别</h3>
-<p>.self只会阻止自己身上的冒泡的行为触发，不会阻止别人的触发</p>
-<pre><code>&lt;!--使用.stop 阻止冒泡--&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click=&quot;divHandler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-         &lt;!--使用 .self 阻止冒泡--&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click.self=&quot;divHandler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-</code></pre>
-<p>完成代码示例</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-    &lt;style&gt;
-        .inner{
-            height: 150px;
-            background-color: darkcyan;
-            margin: 15px 0
-        }
-        .outer{
-            padding: 40px;
-            background-color: red;
-            margin: 15px 0
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;!--使用.stop 阻止冒泡--&gt;
-        &lt;div class=&quot;inner&quot; @click=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!--使用.prevet 阻止默认事件--&gt;
-        &lt;a href=&quot;http://baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; @click.prevent=&quot;linkclick&quot;&gt;点击百度&lt;/a&gt;
-
-        &lt;!--使用.capture 实现捕获触发事件的机制(从外到里捕获事件)--&gt;
-        &lt;div class=&quot;inner&quot; @click.capture=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!--使用.self 实现只有点击当期元素，才会触发事件函数--&gt;
-        &lt;div class=&quot;inner&quot; @click.self=&quot;divHandler&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-        &lt;/div&gt;
-
-        &lt;!--使用.once 事件只触发一次处理函数 .prevent.once 顺序无所谓--&gt;
-        &lt;a href=&quot;http://baidu.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot; @click.prevent.once=&quot;linkclick&quot;&gt;点击百度&lt;/a&gt;
-
-        &lt;!--使用.stop 与.self的区别
-        .self只会阻止自己身上的冒泡的行为触发，不会阻止别人的触发
-        --&gt;
-        &lt;!--使用.stop 阻止冒泡--&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click=&quot;divHandler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click.stop=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-         &lt;!--使用 .self 阻止冒泡--&gt;
-        &lt;div class=&quot;outer&quot; @click=&quot;div2Handler&quot;&gt;
-            &lt;div class=&quot;inner&quot; @click.self=&quot;divHandler&quot;&gt;
-                &lt;input type=&quot;button&quot; value=&quot;点击&quot; @click=&quot;btnHandler&quot;&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm= new Vue({
-        el: '#app',
-        data:{
-
-        },
-        methods:{
-            divHandler(){
-                console.log('触发inner div的点击事件')
-            },
-            btnHandler(){
-                console.log('触发btn 的点击事件')
-            },
-            linkclick()
-            {
-                console.log('触发link的点击事件')
-            },
-            div2Handler(){
-                console.log('触发outer 的点击事件')
-            }
-        }
-    });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 ]]></content>
     </entry>
 </feed>
