@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2020-05-11T06:17:07.679Z</updated>
+    <updated>2020-05-14T23:15:44.936Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -11,22 +11,24 @@
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Ihopeful Blog</rights>
     <entry>
-        <title type="html"><![CDATA[Vue 实战(二): 移动端 h5 动画 Web]]></title>
+        <title type="html"><![CDATA[Vue: 移动端 h5 动画 Web]]></title>
         <id>https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
         <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
         </link>
         <updated>2020-05-11T06:10:27.000Z</updated>
         <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://test1.hpfgmy.site/</p>
+<p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://test1.hpfgmy.site/</p>
+<p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 <!-- more -->
 <figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1589177491662.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Vue 实战(一): Movie App]]></title>
+        <title type="html"><![CDATA[Vue: Movie App]]></title>
         <id>https://ihopefulchina.github.io/post/vue-shi-zhan-yi-movie-app/</id>
         <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-yi-movie-app/">
         </link>
