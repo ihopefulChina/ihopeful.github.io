@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2020-05-14T23:35:27.366Z</updated>
+    <updated>2020-05-15T08:38:04.767Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -16,11 +16,11 @@
         <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
         </link>
         <updated>2020-05-11T06:10:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://test1.hpfgmy.site/</p>
+        <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
 <p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://test1.hpfgmy.site/</p>
+        <content type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
 <p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 <!-- more -->
