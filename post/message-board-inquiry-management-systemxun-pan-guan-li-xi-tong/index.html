@@ -1,214 +1,180 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="all,follow">
-<meta name="googlebot" content="index,follow,snippet,archive">
-<title>Message board inquiry management system（询盘管理系统） | Ihopeful Blog</title>
-<link rel="shortcut icon" href="https://ihopefulchina.github.io/favicon.ico?v=1589531881619">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" type='text/css' media='all'>
+    <meta charset="utf-8" />
+<title>
+    Ihopeful Blog
+</title>
+<!--[if lt IE 9]><script src="//cdn.bootcss.com/html5shiv/r29/html5.js"></script><![endif]-->
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="author" content="">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+<link rel="stylesheet" href="https://ihopefulchina.github.io/styles/main.css" />
+<link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153089065-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-153089065-1');
-</script>
-
-
+        <link rel="stylesheet" href="/assets/media/css/style.min.css" />
+        <script src="/assets/media/script/tocbot.min.js"></script>
+        <script src="/assets/media/script/script.min.js"></script>
+        <script src="/assets/media/script/icon.min.js"></script>
+        
+            <script src="https://cdn.jsdelivr.net/gh/ITJoker233/ITJoker233.github.io@latest/CDN/js/Card/prism.min.js"></script>
+            <link rel="stylesheet" href="" />
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css">
+            <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"></script>
+            
 </head>
-<body class="home blog ct-body standard">
-<div id="overflow-container" class="overflow-container">
-  <a class="skip-content" href="#main">Skip to content</a>
-  <header id="site-header" class="site-header" role="banner">
-    <div class='top-navigation top-navigation-important'>
-        <div class='container'>
-            <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
-                <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fa fa-plus"></i></button>
-                <div class="menu">
-                    <ul id="menu-secondary-items" class="menu-secondary-items">
+
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo">
+                <a href="https://ihopefulchina.github.io">
+                    Ihopeful Blog
+                </a>
+            </div>
+            <div id="tp-weather-widget"></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/">
+                        首页
+                    </a>
+                    
+                    <a class="menu-item" href="/archives">
+                        归档
+                    </a>
+                    
+                    <a class="menu-item" href="/tags">
+                        标签
+                    </a>
+                    
+                    <a class="menu-item" href="/post/about">
+                        关于
+                    </a>
+                    
+                        <input id="switch_default" type="checkbox" class="switch_default">
+                        <label for="switch_default" class="toggleBtn"></label>
+            </div>
+            <form id="gridea-search-form" data-update="1610169454811" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+            </form>
+        </div>
+    </nav>
+
+    
+        <nav class="navbar-mobile" id="nav-mobile">
+            <div class="container">
+                <div class="navbar-header">
+                    <div>
+                        <a href="https://ihopefulchina.github.io">
+                            Ihopeful Blog
+                        </a>
+                        <!--en-->
+                        <a id="mobile-toggle-theme-en" class="a en">&nbsp;Dark</a>
+                        <!--zh-->
+                        <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
+                    </div>
+                    <form id="gridea-search-form" data-update="1610169454811" action="/search/index.html">
+                        <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
+                    </form>
+                    <!--en-->
+                    <div class="menu-toggle" id="menu-toggle-en" onclick="mobileBtn()">&#9776; Menu</div>
+                    <!--zh-->
+                    <div class="menu-toggle" id="menu-toggle-zh" onclick="mobileBtn()">&#9776; &#x83DC;&#x5355;</div>
+
+                </div>
+                <div class="menu" id="mobile-menu">
+                    
+                        <a class="menu-item" href="/">
+                            首页
+                        </a>
                         
+                        <a class="menu-item" href="/archives">
+                            归档
+                        </a>
                         
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK/">Vue</a>
-                        </li>
-                            
+                        <a class="menu-item" href="/tags">
+                            标签
+                        </a>
                         
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
-                        </li>
-                            
+                        <a class="menu-item" href="/post/about">
+                            关于
+                        </a>
                         
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/">JavaScript</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/linux/">Linux</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/system/">系统</a>
-                        </li>
-                            
-                        
-                            
-                        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
-                            <a href="https://ihopefulchina.github.io/tag/mp.weixin/">微信小程序</a>
-                        </li>
-                            
-                        
-                            
-                        
-                    </ul>
                 </div>
             </div>
-            <ul class="social-media-icons">
-                
-                    
-                        <li>
-                            <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
-                                <i class="fab fa-github" title="github"></i>
-                                <span class="screen-reader-text">github</span>
-                            </a>
-                        </li>
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                
-                    
-                        <li>
-                            <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
-                                <i class="fa fa-envelope" title="envelope"></i>
-                                <span class="screen-reader-text">envelope</span>
-                            </a>
-                        </li>
-                    
-                
-                    
-                        <li>
-                            <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
-                                <i class="fab fa-qq" title="qq"></i>
-                                <span class="screen-reader-text">qq</span>
-                            </a>
-                        </li>
-                    
-                
-                    
-                
-            </ul>
-        </div>
-    </div>
-
-    <div class="container">
-        <div id="title-info" class="title-info">
-            <div id='site-title' class='site-title'>
-                <a href="https://ihopefulchina.github.io">  Ihopeful Blog </a>
-            </div>
-        </div>
-        <button id="toggle-navigation" class="toggle-navigation">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
-        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
-            <p class="site-description">Sweat is the lubricant of success.</p>
-            <div class="menu">
-                <ul id="menu-primary-items" class="menu-primary-items">
-                     
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/">首页</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/archives">归档</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/tags">标签</a>
-                            </li>
-                        
-                    
-                        
-                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="/post/about">关于</a>
-                            </li>
-                        
-                    
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
+        </nav>
 </header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementById("menu-toggle-en");
+        var toggleMenu_zh = document.getElementById("menu-toggle-zh");
 
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.display != "none") {
+            if (toggleMenu.classList.contains("active")) {
+                toggleMenu.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        } else if (toggleMenu_zh.display != "none") {
+            if (toggleMenu_zh.classList.contains("active")) {
+                toggleMenu_zh.classList.remove("active")
+                mobileMenu.classList.remove("active")
+            } else {
+                toggleMenu_zh.classList.add("active")
+                mobileMenu.classList.add("active")
+            }
+        }
 
-  <div id="main" class="main" role="main">
-    <div id="loop-container" class="loop-container">
-      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
-        
-          <div class='featured-image lazy lazy-bg-image' data-background="https://ihopefulchina.github.io/post-images/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong.png">
-          </div>
-        
+    }
+</script>
 
-        <div class="entry-meta">
-          <span class="date">· 2019-03-20 ·</span> <span> / </span>
-          <span class="author">
-            <a href="https://ihopefulchina.github.io" title="" rel="author"> Powered by <a href="https://gridea.dev/">Gridea</a></a>
-          </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/system/">系统</a>
-                </span>
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
-                </span>
-          
-        </div>
-        <div class='entry-header'>
-          <h1 class='entry-title'>Message board inquiry management system（询盘管理系统）</h1>
-        </div>
-        <div class="entry-container">
-          <div class="entry-content">
-            <article>
-              <p>转载</p>
+            <div class="main">
+                <div class="container">
+                    <article class="post-wrap">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                Message board inquiry management system（询盘管理系统）
+                            </h1>
+                            
+                                    <!--zh-->
+                                    <div class="post-meta zh">
+                                        &#x4F5C;&#x8005;:
+                                        <a itemprop="author" rel="author" href="/">
+                                            Ihopeful Blog
+                                        </a>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2019-03-20</a></span>
+                                        <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
+                                    href="#">1.1
+                                    &#x5206;&#x949F;</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">292</a></span>
+                                        
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://ihopefulchina.github.io/tag/system/">系统</a>
+                                
+                                <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
+                                
+                            </span>
+                                            
+                                    </div>
+                                    
+                        </header>
+                        
+                            <img class="post-feature-image" src="https://ihopefulchina.github.io/post-images/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong.png" alt="">
+                          
+                        <div class="post-content">
+                            <p>转载</p>
 <p>地址：https://github.com/ihopefulChina/Message-board-inquiry-management-system</p>
 <p>外贸营销网站留言板程序 一个简单的留言板程序，在外贸网站运行测试多年没有任何问题。如果你的公司没有留言板程序，或者现在需要去找一个简单的留言板程序，这个很适合你。</p>
 <!-- more -->
@@ -220,198 +186,154 @@
 <p>这个隐藏字段代表网站属于哪个牌子。</p>
 <p>这个隐藏字段代表你强制把referer改为某个网站。</p>
 
-            </article>
-          </div>
-          <div class='entry-meta-bottom'>
-            <div class="entry-categories">
-              <p>
-                <span>Categories</span>
+                        </div>
+                        
+                                
+                                                    
+                                                                    <!--Share-->
+                                                                    <span style="margin-right:15px">
+                        <i class="post-share"></i>
+                        <span>&#x5206;&#x4EAB;:</span>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong/&sharesource=qzone&title=Message board inquiry management system（询盘管理系统）&pics=https://ihopefulchina.github.io/images/avatar.png?v=1610169454811&summary=&lt;p&gt;转载&lt;/p&gt;
+&lt;p&gt;地址：https://github.com/ihopefulChina/Message-board-inquiry-management-system&lt;/p&gt;
+&lt;p&gt;外贸营销网站留言板程序 一个简单的留言板程序，在外贸网站运行测试多年没有任何问题。如果你的公司没有留言板程序，或者现在需要去找一个简单的留言板程序，这个很适合你。&lt;/p&gt;
+"><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://ihopefulchina.github.io/post/message-board-inquiry-management-systemxun-pan-guan-li-xi-tong/&sharesource=weibo&title=Message board inquiry management system（询盘管理系统） + " - " + &lt;p&gt;转载&lt;/p&gt;
+&lt;p&gt;地址：https://github.com/ihopefulChina/Message-board-inquiry-management-system&lt;/p&gt;
+&lt;p&gt;外贸营销网站留言板程序 一个简单的留言板程序，在外贸网站运行测试多年没有任何问题。如果你的公司没有留言板程序，或者现在需要去找一个简单的留言板程序，这个很适合你。&lt;/p&gt;
+&pic="https://ihopefulchina.github.io/images/avatar.png?v=1610169454811 "><i class="fa fa-weibo "></i></a>
+
+                                                                    </span>
+                                                                    
+                                                                            <!--zh-->
+                                                                            <section class="post-tags zh ">
+                                                                                <div>
+                                                                                    <span>&#x6807;&#x7B7E;:</span>
+                                                                                    <span class="tag ">
+                        
+                        
+                        <a href="https://ihopefulchina.github.io/tag/system/">#
+                    系统
+                        </a>
+                        
+                        <a href="https://ihopefulchina.github.io/tag/php/">#
+                    PHP
+                        </a>
+                        
+                            
+                                </span>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <a href="javascript:window.history.back();">
+                        &#x8FD4;&#x56DE;</a>
+                                                                                    <span>&dot;</span>
+                                                                                    <a href="#">&#x4E3B;&#x9875;</a>
+                                                                                </div>
+                                                                            </section>
+
+                                                                            
+                                                                                <!---->
+                                                                                <section class="post-nav">
+                                                                                    
+                                                                                        <a class="prev" rel="prev" href="https://ihopefulchina.github.io/post/wordpress-han-shu-dai-ma-mo-kuai-hua/">
+                                                                                            WordPress函数代码模块化
+                                                                                        </a>
+                                                                                        
+                                                                                            
+                                                                                                <a class="next" rel="next" href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian/">
+                                                                                                    批量裁切图片
+                                                                                                </a>
+                                                                                                
+                                                                                </section>
+                    </article>
+                </div>
                 
-                  
                     
-                  <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK/" title="View all posts in Vue">Vue</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/wordpress/" title="View all posts in WordPress">WordPress</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/php/" title="View all posts in PHP">PHP</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/" title="View all posts in JavaScript">JavaScript</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/linux/" title="View all posts in Linux">Linux</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/system/" title="View all posts in 系统">系统</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/mp.weixin/" title="View all posts in 微信小程序">微信小程序</a>
-                    
-                    
-                    
-                  <a href="https://ihopefulchina.github.io/tag/markdown/" title="View all posts in Markdown">Markdown</a>
-                    
-                    
-              </p>
-            </div>
-            <div class="entry-tags">
-              <p><span>Tags</span>
-              </p>
-            </div>
-          </div>
-          <div class="author-meta">
-            <div class="author">
-              <img alt='' src="https://ihopefulchina.github.io/images/avatar.png?v=1589531881619" class='avatar avatar-72 photo' height='72' width='72'>
-              <span>WRITTEN BY: &nbsp;&nbsp;&nbsp;<a href='https://ihopefulchina.github.io'></a> </span>
-            </div>
-            <div class="bio">
-              <p></p>
-              
-                
-                  <a class="github" target="_blank"
-                     href="https://github.com/ihopefulchina">
-                    <i class="fab fa-github" title="github"></i>
-                  </a>
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-                
-                  <a class="envelope" target="_blank"
-                     href="mailto:784667332@qq.com">
-                    <i class="fa fa-envelope" title="envelope"></i>
-                  </a>
-                
-              
-                
-                  <a class="qq" target="_blank"
-                     href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes">
-                    <i class="fab fa-qq" title="qq"></i>
-                  </a>
-                
-              
-                
-              
-            </div>
-          </div>
-        </div>
-          
-            <nav class="navigation pagination" role="navigation">
-              <h2 class="screen-reader-text">Posts navigation</h2>
-              <div class="nav-links">
-                <a class="next page-numbers" href="https://ihopefulchina.github.io/post/pi-liang-cai-qie-tu-pian/">下一篇->批量裁切图片</a>
-              </div>
-            </nav>
-          
-      </div>
-      <section id="comments" class="comments">
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-<div id="gitalk-container"></div>
+<div id="gitalk-container" style="width: 100%;max-width: 780px;margin: auto;"></div>
 
 <script>
+    var gitalk = new Gitalk({
+        clientID: '71e97ed99597f66a9dd0',
+        clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
+        repo: 'ihopefulchina.github.io',
+        owner: 'ihopefulChina',
+        admin: ['ihopefulChina'],
+        id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
+        distractionFreeMode: false // Facebook-like distraction free mode
+    })
 
-  var gitalk = new Gitalk({
-    clientID: '71e97ed99597f66a9dd0',
-    clientSecret: '4cd92cb3b7f273e3172d055e30f182b18732b14a',
-    repo: 'ihopefulchina.github.io',
-    owner: 'ihopefulChina',
-    admin: ['ihopefulChina'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
+    gitalk.render('gitalk-container')
 </script>
-
-          
-
-          
-        
-      </section>
+                            
+                                        
+                                            
+            </div>
     </div>
-  </div>
-  <footer id="site-footer" class="site-footer" role="contentinfo">
-    <h1>
-        <a href="https://ihopefulchina.github.io"> Ihopeful Blog </a>
-    </h1>
-    <p class="site-description">Sweat is the lubricant of success.</p>
-    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
-        <div class="menu">
-            <ul id="menu-footer-items" class="menu-footer-items">
-            </ul>
+    </div>
+    </div>
+    
+        <footer id="footer" class="footer">
+            <div class="copyright">
+                
+                        Powered by <a href="https://gridea.dev/">Gridea</a>
+                            
+                                    <div style="width:300px;margin:0 auto; padding:0px 0;">
+                                        <a target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;">
+                                            <img src="https://yanxuan.nosdn.127.net/b610ced5ac6a0e25cf6edf5606c69775.png" style="float:left;">
+                                            <p id="icpinfo" style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#939393;"></p>
+                                        </a>
+                                    </div>
+                                    
+                                        <svg viewBox="0 0 1024 1024" style="margin-left: 5px;margin-right: 5px;" version="1.0" width="8" height="8" class="my-face">
+            <path
+                d="M863.597631 513.574282l-271.33965-140.213484L729.783667 81.926656c3.583731-7.87141 7.167462-15.742819 7.167462-25.214109C736.887134 25.226908 708.345275 0.012799 672.635953 0.012799a63.611229 63.611229 0 0 0-39.293053 12.607055c-1.791866 1.59988-3.519736 3.19976-5.311602 3.19976L147.87531 418.925381a55.547834 55.547834 0 0 0-19.646527 47.356448c1.791866 17.278704 14.27093 33.021523 32.125591 42.492813l271.33965 141.749369L292.504463 945.221908c-12.479064 25.214109-1.791866 53.563983 23.166262 69.306802 10.751194 6.335525 23.230258 9.47129 35.709322 9.47129 16.062795 0 32.125591-4.735645 44.604655-15.742819l480.091993-403.297753a55.547834 55.547834 0 0 0 19.646526-47.228458 61.243407 61.243407 0 0 0-32.12559-44.156688z"
+                fill="#93b5cf"></path>
+        </svg>
+                                        Ihopeful Blog &copy;Copyright
+                                            <script>
+                                                var date = new Date();
+                                                document.write("" + date.getFullYear());
+                                            </script>
+                                            | Powered by
+                                            <a href="" target="_blank">
+                                                
+                                            </a>
+            </div>
+            <div id="update" style="display:none;">
+                
+            </div>
+            
+                    <script>
+                        var port = '';
+                        
+                        document.write('<div id="home_path" style="display:none;">' + document.location.protocol + '//' + window.document.location.hostname + port + '</div>')
+                    </script>
+        </footer>
+        
+                <script>
+                    
+                    
+                    
+                    var icp = document.getElementById('icpinfo');
+                    icp.innerText = "";
+                    
+                    getStar();
+                    hljs.initHighlighting();
+                    console.clear();
+                    
+                    var newDate = new Date();
+                    newDate.setTime(1610169454811);
+                    console.log(" Blog Update Time: " + newDate.toLocaleDateString());
+                    console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
+                </script>
         </div>
-    </div>
-    <ul class="social-media-icons">
-        
-            
-                <li>
-                    <a href="https://github.com/ihopefulchina" data-animate-hover="pulse" class="github" target="_blank">
-                        <i class="fab fa-github" title="github"></i>
-                        <span class="screen-reader-text">github</span>
-                    </a>
-                </li>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-                <li>
-                    <a href="mailto:784667332@qq.com" data-animate-hover="pulse" class="envelope" target="_blank">
-                        <i class="fas fa-envelope" title="envelope"></i>
-                        <span class="screen-reader-text">envelope</span>
-                    </a>
-                </li>
-            
-        
-            
-                <li>
-                    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=784667332&amp;site=qq&amp;menu=yes" data-animate-hover="pulse" class="qq" target="_blank">
-                        <i class="fab fa-qq" title="qq"></i>
-                        <span class="screen-reader-text">qq</span>
-                    </a>
-                </li>
-            
-        
-            
-        
-    </ul>
-    <div class="design-credit">
-        <p>Powered by <a href="https://gridea.dev/">Gridea</a></p>
-    </div>
-</footer>
-<script>
-    hljs.initHighlightingOnLoad()
-</script>
-<script src="https://ihopefulchina.github.io/media/scripts/lib/jquery.min.js"></script>
-<script src="https://ihopefulchina.github.io/media/scripts/lib/jquerymigrate.js"></script>
-<script src="https://ihopefulchina.github.io/media/scripts/lib/production.min.js"></script>
-
-</div>
 </body>
-</html>
+<script>
+    scroll();
+</script>
 
+</html>
