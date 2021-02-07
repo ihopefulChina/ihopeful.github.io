@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T08:27:08.566Z</updated>
+    <updated>2021-02-07T08:31:26.336Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -66,7 +66,7 @@ brew install cocoapods
     defaultValue={text}
 /&gt;
 </code></pre>
-<ol>
+<ol start="2">
 <li>有一个长列表概念，FlatList，需要2个属性，data和renderItem，字面意思，data是列表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。不过感觉缺少双击回到顶部和下拉刷新等等功能，后续我尝试封装一下。</li>
 </ol>
 <pre><code>   &lt;FlatList
@@ -83,6 +83,9 @@ brew install cocoapods
 </li>
 <li>
 <p>特定平台扩展名。有点像Taro 在不同平台使用特定文件。React Native 会检测某个文件是否具有.ios.或是.android.的扩展名，然后根据当前运行的平台自动加载正确对应的文件。</p>
+</li>
+<li>
+<p><code>Button</code> 点击事件是<code>onPress</code>。</p>
 </li>
 <li>
 <p>定义样式：<code>const styles = StyleSheet.create({})</code>。</p>
