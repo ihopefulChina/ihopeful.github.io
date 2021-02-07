@@ -8,7 +8,7 @@
 <meta name="keywords" content="ihopeful blog">
 <meta name="description" content="Sweat is the lubricant of success.">
 <meta name="theme-color" content="#000">
-<title>修改Wordpress登录后跳转指定页面 | Ihopeful Blog</title>
+<title>React Native学习笔记· 2. 环境搭建 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1612683255321">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/mist.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="修改Wordpress登录后跳转指定页面" />
-  <meta name="keywords" content="WordPress,PHP" />
+  <meta name="description" content="React Native学习笔记· 2. 环境搭建" />
+  <meta name="keywords" content="React Native" />
 </head>
 
 <body>
@@ -178,7 +178,8 @@
       <div class="sidebar-body mist" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -250,6 +251,200 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E9%85%8D%E7%BD%AE%E5%A5%BD-react-native-%E4%BE%9D%E8%B5%96%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84">配置好 React Native 依赖和项目结构。</a></li>
+<li><a href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">搭建开发环境</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -337,8 +532,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ihopefulchina.github.io/post/xiu-gai-wordpress-deng-lu-hou-tiao-zhuan-zhi-ding-ye-mian/">
-      修改Wordpress登录后跳转指定页面
+    <a class="post-title-link" href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
+      React Native学习笔记· 2. 环境搭建
     </a>
   </h1>
   <div class="post-meta">
@@ -346,7 +541,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-08-22</span>
+      <span>2021-02-07</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -355,14 +550,8 @@
       <span class="pc-show">分类于</span>
       
       
-      <a href="https://ihopefulchina.github.io/tag/wordpress/">
-        <span>WordPress</span>
-      </a>、
-      
-      
-      
-      <a href="https://ihopefulchina.github.io/tag/php/">
-        <span>PHP</span>
+      <a href="https://ihopefulchina.github.io/tag/ReactNative/">
+        <span>React Native</span>
       </a>
       
       
@@ -376,25 +565,28 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>107<span class="pc-show">字数</span></span>
+      <span>210<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>Wordpres 后台登录后默认跳转到仪表板，其实是可以修改跳转到指定页面。</p>
+              <p>浏览了一下官网的安装流程，发现需要安装的有点多，所以感觉有必要纪录一下。<br>
+我选择平台是ios(swift)+mac：<br>
+把 React Native 组件集成到 iOS 应用中有如下几个主要步骤：</p>
 <!-- more -->
-<p>在function里面添加一个函数即可。</p>
-<pre><code>function my_login_redirect($redirect_to, $request){
-	if( empty( $redirect_to ) || $redirect_to == 'wp-admin/' || $redirect_to == admin_url() )
-		return home_url(&quot;/wp-admin/admin.php?page=lanthymessage&quot;);
-	else
-		return $redirect_to;
-}
-add_filter(&quot;login_redirect&quot;, &quot;my_login_redirect&quot;, 10, 3);
-</code></pre>
-<p>其中的'/wp-admin/admin.php?page=lanthymessage'是指定的url地址。</p>
-<p>以上就是实现Wordpress登录后跳转到指定页面。</p>
+<h3 id="配置好-react-native-依赖和项目结构">配置好 React Native 依赖和项目结构。</h3>
+<ol>
+<li>了解你要集成的 React Native 组件。</li>
+<li>使用 CocoaPods 把这些组件以依赖的形式加入到项目中。</li>
+<li>创建 js 文件，编写 React Native 组件的 js 代码。</li>
+<li>在应用中添加一个RCTRootView。这个RCTRootView正是用来承载你的 React Native 组件的容器。</li>
+<li>启动 React Native 的 Packager 服务，运行应用。</li>
+<li>验证这部分组件是否正常工作。</li>
+</ol>
+<h3 id="搭建开发环境">搭建开发环境</h3>
+<p>必须安装的依赖有：Node、Watchman、Xcode 和 CocoaPods。<br>
+地址: (https://www.react-native.cn/docs/environment-setup)[https://www.react-native.cn/docs/environment-setup]</p>
 
             </div>
             <div class="post-footer">
@@ -405,7 +597,7 @@ add_filter(&quot;login_redirect&quot;, &quot;my_login_redirect&quot;, 10, 3);
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ihopefulchina.github.io/post/xiu-gai-wordpress-deng-lu-hou-tiao-zhuan-zhi-ding-ye-mian/" title="修改Wordpress登录后跳转指定页面">https://ihopefulchina.github.io/post/xiu-gai-wordpress-deng-lu-hou-tiao-zhuan-zhi-ding-ye-mian/</a>
+      <a href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/" title="React Native学习笔记· 2. 环境搭建">https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -414,23 +606,17 @@ add_filter(&quot;login_redirect&quot;, &quot;my_login_redirect&quot;, 10, 3);
   </ul>
   <div class="tags">
     
-      <a href="https://ihopefulchina.github.io/tag/wordpress/"># WordPress</a>
-    
-      <a href="https://ihopefulchina.github.io/tag/php/"># PHP</a>
+      <a href="https://ihopefulchina.github.io/tag/ReactNative/"># React Native</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="页面Url结尾添加斜杠&#34;/&#34;" href="https://ihopefulchina.github.io/post/ye-mian-url-jie-wei-tian-jia-xie-gang/">页面Url结尾添加斜杠&#34;/&#34;</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="页面Url结尾添加斜杠&#34;/&#34;" href="https://ihopefulchina.github.io/post/ye-mian-url-jie-wei-tian-jia-xie-gang/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="如何不申请百度地图API，获取分享地图url？" href="https://ihopefulchina.github.io/post/ru-he-bu-shen-qing-bai-du-di-tu-apihuo-qu-fen-xiang-di-tu-url/">如何不申请百度地图API，获取分享地图url？</a>
-        <a class="nav-mobile-next" title="如何不申请百度地图API，获取分享地图url？" href="https://ihopefulchina.github.io/post/ru-he-bu-shen-qing-bai-du-di-tu-apihuo-qu-fen-xiang-di-tu-url/">下一篇</a>
+        <a class="nav-pc-next" title="React Native学习笔记· 1. 官网入门基础" href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">React Native学习笔记· 1. 官网入门基础</a>
+        <a class="nav-mobile-next" title="React Native学习笔记· 1. 官网入门基础" href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

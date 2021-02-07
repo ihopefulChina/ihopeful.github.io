@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T07:25:38.952Z</updated>
+    <updated>2021-02-07T08:05:55.440Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,34 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[React Native学习笔记· 2. 环境搭建]]></title>
+        <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</id>
+        <link href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
+        </link>
+        <updated>2021-02-07T07:28:35.000Z</updated>
+        <summary type="html"><![CDATA[<p>浏览了一下官网的安装流程，发现需要安装的有点多，所以感觉有必要纪录一下。<br>
+我选择平台是ios(swift)+mac：<br>
+把 React Native 组件集成到 iOS 应用中有如下几个主要步骤：</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>浏览了一下官网的安装流程，发现需要安装的有点多，所以感觉有必要纪录一下。<br>
+我选择平台是ios(swift)+mac：<br>
+把 React Native 组件集成到 iOS 应用中有如下几个主要步骤：</p>
+<!-- more -->
+<h3 id="配置好-react-native-依赖和项目结构">配置好 React Native 依赖和项目结构。</h3>
+<ol>
+<li>了解你要集成的 React Native 组件。</li>
+<li>使用 CocoaPods 把这些组件以依赖的形式加入到项目中。</li>
+<li>创建 js 文件，编写 React Native 组件的 js 代码。</li>
+<li>在应用中添加一个RCTRootView。这个RCTRootView正是用来承载你的 React Native 组件的容器。</li>
+<li>启动 React Native 的 Packager 服务，运行应用。</li>
+<li>验证这部分组件是否正常工作。</li>
+</ol>
+<h3 id="搭建开发环境">搭建开发环境</h3>
+<p>必须安装的依赖有：Node、Watchman、Xcode 和 CocoaPods。<br>
+地址: (https://www.react-native.cn/docs/environment-setup)[https://www.react-native.cn/docs/environment-setup]</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React Native学习笔记· 1. 官网入门基础]]></title>
         <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
@@ -559,88 +587,6 @@ var vm = new Vue({
 <li>v-if 有较高的切换性能消耗，v-show有较高的初始渲染消耗</li>
 <li>如果元素涉及到频繁的切换，最好不要用v-if，用v-show； 如果元素可能永远不会被显示出来的话，则推荐v-if。<br>
 <img src="https://ihopefulchina.github.io/post-images/1567576098904.png" alt="" loading="lazy"></li>
-</ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Vue学习(十): v-for中key的使用注意事项]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-v-for-zhong-key-de-shi-yong-zhu-yi-shi-xiang/">
-        </link>
-        <updated>2019-09-04T02:56:20.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
-当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
-<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>在2.20+的版本里，当组件使用v-for时候，key现在是必须的。</strong><br>
-当Vue.js 用v-for 正在更新已渲染过的元素列表中时， 它默认用&quot;<strong>就地复用</strong>&quot;策略。如果数据项的顺序被改变，Vue将<strong>不是移动DOM元素来匹配数据项的顺序</strong>，而是简单复用此处每个元素，并且确保它在特定索引下显示已被渲染过的每个元素。</p>
-<p>为了给Vue一个提示，<strong>以便它能跟踪每个节点的身份，从而重用和重新排序现有元素</strong>，你需要为每个项<strong>提供一个唯一key属性</strong>。</p>
-<!-- more -->
-<p>代码示例</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;div&gt;
-            &lt;label&gt;ID:
-                &lt;input type=&quot;text&quot; v-model=&quot;id&quot;&gt;
-            &lt;/label&gt;
-            &lt;label&gt;name:
-                    &lt;input type=&quot;text&quot; v-model=&quot;name&quot;&gt;
-            &lt;/label&gt;
-            &lt;input type=&quot;button&quot; value=&quot;添加&quot; @click=&quot;add1&quot;&gt;
-        &lt;/div&gt;
-        &lt;!--v-for循环的时候，只能用number或string--&gt;
-        &lt;!--key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值--&gt;
-        &lt;!--在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值--&gt;
-        &lt;p v-for=&quot;item in list&quot; :key=&quot;item.id&quot;&gt;
-            &lt;input type=&quot;checkbox&quot;&gt;
-            ID: {{item.id}} , name: {{item.name}}
-        &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        var vm = new Vue({
-            el: '#app',
-            data:{
-                id:'',
-                name:'',
-                list:[
-                {id:1,name: 'a'},
-                {id:2,name: 'b'},
-                {id:3,name: 'c'},
-                {id:4,name: 'd'},
-                {id:5,name: 'e'}
-                ]
-            },
-            methods:{
-                add(){//添加
-                    this.list.push({id: this.id,name: this.name})
-                },
-                add1(){//添加
-                    this.list.unshift
-                    ({id: this.id,name: this.name})
-                }
-            }
-        })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567567577054.png" alt="" loading="lazy"></figure>
-<ol>
-<li>v-for循环的时候，只能用number或string。</li>
-<li>key 在使用的时候，必须使用v-bind属性绑定的形式，指定key值</li>
-<li>当使用<code>this.list.unshift({id: this.id,name: this.name})</code> 添加按钮事件，未绑定<code>v-bind:key=&quot;item.id&quot;</code>时候，会出现 例如:选择id为4，添加一个后，会上移到id为3<br>
-<img src="https://ihopefulchina.github.io/post-images/1567567769781.png" alt="" loading="lazy"><br>
-=》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt="" loading="lazy"></li>
-<li>如果是<code>&lt;p v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;</code> 会出现错误，是因为<strong>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值</strong></li>
 </ol>
 ]]></content>
     </entry>
