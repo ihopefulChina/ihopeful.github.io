@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T03:13:10.242Z</updated>
+    <updated>2021-02-07T03:20:18.844Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -99,11 +99,11 @@
         <updated>2020-04-28T06:58:01.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
 <p>实际功能基本都已实现，目前暂无登陆功能，需要后台登录接口。<br>
-数据借口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
+数据接口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
 ]]></summary>
         <content type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
 <p>实际功能基本都已实现，目前暂无登陆功能，需要后台登录接口。<br>
-数据借口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
+数据接口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
 <!-- more -->
 <h4 id="功能介绍">功能介绍：</h4>
 <ul>
