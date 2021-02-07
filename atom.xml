@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T08:16:16.652Z</updated>
+    <updated>2021-02-07T08:27:08.566Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -83,6 +83,20 @@ brew install cocoapods
 </li>
 <li>
 <p>特定平台扩展名。有点像Taro 在不同平台使用特定文件。React Native 会检测某个文件是否具有.ios.或是.android.的扩展名，然后根据当前运行的平台自动加载正确对应的文件。</p>
+</li>
+<li>
+<p>定义样式：<code>const styles = StyleSheet.create({})</code>。</p>
+</li>
+<li>
+<p>定义宽高3种方式：</p>
+<ol>
+<li><code>&lt;View style={{width: 50, height: 50}} /&gt;</code> 无单位指定宽高。</li>
+<li><code>&lt;View style={{flex: 1}} /&gt;</code> felx 弹性布局宽高。</li>
+<li><code>&lt;View style={{width: '66%', height: '35%', }} /&gt;</code> 百分比方式</li>
+</ol>
+</li>
+<li>
+<p>布局采用flex的方式 <code>flexBox</code>。</p>
 </li>
 </ol>
 ]]></content>
