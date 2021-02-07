@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T02:06:02.687Z</updated>
+    <updated>2021-02-07T02:41:16.160Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -11,12 +11,56 @@
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
     <entry>
+        <title type="html"><![CDATA[React hooks todo]]></title>
+        <id>https://ihopefulchina.github.io/post/react-hooks-todo/</id>
+        <link href="https://ihopefulchina.github.io/post/react-hooks-todo/">
+        </link>
+        <updated>2021-02-07T02:30:08.000Z</updated>
+        <summary type="html"><![CDATA[<p>地址: <a href="https://github.com/ihopefulChina/react-hooks-todo">todoList</a></p>
+<p>个人练手项目 React hooks +  ts</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>地址: <a href="https://github.com/ihopefulChina/react-hooks-todo">todoList</a></p>
+<p>个人练手项目 React hooks +  ts</p>
+<!-- more -->
+<h2 id="安装">安装</h2>
+<pre><code class="language-sh">yarn
+</code></pre>
+<h2 id="调试">调试</h2>
+<pre><code class="language-sh">yarn start
+</code></pre>
+<h2 id="调试-2">调试</h2>
+<pre><code class="language-sh">yarn dev
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[数据增减计算 for Taro]]></title>
+        <id>https://ihopefulchina.github.io/post/shu-ju-zeng-jian-ji-suan-for-taro/</id>
+        <link href="https://ihopefulchina.github.io/post/shu-ju-zeng-jian-ji-suan-for-taro/">
+        </link>
+        <updated>2021-02-07T02:23:13.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="基于-taro-开发的微信小程序支持多端迁移新建数据增减计算">基于 Taro 开发的微信小程序，支持多端迁移，新建数据增减计算</h3>
+<p>前端计算增减数据. Taro 2.x + TS</p>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="基于-taro-开发的微信小程序支持多端迁移新建数据增减计算">基于 Taro 开发的微信小程序，支持多端迁移，新建数据增减计算</h3>
+<p>前端计算增减数据. Taro 2.x + TS</p>
+<!-- more -->
+<p>地址:<a href="https://github.com/ihopefulChina/add-data-calculation-for-Taro">数据增减计算</a></p>
+<h2 id="效果图">效果图</h2>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1612664674204.png" alt="demo" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Taro 日历 多选]]></title>
         <id>https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/</id>
         <link href="https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/">
         </link>
         <updated>2021-02-07T02:00:38.000Z</updated>
+        <summary type="html"><![CDATA[<p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
+]]></summary>
         <content type="html"><![CDATA[<p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
+<!-- more -->
+<p>地址:  <a href="https://github.com/ihopefulChinaTaro-Calendar-Multiple-choice-checkbox">Taro 日历 多选</a></p>
 <p>Taro 2.x + TS</p>
 <p>目前支持的功能:</p>
 <ol>
@@ -30,7 +74,7 @@
 <li>。。。</li>
 </ol>
 <p>样式示例</p>
-<figure data-type="image" tabindex="1"><img src="https://github.com/ihopefulChina/Taro-Calendar-Multiple-choice-checkbox/blob/main/demo1.png" alt="demo img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1612664208415.png" alt="demo img" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
@@ -616,260 +660,6 @@ var vm = new Vue({
 <pre><code>&lt;p v-for=&quot;count in 10&quot;&gt;这是第 {{count}} 次循环&lt;/p&gt;
 </code></pre>
 <figure data-type="image" tabindex="5"><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Vue学习(八): Vue中的使用样式]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi/">
-        </link>
-        <updated>2019-09-03T07:32:02.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
-<ol>
-<li>
-<p>数组<br>
-<code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></p>
-</li>
-<li>
-<p>数组里面的三元表达式</p>
-</li>
-</ol>
-<pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="使用class样式">使用Class样式</h3>
-<ol>
-<li>
-<p>数组<br>
-<code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></p>
-</li>
-<li>
-<p>数组里面的三元表达式</p>
-</li>
-</ol>
-<pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
-</code></pre>
-<!-- more -->
-<ol start="3">
-<li>
-<p>数组使用对象代替三元表达式，提高代码的可读性<br>
-<code>&lt;h1 :class=&quot;['red','thin',{'active':flag} ]&quot;&gt;这是H1&lt;/h1&gt;</code></p>
-</li>
-<li>
-<p>直接对象<br>
-在为class使用v-bind绑定对象的时候，对象的属性是类名，对象的属性可以不需要引号；属性的值是一个标识符</p>
-</li>
-</ol>
-<pre><code>&lt;h1 :class=&quot;{red:false, thin: true, italic:true, active:false}&quot;&gt;这是H1&lt;/h1&gt;
-</code></pre>
-<p>代码示例</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;style&gt;
-    .red{
-        color:red;
-    }
-    .thin{
-        font-weight: 100;
-    }
-    .italic{
-        font-style: italic
-    }
-    .active{
-        letter-spacing: 0.5em;
-    }
-    &lt;/style&gt;
-&lt;/body&gt;
-&lt;div id=&quot;app&quot;&gt;
-     &lt;!--数组--&gt;
-    &lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;
-    &lt;!--三元表达式--&gt;
-    &lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
-    &lt;!--数组使用对象代替三元表达式，提高代码的可读性--&gt;
-    &lt;h1 :class=&quot;['red','thin',{'active':flag} ]&quot;&gt;这是H1&lt;/h1&gt;
-    &lt;!--对象--&gt;
-    &lt;h1 :class=&quot;{red:false, thin: true, italic:true, active:false}&quot;&gt;这是H1&lt;/h1&gt;
-     &lt;!--直接指向--&gt;
-     &lt;h1 :class=&quot;classobj&quot;&gt;这是H1&lt;/h1&gt;
-&lt;/div&gt;
-&lt;script&gt;
-var vm = new Vue({
-    el: '#app',
-    data:{
-        flag : true,
-        classobj: {red:false, thin: true, italic:true, active:false}
-    },
-    methods:{
-
-    }
-})
-&lt;/script&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="使用内联样式">使用内联样式</h3>
-<ol>
-<li>直接在元素上通过<code>:style</code> 的形式，书写样式对象<br>
-<code>&lt;h1 :style=&quot;{ color:'red', 'font-weight':100 }&quot;&gt;这是H1&lt;/h1&gt;</code></li>
-<li>将样式对象，定义到<code>data</code>中，并直接引用到<code>:style</code> 中</li>
-</ol>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-        &lt;!--对象就是无序键值对的集合--&gt;
-        &lt;h1 :style=&quot;styleobj&quot;&gt;这是H1&lt;/h1&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm = new Vue({
-        el: '#app',
-        data:{
-            styleobj : { color:'red', 'font-weight':100 }
-        },
-        methods:{
-
-        }
-    })
-    &lt;/script&gt;
-</code></pre>
-<ol start="3">
-<li>在<code>:style</code> 中通过数组引用多个 <code>data</code> 上的样式对象</li>
-</ol>
-<pre><code>&lt;div id=&quot;app&quot;&gt;
-        &lt;!--对象就是无序键值对的集合--&gt;
-        &lt;h1 :style=&quot;[styleobj,styleobj2]&quot;&gt;这是H1&lt;/h1&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm = new Vue({
-        el: '#app',
-        data:{
-            styleobj : { color:'red', 'font-weight':100 },
-            styleobj2 : { 'font-style': 'italic' }
-        },
-        methods:{
-
-        }
-    })
-    &lt;/script&gt;
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(七): 简易计算器案例]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li/">
-        </link>
-        <updated>2019-09-03T06:57:17.000Z</updated>
-        <summary type="html"><![CDATA[<p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
-<!-- more -->
-<h3 id="第一种写法">第一种写法</h3>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
-        &lt;select v-model=&quot;opt&quot;&gt;
-            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
-            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
-            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
-            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
-        &lt;/select&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm = new Vue({
-        el: '#app',
-        data:{
-            n1: 0,
-            n2: 0,
-            result: 0,
-            opt:'+'
-        },
-        methods:{
-            calc(){//计算器算数的方法
-                //逻辑:
-                //拿到n1,opt,n2值,this.result值计算
-                switch(this.opt){
-                    case '+':
-                        this.result= parseInt(this.n1) + parseInt(this.n2)
-                        break;
-                    case '-':
-                        this.result= parseInt(this.n1) - parseInt(this.n2)
-                        break;
-                    case '*':
-                        this.result= parseInt(this.n1) * parseInt(this.n2)
-                        break;
-                    case '/':
-                        this.result= parseInt(this.n1) / parseInt(this.n2)
-                        break;
-                }
-            }
-        }
-    })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<h3 id="第二种有点投机取巧正式开发中最好不要这样操作">第二种有点投机取巧，正式开发中，最好不要这样操作</h3>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;n1&quot;&gt;
-        &lt;select v-model=&quot;opt&quot;&gt;
-            &lt;option value=&quot;+&quot;&gt;+&lt;/option&gt;
-            &lt;option value=&quot;-&quot;&gt;-&lt;/option&gt;
-            &lt;option value=&quot;*&quot;&gt;*&lt;/option&gt;
-            &lt;option value=&quot;/&quot;&gt;/&lt;/option&gt;
-        &lt;/select&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;n2&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;=&quot; @click=&quot;calc&quot;&gt;
-        &lt;input type=&quot;text&quot; v-model=&quot;result&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm = new Vue({
-        el: '#app',
-        data:{
-            n1: 0,
-            n2: 0,
-            result: 0,
-            opt:'+'
-        },
-        methods:{
-            calc(){//计算器算数的方法
-                //逻辑:
-                //拿到n1,opt,n2值,this.result值计算
-                var codeStr = 'parseInt(this.n1) ' +  this.opt + ' parseInt(this.n2)'
-                this.result= eval(codeStr)
-            }
-        }
-    })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
 ]]></content>
     </entry>
 </feed>
