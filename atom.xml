@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T06:41:33.834Z</updated>
+    <updated>2021-02-07T06:50:11.490Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -22,20 +22,30 @@
 <!-- more -->
 <p>不过也有几点不太一样：</p>
 <ol>
-<li>
-<p>textInpnut等同于的Taro的input,onChangeText属性等同于onInput<br>
-React Native<br>
-<code>&lt;TextInput style={{height: 40}} placeholder=&quot;Type here to translate!&quot; onChangeText={text =&gt; setText(text)} defaultValue={text} /&gt;</code></p>
-</li>
-<li>
-<p>有一个长列表概念，FlatList，需要2个属性，data和renderItem，字面意思，data是列表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。不过感觉缺少双击回到顶部和下拉刷新等等功能，后续我尝试封装一下。<br>
-<code>&lt;FlatList data={[]} renderItem={({item}) =&gt; &lt;Text&gt;{item}&lt;/Text&gt;} /&gt;</code></p>
-</li>
+<li>textInpnut等同于的Taro的input,onChangeText属性等同于onInput<br>
+React Native</li>
+</ol>
+<pre><code>&lt;TextInput
+    style={{height: 40}}
+    placeholder=&quot;Type here to translate!&quot;
+    onChangeText={text =&gt; setText(text)}
+    defaultValue={text}
+/&gt;
+</code></pre>
+<ol start="2">
+<li>有一个长列表概念，FlatList，需要2个属性，data和renderItem，字面意思，data是列表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。不过感觉缺少双击回到顶部和下拉刷新等等功能，后续我尝试封装一下。</li>
+</ol>
+<pre><code>   &lt;FlatList
+        data={[]}
+        renderItem={({item}) =&gt; &lt;Text&gt;{item}&lt;/Text&gt;}
+      /&gt;
+</code></pre>
+<ol start="3">
 <li>
 <p>Platform模块。提供了一个检测当前运行平台的模块。<br>
-- <code>Platform.OS</code> ， 在 iOS 上会返回ios，而在 Android 设备或模拟器上则会返回android。<br>
--  <code>Platform.select()</code> , 它可以以 Platform.OS 为 key，从传入的对象中返回对应平台的值。 <code>Platform.select({os: () =&gt; require('ComponentIOS'), android: () =&gt; require('ComponentAndroid')})</code><br>
--  <code>Platform.Version</code> 在安卓表示 api level， ios表示表示当前系统版本</p>
+-  <code>Platform.OS</code>  ， 在 iOS 上会返回ios，而在 Android 设备或模拟器上则会返回android。<br>
+-   <code>Platform.select()</code>  , 它可以以 Platform.OS 为 key，从传入的对象中返回对应平台的值。  <code>Platform.select({os: () =&gt; require('ComponentIOS'), android: () =&gt; require('ComponentAndroid')})</code><br>
+-   <code>Platform.Version</code> 在安卓表示 api level， ios表示表示当前系统版本</p>
 </li>
 <li>
 <p>特定平台扩展名。有点像Taro 在不同平台使用特定文件。React Native 会检测某个文件是否具有.ios.或是.android.的扩展名，然后根据当前运行的平台自动加载正确对应的文件。</p>
