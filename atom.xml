@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T08:51:07.306Z</updated>
+    <updated>2021-02-07T08:52:00.536Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
     <entry>
         <title type="html"><![CDATA[ React Native学习笔记· 3.交互]]></title>
-        <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-3jiao-hu/</id>
-        <link href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-3jiao-hu/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/">
         </link>
         <updated>2021-02-07T08:39:57.000Z</updated>
         <summary type="html"><![CDATA[<p>这部分文档，我看到有点云里雾里，后续上手需要翻阅一下。</p>
@@ -81,8 +81,8 @@ return (<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[React Native学习笔记· 2. 环境搭建]]></title>
-        <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</id>
-        <link href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
         </link>
         <updated>2021-02-07T07:28:35.000Z</updated>
         <summary type="html"><![CDATA[<p>浏览了一下官网的安装流程，发现需要安装的有点多，所以感觉有必要纪录一下。<br>
@@ -116,8 +116,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[React Native学习笔记· 1. 官网入门基础]]></title>
-        <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
-        <link href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">
         </link>
         <updated>2021-02-07T05:54:53.000Z</updated>
         <summary type="html"><![CDATA[<p>看了一下，部分内容有点像Taro(Taro借鉴react和rn), 官网推荐使用函数和class这2种方式写，考虑到react 开发团队转向hooks，所以我将都用函数式写。</p>
@@ -175,8 +175,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[React hooks todo]]></title>
-        <id>https://ihopefulchina.github.io/post/react-hooks-todo/</id>
-        <link href="https://ihopefulchina.github.io/post/react-hooks-todo/">
+        <id>https://ihopefulchina.github.io/react-hooks-todo/</id>
+        <link href="https://ihopefulchina.github.io/react-hooks-todo/">
         </link>
         <updated>2021-02-07T02:30:08.000Z</updated>
         <summary type="html"><![CDATA[<p>地址: <a href="https://github.com/ihopefulChina/react-hooks-todo">todoList</a></p>
@@ -195,8 +195,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[数据增减计算 for Taro]]></title>
-        <id>https://ihopefulchina.github.io/post/shu-ju-zeng-jian-ji-suan-for-taro/</id>
-        <link href="https://ihopefulchina.github.io/post/shu-ju-zeng-jian-ji-suan-for-taro/">
+        <id>https://ihopefulchina.github.io/shu-ju-zeng-jian-ji-suan-for-taro/</id>
+        <link href="https://ihopefulchina.github.io/shu-ju-zeng-jian-ji-suan-for-taro/">
         </link>
         <updated>2021-02-07T02:23:13.000Z</updated>
         <summary type="html"><![CDATA[<p>前端计算增减数据. Taro 2.x + TS</p>
@@ -212,8 +212,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[Taro 日历 多选]]></title>
-        <id>https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/</id>
-        <link href="https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/">
+        <id>https://ihopefulchina.github.io/taro-ri-li-duo-xuan/</id>
+        <link href="https://ihopefulchina.github.io/taro-ri-li-duo-xuan/">
         </link>
         <updated>2021-02-07T02:00:38.000Z</updated>
         <summary type="html"><![CDATA[<p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
@@ -239,8 +239,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue: 移动端 h5 动画 Web]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
+        <id>https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
+        <link href="https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
         </link>
         <updated>2020-05-11T06:10:27.000Z</updated>
         <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
@@ -256,8 +256,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue: Movie App]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-shi-zhan-yi-movie-app/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-shi-zhan-yi-movie-app/">
+        <id>https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/</id>
+        <link href="https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/">
         </link>
         <updated>2020-04-28T06:58:01.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
@@ -283,8 +283,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[ Vue学习(十三): 品牌管理列表案例Demo学习]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/">
+        <id>https://ihopefulchina.github.io/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/</id>
+        <link href="https://ihopefulchina.github.io/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/">
         </link>
         <updated>2019-09-04T06:36:18.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>添加:</strong></p>
@@ -445,8 +445,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue学习(十二): 内容总结前十一Vue学习]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/">
+        <id>https://ihopefulchina.github.io/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/</id>
+        <link href="https://ihopefulchina.github.io/vue-xue-xi-shi-er-nei-rong-zong-jie-qian-shi-yi-vue-xue-xi/">
         </link>
         <updated>2019-09-04T05:48:51.000Z</updated>
         <summary type="html"><![CDATA[<p>主要学习了MVC和MVVM的区别、学习Vue基本的代码结构、基本指令: 差值表达式， v-cloak, v-text, v-html, v-bind(缩写:), v-on(缩写@), v-model, v-for, v-if, v-show、el 指定控制的区域 data 是对象，指定了控制区域内要用到的数据，methods 虽然带s后缀，但是个对象，这里可以放自定义方法、在vm示例中，如果要访问data上数据，或者访问methods中方法，必须带this、在v-for 注意key属性(接受string、number)、v-model 只能运用到表单元素、Vue中绑定样式2中方式 v-bind:class,v-model:style、v-if和v-show使用和特点等等。</p>
