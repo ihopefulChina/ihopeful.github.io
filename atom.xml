@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T08:11:51.243Z</updated>
+    <updated>2021-02-07T08:13:11.058Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -26,7 +26,7 @@
 <!-- more -->
 <h3 id="搭建开发环境">搭建开发环境</h3>
 <p>必须安装的依赖有：Node、Watchman、Xcode 和 CocoaPods。</p>
-<p>首先需要安装<a href="https://apps.apple.com/cn/app/xcode/id497799835?mt=12">Xcode</a>和(Homebrew)[https://brew.sh/]</p>
+<p>首先需要安装<a href="https://apps.apple.com/cn/app/xcode/id497799835?mt=12">Xcode</a>和<a href="https://brew.sh/">Homebrew</a></p>
 <pre><code># 安装node
 brew install node
 
@@ -42,7 +42,7 @@ npm install -g yarn
 安装cocoapods
 brew install cocoapods
 </code></pre>
-<p>详情地址: (https://www.react-native.cn/docs/environment-setup)[https://www.react-native.cn/docs/environment-setup]</p>
+<p>详情地址: <a href="https://www.react-native.cn/docs/environment-setup">https://www.react-native.cn/docs/environment-setup</a></p>
 ]]></content>
     </entry>
     <entry>
