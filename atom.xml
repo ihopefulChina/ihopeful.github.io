@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T09:07:28.346Z</updated>
+    <updated>2021-02-07T09:15:31.685Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -27,56 +27,59 @@
 <ul>
 <li><code>Animated</code> 使用demo</li>
 </ul>
-<pre><code>import React, { useRef, useEffect } from 'react';
-</code></pre>
 </li>
 </ol>
-<p>import { Animated, Text, View } from 'react-native';</p>
-<p>const FadeInView = (props) =&gt; {<br>
-const fadeAnim = useRef(new Animated.Value(0)).current  // 透明度初始值设为0</p>
-<p>React.useEffect(() =&gt; {<br>
-Animated.timing(                  // 随时间变化而执行动画<br>
-fadeAnim,                       // 动画中的变量值<br>
-{<br>
-toValue: 1,                   // 透明度最终变为1，即完全不透明<br>
-duration: 10000,              // 让动画持续一段时间<br>
-}<br>
-).start();                        // 开始执行动画<br>
-}, [fadeAnim])</p>
-<p>return (<br>
-&lt;Animated.View                 // 使用专门的可动画化的View组件<br>
-style={{<br>
-...props.style,<br>
-opacity: fadeAnim,         // 将透明度绑定到动画变量值<br>
-}}<br>
-&gt;<br>
-{props.children}<br>
-&lt;/Animated.View&gt;<br>
-);<br>
-}</p>
-<p>// 然后你就可以在组件中像使用<code>View</code>那样去使用<code>FadeInView</code>了<br>
-export default () =&gt; {<br>
-return (<br>
-&lt;View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}&gt;<br>
-&lt;FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}&gt;<br>
-&lt;Text style={{fontSize: 28, textAlign: 'center', margin: 10}}&gt;Fading in</Text><br>
-</FadeInView><br>
-</View><br>
-)<br>
-}</p>
-<pre><code>4. 响应者的生命周期。
-        View.props.onStartShouldSetResponder: (evt) =&gt; true, - 在用户开始触摸的时候（手指刚刚接触屏幕的瞬间），是否愿意成为响应者？
-        View.props.onMoveShouldSetResponder: (evt) =&gt; true, - 如果 View 不是响应者，那么在每一个触摸点开始移动（没有停下也没有离开屏幕）时再询问一次：是否愿意响应触摸交互呢？
-        如果 View 返回 true，并开始尝试成为响应者，那么会触发下列事件之一:
+<pre><code>    import React, { useRef, useEffect } from 'react';
+    import { Animated, Text, View } from 'react-native';
+    const FadeInView = (props) =&gt; {
+    const fadeAnim = useRef(new Animated.Value(0)).current  // 透明度初始值设为0
 
-        View.props.onResponderGrant: (evt) =&gt; {} - View 现在要开始响应触摸事件了。这也是需要做高亮的时候，使用户知道他到底点到了哪里。
-        View.props.onResponderReject: (evt) =&gt; {} - 响应者现在“另有其人”而且暂时不会“放权”，请另作安排。
-        如果 View 已经开始响应触摸事件了，那么下列这些处理函数会被一一调用：
+    React.useEffect(() =&gt; {
+        Animated.timing(                  // 随时间变化而执行动画
+        fadeAnim,                       // 动画中的变量值
+        {
+            toValue: 1,                   // 透明度最终变为1，即完全不透明
+            duration: 10000,              // 让动画持续一段时间
+        }
+        ).start();                        // 开始执行动画
+    }, [fadeAnim])
 
-        View.props.onResponderMove: (evt) =&gt; {} - 用户正在屏幕上移动手指时（没有停下也没有离开屏幕）。
-        View.props.onResponderRelease: (evt) =&gt; {} - 触摸操作结束时触发，比如&quot;touchUp&quot;（手指抬起离开屏幕）。
-        View.props.onResponderTerminationRequest: (evt) =&gt; true - 有其他组件请求接替响应者，当前的 View 是否“放权”？返回 true 的话则释放响应者权力。
-        View.props.onResponderTerminate: (evt) =&gt; {} - 响应者权力已经交出。这可能是由于其他 View 通过onResponderTerminationRequest请求的，也可能是由操作系统强制夺权（比如 iOS 上的控制中心或是通知中心）。</code></pre>
+    return (
+        &lt;Animated.View                 // 使用专门的可动画化的View组件
+        style={{
+            ...props.style,
+            opacity: fadeAnim,         // 将透明度绑定到动画变量值
+        }}
+        &gt;
+        {props.children}
+        &lt;/Animated.View&gt;
+    );
+    }
+
+    // 然后你就可以在组件中像使用`View`那样去使用`FadeInView`了
+    export default () =&gt; {
+    return (
+        &lt;View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}&gt;
+        &lt;FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}&gt;
+            &lt;Text style={{fontSize: 28, textAlign: 'center', margin: 10}}&gt;Fading in&lt;/Text&gt;
+        &lt;/FadeInView&gt;
+        &lt;/View&gt;
+    )
+    }
+</code></pre>
+<ol start="4">
+<li>响应者的生命周期。<br>
+View.props.onStartShouldSetResponder: (evt) =&gt; true, - 在用户开始触摸的时候（手指刚刚接触屏幕的瞬间），是否愿意成为响应者？<br>
+View.props.onMoveShouldSetResponder: (evt) =&gt; true, - 如果 View 不是响应者，那么在每一个触摸点开始移动（没有停下也没有离开屏幕）时再询问一次：是否愿意响应触摸交互呢？<br>
+如果 View 返回 true，并开始尝试成为响应者，那么会触发下列事件之一:<br>
+View.props.onResponderGrant: (evt) =&gt; {} - View 现在要开始响应触摸事件了。这也是需要做高亮的时候，使用户知道他到底点到了哪里。<br>
+View.props.onResponderReject: (evt) =&gt; {} - 响应者现在“另有其人”而且暂时不会“放权”，请另作安排。<br>
+如果 View 已经开始响应触摸事件了，那么下列这些处理函数会被一一调用：<br>
+View.props.onResponderMove: (evt) =&gt; {} - 用户正在屏幕上移动手指时（没有停下也没有离开屏幕）。<br>
+View.props.onResponderRelease: (evt) =&gt; {} - 触摸操作结束时触发，比如&quot;touchUp&quot;（手指抬起离开屏幕）。<br>
+View.props.onResponderTerminationRequest: (evt) =&gt; true - 有其他组件请求接替响应者，当前的 View 是否“放权”？返回 true 的话则释放响应者权力。<br>
+View.props.onResponderTerminate: (evt) =&gt; {} - 响应者权力已经交出。这可能是由于其他 View 通过onResponderTerminationRequest请求的，也可能是由操作系统强制夺权（比如 iOS 上的控制中心或是通知中心）。</li>
+</ol>
 ]]></content>
     </entry>
     <entry>
