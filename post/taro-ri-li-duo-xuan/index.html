@@ -204,7 +204,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？
+                                Taro 日历 多选
                             </h1>
                             
                                     <!--zh-->
@@ -213,20 +213,12 @@
                                         <a itemprop="author" rel="author" href="/">
                                             Ihopeful Blog
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2019-08-22</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-02-07</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">1.7
+                                    href="#">0.4
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">375</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">116</a></span>
                                         
-                                            <span class="post-category">&#x5206;&#x7C7B;:
-                                
-                                <a href="https://ihopefulchina.github.io/tag/wordpress/">WordPress</a>
-                                
-                                <a href="https://ihopefulchina.github.io/tag/php/">PHP</a>
-                                
-                            </span>
-                                            
                                                 阅读量:
                                                 <span data-hk-page="current"> - </span>
                                                 
@@ -234,83 +226,22 @@
                                     
                         </header>
                         
-                            <img class="post-feature-image" src="https://ihopefulchina.github.io/post-images/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan.png" alt="">
-                          
                         <div class="post-content">
-                            <p>Wordpress后台有很多我们必须要的功能，客户会误点等之类的原因，所以我们需要隐藏一些自定义菜单，但是隐藏顶级菜单，可能下面某一个子菜单是我们需要的。</p>
-<!-- more -->
-<p>首先我们先隐藏菜单，这里分为2种隐藏，一种是自带的，</p>
-<p>隐藏自带的写这段函数即可</p>
-<pre><code>show_admin_bar(false);
-add_filter('show_admin_bar', '__return_false');
-//关闭后台菜单和删除wordpress自带一些功能
-//__('Dashboard') ： 控制板菜单
-//__('Posts') ： 文章
-//__('Media') ： 媒体
-//__('Links') ： 链接
-//__('Pages') ： 页面
-//__('Comments') ： 评论
-//__('Appearance') ： 外观
-//__('Plugins') ： 插件
-//__('Users') ： 用户
-//__('Tools') ： 工具
-//__('Settings') ： 设置
-remove_action('welcome_panel', 'wp_welcome_panel');
-
-function remove_menus() {
-	global $menu;
-	$restricted = array(
-		__('Posts'),
-		__('Links'),
-		__('Comments'),
-		__('Dashboard'),
-		__('Tools'),
-		__('Appearance'),
-		__('Plugins') ,
-		// __('Pages'),
-		__('Users'),
-		__('Settings')
-
-	);
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(strpos($value[0], '&lt;') === FALSE) {
-			if(in_array($value[0] != NULL ? $value[0]:&quot;&quot; , $restricted)){
-				unset($menu[key($menu)]);
-			}
-		}else {
-			$value2 = explode('&lt;', $value[0]);
-			if(in_array($value2[0] != NULL ? $value2[0]:&quot;&quot; , $restricted)){
-				unset($menu[key($menu)]);
-			}
-		}
-	}
-}
-if (is_admin()){
-	add_action('admin_menu', 'remove_menus');
-}
-function wp_hide_nag() {
-	remove_action( 'admin_notices', 'update_nag', 3 );
-}
-add_action('admin_menu','wp_hide_nag');
-</code></pre>
-<p>可以选择隐藏哪些菜单，上面有提示，修改即可。</p>
-<p>另外一种是隐藏第三方的菜单:</p>
-<pre><code>function hide_edit_menu()
-{
- remove_menu_page('edit.php?post_type=acf-field-group');
-}
-add_action('admin_menu', 'hide_edit_menu', 999);
-</code></pre>
-<p>修改里面的URL<code>'edit.php?post_type=acf-field-group'</code> 即可。</p>
-<p>然后是如何添加顶级菜单，这里已添加导航栏菜单为例。</p>
-<pre><code>add_action('admin_menu', 'register_custom_menu_page');
-function register_custom_menu_page() {
-    add_menu_page('自定义菜单标题', '导航栏菜单', 'administrator', '/nav-menus.php','', 'dashicons-admin-links', 20);
-}
-</code></pre>
-<p>修改title和URL即可。</p>
+                            <p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
+<p>Taro 2.x + TS</p>
+<p>目前支持的功能:</p>
+<ol>
+<li>多选，不连续多选日期</li>
+<li>支持切换月份</li>
+<li>保留上次选择，多选</li>
+</ol>
+<p>后期会封装这个组件，加上这些功能</p>
+<ol>
+<li>日历滑动</li>
+<li>。。。</li>
+</ol>
+<p>样式示例</p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/ihopefulChina/Taro-Calendar-Multiple-choice-checkbox/blob/main/demo1.png" alt="demo img" loading="lazy"></figure>
 
                         </div>
                         
@@ -325,7 +256,7 @@ function register_custom_menu_page() {
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/">https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/</a></span>
+                                                    <span><a href="https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/">https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -340,11 +271,9 @@ function register_custom_menu_page() {
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/&sharesource=qzone&title=Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？&pics=https://ihopefulchina.github.io/images/avatar.png?v=1612663340448&summary=&lt;p&gt;Wordpress后台有很多我们必须要的功能，客户会误点等之类的原因，所以我们需要隐藏一些自定义菜单，但是隐藏顶级菜单，可能下面某一个子菜单是我们需要的。&lt;/p&gt;
-"><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://ihopefulchina.github.io/post/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/&sharesource=weibo&title=Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？ + " - " + &lt;p&gt;Wordpress后台有很多我们必须要的功能，客户会误点等之类的原因，所以我们需要隐藏一些自定义菜单，但是隐藏顶级菜单，可能下面某一个子菜单是我们需要的。&lt;/p&gt;
-&pic="https://ihopefulchina.github.io/images/avatar.png?v=1612663340448 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/&sharesource=qzone&title=Taro 日历 多选&pics=https://ihopefulchina.github.io/images/avatar.png?v=1612663340448&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/&sharesource=weibo&title=Taro 日历 多选 + " - " + &pic="https://ihopefulchina.github.io/images/avatar.png?v=1612663340448 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -362,16 +291,6 @@ function register_custom_menu_page() {
                                                                                     <span>&#x6807;&#x7B7E;:</span>
                                                                                     <span class="tag ">
                         
-                        
-                        <a href="https://ihopefulchina.github.io/tag/wordpress/">#
-                    WordPress
-                        </a>
-                        
-                        <a href="https://ihopefulchina.github.io/tag/php/">#
-                    PHP
-                        </a>
-                        
-                            
                                 </span>
                                                                                 </div>
                                                                                 <div>
@@ -386,13 +305,9 @@ function register_custom_menu_page() {
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://ihopefulchina.github.io/post/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/">
-                                                                                            解决Wordpress自定义二级目录和三级目录采用不同的样式
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://ihopefulchina.github.io/post/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng/">
-                                                                                                    移除、隐藏、删除Wordpres一些小工具和功能
+                                                                                                <a class="next" rel="next" href="https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
+                                                                                                    Vue: 移动端 h5 动画 Web
                                                                                                 </a>
                                                                                                 
                                                                                 </section>

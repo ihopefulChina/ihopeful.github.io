@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T02:00:10.531Z</updated>
+    <updated>2021-02-07T02:02:27.074Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[Taro 日历 多选]]></title>
+        <id>https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/</id>
+        <link href="https://ihopefulchina.github.io/post/taro-ri-li-duo-xuan/">
+        </link>
+        <updated>2021-02-07T02:00:38.000Z</updated>
+        <content type="html"><![CDATA[<p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
+<p>Taro 2.x + TS</p>
+<p>目前支持的功能:</p>
+<ol>
+<li>多选，不连续多选日期</li>
+<li>支持切换月份</li>
+<li>保留上次选择，多选</li>
+</ol>
+<p>后期会封装这个组件，加上这些功能</p>
+<ol>
+<li>日历滑动</li>
+<li>。。。</li>
+</ol>
+<p>样式示例</p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/ihopefulChina/Taro-Calendar-Multiple-choice-checkbox/blob/main/demo1.png" alt="demo img" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Vue: 移动端 h5 动画 Web]]></title>
         <id>https://ihopefulchina.github.io/post/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
@@ -847,57 +870,6 @@ var vm = new Vue({
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(六): v-model实现表单元素的数据双向绑定]]></title>
-        <id>https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding/</id>
-        <link href="https://ihopefulchina.github.io/post/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding/">
-        </link>
-        <updated>2019-09-03T06:52:30.000Z</updated>
-        <summary type="html"><![CDATA[<p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
-<!-- more -->
-<p>代码示例</p>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-        input{
-            width: 100%;
-            padding: 15px 10px;
-        }
-    &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-      &lt;h4&gt;{{msg}}&lt;/h4&gt;
-      &lt;!--v-bind:(:)只能实现数据的单向绑定，从M 绑定到V--&gt;
-      &lt;input type=&quot;text&quot; name=&quot;name&quot; :value=&quot;msg&quot;&gt;
-      &lt;!--v-model指令，可以实现表单元素和Model中数据的双向数据绑定--&gt;
-      &lt;!--v-model只能运用到表单元素中--&gt;
-      &lt;input type=&quot;text&quot; name=&quot;name&quot; v-model=&quot;msg&quot;&gt;
-    &lt;/div&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
-        var vm = new Vue({
-            el: '#app',
-            data:{
-                msg: '这个Messge里面内容'
-            },
-            methods:{
-             
-            }
-        })
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567493670785.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
