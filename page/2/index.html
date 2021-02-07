@@ -9,7 +9,7 @@
 <meta name="description" content="Sweat is the lubricant of success.">
 <meta name="theme-color" content="#000">
 <title>Ihopeful Blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1612667425084">
+<link rel="shortcut icon" href="/favicon.ico?v=1612667456402">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/mist.css">
 
@@ -294,31 +294,19 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="使用class样式">使用Class样式</h3>
+          <h3 id="使用class样式">使用Class样式</h3>
 <ol>
 <li>
-
-            
-          
-            <p>数组<br>
+<p>数组<br>
 <code>&lt;h1 :class=&quot;['red','thin']&quot;&gt;这是H1&lt;/h1&gt;</code></p>
 </li>
 <li>
-
-            
-              <img src="/post-images/vue-xue-xi-ba-vue-zhong-de-shi-yong-yang-shi.png" />
-            
-          
-            <p>数组里面的三元表达式</p>
+<p>数组里面的三元表达式</p>
 </li>
 </ol>
 <pre><code>&lt;h1 :class=&quot;['red','thin',flag?'active':'']&quot;&gt;这是H1&lt;/h1&gt;
 </code></pre>
 
-            
-          
         
         
         <div class="post-button text-center">
@@ -381,17 +369,8 @@
       <div class="post-body">
         
         
-          
-          
-            <p>
-            
-          
-            <p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
+          <p>简易计算器案例很简陋，目的是为了加深学习v-model 数据双向绑定</p>
 
-            
-              <img src="/post-images/vue-xue-xi-qi-jian-yi-ji-suan-qi-an-li.png" />
-            
-          
         
         
         <div class="post-button text-center">
@@ -454,17 +433,8 @@
       <div class="post-body">
         
         
-          
-          
-            <p>
-            
-              <img src="/post-images/vue-xue-xi-wu-v-model-shi-xian-biao-dan-yuan-su-de-shu-ju-shuang-xiang-bang-ding.png" />
-            
-          
-            <p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
+          <p>v-model指令，可以实现表单元素和Model中数据的双向数据绑定，但v-model只能运用到表单元素中(表单控件在实际的业务场景中是比较常见的，单选，多选，下拉选择，输入框等，用这些控件可以完成数据的录入、校验以及提交等。vue给我们提供了v-model指令用于在表单类元素上双向绑定数据。 )</p>
 
-            
-          
         
         
         <div class="post-button text-center">
@@ -527,9 +497,7 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="事件修饰符">事件修饰符:</h3>
+          <h3 id="事件修饰符">事件修饰符:</h3>
 <ol>
 <li>.stop 阻止冒泡</li>
 <li>.prevent 阻止默认事件</li>
@@ -538,10 +506,6 @@
 <li>.once 只触发一次</li>
 </ol>
 
-            
-              <img src="/post-images/vue-xue-xi-wu-shi-jian-xiu-shi-fu.png" />
-            
-          
         
         
         <div class="post-button text-center">
@@ -604,19 +568,13 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
+          <h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
 <ol>
 <li>给开启按钮绑定一个点击事件 v-on @</li>
 <li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
 <li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。</li>
 </ol>
 
-            
-              <img src="/post-images/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li.png" />
-            
-          
         
         
         <div class="post-button text-center">
@@ -679,20 +637,11 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
-
-            
-              <img src="/post-images/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi.png" />
-            
-          
-            <p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
+          <h3 id="v-bind是vue中提供的绑定属性的指令">v-bind是Vue中提供的绑定属性的指令。</h3>
+<p>v-bind 指令被用来响应地更新 HTML 属性，其实它是支持一个单一 JavaScript 表达式 （v-for 除外）。<br>
 完整语法：<code>&lt;span v-bind:class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：v-bind 是指令，: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。<br>
 缩写语法：<code>&lt;span :class=&quot;classProperty&quot;&gt;&lt;/span &gt;</code>，解释：: 后面的 class 是参数，classProperty 则在官方文档中被称为“预期值”。</p>
 
-            
-          
         
         
         <div class="post-button text-center">
@@ -755,19 +704,10 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
-
-            
-              <img src="/post-images/vue-xue-xi-er-v-cloakv-textv-html.png" />
-            
-          
-            <p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
+          <h3 id="使用-v-cloak插值表达式能够解决插值表达式闪烁问题">使用 v-cloak(插值表达式)能够解决插值表达式闪烁问题</h3>
+<p>可以使用 v-cloak 指令设置样式，这些样式会在 Vue 实例编译结束时，从绑定的 HTML 元素上被移除。<br>
 当网络较慢，网页还在加载 Vue.js ，而导致 Vue 来不及渲染，这时页面就会显示出 Vue 源代码。我们可以使用 v-cloak 指令来解决这一问题。</p>
 
-            
-          
         
         
         <div class="post-button text-center">
@@ -830,18 +770,12 @@
       <div class="post-body">
         
         
-          
-          
-            <p><h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
+          <h3 id="1node后端中的mvc与前端中的mvvm之间的区别">1.Node(后端)中的MVC与前端中的MVVM之间的区别</h3>
 <ul>
 <li>MVC是后端分层开发概念。</li>
 <li>MVVM是前端视图层的概念，主要关注于视图分层，也就是说:MVVM把前端的分为了三部分,Model, VM 和 ViewModel</li>
 </ul>
 
-            
-              <img src="/post-images/vue-xue-xi-yi-vue-de-mvvm.png" />
-            
-          
         
         
         <div class="post-button text-center">
@@ -910,18 +844,9 @@
       <div class="post-body">
         
         
-          
-          
-            <p>
-            
-              <img src="/post-images/guo-nei-you-ku-fen-xiang-api-yi-xie-keng.png" />
-            
-          
-            <p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
+          <p>Youtube分享API功能很全，今天客户需要多个视频在放在国内优酷平台的要求。<br>
 过程遇到了一些坑【忠告各位远离优酷】：</p>
 
-            
-          
         
         
         <div class="post-button text-center">
@@ -990,21 +915,9 @@
       <div class="post-body">
         
         
-          
-          
-            <p>
-            
-          
-            <p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
+          <p>一般用于taxonomy分类页面，比如产品products，下面有a这个分类，a下面有a-1,a-2,a-3...</p>
+<p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
 
-            
-              <img src="/post-images/huo-qu-dang-qian-fen-lei-xia-de-suo-you-zi-fen-lei.png" />
-            
-          
-            <p>如何在进入a分类这个页面的时候，输出这个a下面的子分类？</p>
-
-            
-          
         
         
         <div class="post-button text-center">
