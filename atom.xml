@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T05:42:54.217Z</updated>
+    <updated>2021-02-07T06:22:34.848Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[React Native学习笔记· 1. 官网入门基础]]></title>
+        <id>https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
+        <link href="https://ihopefulchina.github.io/post/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">
+        </link>
+        <updated>2021-02-07T05:54:53.000Z</updated>
+        <content type="html"><![CDATA[<p>看了一下，大部分内容有点像Taro(大概率Taro借鉴react和rn), 官网推荐使用函数和class这2种方式写，考虑到react 开发团队转向hooks，所以我个人将都用函数式写。<br>
+不过也有几点不太一样：</p>
+<ol>
+<li>
+<p>textInpnut等同于的Taro的input,onChangeText属性等同于onInput<br>
+React Native<br>
+<code>&lt;TextInput style={{height: 40}} placeholder=&quot;Type here to translate!&quot; onChangeText={text =&gt; setText(text)} defaultValue={text} /&gt;</code></p>
+</li>
+<li>
+<p>有一个长列表概念，FlatList，需要2个属性，data和renderItem，字面意思，data是列表的数据源，而renderItem则从数据源中逐个解析数据，然后返回一个设定好格式的组件来渲染。不过感觉缺少双击回到顶部和下拉刷新等等功能，后续我尝试封装一下。<br>
+<code>&lt;FlatList data={[]} renderItem={({item}) =&gt; &lt;Text&gt;{item}&lt;/Text&gt;} /&gt;</code></p>
+</li>
+<li>
+<p>Platform模块。提供了一个检测当前运行平台的模块。<br>
+- <code>Platform.OS</code> ， 在 iOS 上会返回ios，而在 Android 设备或模拟器上则会返回android。<br>
+-  <code>Platform.select()</code> , 它可以以 Platform.OS 为 key，从传入的对象中返回对应平台的值。 <code>Platform.select({os: () =&gt; require('ComponentIOS'), android: () =&gt; require('ComponentAndroid')})</code><br>
+-  <code>Platform.Version</code> 在安卓表示 api level， ios表示表示当前系统版本</p>
+</li>
+<li>
+<p>特定平台扩展名。有点像Taro 在不同平台使用特定文件。React Native 会检测某个文件是否具有.ios.或是.android.的扩展名，然后根据当前运行的平台自动加载正确对应的文件。</p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React hooks todo]]></title>
         <id>https://ihopefulchina.github.io/post/react-hooks-todo/</id>
@@ -600,63 +630,6 @@ var vm = new Vue({
 =》<img src="https://ihopefulchina.github.io/post-images/1567567786556.png" alt="" loading="lazy"></li>
 <li>如果是<code>&lt;p v-for=&quot;item in list&quot; :key=&quot;item&quot;&gt;</code> 会出现错误，是因为<strong>在组件中，使用v-for循环的时候，或者在一些特殊情况中，如果v-for有问题，必须要在使用v-for的同时，需要指定唯一的字符串/数字 类型 :key 值</strong></li>
 </ol>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue学习(九): v-for指令的四种使用方式]]></title>
-        <id>https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi/</id>
-        <link href="https://ihopefulchina.github.io/post/v-for-zhi-ling-de-si-chong-shi-yong-fang-shi/">
-        </link>
-        <updated>2019-09-04T01:43:33.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
-<ol>
-<li>直接循环输出数组内容<br>
-<code>&lt;p v-for=&quot;item in list&quot;&gt;这是数组内容:{{item}}&lt;/p&gt;</code><br>
-<code>list:[1,2,3,4,5,6]</code></li>
-</ol>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="v-for循环普通数组">v-for循环普通数组</h3>
-<ol>
-<li>直接循环输出数组内容<br>
-<code>&lt;p v-for=&quot;item in list&quot;&gt;这是数组内容:{{item}}&lt;/p&gt;</code><br>
-<code>list:[1,2,3,4,5,6]</code></li>
-</ol>
-<!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1567565625748.png" alt="" loading="lazy"></figure>
-<ol start="2">
-<li>添加索引值</li>
-</ol>
-<pre><code>&lt;p v-for=&quot;(item,i) in list&quot;&gt;这是数组的索引值:{{i}},这是数组内容:{{item}}&lt;/p&gt;
-</code></pre>
-<figure data-type="image" tabindex="2"><img src="https://ihopefulchina.github.io/post-images/1567565637948.png" alt="" loading="lazy"></figure>
-<h3 id="v-for循环对象数组">v-for循环对象数组</h3>
-<pre><code>&lt;p v-for=&quot;(user,i) in list&quot;&gt;索引值:{{i}}, 用户ID:{{user.id}}, 用户名称:{{user.name}}&lt;/p&gt;
-</code></pre>
-<pre><code>list:[
-                    {id:1,name:&quot;a&quot;},
-                    {id:2,name:&quot;b&quot;},
-                    {id:3,name:&quot;c&quot;},
-                    {id:4,name:&quot;d&quot;},
-                ]
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://ihopefulchina.github.io/post-images/1567565605644.png" alt="" loading="lazy"></figure>
-<h3 id="v-for循环对象">v-for循环对象</h3>
-<p>在遍历对象身上的键值得时候，可以有val key 还有索引</p>
-<pre><code>&lt;p v-for=&quot;(val, key, i) in user&quot;&gt;索引值:{{i}}, 键:{{key}}, 值: {{val}}&lt;/p&gt;
-</code></pre>
-<pre><code>user:{
-                id:1,
-                name: 'a',
-                gender: 'boy'
-            }
-</code></pre>
-<figure data-type="image" tabindex="4"><img src="https://ihopefulchina.github.io/post-images/1567565526584.png" alt="" loading="lazy"></figure>
-<h3 id="v-for迭代数字">v-for迭代数字</h3>
-<p>in 后面可以放普通数组，对象数组，对象和数字。<br>
-迭代数字从1开始</p>
-<pre><code>&lt;p v-for=&quot;count in 10&quot;&gt;这是第 {{count}} 次循环&lt;/p&gt;
-</code></pre>
-<figure data-type="image" tabindex="5"><img src="https://ihopefulchina.github.io/post-images/1567565579174.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
