@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T02:41:16.160Z</updated>
+    <updated>2021-02-07T02:54:30.626Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -39,11 +39,11 @@
         <link href="https://ihopefulchina.github.io/post/shu-ju-zeng-jian-ji-suan-for-taro/">
         </link>
         <updated>2021-02-07T02:23:13.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="基于-taro-开发的微信小程序支持多端迁移新建数据增减计算">基于 Taro 开发的微信小程序，支持多端迁移，新建数据增减计算</h3>
-<p>前端计算增减数据. Taro 2.x + TS</p>
+        <summary type="html"><![CDATA[<p>前端计算增减数据. Taro 2.x + TS</p>
+<p>支持多端迁移，新建数据增减计算</p>
 ]]></summary>
-        <content type="html"><![CDATA[<h3 id="基于-taro-开发的微信小程序支持多端迁移新建数据增减计算">基于 Taro 开发的微信小程序，支持多端迁移，新建数据增减计算</h3>
-<p>前端计算增减数据. Taro 2.x + TS</p>
+        <content type="html"><![CDATA[<p>前端计算增减数据. Taro 2.x + TS</p>
+<p>支持多端迁移，新建数据增减计算</p>
 <!-- more -->
 <p>地址:<a href="https://github.com/ihopefulChina/add-data-calculation-for-Taro">数据增减计算</a></p>
 <h2 id="效果图">效果图</h2>
