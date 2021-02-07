@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-07T09:03:43.524Z</updated>
+    <updated>2021-02-07T09:07:28.346Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -169,6 +169,9 @@ brew install cocoapods
 </li>
 <li>
 <p>布局采用flex的方式 <code>flexBox</code>。</p>
+</li>
+<li>
+<p><a href="https://www.react-native.cn/docs/components-and-apis">更多核心组件和api</a>。</p>
 </li>
 </ol>
 ]]></content>
