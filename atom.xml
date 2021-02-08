@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-08T05:44:04.641Z</updated>
+    <updated>2021-02-08T05:46:08.255Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -21,6 +21,7 @@
         <content type="html"><![CDATA[<p>解决 React-Native mac 运行报错 error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by ope</p>
 <!-- more -->
 <h3 id="解决方法">解决方法</h3>
+<p>参考:<a href="https://github.com/facebook/react-native/issues/20774">https://github.com/facebook/react-native/issues/20774</a></p>
 <p>删除项目依赖包以及 yarn 缓存</p>
 <pre><code>rm -rf node_modules &amp;&amp; yarn cache clean
 </code></pre>
