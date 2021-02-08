@@ -8,7 +8,7 @@
 <meta name="keywords" content="ihopeful blog">
 <meta name="description" content="Sweat is the lubricant of success.">
 <meta name="theme-color" content="#000">
-<title>Wordpress 添加自定义分类 | Ihopeful Blog</title>
+<title>React Native学习笔记· 4.运行环境的一些坑 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1612763014525">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/mist.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="Wordpress 添加自定义分类" />
-  <meta name="keywords" content="WordPress,PHP" />
+  <meta name="description" content="React Native学习笔记· 4.运行环境的一些坑" />
+  <meta name="keywords" content="React Native" />
 </head>
 
 <body>
@@ -261,11 +261,7 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#%E5%85%B6%E4%B8%ADarchive-productsphp%E4%BA%A7%E5%93%81%E6%80%BB%E5%88%86%E7%B1%BBtaxonomy-productphp%E4%BA%A7%E5%93%81%E4%BA%8C%E7%BA%A7%E5%88%86%E7%B1%BBsingle-productsphp%E4%BA%A7%E5%93%81%E8%AF%A6%E6%83%85%E9%A1%B5">其中archive-products.php(产品总分类)，taxonomy-product.php(产品二级分类)，single-products.php（产品详情页）</a></li>
-</ul>
-</li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a></li>
 </ul>
 </li>
 </ul>
@@ -535,8 +531,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ihopefulchina.github.io/wordpress-tian-jia-zi-ding-yi-fen-lei/">
-      Wordpress 添加自定义分类
+    <a class="post-title-link" href="https://ihopefulchina.github.io/fSipHF4wD/">
+      React Native学习笔记· 4.运行环境的一些坑
     </a>
   </h1>
   <div class="post-meta">
@@ -544,7 +540,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-08-22</span>
+      <span>2021-02-08</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -553,14 +549,8 @@
       <span class="pc-show">分类于</span>
       
       
-      <a href="https://ihopefulchina.github.io/tag/wordpress/">
-        <span>WordPress</span>
-      </a>、
-      
-      
-      
-      <a href="https://ihopefulchina.github.io/tag/php/">
-        <span>PHP</span>
+      <a href="https://ihopefulchina.github.io/tag/ReactNative/">
+        <span>React Native</span>
       </a>
       
       
@@ -569,83 +559,32 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>3分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>485<span class="pc-show">字数</span></span>
+      <span>94<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>Wordpress 玩法很多，其中自定义分类这一项是很重要的，很多玩法，首先需要学会如何创建自定义分类。</p>
-<p>自定义分类这个描述不是很准确，Wordpress 默认只有一个文章，和文章分类，如果我们想创建一个产品类目，案例类目，新闻类目，自带的无法满足这项规定，所以需要自定义分类。</p>
+              <p>解决 React-Native mac 运行报错 error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by ope</p>
 <!-- more -->
-<p>分2种情况，一种不带子分类，如何写？</p>
-<pre><code>function products() {
-	$labels = array(
-		'name'               =&gt; _x( '产品', 'post type 名称' ),
-		'add_new'            =&gt; _x( '新建产品', '添加新产品的链接名称' ),
-		'add_new_item'       =&gt; __( '新建一个产品' ),
-		'edit_item'          =&gt; __( '编辑产品' ),
-		'new_item'           =&gt; __( '新产品' ),
-		'all_items'          =&gt; __( '所有产品' ),
-		'view_item'          =&gt; __( '查看产品' ),
-		'search_items'       =&gt; __( '搜索产品' ),
-		'not_found'          =&gt; __( '没有找到产品' ),
-		'not_found_in_trash' =&gt; __( '回收站里面没有产品' ),
-		'parent_item_colon'  =&gt; '',
-		'menu_name'          =&gt; '产品'
-	);
-	$args = array(
-		'labels'        =&gt; $labels,
-		'description'   =&gt; '产品',
-		'public'        =&gt; true,
-		'menu_icon'     =&gt; 'dashicons-cart',
-		'menu_position' =&gt; 13,
-		'supports'      =&gt; array( 'title'),
-		'has_archive'   =&gt; true,
-
-	);
-	register_post_type( 'products', $args );
-}
-add_action( 'init', 'products');
+<h3 id="解决方法">解决方法</h3>
+<p>删除项目依赖包以及 yarn 缓存</p>
+<pre><code>rm -rf node_modules &amp;&amp; yarn cache clean
 </code></pre>
-<p>具体参数如何修改和意思，可以参考<a href="https://codex.wordpress.org/Function_Reference/register_post_type">官方文档</a></p>
-<p>另一种，需要子分类。</p>
-<p>在上面的基础上添加</p>
-<pre><code>function my_taxonomies_products() {
-	$labels = array(
-		'name'              =&gt; _x( '产品分类', 'taxonomy 名称' ),
-		'singular_name'     =&gt; _x( 'Product', 'taxonomy 单数名称' ),
-		'search_items'      =&gt; __( '搜索产品分类' ),
-		'all_items'         =&gt; __( '所有产品分类' ),
-		'parent_item'       =&gt; __( '该产品分类的上级分类' ),
-		'parent_item_colon' =&gt; __( '该产品分类的上级分类：' ),
-		'edit_item'         =&gt; __( '编辑产品分类' ),
-		'update_item'       =&gt; __( '更新产品分类' ),
-		'add_new_item'      =&gt; __( '添加新的产品分类' ),
-		'new_item_name'     =&gt; __( '新产品分类' ),
-		'menu_name'         =&gt; __( '产品分类' ),
-	);
-	$args = array(
-		'labels' =&gt; $labels,
-		'hierarchical' =&gt; true,
-		'rewrite' =&gt; array(
-			'slug' =&gt; 'products',
-			'hierarchical' =&gt; true,
-		)
-	);
-	register_taxonomy( 'product', 'products', $args );
-}
-
-add_action( 'init', 'my_taxonomies_products' );
+<p>重新装包</p>
+<pre><code>yarn install
 </code></pre>
-<p><a href="https://codex.wordpress.org/Function_Reference/register_taxonomy">官方文档</a>有具体修改提示.</p>
-<h4 id="其中archive-productsphp产品总分类taxonomy-productphp产品二级分类single-productsphp产品详情页">其中archive-products.php(产品总分类)，taxonomy-product.php(产品二级分类)，single-products.php（产品详情页）</h4>
-<p>以上是Wordpress添加自定义分类，道路漫漫，这个是必修课</p>
+<p>清除 React-Native 缓存</p>
+<pre><code>rm -rf ~/.rncache
+</code></pre>
+<p>下载 React-Native IOS 运行依赖</p>
+<pre><code> react-native run-ios 
+</code></pre>
 
             </div>
             <div class="post-footer">
@@ -656,7 +595,7 @@ add_action( 'init', 'my_taxonomies_products' );
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ihopefulchina.github.io/wordpress-tian-jia-zi-ding-yi-fen-lei/" title="Wordpress 添加自定义分类">https://ihopefulchina.github.io/wordpress-tian-jia-zi-ding-yi-fen-lei/</a>
+      <a href="https://ihopefulchina.github.io/fSipHF4wD/" title="React Native学习笔记· 4.运行环境的一些坑">https://ihopefulchina.github.io/fSipHF4wD/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -665,23 +604,17 @@ add_action( 'init', 'my_taxonomies_products' );
   </ul>
   <div class="tags">
     
-      <a href="https://ihopefulchina.github.io/tag/wordpress/"># WordPress</a>
-    
-      <a href="https://ihopefulchina.github.io/tag/php/"># PHP</a>
+      <a href="https://ihopefulchina.github.io/tag/ReactNative/"># React Native</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="如何在导航栏添加图片？" href="https://ihopefulchina.github.io/ru-he-zai-dao-hang-lan-tian-jia-tu-pian/">如何在导航栏添加图片？</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="如何在导航栏添加图片？" href="https://ihopefulchina.github.io/ru-he-zai-dao-hang-lan-tian-jia-tu-pian/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="页面Url结尾添加斜杠&#34;/&#34;" href="https://ihopefulchina.github.io/ye-mian-url-jie-wei-tian-jia-xie-gang/">页面Url结尾添加斜杠&#34;/&#34;</a>
-        <a class="nav-mobile-next" title="页面Url结尾添加斜杠&#34;/&#34;" href="https://ihopefulchina.github.io/ye-mian-url-jie-wei-tian-jia-xie-gang/">下一篇</a>
+        <a class="nav-pc-next" title=" React Native学习笔记· 3.交互" href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/"> React Native学习笔记· 3.交互</a>
+        <a class="nav-mobile-next" title=" React Native学习笔记· 3.交互" href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
