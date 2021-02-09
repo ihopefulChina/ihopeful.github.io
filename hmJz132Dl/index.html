@@ -8,7 +8,7 @@
 <meta name="keywords" content="ihopeful blog">
 <meta name="description" content="Sweat is the lubricant of success.">
 <meta name="theme-color" content="#000">
-<title>Vue学习(四): 跑马灯效果案例  | Ihopeful Blog</title>
+<title>useEffect 完整指南 | Ihopeful Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1612852870362">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/mist.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="Vue学习(四): 跑马灯效果案例 " />
-  <meta name="keywords" content="Vue" />
+  <meta name="description" content="useEffect 完整指南" />
+  <meta name="keywords" content="React,JavaScript" />
 </head>
 
 <body>
@@ -261,7 +261,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E5%BC%80%E5%90%AF%E8%B7%91%E9%A9%AC%E7%81%AF%E6%95%88%E6%9E%9C%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF">开启跑马灯效果分析思路</a></li>
+<li><a href="#%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80">博客地址</a></li>
 </ul>
 </li>
 </ul>
@@ -531,8 +531,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ihopefulchina.github.io/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li/">
-      Vue学习(四): 跑马灯效果案例 
+    <a class="post-title-link" href="https://ihopefulchina.github.io/hmJz132Dl/">
+      useEffect 完整指南
     </a>
   </h1>
   <div class="post-meta">
@@ -540,7 +540,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-09-03</span>
+      <span>2021-02-09</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -549,8 +549,14 @@
       <span class="pc-show">分类于</span>
       
       
-      <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK/">
-        <span>Vue</span>
+      <a href="https://ihopefulchina.github.io/tag/react/">
+        <span>React</span>
+      </a>、
+      
+      
+      
+      <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/">
+        <span>JavaScript</span>
       </a>
       
       
@@ -559,133 +565,24 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>5分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>1008<span class="pc-show">字数</span></span>
+      <span>121<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <h3 id="开启跑马灯效果分析思路">开启跑马灯效果分析思路</h3>
-<ol>
-<li>给开启按钮绑定一个点击事件 v-on @</li>
-<li>在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个</li>
-<li>为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。</li>
-</ol>
+              <p>最近看了一篇blog文章，作者是 <a href="https://mobile.twitter.com/dan_abramov">Dan Abramov</a> , Facebook React 核心开发，Redux 作者，他这篇博客写的非常好，很详情介绍了useEffect，推荐大家去看看。</p>
 <!-- more -->
-<p>代码示例:</p>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;h4&gt;{{msg}}&lt;/h4&gt;
-        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;关闭&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm =new Vue({
-        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
-        el: '#app',
-        data:{
-            msg: '跑马灯效果开启效果！！！'
-        },
-        methods:{
-            on(){
-                setInterval(()=&gt;{
-                    //获取第一个字符
-                    var start = this.msg.substring(0,1)
-                    //获取后面的所有字符
-                    var end = this.msg.substring(1)
-                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
-                    this.msg = end + start
-                }, 400)
-               
-            }
-        }
-    
-    })
-    //步骤分析
-    //1.给开启按钮绑定一个点击事件 v-on @
-    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
-    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><strong>注意:</strong></p>
-<ol>
-<li>在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例</li>
-</ol>
-<pre><code>console.log(this.msg) 
-</code></pre>
-<ol start="2">
-<li>VM实例会监听自己身上data中所有数据的变化，如果数据一发生变化，就会自动把最新的数据，从data上同步到页面中去(好处:减少DOM操作)</li>
-</ol>
-<p>完整代码示例</p>
-<pre><code>&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./vue.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        &lt;h4&gt;{{msg}}&lt;/h4&gt;
-        &lt;input type=&quot;button&quot; value=&quot;开启&quot; @click=&quot;on&quot;&gt;
-        &lt;input type=&quot;button&quot; value=&quot;关闭&quot; @click=&quot;stop&quot;&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-    var vm =new Vue({
-        //注意在vm实例中，如果获取data数据/methods中的方法，都需要通过this.数据属性名和方法名，这里的this.表示new vue的实例
-        el: '#app',
-        data:{
-            msg: '跑马灯效果开启效果！！！',
-            intervalId: null //在data上定义定时器id
-        },
-        methods:{
-            on(){
-                if(this.intervalId != null){
-                    return
-                }
-                this.intervalId = setInterval(()=&gt;{
-                
-                    //获取第一个字符
-                    var start = this.msg.substring(0,1)
-                    //获取后面的所有字符
-                    var end = this.msg.substring(1)
-                    //重新拼接(马灯效果开启效果！！！跑),并赋值给 this.msg
-                    this.msg = end + start
-                }, 400)
-               
-            },
-            stop(){//停止定时器
-                clearInterval(this.intervalId)
-                //每当清除定时器之后，需要把intervalId定义为null
-                this.intervalId = null
-            }
-        }
-    
-    })
-    //步骤分析
-    //1.给开启按钮绑定一个点击事件 v-on @
-    //2.在按钮的处理事件函数，写相关的业务逻辑代码:拿到msg字符串，然后调用字符串的substring来进行字符串的截取，把第一个字符串截取出到最后一个
-    //3.为了实现点击按钮，自动截取功能，需要把2步骤中的代码，放到一个计时器里面。
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<blockquote>
+<p>目前为止，useEffect主要用于数据请求。但是数据请求准确说并不是一个同步问题。因为我们的依赖经常是[]所以这一点尤其明显。那我们究竟在同步什么？</p>
+</blockquote>
+<h3 id="博客地址">博客地址</h3>
+<p><a href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/">https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/</a></p>
 
             </div>
             <div class="post-footer">
@@ -696,7 +593,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ihopefulchina.github.io/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li/" title="Vue学习(四): 跑马灯效果案例 ">https://ihopefulchina.github.io/vue-xue-xi-si-pao-ma-deng-xiao-guo-an-li/</a>
+      <a href="https://ihopefulchina.github.io/hmJz132Dl/" title="useEffect 完整指南">https://ihopefulchina.github.io/hmJz132Dl/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -705,21 +602,19 @@
   </ul>
   <div class="tags">
     
-      <a href="https://ihopefulchina.github.io/tag/aaJMlrtyK/"># Vue</a>
+      <a href="https://ihopefulchina.github.io/tag/react/"># React</a>
+    
+      <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/"># JavaScript</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="Vue学习(五): 事件修饰符" href="https://ihopefulchina.github.io/vue-xue-xi-wu-shi-jian-xiu-shi-fu/">Vue学习(五): 事件修饰符</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="Vue学习(五): 事件修饰符" href="https://ihopefulchina.github.io/vue-xue-xi-wu-shi-jian-xiu-shi-fu/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="Vue学习(三): v-bind、v-on指令的学习" href="https://ihopefulchina.github.io/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi/">Vue学习(三): v-bind、v-on指令的学习</a>
-        <a class="nav-mobile-next" title="Vue学习(三): v-bind、v-on指令的学习" href="https://ihopefulchina.github.io/vue-xue-xi-san-v-bind-zhi-ling-de-xue-xi/">下一篇</a>
+        <a class="nav-pc-next" title="React Native学习笔记· 4.运行环境的一些坑" href="https://ihopefulchina.github.io/fSipHF4wD/">React Native学习笔记· 4.运行环境的一些坑</a>
+        <a class="nav-mobile-next" title="React Native学习笔记· 4.运行环境的一些坑" href="https://ihopefulchina.github.io/fSipHF4wD/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

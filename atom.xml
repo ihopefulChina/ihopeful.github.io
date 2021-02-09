@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-08T08:05:46.541Z</updated>
+    <updated>2021-02-09T06:41:37.653Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://ihopefulchina.github.io"/>
+    <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
     <subtitle>Sweat is the lubricant of success.</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
+    <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
     <entry>
+        <title type="html"><![CDATA[useEffect 完整指南]]></title>
+        <id>https://ihopefulchina.github.io/hmJz132Dl/</id>
+        <link href="https://ihopefulchina.github.io/hmJz132Dl/">
+        </link>
+        <updated>2021-02-09T06:33:23.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近看了一篇blog文章，作者是 <a href="https://mobile.twitter.com/dan_abramov">Dan Abramov</a> , Facebook React 核心开发，Redux 作者，他这篇博客写的非常好，很详情介绍了useEffect，推荐大家去看看。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近看了一篇blog文章，作者是 <a href="https://mobile.twitter.com/dan_abramov">Dan Abramov</a> , Facebook React 核心开发，Redux 作者，他这篇博客写的非常好，很详情介绍了useEffect，推荐大家去看看。</p>
+<!-- more -->
+<blockquote>
+<p>目前为止，useEffect主要用于数据请求。但是数据请求准确说并不是一个同步问题。因为我们的依赖经常是[]所以这一点尤其明显。那我们究竟在同步什么？</p>
+</blockquote>
+<h3 id="博客地址">博客地址</h3>
+<p><a href="https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/">https://overreacted.io/zh-hans/a-complete-guide-to-useeffect/</a></p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[React Native学习笔记· 4.运行环境的一些坑]]></title>
-        <id>http://localhost:4000/fSipHF4wD/</id>
-        <link href="http://localhost:4000/fSipHF4wD/">
+        <id>https://ihopefulchina.github.io/fSipHF4wD/</id>
+        <link href="https://ihopefulchina.github.io/fSipHF4wD/">
         </link>
         <updated>2021-02-08T05:40:16.000Z</updated>
         <summary type="html"><![CDATA[<p>解决 React-Native mac 运行报错 error Failed to build iOS project. We ran &quot;xcodebuild&quot; command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening xxx.xcworkspace</p>
@@ -38,8 +55,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[ React Native学习笔记· 3.交互]]></title>
-        <id>http://localhost:4000/react-native-xue-xi-bi-ji-3jiao-hu/</id>
-        <link href="http://localhost:4000/react-native-xue-xi-bi-ji-3jiao-hu/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-3jiao-hu/">
         </link>
         <updated>2021-02-07T08:39:57.000Z</updated>
         <summary type="html"><![CDATA[<p>这部分文档，我看到有点云里雾里，后续上手需要翻阅一下。</p>
@@ -110,8 +127,8 @@ View.props.onResponderTerminate: (evt) =&gt; {} - 响应者权力已经交出。
     </entry>
     <entry>
         <title type="html"><![CDATA[React Native学习笔记· 2. 环境搭建]]></title>
-        <id>http://localhost:4000/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</id>
-        <link href="http://localhost:4000/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-2-huan-jing-da-jian/">
         </link>
         <updated>2021-02-07T07:28:35.000Z</updated>
         <summary type="html"><![CDATA[<p>浏览了一下官网的安装流程，发现需要安装的有点多，所以感觉有必要纪录一下。<br>
@@ -145,8 +162,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[React Native学习笔记· 1. 官网入门基础]]></title>
-        <id>http://localhost:4000/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
-        <link href="http://localhost:4000/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">
+        <id>https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/</id>
+        <link href="https://ihopefulchina.github.io/react-native-xue-xi-bi-ji-1-guan-wang-ru-men-ji-chu/">
         </link>
         <updated>2021-02-07T05:54:53.000Z</updated>
         <summary type="html"><![CDATA[<p>看了一下，部分内容有点像Taro(Taro借鉴react和rn), 官网推荐使用函数和class这2种方式写，考虑到react 开发团队转向hooks，所以我将都用函数式写。</p>
@@ -207,8 +224,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[React hooks todo]]></title>
-        <id>http://localhost:4000/react-hooks-todo/</id>
-        <link href="http://localhost:4000/react-hooks-todo/">
+        <id>https://ihopefulchina.github.io/react-hooks-todo/</id>
+        <link href="https://ihopefulchina.github.io/react-hooks-todo/">
         </link>
         <updated>2021-02-07T02:30:08.000Z</updated>
         <summary type="html"><![CDATA[<p>地址: <a href="https://github.com/ihopefulChina/react-hooks-todo">todoList</a></p>
@@ -227,8 +244,8 @@ brew install cocoapods
     </entry>
     <entry>
         <title type="html"><![CDATA[数据增减计算 for Taro]]></title>
-        <id>http://localhost:4000/shu-ju-zeng-jian-ji-suan-for-taro/</id>
-        <link href="http://localhost:4000/shu-ju-zeng-jian-ji-suan-for-taro/">
+        <id>https://ihopefulchina.github.io/shu-ju-zeng-jian-ji-suan-for-taro/</id>
+        <link href="https://ihopefulchina.github.io/shu-ju-zeng-jian-ji-suan-for-taro/">
         </link>
         <updated>2021-02-07T02:23:13.000Z</updated>
         <summary type="html"><![CDATA[<p>前端计算增减数据. Taro 2.x + TS</p>
@@ -239,13 +256,13 @@ brew install cocoapods
 <!-- more -->
 <p>地址:<a href="https://github.com/ihopefulChina/add-data-calculation-for-Taro">数据增减计算</a></p>
 <h2 id="效果图">效果图</h2>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1612664674204.png" alt="demo" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1612664674204.png" alt="demo" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Taro 日历 多选]]></title>
-        <id>http://localhost:4000/taro-ri-li-duo-xuan/</id>
-        <link href="http://localhost:4000/taro-ri-li-duo-xuan/">
+        <id>https://ihopefulchina.github.io/taro-ri-li-duo-xuan/</id>
+        <link href="https://ihopefulchina.github.io/taro-ri-li-duo-xuan/">
         </link>
         <updated>2021-02-07T02:00:38.000Z</updated>
         <summary type="html"><![CDATA[<p>我翻阅了很多 Taro 相关插件和方法，都没有找到一个支持多选（不连续选择日期）的插件，所以自己写了一个组件，目前还很简单，后期会加上 Props 封装。</p>
@@ -266,13 +283,13 @@ brew install cocoapods
 <li>。。。</li>
 </ol>
 <p>样式示例</p>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1612664208415.png" alt="demo img" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1612664208415.png" alt="demo img" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue: 移动端 h5 动画 Web]]></title>
-        <id>http://localhost:4000/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
-        <link href="http://localhost:4000/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
+        <id>https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
+        <link href="https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
         </link>
         <updated>2020-05-11T06:10:27.000Z</updated>
         <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
@@ -283,13 +300,13 @@ brew install cocoapods
 <p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 <!-- more -->
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1589177491662.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1589177491662.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Vue: Movie App]]></title>
-        <id>http://localhost:4000/vue-shi-zhan-yi-movie-app/</id>
-        <link href="http://localhost:4000/vue-shi-zhan-yi-movie-app/">
+        <id>https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/</id>
+        <link href="https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/">
         </link>
         <updated>2020-04-28T06:58:01.000Z</updated>
         <summary type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
@@ -310,169 +327,7 @@ brew install cocoapods
 <p>基于vue2.x版本开发，采用cli脚手架+axios搭建。</p>
 <h4 id="项目演示地址">项目演示地址：</h4>
 <p>👉 <a href="https://github.com/ihopefulChina/vue-movie-app">Github: Vue Movie App</a></p>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1588057378940.png" alt="电影票" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ Vue学习(十三): 品牌管理列表案例Demo学习]]></title>
-        <id>http://localhost:4000/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/</id>
-        <link href="http://localhost:4000/vue-xue-xi-shi-san-pin-pai-guan-li-lie-biao-an-li-demo-xue-xi/">
-        </link>
-        <updated>2019-09-04T06:36:18.000Z</updated>
-        <summary type="html"><![CDATA[<p><strong>添加:</strong></p>
-<pre><code>//获取id和name，直接从data上面获取
- // 组织一个对象
- //把这个对象，调用数组的相关方法，添加到当前data上的list中
- //在Vue中，已经实现数据的双向绑定，每当我们修改了data中的数据，vue会默认监听数据改动，自动把最新的数据应用到页面上
-</code></pre>
-]]></summary>
-        <content type="html"><![CDATA[<p><strong>添加:</strong></p>
-<pre><code>//获取id和name，直接从data上面获取
- // 组织一个对象
- //把这个对象，调用数组的相关方法，添加到当前data上的list中
- //在Vue中，已经实现数据的双向绑定，每当我们修改了data中的数据，vue会默认监听数据改动，自动把最新的数据应用到页面上
-</code></pre>
-<!-- more -->
-<p><strong>删除</strong></p>
-<pre><code>//根据id删除数据
-//如何根据id找到要删除对象的索引
-//找到索引，直接调用数据的splice方法
-</code></pre>
-<p><strong>搜索</strong></p>
-<pre><code>//根据关键字，进行数据搜索
-</code></pre>
-<p>完整代码实例</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;script src=&quot;./lib/vue-2.4.0.js&quot;&gt;&lt;/script&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;./lib/bootstrap-3.3.7.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div id=&quot;app&quot;&gt;
-        
-        &lt;div class=&quot;panel panel-primary&quot;&gt;
-              &lt;div class=&quot;panel-heading&quot;&gt;
-                    &lt;h3 class=&quot;panel-title&quot;&gt;添加品牌&lt;/h3&gt;
-              &lt;/div&gt;
-              &lt;div class=&quot;panel-body form-inline&quot;&gt;
-                    &lt;label&gt;
-                        Id:
-                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;id&quot;&gt;
-                    &lt;/label&gt;
-                    &lt;label&gt;
-                        Name:
-                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;name&quot;&gt;
-                    &lt;/label&gt;
-                    &lt;!-- 在Vue中，使用事件绑定机制，为元素指定处理函数的时候，如果加了小括号，就可以传参--&gt;
-                    &lt;input type=&quot;button&quot; value=&quot;添加&quot; class=&quot;btn btn-primary&quot; @click=&quot;add()&quot;&gt;
-                    &lt;label&gt;
-                            搜索名称关键词:
-                        &lt;input type=&quot;text&quot; class=&quot;form-control&quot; v-model=&quot;keywords&quot;&gt;
-                    &lt;/label&gt;
-              &lt;/div&gt;
-        &lt;/div&gt;
-        
-        &lt;table class=&quot;table table-bordered table-hover table-striped&quot;&gt;
-            &lt;thead&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;Id&lt;/td&gt;
-                    &lt;td&gt;Name&lt;/td&gt;
-                    &lt;td&gt;Ctime&lt;/td&gt;
-                    &lt;td&gt;Option&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-                &lt;!--之前v-for数据都是直接从data上的list直接渲染过来的，现在，我们自定义一个search方法，同时把所有关键字，通过传参的形式传递给了search方法--&gt;
-                &lt;!--在seach 方法内部，通过for循环，把所有符合关键字的数据，保存到一个新的数组里面--&gt;
-                &lt;tr v-for=&quot;item in search1(keywords)&quot; :key=&quot;item.id&quot;&gt;
-                    &lt;td&gt;{{item.id}}&lt;/td&gt;
-                    &lt;td v-text=&quot;item.name&quot;&gt;&lt;/td&gt;
-                    &lt;td&gt;{{item.ctime}}&lt;/td&gt;
-                    &lt;td&gt;
-                        &lt;a href=&quot;&quot; @click.prevent=&quot;del2(item.id)&quot;&gt;Delete&lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-    &lt;/div&gt;
-    &lt;script&gt;
-        var vm = new Vue({
-            el:'#app',
-            data:{
-                id: '',
-                name:'',
-                keywords:'',
-                list:[
-                    {id:1, name:'奔驰', ctime:new Date()},
-                    {id:2, name:'宝马', ctime:new Date()},
-                ]
-            },
-            methods:{
-                add(){
-                    //获取id和name，直接从data上面获取
-                    // 组织一个对象
-                    //把这个对象，调用数组的相关方法，添加到当前data上的list中
-                    //在Vue中，已经实现数据的双向绑定，每当我们修改了data中的数据，vue会默认监听数据改动，自动把最新的数据应用到页面上
-                    
-                    var car ={id: this.id, name: this.name, ctime: new Date()}
-                    this.list.push(car)
-                    this.id = this.name=''
-                },
-                del(id){
-                    //根据id删除数据
-                    //如何根据id找到要删除对象的索引
-                    //找到索引，直接调用数据的splice方法
-                    this.list.some((item,i)=&gt;{
-                       if(item.id == id){
-
-                        this.list.splice(i,1)
-                           //在数组的some方法中，如果return true就会立即终止这个数组后续循环
-                           return true;
-                       } 
-                    })
-                },
-                del2(id){
-                   var index = this.list.findIndex(item=&gt;{
-                        if(item.id==id){
-                            return true
-                        }
-                    })
-                    //console.log(index)
-                    this.list.splice(index,1)
-                },
-                search(keywords){
-                    //根据关键字，进行数据搜索
-                    var newList=[]
-                    this.list.forEach(item=&gt;{
-                        if(item.name.indexOf(keywords) != -1){
-                            newList.push(item)
-                        }
-                    })
-                    return newList
-                },
-                // forEach some filter findIndex 这些都属于数组的新方法，都会对数组中的每一项，执行相关的操作
-                search1(keywords){
-                    //根据关键字，进行数据搜索
-                    return this.list.filter(item=&gt;{
-                    //在ES6为字符串提供一个新方法，叫 String.prototype.includes('要包含的字符串')
-                    //如果包含就是true，否则就会包含false
-                   if(item.name.includes(keywords)){
-                    return item
-                   }
-                   })
-                   
-                }
-            }
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1588057378940.png" alt="电影票" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
