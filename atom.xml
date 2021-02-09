@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-02-09T06:42:58.416Z</updated>
+    <updated>2021-02-09T07:09:03.683Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,25 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[函数式组件与类组件有何不同？]]></title>
+        <id>https://ihopefulchina.github.io/dBAsSzkYF/</id>
+        <link href="https://ihopefulchina.github.io/dBAsSzkYF/">
+        </link>
+        <updated>2021-02-09T07:05:53.000Z</updated>
+        <summary type="html"><![CDATA[<blockquote>
+<p>函数式组件捕获了渲染所用的值。（Function components capture the rendered values.）</p>
+</blockquote>
+]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>函数式组件捕获了渲染所用的值。（Function components capture the rendered values.）</p>
+</blockquote>
+<!-- more -->
+<p>作者是 <a href="https://mobile.twitter.com/dan_abramov">Dan Abramov</a> , Facebook React 核心开发，Redux 作者</p>
+<h3 id="博客地址">博客地址</h3>
+<p><a href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[useEffect 完整指南]]></title>
         <id>https://ihopefulchina.github.io/hmJz132Dl/</id>
@@ -301,33 +320,6 @@ brew install cocoapods
 <p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
 <!-- more -->
 <figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1589177491662.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue: Movie App]]></title>
-        <id>https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/</id>
-        <link href="https://ihopefulchina.github.io/vue-shi-zhan-yi-movie-app/">
-        </link>
-        <updated>2020-04-28T06:58:01.000Z</updated>
-        <summary type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
-<p>实际功能基本都已实现，目前暂无登陆功能，需要后台登录接口。<br>
-数据接口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
-]]></summary>
-        <content type="html"><![CDATA[<h3 id="基于vue开发的电影票信息app">基于Vue开发的电影票信息app。</h3>
-<p>实际功能基本都已实现，目前暂无登陆功能，需要后台登录接口。<br>
-数据接口来自<a href="http://39.97.33.178">39.97.33.178</a></p>
-<!-- more -->
-<h4 id="功能介绍">功能介绍：</h4>
-<ul>
-<li>提供电影信息，电影院，和登陆功能。</li>
-<li>提供搜索，正在热映，即将上映。</li>
-<li>根据定位和手动定位提供所在城市的电影，电影院等功能。</li>
-</ul>
-<h4 id="技术介绍">技术介绍：</h4>
-<p>基于vue2.x版本开发，采用cli脚手架+axios搭建。</p>
-<h4 id="项目演示地址">项目演示地址：</h4>
-<p>👉 <a href="https://github.com/ihopefulChina/vue-movie-app">Github: Vue Movie App</a></p>
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1588057378940.png" alt="电影票" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

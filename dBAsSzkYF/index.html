@@ -8,7 +8,7 @@
 <meta name="keywords" content="ihopeful blog">
 <meta name="description" content="Sweat is the lubricant of success.">
 <meta name="theme-color" content="#000">
-<title>Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？ | Ihopeful Blog</title>
+<title>函数式组件与类组件有何不同？ | Ihopeful Blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1612854539317">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/mist.css">
@@ -29,8 +29,8 @@
 
 
 
-  <meta name="description" content="Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？" />
-  <meta name="keywords" content="WordPress,PHP" />
+  <meta name="description" content="函数式组件与类组件有何不同？" />
+  <meta name="keywords" content="React,JavaScript" />
 </head>
 
 <body>
@@ -178,7 +178,8 @@
       <div class="sidebar-body mist" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper ">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -250,6 +251,199 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E5%8D%9A%E5%AE%A2%E5%9C%B0%E5%9D%80">博客地址</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -337,8 +531,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://ihopefulchina.github.io/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/">
-      Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？
+    <a class="post-title-link" href="https://ihopefulchina.github.io/dBAsSzkYF/">
+      函数式组件与类组件有何不同？
     </a>
   </h1>
   <div class="post-meta">
@@ -346,7 +540,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2019-08-22</span>
+      <span>2021-02-09</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -355,14 +549,14 @@
       <span class="pc-show">分类于</span>
       
       
-      <a href="https://ihopefulchina.github.io/tag/wordpress/">
-        <span>WordPress</span>
+      <a href="https://ihopefulchina.github.io/tag/react/">
+        <span>React</span>
       </a>、
       
       
       
-      <a href="https://ihopefulchina.github.io/tag/php/">
-        <span>PHP</span>
+      <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/">
+        <span>JavaScript</span>
       </a>
       
       
@@ -371,91 +565,24 @@
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>2分钟</span>
+      <span>1分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>375<span class="pc-show">字数</span></span>
+      <span>50<span class="pc-show">字数</span></span>
     </span>
     
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>Wordpress后台有很多我们必须要的功能，客户会误点等之类的原因，所以我们需要隐藏一些自定义菜单，但是隐藏顶级菜单，可能下面某一个子菜单是我们需要的。</p>
+              <blockquote>
+<p>函数式组件捕获了渲染所用的值。（Function components capture the rendered values.）</p>
+</blockquote>
 <!-- more -->
-<p>首先我们先隐藏菜单，这里分为2种隐藏，一种是自带的，</p>
-<p>隐藏自带的写这段函数即可</p>
-<pre><code>show_admin_bar(false);
-add_filter('show_admin_bar', '__return_false');
-//关闭后台菜单和删除wordpress自带一些功能
-//__('Dashboard') ： 控制板菜单
-//__('Posts') ： 文章
-//__('Media') ： 媒体
-//__('Links') ： 链接
-//__('Pages') ： 页面
-//__('Comments') ： 评论
-//__('Appearance') ： 外观
-//__('Plugins') ： 插件
-//__('Users') ： 用户
-//__('Tools') ： 工具
-//__('Settings') ： 设置
-remove_action('welcome_panel', 'wp_welcome_panel');
-
-function remove_menus() {
-	global $menu;
-	$restricted = array(
-		__('Posts'),
-		__('Links'),
-		__('Comments'),
-		__('Dashboard'),
-		__('Tools'),
-		__('Appearance'),
-		__('Plugins') ,
-		// __('Pages'),
-		__('Users'),
-		__('Settings')
-
-	);
-	end ($menu);
-	while (prev($menu)){
-		$value = explode(' ',$menu[key($menu)][0]);
-		if(strpos($value[0], '&lt;') === FALSE) {
-			if(in_array($value[0] != NULL ? $value[0]:&quot;&quot; , $restricted)){
-				unset($menu[key($menu)]);
-			}
-		}else {
-			$value2 = explode('&lt;', $value[0]);
-			if(in_array($value2[0] != NULL ? $value2[0]:&quot;&quot; , $restricted)){
-				unset($menu[key($menu)]);
-			}
-		}
-	}
-}
-if (is_admin()){
-	add_action('admin_menu', 'remove_menus');
-}
-function wp_hide_nag() {
-	remove_action( 'admin_notices', 'update_nag', 3 );
-}
-add_action('admin_menu','wp_hide_nag');
-</code></pre>
-<p>可以选择隐藏哪些菜单，上面有提示，修改即可。</p>
-<p>另外一种是隐藏第三方的菜单:</p>
-<pre><code>function hide_edit_menu()
-{
- remove_menu_page('edit.php?post_type=acf-field-group');
-}
-add_action('admin_menu', 'hide_edit_menu', 999);
-</code></pre>
-<p>修改里面的URL<code>'edit.php?post_type=acf-field-group'</code> 即可。</p>
-<p>然后是如何添加顶级菜单，这里已添加导航栏菜单为例。</p>
-<pre><code>add_action('admin_menu', 'register_custom_menu_page');
-function register_custom_menu_page() {
-    add_menu_page('自定义菜单标题', '导航栏菜单', 'administrator', '/nav-menus.php','', 'dashicons-admin-links', 20);
-}
-</code></pre>
-<p>修改title和URL即可。</p>
+<p>作者是 <a href="https://mobile.twitter.com/dan_abramov">Dan Abramov</a> , Facebook React 核心开发，Redux 作者</p>
+<h3 id="博客地址">博客地址</h3>
+<p><a href="https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/">https://overreacted.io/zh-hans/how-are-function-components-different-from-classes/</a></p>
 
             </div>
             <div class="post-footer">
@@ -466,7 +593,7 @@ function register_custom_menu_page() {
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://ihopefulchina.github.io/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/" title="Wordpress如何添加顶级菜单，和移除、隐藏顶级菜单？">https://ihopefulchina.github.io/wordpress-ru-he-tian-jia-ding-ji-cai-dan-he-yi-chu-yin-cang-ding-ji-cai-dan/</a>
+      <a href="https://ihopefulchina.github.io/dBAsSzkYF/" title="函数式组件与类组件有何不同？">https://ihopefulchina.github.io/dBAsSzkYF/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -475,23 +602,19 @@ function register_custom_menu_page() {
   </ul>
   <div class="tags">
     
-      <a href="https://ihopefulchina.github.io/tag/wordpress/"># WordPress</a>
+      <a href="https://ihopefulchina.github.io/tag/react/"># React</a>
     
-      <a href="https://ihopefulchina.github.io/tag/php/"># PHP</a>
+      <a href="https://ihopefulchina.github.io/tag/Nhq4NKwx6/"># JavaScript</a>
     
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="解决Wordpress自定义二级目录和三级目录采用不同的样式" href="https://ihopefulchina.github.io/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/">解决Wordpress自定义二级目录和三级目录采用不同的样式</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="解决Wordpress自定义二级目录和三级目录采用不同的样式" href="https://ihopefulchina.github.io/jie-jue-wordpress-zi-ding-yi-er-ji-mu-lu-he-san-ji-mu-lu-cai-yong-bu-tong-de-yang-shi/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="移除、隐藏、删除Wordpres一些小工具和功能" href="https://ihopefulchina.github.io/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng/">移除、隐藏、删除Wordpres一些小工具和功能</a>
-        <a class="nav-mobile-next" title="移除、隐藏、删除Wordpres一些小工具和功能" href="https://ihopefulchina.github.io/yi-chu-yin-cang-shan-chu-wordpres-yi-xie-xiao-gong-ju-he-gong-neng/">下一篇</a>
+        <a class="nav-pc-next" title="useEffect 完整指南" href="https://ihopefulchina.github.io/hmJz132Dl/">useEffect 完整指南</a>
+        <a class="nav-mobile-next" title="useEffect 完整指南" href="https://ihopefulchina.github.io/hmJz132Dl/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
