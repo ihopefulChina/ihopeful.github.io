@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-03-22T08:27:15.914Z</updated>
+    <updated>2021-03-22T08:46:19.420Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>https://ihopefulchina.github.io/images/avatar.png</logo>
     <icon>https://ihopefulchina.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Ihopeful Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[React Hooks + mobx + TS购物车🛒demo]]></title>
+        <id>https://ihopefulchina.github.io/84TTnLJeu/</id>
+        <link href="https://ihopefulchina.github.io/84TTnLJeu/">
+        </link>
+        <updated>2021-03-22T08:27:21.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="react-hooks-mobx-ts">React Hooks + mobx + TS</h3>
+<p>目前写的是初版功能，支持批量选择，增删商品，计算优惠券最优惠价格，计算总价格</p>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="react-hooks-mobx-ts">React Hooks + mobx + TS</h3>
+<p>目前写的是初版功能，支持批量选择，增删商品，计算优惠券最优惠价格，计算总价格</p>
+<!-- more -->
+<p>地址: <a href="https://github.com/ihopefulChina/React-Hooks-mobx-demo">React Hooks + mobx + TS购物车🛒demo</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[函数式组件与类组件有何不同？]]></title>
         <id>https://ihopefulchina.github.io/dBAsSzkYF/</id>
@@ -303,23 +318,6 @@ brew install cocoapods
 </ol>
 <p>样式示例</p>
 <figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1612664208415.png" alt="demo img" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Vue: 移动端 h5 动画 Web]]></title>
-        <id>https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/</id>
-        <link href="https://ihopefulchina.github.io/vue-shi-zhan-er-yi-dong-duan-h5-dong-hua-web/">
-        </link>
-        <updated>2020-05-11T06:10:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
-<p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
-<p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>基于vue开发，vue-cli脚手架搭建，在线演示地址: http://h5.hpfgmy.site/</p>
-<p>目前有部分音频bug，推测是缓存方面的原因，后续有空解决这个bug。</p>
-<p>源码地址：https://github.com/ihopefulChina/Mobile-H5-web-for-vue</p>
-<!-- more -->
-<figure data-type="image" tabindex="1"><img src="https://ihopefulchina.github.io/post-images/1589177491662.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
