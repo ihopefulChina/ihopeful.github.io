@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ihopefulchina.github.io</id>
     <title>Ihopeful Blog</title>
-    <updated>2021-03-22T08:47:57.844Z</updated>
+    <updated>2021-03-22T08:49:31.882Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ihopefulchina.github.io"/>
     <link rel="self" href="https://ihopefulchina.github.io/atom.xml"/>
@@ -22,7 +22,8 @@
         <content type="html"><![CDATA[<h3 id="react-hooks-mobx-ts">React Hooks + mobx + TS</h3>
 <p>目前写的是初版功能，支持批量选择，增删商品，计算优惠券最优惠价格，计算总价格</p>
 <!-- more -->
-<p>地址: <a href="https://github.com/ihopefulChina/React-Hooks-mobx-demo">React Hooks + mobx + TS购物车🛒demo</a></p>
+<p>注意:里面有i18next，替换掉即可~<br>
+地址: <a href="https://github.com/ihopefulChina/React-Hooks-mobx-demo">React Hooks + mobx + TS购物车🛒demo</a></p>
 ]]></content>
     </entry>
     <entry>
